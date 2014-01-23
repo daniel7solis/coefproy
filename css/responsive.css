@@ -1,0 +1,126 @@
+@media screen and (min-width: 480px) and (max-width: 600px){
+	
+}
+@media screen and (max-height: 500px) and (min-width: 480px){
+		
+}
+@media screen and (min-width: 600px) and (max-width: 768px){
+	
+}
+@media screen and (min-width: 768px)
+{
+	#calendar
+	{
+		display: inline-block;
+		margin: 0 1em;
+		width: 70%;
+	}
+	#content_wrapper
+	{
+		display: block;
+		margin: 0 30px;
+	}
+	#search_wrapper
+	{
+		background: transparent;
+		color: black;
+		margin: 10px 10px 0 10px;
+		padding: 0.5em;
+		text-align: right;
+	}
+	#agenda,#departments, #donator, #patients, #lab_survey
+	{
+		font-size: 0.8em;
+		padding: 0.2em 0.5em 0.2em 1em;
+	}
+	#agenda a:after
+	{
+		color: white;
+		content: "AGENDA";
+		font-family: "icomoon";
+	}
+	#departments a:after
+	{
+		color: white;
+		content: "\e618";
+		font-family: "icomoon";
+	}
+	#departments a:before
+	{
+		color: white;
+		content: "DEPARTAMENTOS";
+		font-family: "icomoon";
+	}
+	#donator a:after
+	{
+		color: white;
+		content: "DONADORES";
+		font-family: "icomoon";
+	}
+	#lab_survey a:after
+	{
+		color: white;
+		content: "ESTUDIOS";
+		font-family: "icomoon";
+	}
+	#patients a:after
+	{
+		color: white;
+		content: "PACIENTES";
+		font-family: "icomoon";
+	}
+	.search_field
+	{
+		-moz-transition: all 0.5s;
+		-ms-transition: all 0.5s;
+		-o-transition: all 0.5s;
+		-webkit-transition: all 0.5s;
+		transition: all 0.5s;
+		border-radius: 5px;
+		margin: 0.4em 11.5em 0.4em 0.4em;
+		padding: 0.5em;
+		width: 200px;
+	}
+	.search_field:focus
+	{
+		background: #E0E3E7;
+		width: 250px;
+	}
+
+	nav
+	{
+		background: #878787;
+		border-radius: 3px;
+		display: inline-block;
+		float:left;
+		font-size: 1em;
+		font-weight: bold;
+		margin: 0 10px 0 10px;
+	}
+	nav ul
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	nav ul li
+	{
+		border-bottom: 1px solid #666;
+		display: block;
+		margin: 0;
+	}
+	nav ul li a
+	{
+		display: block;
+		padding: 0.5em 0;
+		text-decoration: none;
+	}
+	.current
+	{
+		background: #454545;
+	}
+	.current a
+	{
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,95 @@
+@media screen and (min-width: 480px) and (max-width: 600px){
+	figure img
+	{
+		width: 128px;
+		margin: auto;
+	}
+	#login
+	{
+		background: #f3f3f3;
+		border-radius: 10px;
+		border-left: 1px solid white;
+		display: block;
+		left: 50%;
+		margin: 1em auto;
+		margin-left: -142.1955px;
+		margin-top: -210px;
+		position: absolute;
+		top: 50%;
+		width: 284.391px;
+	}
+}
+@media screen and (max-height: 500px) and (min-width: 480px){
+	figure img
+	{
+		width: 64px;
+		margin: auto;
+	}
+	#login
+	{
+		margin-top: -130px;
+	}	
+}
+@media screen and (min-width: 600px) and (max-width: 768px){
+	figure img
+	{
+		width: 128px;
+		margin: auto;
+	}
+	#login
+	{
+		background: #f3f3f3;
+		border-radius: 10px;
+		border-left: 1px solid white;
+		display: block;
+		left: 50%;
+		margin: 1em auto;
+		margin-left: -142.1955px;
+		margin-top: -210px;
+		position: absolute;
+		top: 50%;
+		width: 284.391px;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+	figure img
+	{
+		width: 128px;
+		margin: auto;
+	}
+	#login
+	{
+		background: #f3f3f3;
+		border-radius: 10px;
+		border-left: 1px solid white;
+		display: block;
+		left: 50%;
+		margin: 1em auto;
+		margin-left: -142.1955px;
+		margin-top: -210px;
+		position: absolute;
+		top: 50%;
+		width: 284.391px;
+	}
+}
+@media screen and (min-width: 1024px){
+	figure img
+	{
+		width: 128px;
+		margin: auto;
+	}
+	#login
+	{
+		background: #f3f3f3;
+		border-radius: 10px;
+		border-left: 1px solid white;
+		display: block;
+		left: 50%;
+		margin: 1em auto;
+		margin-left: -142.1955px;
+		margin-top: -210px;
+		position: absolute;
+		top: 50%;
+		width: 284.391px;
+	}
+}

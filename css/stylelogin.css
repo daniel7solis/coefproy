@@ -1,0 +1,130 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body
+{
+	color: #283348;
+	font-size: 16px;
+	height: 100%;
+}
+figure
+{
+	text-align: center;
+	width: 100%;
+}
+figure img
+{
+	width: 64px;
+	margin: auto;
+}
+h1
+{
+	padding-top: 1em;
+	text-align: center;
+}
+#button_field
+{
+	background: #d4dedf;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top: 1px solid #999BA0;
+	min-height: 3em;
+	margin: 0;
+	padding: 1em 0.5em;
+}
+#login
+{
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background: #f3f3f3;
+	border-radius: 10px;
+	border-left: 1px solid white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	display: block;
+	left: 50%;
+	margin: 1em auto;
+	margin-left: -142.1955px;
+	margin-top: -210px;
+	position: absolute;
+	top: 50%;
+	width: 284.391px;
+}
+#login_button, .input_field
+{
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+#login_button
+{
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-bottom: 3px solid #283348;
+	border-radius: 5px;
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	color: white;
+	display: block;
+	float: right;
+	padding: 1em 0.5em;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+#login_button:hover
+{
+	background: #3f9db8;
+	border: 1px solid rgba(256,256,256,0.75);
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+#login_button:focus
+{
+	background: #56c2e1;
+	bottom: -1px;
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+#login_container
+{
+	background: #283348;
+	padding: 0.2em 0;
+	top: 0;
+	width: 100%;
+}
+#password_field
+{
+	border-bottom: 1px solid white;
+	margin: 0;
+	padding: 0.5em;
+}
+#user_field
+{
+	margin: 0; 
+	padding: 0.5em;
+}
+.input_field
+{
+	border-radius: 5px;
+	margin: 0.4em;
+	padding: 1em;
+	width: 80%;
+}
+.input_field:focus
+{
+	background: #E0E3E7;
+}
+.login_label
+{
+	margin-left: 0.4em;
+}

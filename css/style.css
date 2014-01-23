@@ -1,0 +1,308 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+a
+{
+	text-decoration: none;
+}
+body
+{
+	background: #EFEFEF;
+	color: #4C4C4C;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 16px;
+	margin: 0px;
+}
+footer
+{
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 1em 0;
+	text-align: right;
+}
+header
+{
+	border-bottom: 2px solid #3F60A0;
+	background: #0C182F;
+	color: white;
+	min-height: 75px;
+	padding: 0.5em;
+}
+header figure, #notifications
+{
+	display: inline-block;
+	margin-left: 0;
+	margin-right: 0;
+	vertical-align: top;
+}
+header #logo img
+{
+	margin: 0.8em 1em 0 0;
+	width: 50px;
+}
+header #avatar
+{
+	background: rgba(243,243,243,0.3);
+	border-radius: 0.2em;
+	float: right;
+	margin: 0.5em 1em 0 0;
+	padding: 0.25em;
+}
+header #avatar figcaption
+{
+	background: #22BCE0;
+	border-radius: 0 0.5em 0.5em 0;
+	color: white;
+	float: right;
+	height: 50px;
+	line-height: 50px;
+}
+header #avatar figcaption:after
+{
+	font-family: "icomoon";
+	content: "\e618";
+}
+header #avatar img
+{
+	float: left;
+	width: 50px;
+}
+nav
+{
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background: #878787;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	font-size: 1em;
+	font-weight: bold;
+	margin: 0 10px 0 10px;
+}
+nav ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+nav ul li
+{
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+nav ul li a
+{
+	display: block;
+	padding: 0.5em 0;
+	text-decoration: none;
+}
+nav ul li:hover
+{
+	background: #aaa;
+}
+td
+{
+	color: black;
+	font-weight: bold;
+	padding-left: 0.4em; 
+	width: 10%;
+}
+th
+{
+	font-style: italic;
+}
+#agenda
+{
+	font-size: 1.3em;
+	padding: 0.2em 0.5em 0.2em 1em;
+}
+#agenda a:after
+{
+	color: white;
+	content: "\e602";
+	font-family: "icomoon";
+}
+#calendar
+{
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	margin: 1em 10px 0 10px; 
+	padding: 0 0.5em 0.5em 0.5em;
+}
+#departments, #donator, #patients
+{
+	font-size: 1.3em;
+	padding: 0.2em 0.5em;
+}
+#departments a:after
+{
+	color: white;
+	content: "\e618";
+	font-family: "icomoon";
+}
+#departments a:before
+{
+	color: white;
+	content: "\e606";
+	font-family: "icomoon";
+}
+#donator a:after
+{
+	color: white;
+	content: "\e604";
+	font-family: "icomoon";
+}
+#glass:after
+{
+	content: "\e605";
+	font-family: "icomoon";
+}
+#inicio
+{
+	padding-left: 1em;
+}
+#lab_survey
+{
+	font-size: 1.3em;
+	padding: 0.2em 0.5em 0.2em 0;
+}
+#lab_survey a:after
+{
+	color: white;
+	content: "\e608";
+	font-family: "icomoon";
+}
+#notifications
+{
+	background: rgba(243,243,243,0.3);
+	border-radius: 0.2em;
+	color: white;
+	margin: 0.9em 0 0 0.8em;
+	padding: 0.8em 0.3em;
+	position: relative;
+	text-align: center;
+	width: 20%;
+}
+#notifications:after
+{
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 7px solid rgba(243,243,243,0.3);
+	content: "";
+	top: 18px;
+	position: absolute;
+	left: 100%;
+}
+#notifications:before
+{
+	content: "\e603";
+	font-family: "icomoon";
+}
+#patients a:after
+{
+	color: white;
+	content: "\e601";
+	font-family: "icomoon";
+}
+#right_wrapper
+{ 
+	float: right;
+	width: 160px;
+}
+#search_wrapper
+{
+	background: #202735;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: white;
+	margin: 10px 10px 0 10px;
+	padding: 0.5em;
+	text-align: right;
+}
+.current a
+{
+	color: rgb(3,3,63);
+	text-decoration: underline;
+}
+.day_height
+{
+	background: #eee;
+	height: 100px;
+}
+.day_height_gray
+{
+	background: #ccc;
+	height: 100px;
+}
+.day_title
+{
+	background: #1A233C;
+	color: white;
+}
+.january
+{
+	border: 1px solid #fff;
+	width: 100%;
+}
+.january td, .january th
+{
+	 border: 1px solid #fff;
+}
+.calendar_icon:after
+{
+	color: black;
+	content: "\e600";
+	font-family: "icomoon";
+	font-size: 2em;
+}
+.month_slider
+{
+	font-size: 1.5em;
+	text-align: center;
+}
+.month_title
+{
+	text-align: center;
+}
+.search_field
+{
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	border-radius: 5px;
+	margin: 0.4em;
+	padding: 0.5em;
+	width: 30%;
+}
+.search_field:focus
+{
+	background: #E0E3E7;
+	width: 75%;
+}
+.prev_month:after
+{
+	color: black;
+	content: "\e620";
+	font-family: "icomoon";
+	font-size: 2em;
+}
+.next_month:after
+{
+	color: black;
+	content: "\e61f";
+	font-family: "icomoon";
+	font-size: 2em;
+}
