@@ -3,7 +3,7 @@ var $aux, $aux2, $aux3,
 	feb = [28,6,"FEBRERO"],
 	mar = [31,6,"MARZO"],
 	abr = [30,2,"ABRIL"],
-	may = [31,4,"MAY"],
+	may = [31,4,"MAYO"],
 	jun = [30,0,"JUNIO"],
 	jul = [31,2,"JULIO"],
 	ago = [31,5,"AGOSTO"],
@@ -36,7 +36,7 @@ var $aux, $aux2, $aux3,
 	function limpiar()
 	{
 		var temp=0;
-		while(temp<=34)
+		while(temp<=36)
 		{
 			$aux3 = $('#esp'+temp)
 			$aux3.html('')

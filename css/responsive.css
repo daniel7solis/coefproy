@@ -7,18 +7,18 @@
 @media screen and (min-width: 600px) and (max-width: 768px){
 	
 }
-@media screen and (min-width: 768px)
-{
-	#calendar
+@media screen and (min-width: 768px){
+	#content
 	{
 		display: inline-block;
-		margin: 0 1em;
+		margin: 0 1em 1em 1em;
 		width: 70%;
 	}
 	#content_wrapper
 	{
 		display: block;
 		margin: 0 30px;
+		position: relative;
 	}
 	#search_wrapper
 	{
@@ -63,11 +63,44 @@
 		content: "ESTUDIOS";
 		font-family: "icomoon";
 	}
+	#look, #manage, #new, #print
+	{
+		color: rgba(255,255,255,0.9);
+		font-size: 1.5em;
+	}
 	#patients a:after
 	{
 		color: white;
 		content: "PACIENTES";
 		font-family: "icomoon";
+	}
+	#quick_access
+	{
+		background: #878787;
+		border-radius: 10px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		display: inline-block;
+		margin: 0 10px 0 10px;
+		padding: 0.5em 0.5em;
+		position: absolute;
+		top: 0;
+	}
+	#quick_access ul
+	{
+		list-style: none;
+		padding: 0; 
+		margin 0;
+		text-align: center;
+	}
+	#quick_access ul li
+	{
+		border-top: 1px solid gray;
+		border-left: 0;
+		display: list-item;
+	}
+	#quick_access ul li:first-child
+	{
+		border-top: 0;
 	}
 	.search_field
 	{
@@ -123,4 +156,37 @@
 	{
 		text-decoration: none;
 	}
+	/*daniel code*/
+	#nombre_user{
+	background: rgba(86,194,255,0.2);
+	text-align: center;
+	margin: 1em 5em;
+	padding: 0.3em;
+	border-radius: 1em;
+	border: #2C8199 solid 2px;
+	font-weight: bold;
+	}
+	.title_item_perfil p{
+	background: rgba(86,194,255,0.3);
+	border-radius:1em 1em 0 0;
+	border: #2C8199 solid 1px;
+	margin-bottom: 0;
+	padding-left: 1em;
+	text-align: center;
+	width: 30%;
+	font-style: italic;
+	}
+	.contenido_item_perfil{
+	border: #2C8199 solid 1px;
+	background: rgba(86,194,255,0.1);
+	margin-top: 0;
+	border-radius:0 1em 1em 1em;
+	}
+	.contenido_item_perfil p{
+	border-right: #2C8199 solid 1px;
+	width: 30%;
+	padding: 0 0.5em 0 1em;
+	display: inline-block; 
+	}
+	/*fin daniel code*/
 }

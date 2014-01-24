@@ -22,8 +22,6 @@ body
 }
 footer
 {
-	margin-right: 10px;
-	margin-left: 10px;
 	padding: 1em 0;
 	text-align: right;
 }
@@ -44,7 +42,7 @@ header figure, #notifications
 }
 header #logo img
 {
-	margin: 0.8em 1em 0 0;
+	margin: 0.8em 1em 0 1em;
 	width: 50px;
 }
 header #avatar
@@ -73,6 +71,17 @@ header #avatar img
 {
 	float: left;
 	width: 50px;
+}
+footer
+{
+	border-top: 2px solid #3F60A0;
+	background: #0C182F;
+	display: block;
+}
+footer p
+{
+	color: rgba(255,255,255,0.7);
+	text-align: center;
 }
 nav
 {
@@ -130,15 +139,31 @@ th
 	content: "\e602";
 	font-family: "icomoon";
 }
-#calendar
+#content
 {
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	background: white;
 	border-radius: 5px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	margin: 1em 10px 0 10px; 
-	padding: 0 0.5em 0.5em 0.5em;
+	margin: 2em 10px 1em 10px; 
+	padding: 2em 0.5em 0.5em 0.5em;
+	position: relative;
+}
+#content_title
+{
+	background: #FFBC00;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #704b00;
+	display: block;
+	font-size: 1.3em;
+	padding: 0.3em 0.7em;
+	position: absolute;
+	left: 3.7em;
+	text-align: center;
+	top: -1.7em;
+	width: 100px;
 }
 #departments, #donator, #patients
 {
@@ -168,6 +193,45 @@ th
 	content: "\e605";
 	font-family: "icomoon";
 }
+#indicator_actual
+{
+	background: #DD4F24;
+	border-radius: 50%;
+	color: white;
+	font-style: normal;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 0.3em 0 0.5em;
+	padding: 0.1em 0.4em;
+	text-align: center;
+}
+#indicator_aviable
+{
+	font-style: normal;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 0 0 0.5em;
+	padding: 0.1em 0.4em;
+	width: 1em;
+}
+#indicator_unaviable
+{
+	color: gray;
+	font-style: normal;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0 0 0 0.5em;
+	padding: 0.1em 0.4em;
+	text-decoration: line-through;
+	width: 1em;
+}
+#info_calendar
+{
+	background: white;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 0.9em;
+}
 #inicio
 {
 	padding-left: 1em;
@@ -181,6 +245,26 @@ th
 {
 	color: white;
 	content: "\e608";
+	font-family: "icomoon";
+}
+#look, #manage, #new, #print
+{
+	color: rgba(255,255,255,0.9);
+	font-size: 1.5em;
+}
+#look:after
+{
+	content: "\e610";
+	font-family: "icomoon";
+}
+#manage:after
+{
+	content: "\e60b";
+	font-family: "icomoon";
+}
+#new:after
+{
+	content: "\e619";
 	font-family: "icomoon";
 }
 #notifications
@@ -209,11 +293,67 @@ th
 	content: "\e603";
 	font-family: "icomoon";
 }
+#numb
+{
+	border-radius: 50%;
+	background: #DD4F24;
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.1em 0.4em;
+	position: absolute;
+	right: -0.5em;
+	top: -0.6em;
+}
+#print:after
+{
+	content: "\e613";
+	font-family: "icomoon";
+}
 #patients a:after
 {
 	color: white;
 	content: "\e601";
 	font-family: "icomoon";
+}
+#manage:after
+{
+	content: "\e60b";
+	font-family: "icomoon";
+}
+#quick_access
+{
+	background: #878787;
+	border-radius: 10px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	display: block;
+	margin: 1em 10px 1em 10px;
+	padding: 0.5em 0.5em;
+	top: 15em;
+}
+#quick_access ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#quick_access ul li
+{
+	border-left: 1px solid gray;
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+#quick_access ul li:first-child
+{
+	border-left: 0px;
+}
+#quick_access ul li a
+{
+	display: block;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
 }
 #right_wrapper
 { 
@@ -239,6 +379,12 @@ th
 {
 	background: #eee;
 	height: 100px;
+}
+.day_height p
+{
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0;
 }
 .day_height_gray
 {
@@ -266,6 +412,11 @@ th
 	font-family: "icomoon";
 	font-size: 2em;
 }
+.fixed
+{
+	position: fixed; 
+	top:0;
+}
 .month_slider
 {
 	font-size: 1.5em;
@@ -273,6 +424,11 @@ th
 }
 .month_title
 {
+	background: rgba(189, 195, 199,0.2);
+	border-radius: 10px;
+	margin-top: 0.5em;
+	margin-left: 3em;
+	margin-right: 3em;
 	text-align: center;
 }
 .search_field
@@ -292,17 +448,106 @@ th
 	background: #E0E3E7;
 	width: 75%;
 }
+.prev_month, .next_month
+{
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
 .prev_month:after
 {
-	color: black;
+	background: rgba(189, 195, 199,0.5);
+	border-radius: 50%;
+	color: rgba(100,100,100,0.7);
 	content: "\e620";
 	font-family: "icomoon";
-	font-size: 2em;
+	font-size:2.5em;
+	left: 0.3em;
+	position: absolute;
+	top: 5%;
+}
+.prev_month:hover
+{
+	left: 0.1em;
 }
 .next_month:after
 {
-	color: black;
+	background: rgba(189, 195, 199,0.5);
+	border-radius: 50%;
+	color: rgba(100,100,100,0.7);
 	content: "\e61f";
 	font-family: "icomoon";
-	font-size: 2em;
+	font-size: 2.5em;
+	position: absolute;
+	right: 0.3em;
+	top: 5%;
+}
+#nombre_user{
+	background: rgba(86,194,255,0.2);
+	text-align: center;
+	padding: 0.3em;
+	border-radius: 1em;
+	border: #2C8199 solid 2px;
+	font-weight: bold;
+}
+/* como se veia bien en pantalla grande
+#nombre_user{
+	background: rgba(86,194,255,0.2);
+	text-align: center;
+	margin: 1em 5em;
+	padding: 0.3em;
+	border-radius: 1em;
+	border: #2C8199 solid 2px;
+	font-weight: bold;
+}
+*/
+.title_item_perfil p{
+	background: rgba(86,194,255,0.3);
+	border-radius:1em 1em 0 0;
+	border: #2C8199 solid 1px;
+	margin-bottom: 0;
+	padding-left: 1em;
+	text-align: center;
+	font-style: italic;
+	font-size: 16px;
+}
+/*
+.title_item_perfil p{
+	background: rgba(86,194,255,0.3);
+	border-radius:1em 1em 0 0;
+	border: #2C8199 solid 1px;
+	margin-bottom: 0;
+	padding-left: 1em;
+	text-align: center;
+	width: 30%;
+	font-style: italic;
+}*/
+.contenido_item_perfil{
+	border: #2C8199 solid 1px;
+	background: rgba(86,194,255,0.1);
+	margin-top: 0;
+	border-radius:0 0 1em 1em;
+}
+/*
+.contenido_item_perfil{
+	border: #2C8199 solid 1px;
+	background: rgba(86,194,255,0.1);
+	margin-top: 0;
+	border-radius:0 1em 1em 1em;
+}*/
+.contenido_item_perfil p{
+	padding-left: 1em;
+	display: inline-block; 
+}
+/*
+.contenido_item_perfil p{
+	border-right: #2C8199 solid 1px;
+	width: 30%;
+	padding-left: 1em;
+	display: inline-block; 
+}*/
+#calendar h2{
+	font-size: 16px;
 }

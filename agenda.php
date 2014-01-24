@@ -21,6 +21,7 @@
 		</figure>
 		<div id="right_wrapper">
 			<a href="#" id="notifications">
+			<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
 				<img src="images/avatar.jpg" />
@@ -35,18 +36,16 @@
 	<div id="content_wrapper">
 		<nav>
 			<ul>
-				<li id="agenda" class="current"><a href="#"></a></li>
+				<li id="agenda" class="current"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
 		</nav>
-		<section id="calendar">
-			<h2>Agenda</h2>
-			<p class="month_slider">
-				<a class="prev_month" href="javascript:anterior();" ></a> <span class="calendar_icon"></span> <a class="next_month" href="javascript:siguiente();"></a>
-			</p>
+		<section id="content">
+			<h2 id="content_title">Agenda</h2>
+				<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
 			<h3 class="month_title"></h3>
 			<table class="january">
 				<tbody>
@@ -60,13 +59,13 @@
 						<th>S</th>
 					</tr>
 					<tr class="day_height">
-						<td><span id="esp0"></span></td>
-						<td><span id="esp1"></span></td>
-						<td><span id="esp2"></span></td>
-						<td><span id="esp3"></span></td>
-						<td><span id="esp4"></span></td>
-						<td><span id="esp5"></span></td>
-						<td><span id="esp6"></span></td>
+						<td><span id="esp0"></span><p></p></td>
+						<td><span id="esp1"></span><p></p></td>
+						<td><span id="esp2"></span><p></p></td>
+						<td><span id="esp3"></span><p></p></td>
+						<td><span id="esp4"></span><p></p></td>
+						<td><span id="esp5"></span><p></p></td>
+						<td><span id="esp6"></span><p></p></td>
 					</tr>
 					<tr class="day_height_gray">
 						<td><span id="esp7"></span></td>
@@ -104,12 +103,29 @@
 						<td><span id="esp33"></span></td>
 						<td><span id="esp34"></span></td>
 					</tr>
+					<tr class="day_height_gray">
+						<td><span id="esp35"></span></td>
+						<td><span id="esp36"></span></td>
+						<td id="info_calendar" colspan="5">
+							<p><div id="indicator_unaviable">1</div>Día no disponible</p>
+							<p><div id="indicator_actual">2</div>Día actual</p>
+							<p><div id="indicator_aviable">3</div>Día disponible</p>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</section>
+		<div id="quick_access">
+			<ul>
+				<li><a id="new" href="#"></a></li>
+				<li><a id="look" href="#"></a></li>
+				<li><a id="manage" href="#"></a></li>
+				<li><a id="print" href="#"></a></li>
+			</ul>
+		</div>
 	</div>
 	<footer>
-		<p>Footer y créditos</p>
+		<p>Coeficient &copy; 2014</p>
 	</footer>
 
 </body>

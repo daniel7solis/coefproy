@@ -122,6 +122,12 @@
 .icon-cancel-circle:before {
 	content: "\e61e";
 }
+.icon-checkmark-circle:before {
+	content: "\e621";
+}
+.icon-info:before {
+	content: "\e622";
+}
 .icon-arrow-down:before {
 	content: "\e618";
 }
