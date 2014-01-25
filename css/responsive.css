@@ -1,32 +1,232 @@
 @media screen and (min-width: 480px) and (max-width: 600px){
 	
 }
-@media screen and (max-height: 500px) and (min-width: 480px){
+@media screen and (min-width: 600px) and (max-width: 800px){
+
+}
+@media screen and (min-width: 800px) and (max-width: 1024px){
+	nav
+	{
 		
+		border-radius: 3px;
+	}
+	#agenda,#departments, #donator, #patients, #lab_survey
+	{
+		font-size: 1em;
+		padding: 0.2em 0.5em 0.2em 1em;
+	}
+	#agenda a:after
+	{
+		color: white;
+		content: "AGENDA";
+		font-family: "icomoon";
+	}
+	#departments a:before
+	{
+		color: white;
+		content: "DEPARTAMENTOS";
+		font-family: "icomoon";
+	}
+	#donator a:after
+	{
+		color: white;
+		content: "DONADORES";
+		font-family: "icomoon";
+	}
+	#lab_survey a:after
+	{
+		color: white;
+		content: "ESTUDIOS";
+		font-family: "icomoon";
+	}
+	#patients a:after
+	{
+		color: white;
+		content: "PACIENTES";
+		font-family: "icomoon";
+	}
+	#search_wrapper
+	{
+		background: transparent;
+		color: black;
+		height: 0;
+		margin: 10px 10px 0 10px;
+		padding: 0.5em;
+		text-align: right;
+	}
+	#glass
+	{
+		color: white;
+		right: 420px;
+		top: 2.3em;
+		position: absolute;
+	}
+	#up_content ul
+	{
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 3em 0 0 0;
+		text-align: center;
+	}
+	#up_content ul li
+	{
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+		width: 7%;
+	}
+	#up_content ul li a
+	{
+		transition: all 0.5s;
+		border-bottom: 2px solid #2980b9;
+		color: white;
+		display: block;
+		font-weight: bold;
+		padding: 0.5em 0;
+		text-decoration: none;
+		text-align: center;
+		width: 100%;
+	}
+	#up_content ul li a:hover
+	{
+		color: black;
+	}
+	.current_month:after
+	{
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 8px solid #2980b9;
+		content: "";
+		margin-right: -7px;
+		right: 50%;
+		position:absolute;
+		top: 100%;
+	}
+	.next_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e61f";
+		font-family: "icomoon";
+		font-size: 2.5em;
+		position: absolute;
+		right: 0.3em;
+		top: 13%;
+	}
+	.prev_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e620";
+		font-family: "icomoon";
+		font-size:2.5em;
+		left: 0.3em;
+		position: absolute;
+		top: 13%;
+	}
+	.search_field
+	{
+		transition: all 0.5s;
+		border-radius: 5px;
+		content: "Buscar...";
+		margin: 0.4em 11.5em 0.4em 0.4em;
+		padding: 0.5em;
+		position:absolute;
+		right: 0;
+		top: 1.2em;
+		width: 200px;
+	}
 }
-@media screen and (min-width: 600px) and (max-width: 768px){
-	
-}
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1024px){
+	nav
+	{
+		background: #878787;
+		border-radius: 3px;
+		display: inline-block;
+		float:left;
+		font-size: 1em;
+		font-weight: bold;
+		margin: 0 10px 0 10px;
+	}
+	nav ul
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	nav ul li
+	{
+		border-bottom: 1px solid #666;
+		display: block;
+		margin: 0;
+	}
+	nav ul li a
+	{
+		display: block;
+		padding: 0.5em 0;
+		text-decoration: none;
+	}
+	#up_content ul
+	{
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 3em 0 0 0;
+		text-align: center;
+	}
+	#up_content ul li
+	{
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+		width: 7%;
+	}
+	#up_content ul li a
+	{
+		transition: all 0.5s;
+		border-bottom: 2px solid #2980b9;
+		color: white;
+		display: block;
+		font-weight: bold;
+		padding: 0.5em 0;
+		position: relative;
+		text-decoration: none;
+		text-align: center;
+		width: 100%;
+	}
+	#up_content ul li a:hover
+	{
+		color: black;
+	}
+	.current_month
+	{
+		color: black;
+	}
+	.current_month:after
+	{
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 8px solid #2980b9;
+		content: "";
+		margin-right: -7px;
+		right: 50%;
+		position:absolute;
+		top: 100%;
+	}
 	#content
 	{
 		display: inline-block;
 		margin: 0 1em 1em 1em;
+		position: relative;
 		width: 70%;
 	}
 	#content_wrapper
 	{
 		display: block;
 		margin: 0 30px;
-		position: relative;
-	}
-	#search_wrapper
-	{
-		background: transparent;
-		color: black;
-		margin: 10px 10px 0 10px;
-		padding: 0.5em;
-		text-align: right;
 	}
 	#agenda,#departments, #donator, #patients, #lab_survey
 	{
@@ -57,6 +257,13 @@
 		content: "DONADORES";
 		font-family: "icomoon";
 	}
+	#glass
+	{
+		color: white;
+		right: 420px;
+		top: 2.3em;
+		position: absolute;
+	}
 	#lab_survey a:after
 	{
 		color: white;
@@ -67,6 +274,28 @@
 	{
 		color: rgba(255,255,255,0.9);
 		font-size: 1.5em;
+	}
+	#nombre_user
+	{
+		width: 40%;
+	}
+	#nombre_user:before
+	{
+		border-left: 19px solid #DD4F24;
+		border-top: 19px solid transparent;
+		content: "";
+		right: -1.2em;
+		position:absolute;
+		top:0;
+	}
+	#nombre_user:after
+	{
+		border-right: 19px solid transparent;
+		border-top: 19px solid #DD4F24;
+		content: "";
+		right:-1.2em;
+		position:absolute;
+		bottom:0;
 	}
 	#patients a:after
 	{
@@ -83,6 +312,7 @@
 		margin: 0 10px 0 10px;
 		padding: 0.5em 0.5em;
 		position: absolute;
+		right: -7em;
 		top: 0;
 	}
 	#quick_access ul
@@ -102,51 +332,25 @@
 	{
 		border-top: 0;
 	}
-	.search_field
+	#search_wrapper
 	{
-		-moz-transition: all 0.5s;
-		-ms-transition: all 0.5s;
-		-o-transition: all 0.5s;
-		-webkit-transition: all 0.5s;
-		transition: all 0.5s;
-		border-radius: 5px;
-		margin: 0.4em 11.5em 0.4em 0.4em;
+		background: transparent;
+		color: black;
+		height: 1em;
+		margin: 10px 10px 0 10px;
 		padding: 0.5em;
-		width: 200px;
+		text-align: right;
 	}
-	.search_field:focus
+	.contenido_item_perfil p
 	{
-		background: #E0E3E7;
-		width: 250px;
+	border-right: #2C8199 solid 1px;
+	width: 30%;
+	padding: 0 0.5em 0 1em;
+	display: inline-block; 
 	}
-
-	nav
+	.contenido_item_perfil p:nth-child(3n+3)
 	{
-		background: #878787;
-		border-radius: 3px;
-		display: inline-block;
-		float:left;
-		font-size: 1em;
-		font-weight: bold;
-		margin: 0 10px 0 10px;
-	}
-	nav ul
-	{
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	nav ul li
-	{
-		border-bottom: 1px solid #666;
-		display: block;
-		margin: 0;
-	}
-	nav ul li a
-	{
-		display: block;
-		padding: 0.5em 0;
-		text-decoration: none;
+		border-right: 0;
 	}
 	.current
 	{
@@ -156,37 +360,58 @@
 	{
 		text-decoration: none;
 	}
-	/*daniel code*/
-	#nombre_user{
-	background: rgba(86,194,255,0.2);
-	text-align: center;
-	margin: 1em 5em;
-	padding: 0.3em;
-	border-radius: 1em;
-	border: #2C8199 solid 2px;
-	font-weight: bold;
+	.next_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e61f";
+		font-family: "icomoon";
+		font-size: 2.5em;
+		position: absolute;
+		right: 0.3em;
+		top: 13%;
 	}
-	.title_item_perfil p{
-	background: rgba(86,194,255,0.3);
-	border-radius:1em 1em 0 0;
-	border: #2C8199 solid 1px;
-	margin-bottom: 0;
-	padding-left: 1em;
-	text-align: center;
-	width: 30%;
-	font-style: italic;
+	.prev_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e620";
+		font-family: "icomoon";
+		font-size:2.5em;
+		left: 0.3em;
+		position: absolute;
+		top: 13%;
 	}
-	.contenido_item_perfil{
-	border: #2C8199 solid 1px;
-	background: rgba(86,194,255,0.1);
-	margin-top: 0;
-	border-radius:0 1em 1em 1em;
+	.search_field
+	{
+		transition: all 0.5s;
+		border-radius: 5px;
+		content: "Buscar...";
+		margin: 0.4em 11.5em 0.4em 0.4em;
+		padding: 0.5em;
+		position:absolute;
+		right: 0;
+		top: 1.2em;
+		width: 200px;
 	}
-	.contenido_item_perfil p{
-	border-right: #2C8199 solid 1px;
-	width: 30%;
-	padding: 0 0.5em 0 1em;
-	display: inline-block; 
+	.search_field:focus
+	{
+		background: #E0E3E7;
+		width: 250px;
 	}
-	/*fin daniel code*/
+	.title_item_perfil
+	{
+		width: 30%
+	}
+	.title_item_perfil:after
+	{
+		border-left: 34px solid #2980b9;
+		border-top: 34px solid transparent;
+		content: "";
+		right: -2.1em;
+		position:absolute;
+		top:0;
+	}
 }

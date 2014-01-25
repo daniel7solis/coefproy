@@ -29,6 +29,7 @@ var $aux, $aux2, $aux3,
 	function asignar(num)
 	{
 		limpiar()
+		ref=num
 		mes = meses[num]
 		generar(num)
 	}

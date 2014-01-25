@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Agenda</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -25,7 +25,7 @@
 			</a>
 			<figure id="avatar">
 				<img src="images/avatar.jpg" />
-				<a href="#"><figcaption></figcaption></a>
+				<a href="perfil.php"><figcaption></figcaption></a>
 			</figure>
 		</div>
 	</header>
@@ -44,10 +44,26 @@
 			</ul>
 		</nav>
 		<section id="content">
-			<h2 id="content_title">Agenda</h2>
-				<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
+			<div id='up_content'>
+				<h2 id="content_title">Agenda</h2>
+				<ul>
+					<li><a href="javascript:asignar(0);" class="current_month">Ene</a></li>
+					<li><a href="javascript:asignar(1);">Feb</a></li>
+					<li><a href="javascript:asignar(2);">Mar</a></li>
+					<li><a href="javascript:asignar(3);">Abr</a></li>
+					<li><a href="javascript:asignar(4);">May</a></li>
+					<li><a href="javascript:asignar(5);">Jun</a></li>
+					<li><a href="javascript:asignar(6);">Jul</a></li>
+					<li><a href="javascript:asignar(7);">Ago</a></li>
+					<li><a href="javascript:asignar(8);">Sep</a></li>
+					<li><a href="javascript:asignar(9);">Oct</a></li>
+					<li><a href="javascript:asignar(10);">Nov</a></li>
+					<li><a href="javascript:asignar(11);">Dic</a></li>
+				</ul>
+			</div>
+			<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
 			<h3 class="month_title"></h3>
-			<table class="january">
+			<table class="month">
 				<tbody>
 					<tr class="day_title">
 						<th>D</th>
@@ -114,8 +130,7 @@
 					</tr>
 				</tbody>
 			</table>
-		</section>
-		<div id="quick_access">
+			<div id="quick_access">
 			<ul>
 				<li><a id="new" href="#"></a></li>
 				<li><a id="look" href="#"></a></li>
@@ -123,6 +138,8 @@
 				<li><a id="print" href="#"></a></li>
 			</ul>
 		</div>
+		<div id='down_content'></div>
+		</section>
 	</div>
 	<footer>
 		<p>Coeficient &copy; 2014</p>

@@ -21,7 +21,7 @@
 			</a>
 			<figure id="avatar">
 				<img src="images/avatar.jpg" />
-				<a href="#"><figcaption></figcaption></a>
+				<a href="perfil.php"><figcaption></figcaption></a>
 			</figure>
 		</div>
 	</header>
@@ -32,7 +32,7 @@
 	<div id="content_wrapper">
 		<nav>
 			<ul>
-				<li id="agenda" class="current"><a href="#"></a></li>
+				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
@@ -43,10 +43,10 @@
 			$nombre=$_GET['datos']; 
 			echo
 			"<section id='content'>
-				<h2 id='content_title'>Información de Perfil</h2>
-				<p id='nombre_user'>$nombre</p>
+				<h2 id='content_title'>Perfil</h2>
+				<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='nombre_user'>$nombre</p></div>
 				<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Datos Generales</p></div>
+					<div class='title_item_perfil'><p>Datos Generales -</p></div>
 					<div class='contenido_item_perfil'>
 						<p>ID: 1<br>
 						Nombre: Juan<br>
@@ -54,7 +54,7 @@
 					</div>
 				</article>
 				<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Aspecto Laboral</p></div>
+				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
 				<div class='contenido_item_perfil'>
 					<p>Numero de Permiso: 1<br>
 						Modulo: Produccón<br>
@@ -75,7 +75,7 @@
 					</div>
 				</article>
 				<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Permisos</p></div>
+					<div class='title_item_perfil'><p>Permisos -</p></div>
 					<div class='contenido_item_perfil'>
 						<p>Creacion<br>
 						Edición<br>
@@ -84,55 +84,13 @@
 						Impresión</p>
 					</div>
 				</article>
+				<div id='down_content'></div>
 			</section>
 			";
 		?>
-		<!--section id="content">
-			<h2 id="content_title">Información de Perfil</h2>
-			<p id="nombre_user"> Juan Antonio Ramirez Chavez </p>
-			<article class="item_perfil">
-				<div class="title_item_perfil"><p>Datos Generales</p></div>
-				<div class="contenido_item_perfil">
-					<p>ID: 1<br>
-					Nombre: Juan<br>
-					Contraseña: Juan</p>
-				</div>
-			</article>
-			<article class="item_perfil">
-				<div class="title_item_perfil"><p>Aspecto Laboral</p></div>
-				<div class="contenido_item_perfil">
-					<p>Numero de Permiso: 1<br>
-					Modulo: Produccón<br>
-					Posición: Gerente de departamento<br>
-					Sucursal: 1</p>
-					<p>Numero de Permiso: 1<br>
-					Modulo: Produccón<br>
-					Posición: Gerente de departamento<br>
-					Sucursal: 1</p>
-					<p>Numero de Permiso: 1<br>
-					Modulo: Produccón<br>
-					Posición: Gerente de departamento<br>
-					Sucursal: 1</p>
-					<p>Numero de Permiso: 1<br>
-					Modulo: Produccón<br>
-					Posición: Gerente de departamento<br>
-					Sucursal: 1</p>
-				</div>
-			</article>
-			<article class="item_perfil">
-				<div class="title_item_perfil"><p>Permisos</p></div>
-				<div class="contenido_item_perfil">
-					<p>Creacion<br>
-					Edición<br>
-					Lectura<br>
-					Anexar<br>
-					Impresión</p>
-				</div>
-			</article>
-		</section-->
 	</div>
 	<footer>
-		<p>Footer y créditos</p>
+		<p>Coeficient &copy; 2014</p>
 	</footer>
 
 </body>
