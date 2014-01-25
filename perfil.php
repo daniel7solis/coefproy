@@ -9,6 +9,20 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<script type="text/javascript">
+		$( document ).ready(function()
+			{
+				$('#menu').hide();
+				$('html').click(function() 
+				{
+					$('#menu').hide();
+				});
+			});
+		function mostrar()
+		{
+		$('#menu').toggle();
+		}
+	</script>
 </head>
 <body>
 	<header>
@@ -21,7 +35,7 @@
 			</a>
 			<figure id="avatar">
 				<img src="images/avatar.jpg" />
-				<a href="perfil.php"><figcaption></figcaption></a>
+				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
 	</header>
@@ -86,6 +100,12 @@
 				</article>
 				<div id='down_content'></div>
 			</section>
+			<ul id='menu'>
+					<li><a href='perfil.php'>Perfil</a></li>
+					<li><a href=''>Configuración de cuenta</a></li>
+					<li><a href=''>Ayuda</a></li>
+					<li><a class='close_session' href=''>Cerrar sesión</a></li>
+			</ul>
 			";
 		?>
 	</div>
