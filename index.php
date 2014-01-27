@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<form name="login_form" action="sesion2.php" method="post">
+	<form name="login_form" action="sesion2.php" method="post" accept-charset="UTF-8">
 		<section id="login">
 			<!--figure>
 				<img src="images/user.png" />

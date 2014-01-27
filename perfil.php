@@ -40,7 +40,9 @@
 			</ul>
 		</nav>
 		<?php
-			$nombre=$_GET['datos']; 
+			$id=$_GET['id']; 
+			$nombre=$_GET['nombre']; 
+			$pass=$_GET['contrasena']; 
 			echo
 			"<section id='content'>
 				<h2 id='content_title'>Perfil</h2>
@@ -48,15 +50,65 @@
 				<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Generales -</p></div>
 					<div class='contenido_item_perfil'>
-						<p>ID: 1<br>
-						Nombre: Juan<br>
-						Contraseña: Juan</p>
+						<p>ID: $id<br>
+						Nombre: $nombre<br>
+						Contraseña: $pass</p>
 					</div>
-				</article>
-				<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
-				<div class='contenido_item_perfil'>
-					<p>Numero de Permiso: 1<br>
+				</article>";
+				/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
+				$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+				mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+				/*fin para verificar*/
+				$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion);
+				$cont=0;
+				$x=1;
+				while ($arreglo=mysql_fetch_array($datos, MYSQLI_BOTH)){
+					$codestring='$perfil'.$x.';';
+					eval($codestring);
+					for ($i=0; $i <count($arreglo)/2; $i++) { 
+						$codestring='$perfil'.$x.'[$i]=$arreglo[$i];';
+						eval($codestring);
+					}
+					$x++;
+					$cont++;
+				}
+				$cont_r=$cont;
+				$x=1;//regreso variable a 1 
+				echo 
+				"<article class='item_perfil'>
+					<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
+					<div class='contenido_item_perfil'>";
+					while ($cont>0) {
+						$codestring='$z=$perfil'.$x.'[0];';
+						eval($codestring);
+						print "<p>Numero de Permiso: ".$z."<br>";
+						$codestring='$z=$perfil'.$x.'[3];';
+						eval($codestring);
+						/*Capturar los tipos de modulos que puede ser el usuario*/
+						$codestring='$mod'.$x.'='.$z.';';
+						eval($codestring);
+						/**/
+						$modulo=mysql_query("select modName from modulos where idModulo='$z'",$conexion);
+						$reg=mysql_fetch_array($modulo);
+						print "Modulo: ".$reg[0]."<br>";
+						$codestring='$z=$perfil'.$x.'[4];';
+						eval($codestring);
+						/*Capturar los tipos de posicion  que puede ser el usuario*/
+						$codestring='$pos'.$x.'='.$z.';';
+						eval($codestring);
+						/**/
+						$posicion=mysql_query("select posicionName from posicion where idPosicion='$z'",$conexion);
+						$reg2=mysql_fetch_array($posicion);
+						print "Posición: ".$reg2[0]."<br>";
+						$codestring='$z=$perfil'.$x.'[1];';
+						eval($codestring);
+						print "Sucursal: ".$z."</p>";
+						$cont--;
+						$x++;
+					}
+					$x=1;
+				
+					/*<p>Numero de Permiso: 1<br>
 						Modulo: Produccón<br>
 						Posición: Gerente de departamento<br>
 						Sucursal: 1</p>
@@ -71,23 +123,60 @@
 						<p>Numero de Permiso: 1<br>
 						Modulo: Produccón<br>
 						Posición: Gerente de departamento<br>
-						Sucursal: 1</p>
-					</div>
+						Sucursal: 1</p>*/
+				echo 
+					"</div>
 				</article>
 				<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Permisos -</p></div>
-					<div class='contenido_item_perfil'>
-						<p>Creacion<br>
-						Edición<br>
-						Lectura<br>
-						Anexar<br>
-						Impresión</p>
+					<div class='contenido_item_perfil'>";
+
+				for ($i=1; $i <= $cont_r; $i++) { 
+					$codestring='$m=$mod'.$i.';';
+					eval($codestring);
+					$codestring='$p=$pos'.$i.';';
+					eval($codestring);
+					$permiso=mysql_query("select accesoTotal,creacion,edicion,lectura,anexar,impresion from permisos where idModulo='$m' and idPosicion='$p'",$conexion);
+					$codestring='$permiso'.$i.'=mysql_fetch_array($permiso,MYSQLI_BOTH);';
+					eval($codestring);
+				}
+				$x=1;
+				$perFin=[0,0,0,0,0,0];
+				while ($cont_r>0) {
+						for ($i=0; $i < count($permiso1)/2; $i++){
+							$codestring='$perFin[$i]=$permiso'.$x.'[$i] | $perFin[$i];';
+							eval($codestring);
+						}
+						$cont_r--;
+						$x++;
+				}
+				echo "<p>";
+				if ($perFin[0]==1) {
+					echo "Tiene permiso de: Acceso Total<br>";
+				}
+				if ($perFin[1]==1) {
+					echo "Tiene permiso de: Creación<br>";
+				}
+				if ($perFin[2]==1) {
+					echo "Tiene permiso de: Edición<br>";
+				}
+				if ($perFin[3]==1) {
+					echo "Tiene permiso de: Lectura<br>";
+				}
+				if ($perFin[4]==1) {
+					echo "Tiene permiso de: Anexar<br>";
+				}
+				if ($perFin[5]==1) {
+					echo "Tiene permiso de: Imprimir</p>";
+				}else{
+					echo "</p>";
+				}
+
+			?>
 					</div>
 				</article>
 				<div id='down_content'></div>
 			</section>
-			";
-		?>
 	</div>
 	<footer>
 		<p>Coeficient &copy; 2014</p>

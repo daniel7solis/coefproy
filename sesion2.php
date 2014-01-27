@@ -15,7 +15,7 @@
 	<?php
 			$nombre=$_REQUEST['user'];
 			$pass=$_REQUEST['password'];
-			$conexion=mysql_connect("127.0.0.1","root","vega24069261") or die("Problemas con la conexion de base de datos ".mysql_error());
+			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			$datos = mysql_query("select idUsuario,nombreUsuario,contrasena from usuarios where nombreUsuario='$nombre'",$conexion);
 			echo 
@@ -40,7 +40,7 @@
 			if($arreglo=mysql_fetch_array($datos)){
 				if($nombre==$arreglo['nombreUsuario']){
 					if($pass==$arreglo['contrasena']){
-						header("location: perfil.php?datos=".$arreglo['nombreUsuario']);
+						header("location: perfil.php?id=".$arreglo['idUsuario']."&nombre=".$arreglo['nombreUsuario']."&contrasena=".$arreglo['contrasena']);
 						exit();
 					}else{
 						echo "<p>Contraseña incorrecta, vuelve a intentarlo</p>";
