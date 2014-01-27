@@ -18,12 +18,12 @@
 				$('#menu').hide();
 				$('html').click(function() 
 				{
-					$('#menu').hide();
+					$('#menu').hide('swing');
 				});
 			});
 		function mostrar()
 		{
-		$('#menu').toggle();
+		$('#menu').toggle('swing');
 		}
 	</script>
 </head>
@@ -154,10 +154,10 @@
 		<div id='down_content'></div>
 		</section>
 		<ul id="menu">
-					<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
-					<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>
-					<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
-					<li><a class='close_session' href="">Cerrar sesión</a></li>
+			<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
+			<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>
+			<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
+			<li><a class='close_session' href="">Cerrar sesión</a></li>
 		</ul>
 	</div>
 	<footer>

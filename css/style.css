@@ -43,7 +43,7 @@ header figure, #notifications
 }
 #menu
 {
-	background: #2c3e50;
+	background: rgba(44, 62, 80,0.96);
 	border: 2px solid #2980b9; 
 	border-radius: 1em;
 	display: block;
@@ -53,18 +53,18 @@ header figure, #notifications
 	position: absolute;
 	right: 1em;
 	text-align: left;
-	top: 5.5em;
+	top: 6em;
 	width: 200px;
 }
 #menu:after
 {
-	border-bottom: 20px solid #2c3e50;
+	border-bottom: 20px solid #2980b9;
 	border-left: 20px solid transparent;
 	border-right: 20px solid transparent;
 	content: "";
-	top: -15px;
+	top: -20px;
 	position: absolute;
-	left: 80%;
+	left: 70%;
 }
 #menu li
 {
@@ -77,7 +77,7 @@ header figure, #notifications
 	display: block;
 	padding: 0.5em 0;
 }
-#menu li a:hover
+.menu_profile:hover, .menu_help:hover, .menu_conf:hover
 {
 	background: #34495e;
 }
@@ -98,10 +98,15 @@ header figure, #notifications
 }
 .close_session
 {
+	border-bottom: 3px solid #75231A;
 	border-radius: 5px;
 	background: #e74c3c;
 	margin-top: 1em;
 	text-align: center;
+}
+.close_session:hover
+{
+	background: #C23828;
 }
 header #logo img
 {
@@ -637,7 +642,7 @@ th
 .search_field:focus
 {
 	background: #E0E3E7;
-	width: 75%;
+	width: 70%;
 }
 .title_item_perfil
 {
