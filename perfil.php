@@ -54,45 +54,44 @@
 			</ul>
 		</nav>
 		<?php
-			$id=$_GET['id']; 
-			$nombre=$_GET['nombre']; 
-			$pass=$_GET['contrasena']; 
+			$id=1;/*$_GET['id']; */
+			$nombre="Juan";/*$_GET['nombre']; */
+			$pass="Juan";/*$_GET['contrasena']; */
 			echo
-			"<section id='content'>
-				<h2 id='content_title'>Perfil</h2>
-				<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='nombre_user'>$nombre</p></div>
-				<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Datos Generales -</p></div>
-					<div class='contenido_item_perfil'>
-						<p>ID: $id<br>
-						Nombre: $nombre<br>
-						Contraseña: $pass</p>
-					</div>
-				</article>";
-				/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-				$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
-				mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
-				/*fin para verificar*/
-				$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion);
-				$cont=0;
-				$x=1;
-				while ($arreglo=mysql_fetch_array($datos, MYSQLI_BOTH)){
-					$codestring='$perfil'.$x.';';
+		"<section id='content'>
+			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>$nombre</p></div>
+			<article class='item_perfil'>
+				<div class='title_item_perfil'><p>Datos Generales -</p></div>
+				<div class='contenido_item_perfil'>
+					<p>ID: $id<br>
+					Nombre: $nombre<br>
+					Contraseña: $pass</p>
+				</div>
+			</article>";
+			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
+			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+			/*fin para verificar*/
+			$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion);
+			$cont=0;
+			$x=1;
+			while ($arreglo=mysql_fetch_array($datos, MYSQLI_BOTH)){
+				$codestring='$perfil'.$x.';';
+				eval($codestring);
+				for ($i=0; $i <count($arreglo)/2; $i++) { 
+					$codestring='$perfil'.$x.'[$i]=$arreglo[$i];';
 					eval($codestring);
-					for ($i=0; $i <count($arreglo)/2; $i++) { 
-						$codestring='$perfil'.$x.'[$i]=$arreglo[$i];';
-						eval($codestring);
-					}
-					$x++;
-					$cont++;
 				}
-				$cont_r=$cont;
-				$x=1;//regreso variable a 1 
-				echo 
-				"<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
-					<div class='contenido_item_perfil'>";
-					while ($cont>0) {
+				$x++;
+				$cont++;
+			}
+			$cont_r=$cont;
+			$x=1;//regreso variable a 1 
+			echo 
+			"<article class='item_perfil'>
+				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
+				<div class='contenido_item_perfil'>";
+				while ($cont>0) {
 						$codestring='$z=$perfil'.$x.'[0];';
 						eval($codestring);
 						print "<p>Numero de Permiso: ".$z."<br>";
@@ -121,30 +120,12 @@
 						$x++;
 					}
 					$x=1;
-				
-					/*<p>Numero de Permiso: 1<br>
-						Modulo: Produccón<br>
-						Posición: Gerente de departamento<br>
-						Sucursal: 1</p>
-						<p>Numero de Permiso: 1<br>
-						Modulo: Produccón<br>
-						Posición: Gerente de departamento<br>
-						Sucursal: 1</p>
-						<p>Numero de Permiso: 1<br>
-						Modulo: Produccón<br>
-						Posición: Gerente de departamento<br>
-						Sucursal: 1</p>
-						<p>Numero de Permiso: 1<br>
-						Modulo: Produccón<br>
-						Posición: Gerente de departamento<br>
-						Sucursal: 1</p>*/
-				echo 
-					"</div>
-				</article>
-				<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Permisos -</p></div>
-					<div class='contenido_item_perfil'>";
-
+			echo
+				"</div>
+			</article>
+			<article class='item_perfil'>
+				<div class='title_item_perfil'><p>Permisos -</p></div>
+				<div class='contenido_item_perfil'>";
 				for ($i=1; $i <= $cont_r; $i++) { 
 					$codestring='$m=$mod'.$i.';';
 					eval($codestring);
@@ -155,7 +136,13 @@
 					eval($codestring);
 				}
 				$x=1;
-				$perFin=[0,0,0,0,0,0];
+				/*$perFin=[0,0,0,0,0,0];*/
+				$perFin[0]=0;
+				$perFin[1]=0;
+				$perFin[2]=0;
+				$perFin[3]=0;
+				$perFin[4]=0;
+				$perFin[5]=0;
 				while ($cont_r>0) {
 						for ($i=0; $i < count($permiso1)/2; $i++){
 							$codestring='$perFin[$i]=$permiso'.$x.'[$i] | $perFin[$i];';
@@ -185,23 +172,17 @@
 				}else{
 					echo "</p>";
 				}
-
 			?>
-					</div>
-				</article>
-				<div id='down_content'></div>
-			</section>
-<<<<<<< HEAD
-			<ul id='menu'>
-				<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
-					<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
-					<li><a class='menu_help' href=''>&nbsp;&nbsp;Ayuda</a></li>
-					<li><a class='close_session' href=''>Cerrar sesión</a></li>
-			</ul>
-			";
-		?>
-=======
->>>>>>> 5fb7b19576695a5f4c62d12b50945bba1990fe0e
+				</div>
+			</article>
+			<div id='down_content'></div>
+		</section>
+		<ul id='menu'>
+			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
+				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
+				<li><a class='menu_help' href=''>&nbsp;&nbsp;Ayuda</a></li>
+				<li><a class='close_session' href=''>Cerrar sesión</a></li>
+		</ul>
 	</div>
 	<footer>
 		<p>Coeficient &copy; 2014</p>

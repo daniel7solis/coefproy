@@ -12,6 +12,8 @@ var $aux, $aux2, $aux3,
 	nov = [30,6,"NOVIEMBRE"],
 	dic = [31,1,"DICIEMBRE"],
 	meses = [ene,feb,mar,abr,may,jun,jul,ago,sep,oct,nov,dic],
+	mesesagenda = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+	diasagenda = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
 	mes = [],
 	cont = 1,
 	col = 0,
@@ -102,4 +104,16 @@ var $aux, $aux2, $aux3,
 			ref++
 			asignar(ref)
 		}
+	}
+
+	function actualdate()
+	{
+		$aux = $('#actual_day_name')
+		$aux.html(diasagenda[now.getDay()])
+		$aux = $('#actual_day_numb')
+		$aux.html(now.getDate())
+		$aux = $('#actual_month')
+		$aux.html(mesesagenda[now.getMonth()])
+		$aux = $('#actual_year')
+		$aux.html(now.getFullYear())
 	}

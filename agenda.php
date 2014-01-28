@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -15,10 +16,24 @@
 		$( document ).ready(function()
 			{
 				actual();
+				actualdate();
 				$('#menu').hide();
 				$('html').click(function() 
 				{
 					$('#menu').hide('swing');
+				});
+				$( '.draggable_hour' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    			});
+				$( '.droppable_hour' ).droppable({
+				    accept:'div',
+				    activeClass: "ui-state-default",
+				    hoverClass: "ui-state-hover",
+				 
+				    drop: function( event, ui ) {
+				        ui.draggable.appendTo(this).fadeIn();
+				    }
 				});
 			});
 		function mostrar()
@@ -59,100 +74,68 @@
 		<section id="content">
 			<div id='up_content'>
 				<h2 id="content_title">Agenda</h2>
-				<ul>
-					<li><a href="javascript:asignar(0);" class="current_month">Ene</a></li>
-					<li><a href="javascript:asignar(1);">Feb</a></li>
-					<li><a href="javascript:asignar(2);">Mar</a></li>
-					<li><a href="javascript:asignar(3);">Abr</a></li>
-					<li><a href="javascript:asignar(4);">May</a></li>
-					<li><a href="javascript:asignar(5);">Jun</a></li>
-					<li><a href="javascript:asignar(6);">Jul</a></li>
-					<li><a href="javascript:asignar(7);">Ago</a></li>
-					<li><a href="javascript:asignar(8);">Sep</a></li>
-					<li><a href="javascript:asignar(9);">Oct</a></li>
-					<li><a href="javascript:asignar(10);">Nov</a></li>
-					<li><a href="javascript:asignar(11);">Dic</a></li>
+				<p id='content_subtitle'><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;del&nbsp;<span id="actual_year"></span></p>
 				</ul>
-			</div>
-			<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
-			<h3 class="month_title"></h3>
-			<table class="month">
-				<tbody>
-					<tr class="day_title">
-						<th>D</th>
-						<th>L</th>
-						<th>M</th>
-						<th>M</th>
-						<th>J</th>
-						<th>V</th>
-						<th>S</th>
-					</tr>
-					<tr class="day_height">
-						<td><span id="esp0"></span><p></p></td>
-						<td><span id="esp1"></span><p></p></td>
-						<td><span id="esp2"></span><p></p></td>
-						<td><span id="esp3"></span><p></p></td>
-						<td><span id="esp4"></span><p></p></td>
-						<td><span id="esp5"></span><p></p></td>
-						<td><span id="esp6"></span><p></p></td>
-					</tr>
-					<tr class="day_height_gray">
-						<td><span id="esp7"></span></td>
-						<td><span id="esp8"></span></td>
-						<td><span id="esp9"></span></td>
-						<td><span id="esp10"></span></td>
-						<td><span id="esp11"></span></td>
-						<td><span id="esp12"></span></td>
-						<td><span id="esp13"></span></td>
-					</tr>
-					<tr class="day_height">
-						<td><span id="esp14"></span></td>
-						<td><span id="esp15"></span></td>
-						<td><span id="esp16"></span></td>
-						<td><span id="esp17"></span></td>
-						<td><span id="esp18"></span></td>
-						<td><span id="esp19"></span></td>
-						<td><span id="esp20"></span></td>
-					</tr>
-					<tr class="day_height_gray">
-						<td><span id="esp21"></span></td>
-						<td><span id="esp22"></span></td>
-						<td><span id="esp23"></span></td>
-						<td><span id="esp24"></span></td>
-						<td><span id="esp25"></span></td>
-						<td><span id="esp26"></span></td>
-						<td><span id="esp27"></span></td>
-					</tr>
-					<tr class="day_height">
-						<td><span id="esp28"></span></td>
-						<td><span id="esp29"></span></td>
-						<td><span id="esp30"></span></td>
-						<td><span id="esp31"></span></td>
-						<td><span id="esp32"></span></td>
-						<td><span id="esp33"></span></td>
-						<td><span id="esp34"></span></td>
-					</tr>
-					<tr class="day_height_gray">
-						<td><span id="esp35"></span></td>
-						<td><span id="esp36"></span></td>
-						<td id="info_calendar" colspan="5">
-							<p><div id="indicator_unaviable">1</div>Día no disponible</p>
-							<p><div id="indicator_actual">2</div>Día actual</p>
-							<p><div id="indicator_aviable">3</div>Día disponible</p>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<div id="quick_access">
-			<ul>
-				<li><a id="new" href="#"></a></li>
-				<li><a id="look" href="#"></a></li>
-				<li><a id="manage" href="#"></a></li>
-				<li><a id="print" href="#"></a></li>
-			</ul>
+			</div>	
+			<article id="hour_container">
+				<table id="day_table">
+					<tbody>
+						<tr class="hour_row">
+							<td class="left_hour">6 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">7 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">8 AM</td>
+							<td class="droppable_hour"><div class="draggable_hour">Paciente: 132<br>Nombre: Eloí Daniel<br>Dr: Eduardo Villaseñor</div></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">9 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">10 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">11 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">12 AM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">1 PM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">2 PM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">3 PM</td>
+							<td class="droppable_hour"><div class="draggable_hour">Paciente: 132<br>Nombre: Eloí Daniel<br>Dr: Eduardo Villaseñor</div></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">4 PM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row">
+							<td class="left_hour">5 PM</td>
+							<td class="droppable_hour"></td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+		<div id='down_content'>
+			
 		</div>
-		<div id='down_content'></div>
 		</section>
+
 		<ul id="menu">
 			<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
 			<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>

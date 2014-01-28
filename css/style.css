@@ -188,13 +188,6 @@ table
 	margin-top: 4em;
 	margin-bottom: 0.5em;
 }
-td
-{
-	color: black;
-	font-weight: bold;
-	padding-left: 0.4em; 
-	width: 10%;
-}
 th
 {
 	background: #2980b9;
@@ -228,13 +221,13 @@ th
 	color: #704b00;
 	display: block;
 	font-size: 1.3em;
-	margin-left: -50px;
+	margin-left: -80px;
 	padding: 0.3em 0.7em;
 	position: absolute;
 	left: 50%;
 	text-align: center;
 	top: -1.7em;
-	width: 100px;
+	width: 120px;
 }
 #departments, #donator, #patients
 {
@@ -348,7 +341,7 @@ th
 	content: "\e619";
 	font-family: "icomoon";
 }
-#nombre_user
+#content_subtitle
 {
 	background: #DD4F24;
 	border-radius: 0.3em 0 0 0.3em;
@@ -361,7 +354,7 @@ th
 	top: 1.5em;
 	width: 70%;
 }
-#nombre_user:before
+#content_subtitle:before
 {
 	border-left: 19px solid #DD4F24;
 	border-top: 19px solid transparent;
@@ -370,7 +363,7 @@ th
 	position:absolute;
 	top:0;
 }
-#nombre_user:after
+#content_subtitle:after
 {
 	border-right: 19px solid transparent;
 	border-top: 19px solid #DD4F24;
@@ -378,6 +371,12 @@ th
 	right:-1.2em;
 	position:absolute;
 	bottom:0;
+}
+#day_table
+{
+	display: block;
+	margin: 1em;
+	width: auto;
 }
 #notifications
 {
@@ -523,6 +522,13 @@ th
 {
 	color: #2980b9;
 }
+.calendar_row
+{
+	color: black;
+	font-weight: bold;
+	padding-left: 0.4em; 
+	width: 10%;
+}
 .contenido_item_perfil
 {
 	border-top: #2C8199 solid 1px;
@@ -572,10 +578,79 @@ th
 	background: #1A233C;
 	color: white;
 }
+.draggable_hour
+{
+	background: #16a085;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+}
+.draggable_hour:after
+{
+	color: rgba(236, 240, 241,0.5);
+	content: "...";
+	font-size: 2em;
+	position: absolute;
+	right: -0.3em;
+	top: 0.5em;
+	transform: rotate(90deg);
+}
+.draggable_hour:before
+{
+	border-bottom: 10px solid transparent;
+	border-right: 15px solid #16a085;
+	border-top: 10px solid transparent;
+	content: "";
+	margin-top: -9px;
+	position: absolute;
+	left: -1em;
+	top: 50%;
+}
+.draggable_hour:hover
+{
+	background: #1abc9c;
+	cursor: move;
+}
+.droppable_hour
+{
+	margin: 0;
+	padding: 0;
+}
 .fixed
 {
 	position: fixed; 
 	top:0;
+}
+.hour_row
+{
+	background: #bdc3c7;
+	border-bottom: 1px dashed #7f8c8d;
+	border-left: 1px solid #95a5a6;
+	border-right: 1px solid #95a5a6;
+	height: 70px;
+	padding: 0;
+}
+.hour_row:first-child
+{
+	border-top: 2px solid #7f8c8d;
+}
+.hour_row:last-child
+{
+	border-bottom: 2px solid #7f8c8d;
+}
+.left_hour
+{
+	border-right: 1px solid #2c3e50;
+	color: #2c3e50;
+	font-weight: normal;
+	font-size: 0.9em;
+	padding: 1em 1.2em;
+	text-align: center;
+	width: 10%;
 }
 .month
 {

@@ -284,11 +284,11 @@
 		color: rgba(255,255,255,0.9);
 		font-size: 1.5em;
 	}
-	#nombre_user
+	#content_subtitle
 	{
 		width: 40%;
 	}
-	#nombre_user:before
+	#content_subtitle:before
 	{
 		border-left: 19px solid #DD4F24;
 		border-top: 19px solid transparent;
@@ -297,7 +297,7 @@
 		position:absolute;
 		top:0;
 	}
-	#nombre_user:after
+	#content_subtitle:after
 	{
 		border-right: 19px solid transparent;
 		border-top: 19px solid #DD4F24;
