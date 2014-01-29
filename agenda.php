@@ -12,28 +12,62 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/agenda.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
 				actual();
 				actualdate();
-				$('#menu').hide();
-				$('html').click(function() 
+				$( '#menu' ).hide();
+				$( 'html' ).click(function() 
 				{
 					$('#menu').hide('swing');
 				});
-				$( '.draggable_hour' ).draggable({
+
+				$( '.draggable_hour_1' ).draggable({
         		appendTo: "body",
     				helper: 'clone',
+    					revert:'invalid',
     			});
+    			$( '.draggable_hour_2' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    					revert:'invalid',
+    			});
+    			$( '.draggable_hour_3' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    					revert:'invalid',
+    			});
+    			$( '.draggable_hour_4' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    					revert:'invalid',
+    			});
+    			$( '.draggable_hour_5' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    					revert:'invalid',
+    			});
+    			$( '.draggable_hour_6' ).draggable({
+        		appendTo: "body",
+    				helper: 'clone',
+    					revert:'invalid',
+    			});
+
 				$( '.droppable_hour' ).droppable({
 				    accept:'div',
 				    activeClass: "ui-state-default",
 				    hoverClass: "ui-state-hover",
-				 
-				    drop: function( event, ui ) {
-				        ui.draggable.appendTo(this).fadeIn();
-				    }
+				    drop: function( event, ui ) 
+				    {
+				    	$(this).droppable('option', 'accept', ui.draggable);
+    					$(this).append(ui.draggable);
+				    },
+					out : function(event, ui) 
+					{
+						$(this).droppable('option', 'accept', '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6');
+					}
 				});
 			});
 		function mostrar()
@@ -74,7 +108,7 @@
 		<section id="content">
 			<div id='up_content'>
 				<h2 id="content_title">Agenda</h2>
-				<p id='content_subtitle'><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;del&nbsp;<span id="actual_year"></span></p>
+				<p id='content_subtitle'><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
 				</ul>
 			</div>	
 			<article id="hour_container">
@@ -83,56 +117,116 @@
 						<tr class="hour_row">
 							<td class="left_hour">6 AM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">7 AM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">8 AM</td>
-							<td class="droppable_hour"><div class="draggable_hour">Paciente: 132<br>Nombre: Eloí Daniel<br>Dr: Eduardo Villaseñor</div></td>
+							<td class="droppable_hour"><div class="draggable_hour_1">167</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">9 AM</td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div class="draggable_hour_2">12</div></td>
+							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">10 AM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">11 AM</td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div class="draggable_hour_3">79</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">12 AM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">1 PM</td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div class="draggable_hour_4">146</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">2 PM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div class="draggable_hour_5">67</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">3 PM</td>
-							<td class="droppable_hour"><div class="draggable_hour">Paciente: 132<br>Nombre: Eloí Daniel<br>Dr: Eduardo Villaseñor</div></td>
+							<td class="droppable_hour"><div class="draggable_hour_6">198</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">4 PM</td>
 							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour">5 PM</td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
 					</tbody>
 				</table>
 			</article>
 		<div id='down_content'>
-			
+			<p class="down_text"><a id="down_text_cal" href="calendario.php">¿Consultar otro día?&nbsp;&nbsp;<a></p>
 		</div>
 		</section>
 

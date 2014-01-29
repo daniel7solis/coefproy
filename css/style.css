@@ -375,7 +375,7 @@ th
 #day_table
 {
 	display: block;
-	margin: 1em;
+	margin: 1em 0;
 	width: auto;
 }
 #notifications
@@ -578,7 +578,7 @@ th
 	background: #1A233C;
 	color: white;
 }
-.draggable_hour
+.draggable_hour_1
 {
 	background: #16a085;
 	border-radius: 10px;
@@ -588,37 +588,142 @@ th
 	font-size: 0.9em;
 	padding: 0.2em 1em;
 	position: relative;
+	text-align: center;
 }
-.draggable_hour:after
+.draggable_hour_2
+{
+	background: #8e44ad;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+	text-align: center;
+}
+.draggable_hour_3
+{
+	background: #c0392b;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+	text-align: center;
+}
+.draggable_hour_4
+{
+	background: #d35400;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+	text-align: center;
+}
+.draggable_hour_5
+{
+	background: #f39c12;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+	text-align: center;
+}
+.draggable_hour_6
+{
+	background: #27ae60;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-size: 0.9em;
+	padding: 0.2em 1em;
+	position: relative;
+	text-align: center;
+}
+.draggable_hour_1:after,
+.draggable_hour_2:after,
+.draggable_hour_3:after,
+.draggable_hour_4:after,
+.draggable_hour_5:after,
+.draggable_hour_6:after
 {
 	color: rgba(236, 240, 241,0.5);
 	content: "...";
 	font-size: 2em;
+	margin-top: -17px;
 	position: absolute;
 	right: -0.3em;
-	top: 0.5em;
+	top: 50%;
 	transform: rotate(90deg);
 }
-.draggable_hour:before
-{
-	border-bottom: 10px solid transparent;
-	border-right: 15px solid #16a085;
-	border-top: 10px solid transparent;
-	content: "";
-	margin-top: -9px;
-	position: absolute;
-	left: -1em;
-	top: 50%;
-}
-.draggable_hour:hover
+.draggable_hour_1:hover
 {
 	background: #1abc9c;
 	cursor: move;
 }
+.draggable_hour_2:hover
+{
+	background: #9b59b6;
+	cursor: move;
+}
+.draggable_hour_3:hover
+{
+	background: #e74c3c;
+	cursor: move;
+}
+.draggable_hour_4:hover
+{
+	background: #e67e22;
+	cursor: move;
+}
+.draggable_hour_5:hover
+{
+	background: #f1c40f;
+	cursor: move;
+}
+.draggable_hour_6:hover
+{
+	background: #2ecc71;
+	cursor: move;
+}
 .droppable_hour
 {
+	border: 1px dashed #7f8c8d;
 	margin: 0;
 	padding: 0;
+	width: 10%;
+}
+.droppable_hour:last-child
+{
+	border-right: 0px;
+}
+.down_text
+{
+	float: right;
+	font-size: 0.9em;
+	margin: 0.3em 1em 0 0;
+}
+.down_text a
+{
+	color: #3498db;
+	font-style: italic;
+}
+#down_text_cal:after
+{
+	content: "\e600";
+	font-family: "icomoon";
+	font-style: normal;
+	font-weight: bold;
 }
 .fixed
 {
@@ -631,7 +736,7 @@ th
 	border-bottom: 1px dashed #7f8c8d;
 	border-left: 1px solid #95a5a6;
 	border-right: 1px solid #95a5a6;
-	height: 70px;
+	height: 50px;
 	padding: 0;
 }
 .hour_row:first-child
@@ -648,7 +753,7 @@ th
 	color: #2c3e50;
 	font-weight: normal;
 	font-size: 0.9em;
-	padding: 1em 1.2em;
+	padding: 1em 0.2em;
 	text-align: center;
 	width: 10%;
 }
