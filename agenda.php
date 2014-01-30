@@ -33,27 +33,27 @@
         		appendTo: "body",
     				helper: 'clone',
     					revert:'invalid',
-    			});
+    			}).resizable();
     			$( '.draggable_hour_3' ).draggable({
         		appendTo: "body",
     				helper: 'clone',
     					revert:'invalid',
-    			});
+    			}).resizable();
     			$( '.draggable_hour_4' ).draggable({
         		appendTo: "body",
     				helper: 'clone',
     					revert:'invalid',
-    			});
+    			}).resizable();
     			$( '.draggable_hour_5' ).draggable({
         		appendTo: "body",
     				helper: 'clone',
     					revert:'invalid',
-    			});
+    			}).resizable();
     			$( '.draggable_hour_6' ).draggable({
         		appendTo: "body",
     				helper: 'clone',
     					revert:'invalid',
-    			});
+    			}).resizable();
 
     			var c=true;
 
