@@ -1,99 +1,61 @@
-(function ($) {
-    // Detect touch support
-    $.support.touch = 'ontouchend' in document;
-    // Ignore browsers without touch support
-    if (!$.support.touch) {
-    return;
-    }
-    var mouseProto = $.ui.mouse.prototype,
-        _mouseInit = mouseProto._mouseInit,
-        touchHandled;
+    var year = new Date().getFullYear();
+    var month = new Date().getMonth();
+    var day = new Date().getDate();
 
-    function simulateMouseEvent (event, simulatedType) { //use this function to simulate mouse event
-    // Ignore multi-touch events
-        if (event.originalEvent.touches.length > 1) {
-        return;
+    var eventData = {
+        events : [
+           {"id":1, "start": new Date(year, month, day, 12), "end": new Date(year, month, day, 13, 35),"title":"Lunch with Mike"},
+           {"id":2, "start": new Date(year, month, day, 14), "end": new Date(year, month, day, 14, 45),"title":"Dev Meeting"},
+           {"id":3, "start": new Date(year, month, day + 1, 18), "end": new Date(year, month, day + 1, 18, 45),"title":"Hair cut"},
+           {"id":4, "start": new Date(year, month, day - 1, 8), "end": new Date(year, month, day - 1, 9, 30),"title":"Team breakfast"},
+           {"id":5, "start": new Date(year, month, day + 1, 14), "end": new Date(year, month, day + 1, 15),"title":"Product showcase"}
+        ]
+    };
+
+
+       
+    $(document).ready(function() {
+
+        $('#calendar').weekCalendar({
+            timeslotsPerHour: 4,
+            height: function($calendar){
+                return $(window).height() - $("h1").outerHeight();
+            },
+            eventRender : function(calEvent, $event) {
+                if(calEvent.end.getTime() < new Date().getTime()) {
+                    $event.css("backgroundColor", "#aaa");
+                    $event.find(".time").css({"backgroundColor": "#999", "border":"1px solid #888"});
+                }
+            },
+            eventNew : function(calEvent, $event) {
+                displayMessage("<strong>Added event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+                alert("You've added a new event. You would capture this event, add the logic for creating a new event with your own fields, data and whatever backend persistence you require.");
+            },
+            eventDrop : function(calEvent, $event) {
+                displayMessage("<strong>Moved Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+            },
+            eventResize : function(calEvent, $event) {
+                displayMessage("<strong>Resized Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+            },
+            eventClick : function(calEvent, $event) {
+                displayMessage("<strong>Clicked Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+            },
+            eventMouseover : function(calEvent, $event) {
+                displayMessage("<strong>Mouseover Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+            },
+            eventMouseout : function(calEvent, $event) {
+                displayMessage("<strong>Mouseout Event</strong><br/>Start: " + calEvent.start + "<br/>End: " + calEvent.end);
+            },
+            noEvents : function() {
+                displayMessage("There are no events for this week");
+            },
+            data:eventData
+        });
+
+        function displayMessage(message) {
+            $("#message").html(message).fadeIn();
         }
-    event.preventDefault(); //use this to prevent scrolling during ui use
 
-    var touch = event.originalEvent.changedTouches[0],
-        simulatedEvent = document.createEvent('MouseEvents');
-    // Initialize the simulated mouse event using the touch event's coordinates
-    simulatedEvent.initMouseEvent(
-        simulatedType,    // type
-        true,             // bubbles                    
-        true,             // cancelable                 
-        window,           // view                       
-        1,                // detail                     
-        touch.screenX,    // screenX                    
-        touch.screenY,    // screenY                    
-        touch.clientX,    // clientX                    
-        touch.clientY,    // clientY                    
-        false,            // ctrlKey                    
-        false,            // altKey                     
-        false,            // shiftKey                   
-        false,            // metaKey                    
-        0,                // button                     
-        null              // relatedTarget              
-        );
-
-    // Dispatch the simulated event to the target element
-    event.target.dispatchEvent(simulatedEvent);
-    }
-    mouseProto._touchStart = function (event) {
-    var self = this;
-    // Ignore the event if another widget is already being handled
-    if (touchHandled || !self._mouseCapture(event.originalEvent.changedTouches[0])) {
-        return;
-        }
-    // Set the flag to prevent other widgets from inheriting the touch event
-    touchHandled = true;
-    // Track movement to determine if interaction was a click
-    self._touchMoved = false;
-    // Simulate the mouseover event
-    simulateMouseEvent(event, 'mouseover');
-    // Simulate the mousemove event
-    simulateMouseEvent(event, 'mousemove');
-    // Simulate the mousedown event
-    simulateMouseEvent(event, 'mousedown');
-    };
-
-    mouseProto._touchMove = function (event) {
-    // Ignore event if not handled
-    if (!touchHandled) {
-        return;
-        }
-    // Interaction was not a click
-    this._touchMoved = true;
-    // Simulate the mousemove event
-    simulateMouseEvent(event, 'mousemove');
-    };
-    mouseProto._touchEnd = function (event) {
-    // Ignore event if not handled
-    if (!touchHandled) {
-        return;
-    }
-    // Simulate the mouseup event
-    simulateMouseEvent(event, 'mouseup');
-    // Simulate the mouseout event
-    simulateMouseEvent(event, 'mouseout');
-    // If the touch interaction did not move, it should trigger a click
-    if (!this._touchMoved) {
-      // Simulate the click event
-      simulateMouseEvent(event, 'click');
-    }
-    // Unset the flag to allow other widgets to inherit the touch event
-    touchHandled = false;
-    };
-    mouseProto._mouseInit = function () {
-    var self = this;
-    // Delegate the touch handlers to the widget's element
-    self.element
-        .on('touchstart', $.proxy(self, '_touchStart'))
-        .on('touchmove', $.proxy(self, '_touchMove'))
-        .on('touchend', $.proxy(self, '_touchEnd'));
-
-    // Call the original $.ui.mouse init method
-    _mouseInit.call(self);
-    };
-})(jQuery);
+        $("<div id=\"message\" class=\"ui-corner-all\"></div>").prependTo($("body"));
+        
+    });

@@ -8,15 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript" src="js/agenda.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
-				actual();
 				actualdate();
 				$( '#menu' ).hide();
 				$( 'html' ).click(function() 
@@ -24,7 +22,7 @@
 					$('#menu').hide('swing');
 				});
 
-				$( '.draggable_hour_1' ).draggable({
+				$( '.draggable_hour_1' ).resizable().draggable({
         		appendTo: "body",
         			helper: "clone",
     					revert:'invalid'
@@ -116,10 +114,9 @@
 			</ul>
 		</nav>
 		<section id="content">
-			<div id='up_content'>
+			<div id="up_content">
 				<h2 id="content_title">Agenda</h2>
-				<p id='content_subtitle'><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
-				</ul>
+				<p id="content_subtitle"><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
 			</div>	
 			<article id="hour_container">
 				<table id="day_table">

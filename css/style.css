@@ -160,13 +160,13 @@ th
 	color: #704b00;
 	display: block;
 	font-size: 1.3em;
-	margin-left: -80px;
+	margin-left: -90px;
 	padding: 0.3em 0.7em;
 	position: absolute;
 	left: 50%;
 	text-align: center;
 	top: -1.7em;
-	width: 120px;
+	width: 150px;
 }
 #content_subtitle
 {
@@ -605,6 +605,7 @@ th
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
 	display: block;
+	height: 100px;
 	min-height: 25px;
 	padding: 0 1em;
 	position: absolute;
@@ -842,17 +843,88 @@ th
 	width: 200px;
 }
 .next_month:after
-	{
-		background: rgba(189, 195, 199,0.5);
-		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
-		content: "\e61f";
-		font-family: "icomoon";
-		font-size: 2.5em;
-		position: absolute;
-		right: 0em;
-		top: 12%;
-	}
+{
+	background: rgba(189, 195, 199,0.5);
+	border-radius: 50%;
+	color: rgba(100,100,100,0.7);
+	content: "\e61f";
+	font-family: "icomoon";
+	font-size: 2.5em;
+	position: absolute;
+	right: 0em;
+	top: 12%;
+}
+.new_user_input
+{
+	border: transparent;
+	display: inline-block;
+	margin: 0.5em 0;
+	padding: 0.5em 0.5em 0.5em 2em; 
+	position: relative;
+	width: 140px;
+}
+.new_user_input:after
+{
+	border-left: 10px solid black;
+	border-top: 10px solid transparent;
+	content: "";
+	position: absolute;
+	right: -2em;
+	top: 0;
+}
+.new_user_labels
+{
+	background: #3498db;
+	color: white;
+	margin: 0.5em 0 0 2em;
+	padding: 0.5em; 
+	position: relative;
+}
+#user_label:after
+{
+	content: "\e60f";
+	font-family: "icomoon";
+}
+#user_label:before
+{
+	border-left: 10px solid black;
+	border-top: 10px solid transparent;
+	content: "";
+	position: absolute;
+	right: -1em;
+	top: 0;
+	z-index: 10;
+}
+#ap_label:after
+{
+	content: "\e617";
+	font-family: "icomoon";
+}
+#dir_label:after
+{
+	content: "\e60e";
+	font-family: "icomoon";
+}
+#tel_label:after
+{
+	content: "\e615";
+	font-family: "icomoon";
+}
+#mail_label:after
+{
+	content: "\e60d";
+	font-family: "icomoon";
+}
+#curp_label:after
+{
+	content: "\e601";
+	font-family: "icomoon";
+}
+#rfc_label:after
+{
+	content: "\e601";
+	font-family: "icomoon";
+}
 .prev_month:after
 {
 	background: rgba(189, 195, 199,0.5);
@@ -889,16 +961,6 @@ th
 	padding: 0.4em 0 0.4em 1em;
 	font-style: italic;
 	position: relative;
-	width: 50%
-}
-.title_item_perfil:after
-{
-	border-left: 34px solid #2980b9;
-	border-top: 34px solid transparent;
-	content: "";
-	right: -2.1em;
-	position:absolute;
-	top:0;
 }
 .title_item_perfil p
 {

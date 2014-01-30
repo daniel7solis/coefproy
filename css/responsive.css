@@ -481,17 +481,5 @@
 		background: #E0E3E7;
 		width: 250px;
 	}
-	.title_item_perfil
-	{
-		width: 30%
-	}
-	.title_item_perfil:after
-	{
-		border-left: 34px solid #2980b9;
-		border-top: 34px solid transparent;
-		content: "";
-		right: -2.1em;
-		position:absolute;
-		top:0;
-	}
+
 }
