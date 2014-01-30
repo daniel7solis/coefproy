@@ -863,20 +863,12 @@ th
 	position: relative;
 	width: 140px;
 }
-.new_user_input:after
-{
-	border-left: 10px solid black;
-	border-top: 10px solid transparent;
-	content: "";
-	position: absolute;
-	right: -2em;
-	top: 0;
-}
 .new_user_labels
 {
 	background: #3498db;
 	color: white;
-	margin: 0.5em 0 0 2em;
+	display: inline-block;
+	margin: 0.5em 0 0 1em;
 	padding: 0.5em; 
 	position: relative;
 }
@@ -887,11 +879,12 @@ th
 }
 #user_label:before
 {
-	border-left: 10px solid black;
-	border-top: 10px solid transparent;
+	border-left: 20px solid #3498db;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
 	content: "";
 	position: absolute;
-	right: -1em;
+	right: -1.5em;
 	top: 0;
 	z-index: 10;
 }

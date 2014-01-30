@@ -113,25 +113,25 @@
 					<div class='contenido_item_perfil'>
 						<p>
 						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
-							<label id="user_label" class="new_user_labels" for="nombre"></label>
+							<div id="user_label" class="new_user_labels" for="nombre"></div>
 		   					<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
 		   					<br>
-		   					<label id="ap_label" class="new_user_labels" for="ap"></label>
+		   					<div id="ap_label" class="new_user_labels" for="ap"></div>
 		   					<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
 		   					<br>
-		   					<label id="dir_label" class="new_user_labels" for="dir"></label>
+		   					<div id="dir_label" class="new_user_labels" for="dir"></div>
 		   					<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
 		   					<br>
-		   					<label id="tel_label" class="new_user_labels" for="tel"></label>
+		   					<div id="tel_label" class="new_user_labels" for="tel"></div>
 		   					<input name="tel" id="tel" class="new_user_input" type="text" placeHolder="Teléfono" required>
 		   					<br>
-		   					<label id="mail_label" class="new_user_labels" for="mail"></label>
+		   					<div id="mail_label" class="new_user_labels" for="mail"></div>
 		   					<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
 		   					<br>
-		   					<label id="curp_label" class="new_user_labels" for="curp"></label>
+		   					<div id="curp_label" class="new_user_labels" for="curp"></div>
 		   					<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
 		   					<br>
-		   					<label id="rfc_label" class="new_user_labels" for="rfc"></label>
+		   					<div id="rfc_label" class="new_user_labels" for="rfc"></div>
 		   					<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
 		   					<br>
 		   					<input type="submit" value="Registrar">
