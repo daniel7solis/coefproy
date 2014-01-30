@@ -10,6 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="css/responsivelogin.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<!-- Daniel Code -->
+	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<!-- Daniel code fin -->
 </head>
 
 <body>
@@ -23,10 +26,10 @@
 			</p>
 			<p id="user_fields">
 				<label id="user_label" for="user"></label>
-		   		<input name="user" id="user" type="text">
+		   		<input name="user" id="user" type="text" onkeyup="validar(this.value)" required>
 		   		<br>
 		   		<label id="password_label" for="password"></label>
-		   		<input name="password" id="password" type="password">
+		   		<input name="password" id="password" type="password" onkeyup="validar(this.value)" required>
 			</p>
 			<p id="info">
 				<input type="checkbox">&nbsp;Recuérdame</input><br>
