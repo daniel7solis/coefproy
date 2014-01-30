@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -22,55 +23,6 @@
 		{
 		$('#menu').toggle('swing');
 		}
-		// Daniel COde
-		var letra1;
-		function sentName(str){
-			letra1=str.charAt(0);
-		}
-		/* Funcion que recibe la cadena del campo de apellidos "ap", para usarse como nombre de usuario,
-		* de esta forma se crea en nombre de usuario por default, que posteriormente el usuario podra
-		* cambiarlo.*/
-		function showHind(str){
-			/*La funcion repalce, cambia todos los caracteres de espacio/tab/etc... por cadena vacia
-			* (/\s/->es una expresion regular, y se verifican todos los caracteres de la cadena-->"gi")*/
-			str=str.replace(/\s/gi,'');
-			document.getElementById('to_user').innerHTML=str+letra1;
-			pass();
-		}
-		function pass(){
-			var passW="";
-			var caracter;
-			for (var i=0; i<8; i++){
-				if(i===0){
-					caracter=Math.round((Math.random()*9));
-					// alert(caracter);
-					passW=passW.concat(caracter);
-				}else if(i%2!=0){
-					// impar--> debe de estar entre el 65-90(A-Z) o 97-122(a-z)
-					var x=1+Math.round(Math.random());
-					var y;
-					switch(x){
-						case 1:
-							y=65+Math.round(Math.random()*25);
-							caracter=String.fromCharCode(y);
-							passW=passW.concat(caracter);
-						break;
-						case 2:
-							y=97+Math.round(Math.random()*25);
-							caracter=String.fromCharCode(y);
-							passW=passW.concat(caracter);
-						break;
-					}
-				}else{
-					// par
-					passW=passW.concat(Math.round((Math.random()*9)));
-				}
-			};
-			document.getElementById('to_pass').innerHTML=passW;
-			// alert(passW);
-			// alert("hola");
-		}
-		// Daniel Code end
 	</script>
 </head>
 <body>
@@ -120,10 +72,10 @@
 		   					<input name="dir" id="dir" type="text" required>
 		   					<br>
 		   					<label id="tel_label" for="tel">Telefono:</label>
-		   					<input name="tel" id="tel" type="text" required>
+		   					<input name="tel" id="tel" type="tel" required>
 		   					<br>
 		   					<label id="mail_label" for="mail">Email:</label>
-		   					<input name="mail" id="mail" type="text" required>
+		   					<input name="mail" id="mail" type="email" required>
 		   					<br>
 		   					<label id="curp_label" for="curp">CURP:</label>
 		   					<input name="curp" id="curp" type="text" required>
