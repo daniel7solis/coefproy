@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
@@ -22,41 +22,21 @@
 					$('#menu').hide('swing');
 				});
 
-				$( '.draggable_hour_1' ).resizable().draggable({
-        		appendTo: "body",
-        			helper: "clone",
-    					revert:'invalid'
-    			});
-    			$( '.draggable_hour_2' ).draggable({
-        		appendTo: "body",
-    				helper: 'clone',
-    					revert:'invalid',
-    			}).resizable();
-    			$( '.draggable_hour_3' ).draggable({
-        		appendTo: "body",
-    				helper: 'clone',
-    					revert:'invalid',
-    			}).resizable();
-    			$( '.draggable_hour_4' ).draggable({
-        		appendTo: "body",
-    				helper: 'clone',
-    					revert:'invalid',
-    			}).resizable();
-    			$( '.draggable_hour_5' ).draggable({
-        		appendTo: "body",
-    				helper: 'clone',
-    					revert:'invalid',
-    			}).resizable();
-    			$( '.draggable_hour_6' ).draggable({
-        		appendTo: "body",
-    				helper: 'clone',
-    					revert:'invalid',
-    			}).resizable();
+				$('#tores1').resizable();
 
+				$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable({
+        		appendTo: "body",
+        		snap: true,
+        		cursor: 'move',
+    			helper: 'clone',
+    			revert:'invalid'
+    			});
+    			
     			var c=true;
 
 				$( '.droppable_hour' ).droppable({
 				    accept:'div',
+				    helper:'',
 				    over: function()
 				    {
 				    	if ( $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length == 0 )
@@ -80,7 +60,7 @@
 			});
 		function mostrar()
 		{
-		$('#menu').toggle('swing');
+		$('#menu').slideToggle('swing');
 		}
 	</script>
 </head>
@@ -101,7 +81,7 @@
 	</header>
 	<div id="search_wrapper">
 		<label id="glass" class="label" for="search"></label>
-		<input id="search" class="search_field" type="text">
+		<input id="search" class="search_field" type="text" placeHolder="Buscar...">
 	</div>
 	<div id="content_wrapper">
 		<nav>
@@ -180,7 +160,7 @@
 						</tr>
 						<tr class="hour_row">
 							<td class="left_hour" rowspan="4"><p class="day_number">8</p> <p class="meridiane">AM</p></td>
-							<td class="droppable_hour"><div class="draggable_hour_1">167</div></td>
+							<td class="droppable_hour"><div id="tores1" class="draggable_hour_1">167</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>

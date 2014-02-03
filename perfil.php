@@ -54,21 +54,12 @@
 			</ul>
 		</nav>
 		<?php
-<<<<<<< HEAD
-			$id=1;/*$_GET['id']; */
-			$nombre="Juan";/*$_GET['nombre']; */
-			$pass="Juan";/*$_GET['contrasena']; */
-			echo
-		"<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>$nombre</p></div>
-=======
 			$id=$_GET['id'];
 			$nombre=$_GET['nombre'];
 			$pass=$_GET['contrasena'];
 			echo
 		"<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='nombre_user'>$nombre</p></div>
->>>>>>> b26d03eec46ecac49df9f1fdef99594a7ce18d8e
+			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>$nombre</p></div>
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales -</p></div>
 				<div class='contenido_item_perfil'>

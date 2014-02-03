@@ -605,7 +605,8 @@ th
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
 	display: block;
-	height: 100px;
+	height: 50px;
+	line-height: 50px;
 	min-height: 25px;
 	padding: 0 1em;
 	position: absolute;
@@ -854,39 +855,67 @@ th
 	right: 0em;
 	top: 12%;
 }
+#new_user_submit
+{
+	background: #FFBC00;
+	border: transparent;
+	border-bottom: 3px solid #704b00;
+	border-radius: 0.3em;
+	color: #704B00;
+	margin: 1em 1.1em 1em 0;
+	padding: 0.5em 1.5em;
+	float: right;
+}
+#userName
+{
+	color: #2c3e50;
+	font-size: 1.3em;
+}
+.fields_holder
+{
+	background: white;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	margin: 0 19px;
+	padding: 0;
+	vertical-align: top;
+	width: auto;
+}
 .new_user_input
 {
 	border: transparent;
 	display: inline-block;
-	margin: 0.5em 0;
 	padding: 0.5em 0.5em 0.5em 2em; 
 	position: relative;
-	width: 140px;
+	width: 150px;
+}
+.new_user_input:focus
+{
+	outline: 0px;
 }
 .new_user_labels
 {
 	background: #3498db;
+	border-radius: 0.2em 0 0 0.2em;
 	color: white;
 	display: inline-block;
-	margin: 0.5em 0 0 1em;
 	padding: 0.5em; 
 	position: relative;
+}
+.new_user_labels:before
+{
+	border-left: 18px solid #3498db;
+	border-top: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+	content: "";
+	position: absolute;
+	right: -1.1em;
+	top: 0;
+	z-index: 10;
 }
 #user_label:after
 {
 	content: "\e60f";
 	font-family: "icomoon";
-}
-#user_label:before
-{
-	border-left: 20px solid #3498db;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	content: "";
-	position: absolute;
-	right: -1.5em;
-	top: 0;
-	z-index: 10;
 }
 #ap_label:after
 {

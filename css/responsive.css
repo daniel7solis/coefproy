@@ -2,7 +2,10 @@
 	
 }
 @media screen and (min-width: 600px) and (max-width: 800px){
-
+	.new_user_input
+	{
+		width: 450px
+	}
 }
 @media screen and (min-width: 800px) and (max-width: 1024px){
 	nav
@@ -136,6 +139,10 @@
 	.draggable_hour_6
 	{
 		width: 100px;
+	}
+	.new_user_input
+	{
+		width: 420px
 	}
 	.next_month:after
 	{
@@ -353,6 +360,12 @@
 		position:absolute;
 		bottom:0;
 	}
+	#new_user_submit
+	{
+		position: absolute;
+		top: 20em;
+		right: 4em;
+	}
 	#patients a:after
 	{
 		color: white;
@@ -439,6 +452,14 @@
 	.draggable_hour_6
 	{
 		width: 120px;
+	}
+	.fields_holder
+	{
+		margin: 0 300px 0 20px; 
+	}
+	.new_user_input
+	{
+		width: 460px
 	}
 	.next_month:after
 	{
