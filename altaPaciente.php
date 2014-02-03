@@ -57,8 +57,8 @@
 
 		<section id="content">
 			<div id="up_content">
-				<h2 id="content_title">Usuario nuevo</h2>
-				<p id="content_subtitle">Registro de Usuario</p>
+				<h2 id="content_title">Paciente nuevo</h2>
+				<p id="content_subtitle">Registro de paciente</p>
 			</div>
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Personales:</p></div>
