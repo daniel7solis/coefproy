@@ -928,6 +928,129 @@ th
 	top: 0;
 	z-index: 10;
 }
+#camera
+{
+	border-radius: 0.7em;
+	height: 187px;
+	margin: 0;
+	width: 250px;
+}
+#main_fields_holder
+{
+	margin-top: 1em; 
+}
+#photo
+{
+	border-radius: 0.7em;
+	height: 187px;
+	margin: 0;
+	width: 250px;
+}
+#photo_buttons, #photo_loader
+{
+	margin: 0 1em 0 1em;
+	text-align: center;
+}
+#start_camera
+{
+	background: rgba(22,160,133,0.5);
+	border: transparent;
+	border-bottom-left-radius: 0.5em;
+	color: white;
+	font-size: 0.8em;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	position: absolute;
+	right: 4.6em;
+	top: 0;
+}
+#start_camera:hover
+{
+	background: rgba(26,188,156,0.5);
+}
+#stop_camera
+{
+	background: rgba(192,57,43,0.5);
+	border-top-right-radius: 0.7em;
+	border: transparent;
+	color: white;
+	font-size: 0.8em;
+	padding: 0.5em 0.5em;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#stop_camera:hover
+{
+	background: rgba(231,76,60,0.5);
+}
+#miniholder
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#miniholder:before
+{
+	border-right: 26px solid rgba(39,174,96,0.5);
+	border-top: 26px solid transparent;
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 0;
+}
+#take_photo
+{
+	background: rgba(39,174,96,0.5);
+	border: transparent;
+	color: white;
+	padding: 0.2em 1em;
+	width: 115px;
+}
+#take_photo:hover
+{
+	background: rgba(46,204,113,0.5);
+}
+#upload_photo
+{
+	background: white;
+	bottom: 0.2em;
+	font-size: 0.8em;
+	border-radius: 0.5em;
+	margin: 0;
+    padding: 0;
+    outline:0;
+	position: absolute;
+	width: 100%;
+}
+.photo_container
+{
+	border: 2px solid #3498db;
+	border-radius: 0.7em;
+	margin: 1.5em 1em 0.5em 1em;
+	position: relative;
+	width: 250px;
+}
+.photo_frame_title
+{
+	background: rgba(52,152,219,0.5);
+	border-top-left-radius: 0.5em; 
+	color: white;
+	left: 0;
+	padding: 0.3em 1em 0.3em 1em;
+	position: absolute;
+	text-align: center;
+}
+.photo_frame_title:after
+{
+	border-top: 29px solid rgba(52,152,219,0.5);
+	border-right: 29px solid transparent;
+	content: "";
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
 #user_label:after
 {
 	content: "\e60f";
@@ -963,6 +1086,10 @@ th
 	content: "\e601";
 	font-family: "icomoon";
 }
+#vertical_spacer
+	{
+		display: none;
+	}
 .prev_month:after
 {
 	background: rgba(189, 195, 199,0.5);
@@ -977,10 +1104,6 @@ th
 }
 .search_field
 {
-	-moz-transition: all 0.5s;
-	-ms-transition: all 0.5s;
-	-o-transition: all 0.5s;
-	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 	border-radius: 5px;
 	margin: 0.4em;

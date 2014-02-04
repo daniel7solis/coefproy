@@ -6,6 +6,10 @@
 	{
 		width: 450px
 	}
+	.photo_container
+	{
+		display: inline-block;
+	}
 }
 @media screen and (min-width: 800px) and (max-width: 1024px){
 	nav
@@ -156,6 +160,10 @@
 		right: 0.3em;
 		top: 13%;
 	}
+	.photo_container
+	{
+		display: inline-block;
+	}
 	.prev_month:after
 	{
 		background: rgba(189, 195, 199,0.5);
@@ -186,7 +194,7 @@
 		width: 30%;
 	}
 }
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) and (max-width: 1200px){
 	#appointment
 	{
 		background: #fff;
@@ -362,7 +370,6 @@
 	}
 	#new_user_submit
 	{
-		position: absolute;
 		top: 20em;
 		right: 4em;
 	}
@@ -455,11 +462,11 @@
 	}
 	.fields_holder
 	{
-		margin: 0 300px 0 20px; 
+		margin: 0 0 0 20px; 
 	}
 	.new_user_input
 	{
-		width: 460px
+		width: 410px
 	}
 	.next_month:after
 	{
@@ -502,5 +509,376 @@
 		background: #E0E3E7;
 		width: 250px;
 	}
-
+	#camera
+	{
+		border-radius: 0.7em;
+		margin: 0;
+		width: 250px;
+	}
+	#main_fields_holder
+	{
+		display: inline-block;
+		margin-top: 1em; 
+	}
+	#photos_holder
+	{
+		display: inline-block;
+	}
+	.photo_container
+	{
+		border: 2px solid #3498db;
+		border-radius: 0.7em;
+		display: inline-block;
+		margin: 1.5em 1em 0.5em 1em;
+		position: relative;
+		width: 250px;
+	}
+	#vertical_spacer
+	{
+		display: none;
+	}
+}
+@media screen and (min-width: 1200px){
+	#appointment
+	{
+		background: #fff;
+		border-radius: 5px;
+		display: inline-block;
+		margin: 1em 0;
+		width: 43%;
+	}
+	#appointment h3
+	{
+		padding-left: 1em;
+	}
+	#appointment hr
+	{
+		border: 1px solid #eee;
+		padding: 0 0.5em;
+	}
+	nav
+	{
+		background: #878787;
+		border-radius: 3px;
+		display: inline-block;
+		float:left;
+		font-size: 1em;
+		font-weight: bold;
+		margin: 0 10px 0 10px;
+	}
+	nav ul
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	nav ul li
+	{
+		border-bottom: 1px solid #666;
+		display: block;
+		margin: 0;
+	}
+	nav ul li a
+	{
+		display: block;
+		padding: 0.5em 0;
+		text-decoration: none;
+	}
+	#up_content ul
+	{
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 3em 0 0 0;
+		text-align: center;
+	}
+	#up_content ul li
+	{
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+		width: 7%;
+	}
+	#up_content ul li a
+	{
+		transition: all 0.5s;
+		border-bottom: 2px solid #2980b9;
+		color: #E5E8E9;
+		display: block;
+		font-weight: bold;
+		padding: 0.5em 0;
+		position: relative;
+		text-decoration: none;
+		text-align: center;
+		width: 100%;
+	}
+	#up_content ul li a:hover
+	{
+		color: black;
+	}
+	.current_month
+	{
+		color: black;
+	}
+	.current_month:after
+	{
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-top: 8px solid #2980b9;
+		content: "";
+		margin-right: -7px;
+		right: 50%;
+		position:absolute;
+		top: 100%;
+	}
+	#content
+	{
+		display: inline-block;
+		margin: 0 1em 1em 1em;
+		position: relative;
+		width: 70%;
+	}
+	#content_wrapper
+	{
+		display: block;
+		margin: 0 30px;
+	}
+	#agenda,#departments, #donator, #patients, #lab_survey
+	{
+		font-size: 0.8em;
+		padding: 0.2em 0.5em 0.2em 1em;
+	}
+	#agenda a:after
+	{
+		color: white;
+		content: "AGENDA";
+		font-family: "icomoon";
+	}
+	#departments a:after
+	{
+		color: white;
+		content: "\e618";
+		font-family: "icomoon";
+	}
+	#departments a:before
+	{
+		color: white;
+		content: "DEPARTAMENTOS";
+		font-family: "icomoon";
+	}
+	#donator a:after
+	{
+		color: white;
+		content: "DONADORES";
+		font-family: "icomoon";
+	}
+	#glass
+	{
+		color: white;
+		right: 420px;
+		top: 2.3em;
+		position: absolute;
+	}
+	#lab_survey a:after
+	{
+		color: white;
+		content: "ESTUDIOS";
+		font-family: "icomoon";
+	}
+	#look, #manage, #new, #print
+	{
+		color: rgba(255,255,255,0.9);
+		font-size: 1.5em;
+	}
+	#content_subtitle
+	{
+		width: 40%;
+	}
+	#content_subtitle:before
+	{
+		border-left: 19px solid #DD4F24;
+		border-top: 19px solid transparent;
+		content: "";
+		right: -1.2em;
+		position:absolute;
+		top:0;
+	}
+	#content_subtitle:after
+	{
+		border-right: 19px solid transparent;
+		border-top: 19px solid #DD4F24;
+		content: "";
+		right:-1.2em;
+		position:absolute;
+		bottom:0;
+	}
+	#new_user_submit
+	{
+		top: 20em;
+		right: 4em;
+	}
+	#patients a:after
+	{
+		color: white;
+		content: "PACIENTES";
+		font-family: "icomoon";
+	}
+	#quick_access
+	{
+		background: #878787;
+		border-radius: 10px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		display: inline-block;
+		margin: 0 10px 0 10px;
+		padding: 0.5em 0.5em;
+		position: absolute;
+		right: -7em;
+		top: 0;
+	}
+	#quick_access ul
+	{
+		list-style: none;
+		padding: 0; 
+		margin 0;
+		text-align: center;
+	}
+	#quick_access ul li
+	{
+		border-top: 1px solid gray;
+		border-left: 0;
+		display: list-item;
+	}
+	#quick_access ul li:first-child
+	{
+		border-top: 0;
+	}
+	#search_wrapper
+	{
+		background: transparent;
+		color: black;
+		height: 1em;
+		margin: 10px 10px 0 10px;
+		padding: 0.5em;
+		text-align: right;
+	}
+	.contenido_item_perfil p
+	{
+	border-right: #2C8199 solid 1px;
+	width: 30%;
+	padding: 0 0.5em 0 1em;
+	display: inline-block; 
+	}
+	.contenido_item_perfil p:nth-child(3n+3)
+	{
+		border-right: 0;
+	}
+	.current
+	{
+		background: #454545;
+	}
+	.current a
+	{
+		text-decoration: none;
+	}
+	.draggable_hour_1
+	{
+		width: 120px;
+	}
+	.draggable_hour_2
+	{
+		width: 120px;
+	}
+	.draggable_hour_3
+	{
+		width: 120px;
+	}
+	.draggable_hour_4
+	{
+		width: 120px;
+	}
+	.draggable_hour_5
+	{
+		width: 120px;
+	}
+	.draggable_hour_6
+	{
+		width: 120px;
+	}
+	.fields_holder
+	{
+		margin: 0 0 0 20px; 
+	}
+	.new_user_input
+	{
+		width: 450px
+	}
+	.next_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e61f";
+		font-family: "icomoon";
+		font-size: 2.5em;
+		position: absolute;
+		right: 0.3em;
+		top: 13%;
+	}
+	.prev_month:after
+	{
+		background: rgba(189, 195, 199,0.5);
+		border-radius: 50%;
+		color: rgba(100,100,100,0.7);
+		content: "\e620";
+		font-family: "icomoon";
+		font-size:2.5em;
+		left: 0.3em;
+		position: absolute;
+		top: 13%;
+	}
+	.search_field
+	{
+		transition: all 0.5s;
+		border-radius: 5px;
+		content: "Buscar...";
+		margin: 0.4em 11.5em 0.4em 0.4em;
+		padding: 0.5em;
+		position:absolute;
+		right: 0;
+		top: 1.2em;
+		width: 200px;
+	}
+	.search_field:focus
+	{
+		background: #E0E3E7;
+		width: 250px;
+	}
+	#camera
+	{
+		border-radius: 0.7em;
+		margin: 0;
+		width: 250px;
+	}
+	#main_fields_holder
+	{
+		display: inline-block;
+		margin-top: 1em; 
+	}
+	#photos_holder
+	{
+		display: inline-block;
+		margin-left: 20px;
+	}
+	.photo_container
+	{
+		border: 2px solid #3498db;
+		border-radius: 0.7em;
+		margin: 1.5em 1em 0.5em 1em;
+		position: relative;
+		width: 250px;
+	}
+	#vertical_spacer
+	{
+		display: block;
+	}
 }
