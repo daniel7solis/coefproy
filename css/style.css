@@ -205,6 +205,23 @@ th
 	margin: 1em 0;
 	width: 100%;
 }
+#fifteen, #fourtyfive, #half
+{
+	font-size: 0.53em;
+	position: absolute;
+}
+#fifteen
+{
+	top:20px;
+}
+#fourtyfive
+{
+	top:70px;
+}
+#half
+{
+	top:45px;
+}
 #table_body
 {
 	display: block;
@@ -337,7 +354,7 @@ th
 	right: 1em;
 	text-align: left;
 	top: 6em;
-	width: 200px;
+	width: 210px;
 }
 #menu:after
 {
@@ -597,7 +614,7 @@ th
 .draggable_hour_6
 {
 	font-size: 0.8em
-} 
+}
 .draggable_hour_1
 {
 	background: #16a085;
@@ -605,8 +622,7 @@ th
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
 	display: block;
-	height: 50px;
-	line-height: 50px;
+	height: 75px;
 	min-height: 25px;
 	padding: 0 1em;
 	position: absolute;

@@ -31,7 +31,7 @@
     			helper: 'clone',
     			revert:'invalid'
     			});
-    			
+
     			var c=true;
 
 				$( '.droppable_hour' ).droppable({
@@ -100,348 +100,348 @@
 			</div>	
 			<article id="hour_container">
 				<table id="day_table">
-						<tr class="hour_row">
+						<tr class="hour_row" value="6:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">6</p> <p class="meridiane">AM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="6:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="6:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="6:45am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row"  value="7:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">7</p> <p class="meridiane">AM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="7:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row"  value="7:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row"  value="7:45am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="8:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">8</p> <p class="meridiane">AM</p></td>
-							<td class="droppable_hour"><div id="tores1" class="draggable_hour_1">167</div></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div><div id="tores1" class="draggable_hour_1">167</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="8:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="8:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="8:45am">
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="9:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">9</p> <p class="meridiane">AM</p></td>
-							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"><div class="draggable_hour_2">12</div></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="9:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="9:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="9:45am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="10:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">10</p> <p class="meridiane">AM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="10:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="10:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="10:45am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="11:00am">
 							<td class="left_hour" rowspan="4"><p class="day_number">11</p> <p class="meridiane">AM</p></td>
-							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
 							<td class="droppable_hour"><div class="draggable_hour_3">79</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="11:15am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"><div class="draggable_hour_1">73</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="11:30am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="11:45am">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="12:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">12</p> <p class="meridiane">PM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="12:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="12:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="12:45pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="1:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">1</p> <p class="meridiane">PM</p></td>
-							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"><div class="draggable_hour_4">146</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="1:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="1:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="1:45pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="2:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">2</p> <p class="meridiane">PM</p></td>
-							<td class="droppable_hour"></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="2:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"><div class="draggable_hour_5">67</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="2:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="2:45pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="3:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">3</p> <p class="meridiane">PM</p></td>
-							<td class="droppable_hour"><div class="draggable_hour_6">198</div></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div><div class="draggable_hour_6">198</div></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="3:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
-							<td class="droppable_hour"><div class="draggable_hour_2">58</div></td>
+							<td class="droppable_hour"><div class="draggable_hour_2"><span></span></div></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="3:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="3:45pm">
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="4:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">4</p> <p class="meridiane">PM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="4:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="4:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="4:45pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="5:00pm">
 							<td class="left_hour" rowspan="4"><p class="day_number">5</p> <p class="meridiane">PM</p></td>
+							<td class="droppable_hour"><div id="fifteen">&nbsp;:15</div><div id="half">&nbsp;:30</div><div id="fourtyfive">&nbsp;:45</div></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+							<td class="droppable_hour"></td>
+						</tr>
+						<tr class="hour_row" value="5:15pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="5:30pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 						</tr>
-						<tr class="hour_row">
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-							<td class="droppable_hour"></td>
-						</tr>
-						<tr class="hour_row">
+						<tr class="hour_row" value="5:45pm">
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>
 							<td class="droppable_hour"></td>

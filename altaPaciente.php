@@ -104,13 +104,6 @@
 						<br><br><br><br>
 					</div>
 			</article>
-			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
-					<div id="userName" class='contenido_item_perfil'>
-						<p><span id="to_user"></span><br>
-						</p>
-					</div>
-			</article>
 		</section>
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
