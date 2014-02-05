@@ -23,7 +23,8 @@ function showHind(str){
 	/*La funcion repalce, cambia todos los caracteres de espacio/tab/etc... por cadena vacia
 	* (/\s/->es una expresion regular, y se verifican todos los caracteres de la cadena-->"gi")*/
 	str=str.replace(/\s/gi,'');
-	document.getElementById('to_user').innerHTML=str+letra1;
+	document.getElementById('to_user').value=str+letra1;
+	// alert(str+letra1);
 	pass();
 }
 function pass(){
@@ -55,8 +56,23 @@ function pass(){
 			passW=passW.concat(Math.round((Math.random()*9)));
 		}
 	};
-	document.getElementById('to_pass').innerHTML=passW;
+	// document.getElementById('to_pass').innerHTML=passW;
+	document.getElementById('to_pass').value=passW;
 	// alert(passW);
 	// alert("hola");
 }
 // Daniel Code end
+// $.ajax({
+// 	data:obtenerDatos();
+//   url: 'perfil.php',
+//   dataType: 'json',
+//   data: data,
+//   success: callback
+// });
+
+// function obtenerDatos(){
+// 	 // Se almacenan todos los datos en un arreglo
+//     datos = [{name:"nombre",value:},{name:"paterno", value:$("#paterno").val()},{name:"materno", value:$("#materno").val()},{name: "nombre", value:$("#nombre").val()},{name:"idiomas", value:idiomas}];
+//     // Se regresa la variable datos con toda la informacion del alumno
+//     return datos;
+// }
