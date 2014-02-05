@@ -5,13 +5,16 @@
 	mysql_set_charset("utf8", $conexion); 
 	/*fin para verificar*/
 	$nombre=$_REQUEST['nombre']." ".$_REQUEST['ap'];
-	$nom=$_REQUEST['nombre'];
+	$nombreUser=$_REQUEST['to_user'];
+	$pass=$_REQUEST['to_pass'];
+	$semilla=hash("sha512", $pass, false);
+	$passF=hash("sha512", $pass.$semilla,false);
 	$dir=$_REQUEST['dir'];
 	$tel=$_REQUEST['tel'];
 	$mail=$_REQUEST['mail'];
 	$curp=$_REQUEST['curp'];
 	$rfc=$_REQUEST['rfc'];
-	mysql_query("insert into usuarios (nombreUsuario, contrasena, nombre, direccion, telefono, email, curp,rfc)
-	 values ('$nom','$nom','$nombre','$dir','$tel','$mail','$curp','$rfc')",$conexion) or die(mysql_error());
+	mysql_query("insert into usuarios (nombreUsuario, contrasena, nombre, direccion, telefono, email, curp,rfc,semilla)
+	 values ('$nombreUser','$passF','$nombre','$dir','$tel','$mail','$curp','$rfc','$semilla')",$conexion) or die(mysql_error());
 	header("location: altaUser.php");
 ?>

@@ -121,6 +121,8 @@
 							    	<input id='upload_photo' type='file' />
 								</div>
 							</div>
+							<input name="to_user" id="to_user" type="Hidden"/>
+		   					<input name="to_pass" id="to_pass" type="text"/>
 							<!-- Submit button -->
 							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>
@@ -130,8 +132,7 @@
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
 					<div id="userName" class='contenido_item_perfil'>
-						<p><span id="to_user"></span><br>
-						</p>
+						
 					</div>
 			</article>
 		</section>

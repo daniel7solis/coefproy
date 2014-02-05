@@ -54,6 +54,26 @@
 			</ul>
 		</nav>
 		<?php
+			// /**/
+			// //Url donde esta nuestro JSON
+			// $req = 'sesion2.php';
+
+			// //Iniciamos cURL junto con la URL
+			// $cVimeo = curl_init($req);
+
+			// //Agregamos opciones necesarias para leer
+			// curl_setopt($cVimeo,CURLOPT_RETURNTRANSFER, TRUE);
+
+			// // Capturamos la URL
+			// $gVimeo = curl_exec($cVimeo);
+
+			// //Descodificamos para leer
+			// $getVimeo = json_decode($gVimeo,true);
+
+			// //Asociamos los campos del JSON a variables
+			// $titulo = $getVimeo['titulo'];
+			// echo ("ddddddddddddddddddddd".$titulo);
+			/**/
 			$id=$_GET['id'];
 			$nombre=$_GET['nombre'];
 			$pass=$_GET['contrasena'];
@@ -64,19 +84,13 @@
 				<div class='title_item_perfil'><p>Datos Generales -</p></div>
 				<div class='contenido_item_perfil'>
 					<p>ID: $id<br>
-					Nombre: $nombre<br>
-					Contraseña: $pass</p>
+					Nombre: $nombre</p>
 				</div>
 			</article>";
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-<<<<<<< HEAD
-			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
-			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
-=======
 			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
->>>>>>> b26d03eec46ecac49df9f1fdef99594a7ce18d8e
 			/*fin para verificar*/
 			$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion);
 			$cont=0;
@@ -178,11 +192,7 @@
 				}else{
 					echo "</p>";
 				}
-<<<<<<< HEAD
-			?>
-=======
 		?>
->>>>>>> b26d03eec46ecac49df9f1fdef99594a7ce18d8e
 				</div>
 			</article>
 			<div id='down_content'></div>
