@@ -22,6 +22,23 @@
 		{
 		$('#menu').toggle('swing');
 		}
+		function json(){
+			// alert("hola");
+
+			$.getJSON('data.php',{format: "json"}, function(data) {
+        		var valResp="";
+        		alert(data['id']);
+        		alert(data['nombre']);
+        		alert(data['contrasena']);
+        		var id=data['id'];
+        		var nombre=data['nombre'];
+        		var contrasena=data['contrasena'];
+        		var arr="hola";
+        		$("#identificador").html(data['id']);
+        		
+			}); 
+		}
+		window.onload=json;
 	</script>
 </head>
 <body>
@@ -51,39 +68,22 @@
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
+				<h1></h1>
 			</ul>
 		</nav>
 		<?php
-			// /**/
-			// //Url donde esta nuestro JSON
-			// $req = 'sesion2.php';
-
-			// //Iniciamos cURL junto con la URL
-			// $cVimeo = curl_init($req);
-
-			// //Agregamos opciones necesarias para leer
-			// curl_setopt($cVimeo,CURLOPT_RETURNTRANSFER, TRUE);
-
-			// // Capturamos la URL
-			// $gVimeo = curl_exec($cVimeo);
-
-			// //Descodificamos para leer
-			// $getVimeo = json_decode($gVimeo,true);
-
-			// //Asociamos los campos del JSON a variables
-			// $titulo = $getVimeo['titulo'];
-			// echo ("ddddddddddddddddddddd".$titulo);
-			/**/
-			$id=$_GET['id'];
-			$nombre=$_GET['nombre'];
-			$pass=$_GET['contrasena'];
+			$var=file_get_contents('data.json');
+        	$datos=json_decode($var,true);
+			$id=$datos['id'];
+			$nombre=$datos['nombre'];
+			$pass=$datos['contrasena'];
 			echo
 		"<section id='content'>
 			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>$nombre</p></div>
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales -</p></div>
 				<div class='contenido_item_perfil'>
-					<p>ID: $id<br>
+					<p id='identificador'>ID: $id<br>
 					Nombre: $nombre</p>
 				</div>
 			</article>";
