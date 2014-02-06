@@ -46,10 +46,23 @@
 					$semilla=$arreglo['semilla'];
 					$passF=hash("sha512", $pass.$semilla,false);
 					if($passF==$arreglo['contrasena']){
-						$arr = array('a' => 1);
-						$json =json_encode($arr);
-						echo ($json);
-						header("location: perfil.php?id=".$arreglo['idUsuario']."&nombre=".$arreglo['nombreUsuario']."&contrasena=".$arreglo['contrasena']);
+						/**/
+						$nuevoArch=fopen("data.json","w+");
+						$pregunta="pregunta";
+						$json="json";
+						$content='{"id":"'.$arreglo['idUsuario'].'","nombre":"'.$arreglo['nombreUsuario'].'","contrasena":"'.$arreglo['contrasena'].'"}';
+
+						fwrite($nuevoArch,$content);
+						fclose($nuevoArch);
+						/**/
+						// $arr = array('a' => 1);
+						// $pregunta = new stdClass();
+						// $pregunta->titulo = "Altitud del monte Everest";
+						// $json = json_encode($pregunta);
+						// // $json =json_encode($arr);
+						// echo ($json);
+						header("location: perfil.php");
+						// header("location: perfil.php?id=".$arreglo['idUsuario']."&nombre=".$arreglo['nombreUsuario']."&contrasena=".$arreglo['contrasena']);
 						exit();
 					}else{
 						echo "<p>Usuario ó contraseña incorrecta, vuelve a intentarlo</p>";
