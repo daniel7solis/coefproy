@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -87,6 +87,9 @@
 						<th>V</th>
 						<th>S</th>
 					</tr>
+					<?php
+					
+					?>
 					<tr class="day_height">
 						<td class="calendar_row"><span id="esp0"></span><p></p></td>
 						<td class="calendar_row"><span id="esp1"></span><p></p></td>
@@ -144,12 +147,12 @@
 				</tbody>
 			</table>
 			<div id="quick_access">
-			<ul>
-				<li><a id="new" href="#"></a></li>
-				<li><a id="look" href="#"></a></li>
-				<li><a id="manage" href="#"></a></li>
-				<li><a id="print" href="#"></a></li>
-			</ul>
+				<ul>
+					<li><a id="new" href="#"></a></li>
+					<li><a id="look" href="#"></a></li>
+					<li><a id="manage" href="#"></a></li>
+					<li><a id="print" href="#"></a></li>
+				</ul>
 			</div>
 		<div id='down_content'></div>
 		</section>
