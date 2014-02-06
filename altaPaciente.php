@@ -3,13 +3,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Registro de pacientes nuevos</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript" src="js/camera.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -63,47 +64,84 @@
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Personales:</p></div>
 					<div class='contenido_item_perfil'>
-						<p>
 						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
-							<div class="fields_holder">
-							<div id="user_label" class="new_user_labels" for="nombre"></div>
-		   					<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
+							<div id="main_fields_holder">
+								<div class="fields_holder">
+									<div id="user_label" class="new_user_labels" for="nombre"></div>
+			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
+			   						<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
+			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
+			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
+			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
+			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
+			   					</div>
+			   					<br>
+			   					<div class="fields_holder">
+			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
+			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
+			   					</div>
+			   					<div id="vertical_spacer">
+			   					<br><br>
+			   					</div>
 		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="ap_label" class="new_user_labels" for="ap"></div>
-		   					<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
-		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="dir_label" class="new_user_labels" for="dir"></div>
-		   					<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
-		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="tel_label" class="new_user_labels" for="tel"></div>
-		   					<input name="tel" id="tel" class="new_user_input" type="text" placeHolder="Teléfono" required>
-		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="mail_label" class="new_user_labels" for="mail"></div>
-		   					<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
-		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="curp_label" class="new_user_labels" for="curp"></div>
-		   					<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
-		   					</div>
-		   					<br>
-		   					<div class="fields_holder">
-		   					<div id="rfc_label" class="new_user_labels" for="rfc"></div>
-		   					<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
-		   					</div>
-		   					<input id="new_user_submit" type="submit" value="Registrar">
+		   					<!-- Take a picture -->
+		   					<div id="photos_holder">
+			   					<div class="photo_container">
+							    	<div class="photo_frame_title">Cámara</div>
+							    	<video id="camera" autoplay></video>
+							    	<input id='start_camera' class='test' type='button' value = 'Iniciar' />
+								    <input id='stop_camera' type='button' value = 'Detener' />
+								    <div id="miniholder">
+								    <input id='take_photo' type='button' value = 'Tomar foto'></input>
+								    </div>
+								</div>
+								<div class="photo_container">
+							    	<div class="photo_frame_title">Foto</div>
+							    	<canvas id="photo" ></canvas>
+							    	<input id='upload_photo' type='file' />
+								</div>
+							</div>
+							<!-- Submit button -->
+							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>
 						<br><br><br><br>
 					</div>
 			</article>
+			<article class='item_perfil'>
+					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
+					<div id="userName" class='contenido_item_perfil'>
+						<p><span id="to_user"></span><br>
+						</p>
+					</div>
+			</article>
+			<div id="quick_access">
+				<ul>
+					<li><a id="new" href="#"></a></li>
+					<li><a id="look" href="#"></a></li>
+					<li><a id="manage" href="#"></a></li>
+					<li><a id="print" href="#"></a></li>
+				</ul>
+			</div>
 		</section>
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
@@ -113,7 +151,7 @@
 		</ul>
 	</div>
 	<footer>
-		<p>Coeficient &copy; 2014</p>
+		<p>Coefficient &copy; 2014</p>
 	</footer>
 
 </body>

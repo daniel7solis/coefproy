@@ -36,6 +36,12 @@ footer
 	padding: 1em 0;
 	text-align: right;
 }
+h4
+{
+	font-weight: normal;
+	padding: 0 0.5em 0 0.5em;
+	text-align: center;
+}
 header
 {
 	border-bottom: 2px solid #3F60A0;
@@ -143,6 +149,27 @@ th
 	content: "\e602";
 	font-family: "icomoon";
 }
+#calendar_style
+{
+	margin-top: 4em;
+	margin-bottom: 1em;
+}
+#check_patient_type
+{
+	border-radius: 0.1em;
+	margin: 0.5em 0.3em;
+	padding: 0.5em 0 2em 0;
+}
+#chk_date_label:after
+{
+	content: "\e600";
+	font-family: "icomoon";
+}
+#chk_name_label:after
+{
+	content: "\e617";
+	font-family: "icomoon";
+}
 #content
 {
 	background: #E7E3FF;
@@ -160,7 +187,7 @@ th
 	color: #704b00;
 	display: block;
 	font-size: 1.3em;
-	margin-left: -110px;
+	margin-left: -95px;
 	padding: 0.3em 0.7em;
 	position: absolute;
 	left: 50%;
@@ -878,9 +905,9 @@ th
 	border-bottom: 3px solid #704b00;
 	border-radius: 0.3em;
 	color: #704B00;
+	float: right;
 	margin: 1em 1.1em 1em 0;
 	padding: 0.5em 1.5em;
-	float: right;
 }
 #userName
 {
@@ -888,6 +915,15 @@ th
 	font-size: 1.3em;
 }
 .fields_holder
+{
+	background: white;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	margin: 0 19px;
+	padding: 0;
+	vertical-align: top;
+	width: auto;
+}
+.fields_holder_chk
 {
 	background: white;
 	border-radius: 0.2em 0.2em 0.2em 0.2em;
@@ -958,6 +994,7 @@ th
 	border-bottom-left-radius: 0.5em;
 	color: white;
 	font-size: 0.8em;
+	outline: none;
 	padding: 0.5em 0.5em 0.5em 0.5em;
 	position: absolute;
 	right: 4.6em;
@@ -974,6 +1011,7 @@ th
 	border: transparent;
 	color: white;
 	font-size: 0.8em;
+	outline: none;
 	padding: 0.5em 0.5em;
 	position: absolute;
 	right: 0;
@@ -1005,6 +1043,7 @@ th
 	background: rgba(39,174,96,0.5);
 	border: transparent;
 	color: white;
+	outline: none;
 	padding: 0.2em 1em;
 	width: 115px;
 }

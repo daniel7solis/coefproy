@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Agenda</title>
-	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Gafata|Pathway+Gothic+One' rel='stylesheet' type='text/css' />
+	<title>Calendario</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -77,7 +76,7 @@
 			</div>
 			<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
 			<h3 class="month_title"></h3>
-			<table class="month">
+			<table id="calendar_style" class="month">
 				<tbody>
 					<tr class="day_title">
 						<th>D</th>
@@ -151,7 +150,7 @@
 				<li><a id="manage" href="#"></a></li>
 				<li><a id="print" href="#"></a></li>
 			</ul>
-		</div>
+			</div>
 		<div id='down_content'></div>
 		</section>
 		<ul id="menu">
