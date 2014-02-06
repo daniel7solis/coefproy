@@ -12,57 +12,7 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
-	<script type="text/javascript">
-		$( document ).ready(function()
-			{
-				actualdate();
-				$( '#menu' ).hide();
-				$( 'html' ).click(function() 
-				{
-					$('#menu').hide('swing');
-				});
-
-				$('#tores1').resizable();
-
-				$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable({
-        		appendTo: "body",
-        		snap: true,
-        		cursor: 'move',
-    			helper: 'clone',
-    			revert:'invalid'
-    			});
-
-    			var c=true;
-
-				$( '.droppable_hour' ).droppable({
-				    accept:'div',
-				    helper:'',
-				    over: function()
-				    {
-				    	if ( $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length == 0 )
-				    	{
-				    		c=true;
-				    	}
-				    	else
-				    	{
-				    		c=false;
-				    	}
-				    },
-				    drop: function( event, ui ) 
-				    {
-				    	if(c==true)
-				    	{
-				    		$(this).append(ui.draggable);
-				    		c=false;
-				    	}
-				    }
-				});
-			});
-		function mostrar()
-		{
-		$('#menu').slideToggle('swing');
-		}
-	</script>
+	<script type="text/javascript" src="js/aplication.js"></script>
 </head>
 <body>
 	<header>
@@ -450,6 +400,14 @@
 						</tr>
 				</table>
 			</article>
+			<div id="quick_access">
+				<ul>
+					<li><a id="new"></a></li>
+					<li><a id="look" href="#"></a></li>
+					<li><a id="manage" href="#"></a></li>
+					<li><a id="print" href="#"></a></li>
+				</ul>
+			</div>
 		<div id='down_content'>
 			<p class="down_text"><a id="down_text_cal" href="calendario.php">¿Consultar otro día?&nbsp;&nbsp;<a></p>
 		</div>

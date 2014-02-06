@@ -930,7 +930,11 @@ th
 	margin: 0 19px;
 	padding: 0;
 	vertical-align: top;
-	width: auto;
+	width: 240px;
+}
+.fields_holder_chk:first-child
+{
+	margin-top: 2em;
 }
 .new_user_input
 {
@@ -939,6 +943,15 @@ th
 	padding: 0.5em 0.5em 0.5em 2em; 
 	position: relative;
 	width: 150px;
+}
+.new_user_input_chk
+{	
+	border: transparent;
+	display: inline-block;
+	outline: none;
+	padding: 0.5em 0.5em 0.5em 2em; 
+	position: relative;
+	width: 160px;
 }
 .new_user_input:focus
 {

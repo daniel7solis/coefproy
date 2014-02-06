@@ -122,7 +122,7 @@
 								</div>
 							</div>
 							<input name="to_user" id="to_user" type="Hidden"/>
-		   					<input name="to_pass" id="to_pass" type="text"/>
+		   					<input name="to_pass" id="to_pass" type="Hidden"/>
 							<!-- Submit button -->
 							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>

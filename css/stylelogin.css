@@ -108,14 +108,11 @@ h1
 }
 #user, #password
 {
-	-moz-transition: all 0.5s;
-	-ms-transition: all 0.5s;
-	-o-transition: all 0.5s;
-	-webkit-transition: all 0.5s;
 	transition: all 0.5s;
 	border: 1px solid #05316D;
 	border-radius: 25px;
 	margin: 0.5em;
+	outline: none;
 	padding: 0.8em;
 	text-align: right;
 	width: 69%;
