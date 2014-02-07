@@ -68,7 +68,6 @@
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
-				<h1></h1>
 			</ul>
 		</nav>
 		<?php
@@ -83,12 +82,12 @@
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales -</p></div>
 				<div class='contenido_item_perfil'>
-					<p id='identificador'>ID: $id<br>
+					<p>ID: $id<br>
 					Nombre: $nombre</p>
 				</div>
 			</article>";
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/

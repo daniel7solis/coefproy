@@ -36,6 +36,11 @@ footer
 	padding: 1em 0;
 	text-align: right;
 }
+h3
+{
+	margin: 0;
+	text-align: center;
+}
 h4
 {
 	font-weight: normal;
@@ -578,6 +583,7 @@ th
 	background: rgba(86,194,255,0.1);
 	color: black;
 	margin-top: 0;
+	padding-bottom: 1em;
 }
 .contenido_item_perfil p
 {
@@ -898,6 +904,18 @@ th
 	right: 0em;
 	top: 12%;
 }
+.patient_check
+{
+	background: #ecf0f1;
+	padding: 1em 0.5em;
+}
+.inner_separator
+{
+	border: 0px;
+	border-top: 1px solid #999;
+	height: 0;
+	width: 80%
+}
 #new_user_submit
 {
 	background: #FFBC00;
@@ -907,6 +925,16 @@ th
 	color: #704B00;
 	float: right;
 	margin: 1em 1.1em 1em 0;
+	padding: 0.5em 1.5em;
+}
+#new_user_submit2
+{
+	background: #FFBC00;
+	border: transparent;
+	border-bottom: 3px solid #704b00;
+	border-radius: 0.3em;
+	color: #704B00;
+	margin: 1em 0 0 51%;
 	padding: 0.5em 1.5em;
 }
 #userName
@@ -927,14 +955,15 @@ th
 {
 	background: white;
 	border-radius: 0.2em 0.2em 0.2em 0.2em;
-	margin: 0 19px;
+	display: block;
+	margin: 0.5em 19px;
 	padding: 0;
 	vertical-align: top;
 	width: 240px;
 }
 .fields_holder_chk:first-child
 {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 .new_user_input
 {

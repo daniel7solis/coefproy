@@ -20,6 +20,9 @@
 				{
 					$('#menu').hide('swing');
 				});
+				$('td').on('click', function(){
+					console.log($(this).text());
+				});
 			});
 		function mostrar()
 		{
@@ -91,53 +94,53 @@
 					
 					?>
 					<tr class="day_height">
-						<td class="calendar_row"><span id="esp0"></span><p></p></td>
-						<td class="calendar_row"><span id="esp1"></span><p></p></td>
-						<td class="calendar_row"><span id="esp2"></span><p></p></td>
-						<td class="calendar_row"><span id="esp3"></span><p></p></td>
-						<td class="calendar_row"><span id="esp4"></span><p></p></td>
-						<td class="calendar_row"><span id="esp5"></span><p></p></td>
-						<td class="calendar_row"><span id="esp6"></span><p></p></td>
+						<td class="calendar_row" value="Domingo"><span id="esp0"></span><p></p></td>
+						<td class="calendar_row" value="Lunes"><span id="esp1"></span><p></p></td>
+						<td class="calendar_row" value="Martes"><span id="esp2"></span><p></p></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp3"></span><p></p></td>
+						<td class="calendar_row" value="Jueves"><span id="esp4"></span><p></p></td>
+						<td class="calendar_row" value="Viernes"><span id="esp5"></span><p></p></td>
+						<td class="calendar_row" value="Sábado"><span id="esp6"></span><p></p></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row"><span id="esp7"></span></td>
-						<td class="calendar_row"><span id="esp8"></span></td>
-						<td class="calendar_row"><span id="esp9"></span></td>
-						<td class="calendar_row"><span id="esp10"></span></td>
-						<td class="calendar_row"><span id="esp11"></span></td>
-						<td class="calendar_row"><span id="esp12"></span></td>
-						<td class="calendar_row"><span id="esp13"></span></td>
+						<td class="calendar_row" value="Domingo"><span id="esp7"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp8"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp9"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp10"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp11"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp12"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp13"></span></td>
 					</tr>
 					<tr class="day_height">
-						<td class="calendar_row"><span id="esp14"></span></td>
-						<td class="calendar_row"><span id="esp15"></span></td>
-						<td class="calendar_row"><span id="esp16"></span></td>
-						<td class="calendar_row"><span id="esp17"></span></td>
-						<td class="calendar_row"><span id="esp18"></span></td>
-						<td class="calendar_row"><span id="esp19"></span></td>
-						<td class="calendar_row"><span id="esp20"></span></td>
+						<td class="calendar_row" value="Domingo"><span id="esp14"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp15"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp16"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp17"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp18"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp19"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp20"></span></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row"><span id="esp21"></span></td>
-						<td class="calendar_row"><span id="esp22"></span></td>
-						<td class="calendar_row"><span id="esp23"></span></td>
-						<td class="calendar_row"><span id="esp24"></span></td>
-						<td class="calendar_row"><span id="esp25"></span></td>
-						<td class="calendar_row"><span id="esp26"></span></td>
-						<td class="calendar_row"><span id="esp27"></span></td>
+						<td class="calendar_row" value="Domingo"><span id="esp21"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp22"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp23"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp24"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp25"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp26"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp27"></span></td>
 					</tr>
 					<tr class="day_height">
-						<td class="calendar_row"><span id="esp28"></span></td>
-						<td class="calendar_row"><span id="esp29"></span></td>
-						<td class="calendar_row"><span id="esp30"></span></td>
-						<td class="calendar_row"><span id="esp31"></span></td>
-						<td class="calendar_row"><span id="esp32"></span></td>
-						<td class="calendar_row"><span id="esp33"></span></td>
-						<td class="calendar_row"><span id="esp34"></span></td>
+						<td class="calendar_row" value="Domingo"><span id="esp28"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp29"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp30"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp31"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp32"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp33"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp34"></span></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row"><span id="esp35"></span></td>
-						<td class="calendar_row"><span id="esp36"></span></td>
+						<td class="calendar_row" value="Domingo"><span id="esp35"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp36"></span></td>
 						<td id="info_calendar" colspan="5">
 							<p><div id="indicator_unaviable">1</div>Día no disponible</p>
 							<p><div id="indicator_actual">2</div>Día actual</p>

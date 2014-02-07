@@ -46,35 +46,62 @@
 		<section id="content">
 			<div id='up_content'>
 				<h2 id="content_title">Agendar</h2>
-				<p id="content_subtitle"><?PHP
-											echo $_REQUEST['hora'];	 
-										?>
+				<p id="content_subtitle">
+				<span id="actual_day_numb"></span>/<span id="actual_month"></span>/<span id="actual_year"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<?PHP
+					echo $_REQUEST['hora'];	 
+				?>
 				</p>
 			</div>
 			<article id="item_perfil">
-			<div class='title_item_perfil'><p>1. Nombre y fecha nac.</p></div>
+			<div class='title_item_perfil'><p>Ingrese nombre y fecha nac.</p></div>
 				<div class='contenido_item_perfil'>
 					<div class="fields_holder_chk">
 						<div id="chk_name_label" class="new_user_labels" for="nombre"></div>
 			   			<input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
 			   		</div>
-			   		<br>
 				   	<div class="fields_holder_chk">
 				   		<div id="chk_date_label" class="new_user_labels" for="ap"></div>
 				   		<input name="fecha" id="chk_date" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
 				   	</div>
-			   		<input id="new_user_submit" type="submit" value="Siguiente" />
+			   		<input id="new_user_submit2" type="submit" value="Siguiente" />
 				</div>
 			</article>
-			<br><br>
-			<article id="new_patient">
-				<h3>Nuevo paciente</h3>
-				<p>Nombre:</p>
-				<p>Fecha de cita:</p>
+			<article id="new_patient" class="patient_check">
+				<h3>NUEVO PACIENTE</h3>
+				<hr class="inner_separator">
+				<div class="fields_holder_chk">
+						<div id="np_name_label" class="new_user_labels" for="nombre"></div>
+			   			<input name="np_name" id="np_name" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+			   		</div>
+				   	<div class="fields_holder_chk">
+				   		<div id="np_ap_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_ap" id="np_ap" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   	</div>
+				   	<div class="fields_holder_chk">
+						<div id="np_direction_label" class="new_user_labels" for="nombre"></div>
+			   			<input name="np_direction" id="np_direction" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+			   		</div>
+				   	<div class="fields_holder_chk">
+				   		<div id="np_age_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_age" id="np_age" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   	</div>
+				   	<div class="fields_holder_chk">
+						<div id="np_birth_label" class="new_user_labels" for="nombre"></div>
+			   			<input name="np_birth" id="np_birth" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+			   		</div>
+				   	<div class="fields_holder_chk">
+				   		<div id="np_email_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_email" id="np_email" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   	</div>
+				   	<div class="fields_holder_chk">
+				   		<div id="np_tel_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_tel" id="np_tel" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   	</div>
 			</article>
-			<article id="already_patient">
-				<h3>Id. paciente:</h3>
-				<h3>Nombre:</h3>
+			<article id="already_patient" class="patient_check">
+				<h3>Id. NOMBRE</h3>
+				<hr class="inner_separator">
 				<p>Fecha de cita:</p>
 			</article>
 		<div id='down_content'></div>
