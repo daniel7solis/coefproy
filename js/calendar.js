@@ -1,4 +1,11 @@
-var $aux, $aux2, $aux3,
+/* -------------------- calendar.js by Daniel Vega -------------------------
+   Plugin que contiene las funcionalidades de calendario.php. Genera los días
+   de cada mes y los meses del 2014. Una vez que pase el año, sólo se actua-
+   lizará ÉSTE archivo js.
+*/
+
+// Definición de las variables necesarias.
+ var $aux, $aux2, $aux3,
 	ene = [31,3,"ENERO"],
 	feb = [28,6,"FEBRERO"],
 	mar = [31,6,"MARZO"],
@@ -22,20 +29,25 @@ var $aux, $aux2, $aux3,
 	$prev = $('.prev_month'),
 	$next = $('.next_month');
 
+// Cuando la página haya cargado...
 $( document ).ready(function()
 {
+	// Se agrega la funcionalidad a cada día para que envíe sus datos a
+	// agenda.php 
 	$('td.calendar_row').on('click', function()
 	{
 		document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes=" + mesesagenda[ref]+"&ano=2014";
 	});
 });
 
+// Obtiene el mes actual.
 function actual()
 {
 	var num = now.getMonth()
 	asignar(num)
 }
 
+// Asigna el mes deseado.
 function asignar(num)
 {
 	limpiar()
@@ -44,6 +56,7 @@ function asignar(num)
 	generar(num)
 }
 
+// Limpia los días antes de generar un nuevo mes.
 function limpiar()
 {
 	var temp=0;
@@ -56,6 +69,7 @@ function limpiar()
 	temp=0
 }
 
+// Genera los días en base al mes.
 function generar(num)
 {
 	col = mes[1];
@@ -71,10 +85,12 @@ function generar(num)
 			cont++
 			if(cont-1<now.getDate())
 			{
+				// Días pasados.
 				$aux.css({'color':'gray','text-decoration':'line-through'})
 			}
 			if(cont-1==now.getDate())
 			{
+				// Día actual.
 				$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em'})
 			}
 		}
@@ -89,6 +105,7 @@ function generar(num)
 			$aux.html(cont)
 			col++
 			cont++
+			// Días disponibles.
 			$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'})
 		}
 		cont=1
@@ -96,6 +113,7 @@ function generar(num)
 	}
 }
 
+// Disparador para generar un mes antes. Límite el mes actual.
 function anterior()
 {
 	if(ref>now.getMonth())
@@ -105,6 +123,7 @@ function anterior()
 	}
 }
 
+// Disparador para generar un mes después. Límite Diciembre dle año en curso.
 function siguiente()
 {
 	if(ref<11)

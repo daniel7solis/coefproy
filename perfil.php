@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
@@ -80,7 +80,7 @@
 		"<section id='content'>
 			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>$nombre</p></div>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Datos Generales -</p></div>
+				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
 					<p>ID: $id<br>
 					Nombre: $nombre</p>
@@ -108,7 +108,7 @@
 			$x=1;//regreso variable a 1 
 			echo 
 			"<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
+				<div class='title_item_perfil'><p>Aspecto Laboral:</p></div>
 				<div class='contenido_item_perfil'>";
 				while ($cont>0) {
 						$codestring='$z=$perfil'.$x.'[0];';
@@ -143,7 +143,7 @@
 				"</div>
 			</article>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Permisos -</p></div>
+				<div class='title_item_perfil'><p>Permisos:</p></div>
 				<div class='contenido_item_perfil'>";
 				for ($i=1; $i <= $cont_r; $i++) { 
 					$codestring='$m=$mod'.$i.';';

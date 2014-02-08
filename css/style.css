@@ -18,7 +18,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-*{font-family: 'Gafata', sans-serif;}
 a
 {
 	text-decoration: none;
@@ -154,10 +153,22 @@ th
 	content: "\e602";
 	font-family: "icomoon";
 }
+#ap_label:after
+{
+	content: "\e617";
+	font-family: "icomoon";
+}
 #calendar_style
 {
 	margin-top: 4em;
 	margin-bottom: 1em;
+}
+#camera
+{
+	border-radius: 0.7em;
+	height: 187px;
+	margin: 0;
+	width: 250px;
 }
 #check_patient_type
 {
@@ -208,10 +219,10 @@ th
 	color: white;
 	font-weight: bold;
 	left: -0.5em;
-	padding: 0.5em 1em;
+	padding: 0.5em 0 0.5em 0.5em;
 	position: absolute;
 	top: 1.5em;
-	width: 70%;
+	width: 80%;
 }
 #content_subtitle:before
 {
@@ -231,40 +242,16 @@ th
 	position:absolute;
 	bottom:0;
 }
+#curp_label:after
+{
+	content: "\e601";
+	font-family: "icomoon";
+}
 #day_table
 {
 	padding: 0; 
 	margin: 1em 0;
 	width: 100%;
-}
-#fifteen, #fourtyfive, #half
-{
-	font-size: 0.53em;
-	position: absolute;
-}
-#fifteen
-{
-	top:20px;
-}
-#fourtyfive
-{
-	top:70px;
-}
-#half
-{
-	top:45px;
-}
-#table_body
-{
-	display: block;
-	width: 100%;
-}
-#down_text_cal:after
-{
-	content: "\e600";
-	font-family: "icomoon";
-	font-style: normal;
-	font-weight: bold;
 }
 #departments, #donator, #patients
 {
@@ -299,10 +286,39 @@ th
 	height: 2em;
 	position: relative;
 }
+#down_text_cal:after
+{
+	content: "\e600";
+	font-family: "icomoon";
+	font-style: normal;
+	font-weight: bold;
+}
+#dir_label:after
+{
+	content: "\e60e";
+	font-family: "icomoon";
+}
+#fifteen, #fourtyfive, #half
+{
+	font-size: 0.53em;
+	position: absolute;
+}
+#fifteen
+{
+	top:20px;
+}
+#fourtyfive
+{
+	top:70px;
+}
 #glass:after
 {
 	content: "\e605";
 	font-family: "icomoon";
+}
+#half
+{
+	top:45px;
 }
 #indicator_actual
 {
@@ -368,6 +384,15 @@ th
 	content: "\e610";
 	font-family: "icomoon";
 }
+#mail_label:after
+{
+	content: "\e60d";
+	font-family: "icomoon";
+}
+#main_fields_holder
+{
+	margin-top: 1em; 
+}
 #manage:after
 {
 	content: "\e60b";
@@ -409,10 +434,50 @@ th
 	display: block;
 	padding: 0.5em 0;
 }
+#miniholder
+{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#miniholder:before
+{
+	border-right: 26px solid rgba(39,174,96,0.5);
+	border-top: 26px solid transparent;
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 0;
+}
 #new:after
 {
 	content: "\e619";
 	font-family: "icomoon";
+}
+#new_user_submit
+{
+	background: #FFBC00;
+	border: transparent;
+	border-bottom: 3px solid #704b00;
+	border-radius: 0.3em;
+	color: #704B00;
+	float: right;
+	margin: 1em 1.1em 1em 0;
+	outline: none;
+	padding: 0.5em 1.5em;
+}
+#new_user_submit2
+{
+	background: #FFBC00;
+	border: transparent;
+	border-bottom: 3px solid #704b00;
+	border-radius: 0.3em;
+	color: #704B00;
+	margin: 1em 0 0 51%;
+	outline: none;
+	padding: 0.5em 1.5em;
 }
 #notifications
 {
@@ -452,20 +517,32 @@ th
 	right: -0.5em;
 	top: -0.6em;
 }
-#print:after
-{
-	content: "\e613";
-	font-family: "icomoon";
-}
 #patients a:after
 {
 	color: white;
 	content: "\e601";
 	font-family: "icomoon";
 }
-#manage:after
+#photo
 {
-	content: "\e60b";
+	border-radius: 0.7em;
+	height: 187px;
+	margin: 0;
+	width: 250px;
+}
+#photo_buttons, #photo_loader
+{
+	margin: 0 1em 0 1em;
+	text-align: center;
+}
+#print:after
+{
+	content: "\e613";
+	font-family: "icomoon";
+}
+#rfc_label:after
+{
+	content: "\e601";
 	font-family: "icomoon";
 }
 #quick_access
@@ -517,6 +594,63 @@ th
 	padding: 0.5em;
 	text-align: right;
 }
+#start_camera
+{
+	background: rgba(22,160,133,0.5);
+	border: transparent;
+	border-bottom-left-radius: 0.5em;
+	color: white;
+	font-size: 0.8em;
+	outline: none;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	position: absolute;
+	right: 4.6em;
+	top: 0;
+}
+#start_camera:hover
+{
+	background: rgba(26,188,156,0.5);
+}
+#stop_camera
+{
+	background: rgba(192,57,43,0.5);
+	border-top-right-radius: 0.7em;
+	border: transparent;
+	color: white;
+	font-size: 0.8em;
+	outline: none;
+	padding: 0.5em 0.5em;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#stop_camera:hover
+{
+	background: rgba(231,76,60,0.5);
+}
+#table_body
+{
+	display: block;
+	width: 100%;
+}
+#take_photo
+{
+	background: rgba(39,174,96,0.5);
+	border: transparent;
+	color: white;
+	outline: none;
+	padding: 0.2em 1em;
+	width: 115px;
+}
+#take_photo:hover
+{
+	background: rgba(46,204,113,0.5);
+}
+#tel_label:after
+{
+	content: "\e615";
+	font-family: "icomoon";
+}
 #up_content
 {
 	background: white;
@@ -557,6 +691,28 @@ th
 #up_content ul li a:hover
 {
 	color: #2980b9;
+}
+#upload_photo
+{
+	background: white;
+	bottom: 0.2em;
+	font-size: 0.8em;
+	border-radius: 0.5em;
+	margin: 0;
+    padding: 0;
+    outline:0;
+	position: absolute;
+	width: 100%;
+}
+#user_label:after
+{
+	content: "\e60f";
+	font-family: "icomoon";
+}
+#userName
+{
+	color: #2c3e50;
+	font-size: 1.3em;
 }
 .calendar_row
 {
@@ -646,7 +802,8 @@ th
 .draggable_hour_5, 
 .draggable_hour_6
 {
-	font-size: 0.8em
+	display: inline-block;
+	font-size: 0.8em;
 }
 .draggable_hour_1
 {
@@ -654,14 +811,13 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	height: 75px;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_2
 {
@@ -669,13 +825,12 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_3
 {
@@ -683,13 +838,12 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_4
 {
@@ -697,13 +851,12 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_5
 {
@@ -711,13 +864,12 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_6
 {
@@ -725,13 +877,12 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	display: block;
 	min-height: 25px;
 	padding: 0 1em;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top:0;
-	width: 25px;
+	width: 200px;
 }
 .draggable_hour_1:after,
 .draggable_hour_2:after,
@@ -802,6 +953,29 @@ th
 	color: #3498db;
 	font-style: italic;
 }
+.fields_holder
+{
+	background: white;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	margin: 0 19px;
+	padding: 0;
+	vertical-align: top;
+	width: auto;
+}
+.fields_holder_chk
+{
+	background: white;
+	border-radius: 0.2em 0.2em 0.2em 0.2em;
+	display: block;
+	margin: 0.5em 19px;
+	padding: 0;
+	vertical-align: top;
+	width: 240px;
+}
+.fields_holder_chk:first-child
+{
+	margin-top: 1em;
+}
 .fixed
 {
 	position: fixed; 
@@ -832,6 +1006,13 @@ th
 {
 	border-bottom: 2px solid #7f8c8d;
 }
+.inner_separator
+{
+	border: 0px;
+	border-top: 1px solid #999;
+	height: 0;
+	width: 80%
+}
 .left_hour
 {
 	background: #2980b9;
@@ -841,11 +1022,7 @@ th
 	font-size: 0.9em;
 	padding: 1em 0.2em;
 	text-align: center;
-	width: 5%;
-}
-.left_hour:last-child
-{
-	border-bottom: 2px solid transparent;
+	width: 1%;
 }
 .menu_profile:hover, .menu_help:hover, .menu_conf:hover
 {
@@ -892,79 +1069,6 @@ th
 	left: 50%;
 	width: 200px;
 }
-.next_month:after
-{
-	background: rgba(189, 195, 199,0.5);
-	border-radius: 50%;
-	color: rgba(100,100,100,0.7);
-	content: "\e61f";
-	font-family: "icomoon";
-	font-size: 2.5em;
-	position: absolute;
-	right: 0em;
-	top: 12%;
-}
-.patient_check
-{
-	background: #ecf0f1;
-	padding: 1em 0.5em;
-}
-.inner_separator
-{
-	border: 0px;
-	border-top: 1px solid #999;
-	height: 0;
-	width: 80%
-}
-#new_user_submit
-{
-	background: #FFBC00;
-	border: transparent;
-	border-bottom: 3px solid #704b00;
-	border-radius: 0.3em;
-	color: #704B00;
-	float: right;
-	margin: 1em 1.1em 1em 0;
-	padding: 0.5em 1.5em;
-}
-#new_user_submit2
-{
-	background: #FFBC00;
-	border: transparent;
-	border-bottom: 3px solid #704b00;
-	border-radius: 0.3em;
-	color: #704B00;
-	margin: 1em 0 0 51%;
-	padding: 0.5em 1.5em;
-}
-#userName
-{
-	color: #2c3e50;
-	font-size: 1.3em;
-}
-.fields_holder
-{
-	background: white;
-	border-radius: 0.2em 0.2em 0.2em 0.2em;
-	margin: 0 19px;
-	padding: 0;
-	vertical-align: top;
-	width: auto;
-}
-.fields_holder_chk
-{
-	background: white;
-	border-radius: 0.2em 0.2em 0.2em 0.2em;
-	display: block;
-	margin: 0.5em 19px;
-	padding: 0;
-	vertical-align: top;
-	width: 240px;
-}
-.fields_holder_chk:first-child
-{
-	margin-top: 1em;
-}
 .new_user_input
 {
 	border: transparent;
@@ -1006,104 +1110,22 @@ th
 	top: 0;
 	z-index: 10;
 }
-#camera
+.next_month:after
 {
-	border-radius: 0.7em;
-	height: 187px;
-	margin: 0;
-	width: 250px;
-}
-#main_fields_holder
-{
-	margin-top: 1em; 
-}
-#photo
-{
-	border-radius: 0.7em;
-	height: 187px;
-	margin: 0;
-	width: 250px;
-}
-#photo_buttons, #photo_loader
-{
-	margin: 0 1em 0 1em;
-	text-align: center;
-}
-#start_camera
-{
-	background: rgba(22,160,133,0.5);
-	border: transparent;
-	border-bottom-left-radius: 0.5em;
-	color: white;
-	font-size: 0.8em;
-	outline: none;
-	padding: 0.5em 0.5em 0.5em 0.5em;
+	background: rgba(189, 195, 199,0.5);
+	border-radius: 50%;
+	color: rgba(100,100,100,0.7);
+	content: "\e61f";
+	font-family: "icomoon";
+	font-size: 2.5em;
 	position: absolute;
-	right: 4.6em;
-	top: 0;
+	right: 0em;
+	top: 12%;
 }
-#start_camera:hover
+.patient_check
 {
-	background: rgba(26,188,156,0.5);
-}
-#stop_camera
-{
-	background: rgba(192,57,43,0.5);
-	border-top-right-radius: 0.7em;
-	border: transparent;
-	color: white;
-	font-size: 0.8em;
-	outline: none;
-	padding: 0.5em 0.5em;
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-#stop_camera:hover
-{
-	background: rgba(231,76,60,0.5);
-}
-#miniholder
-{
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
-#miniholder:before
-{
-	border-right: 26px solid rgba(39,174,96,0.5);
-	border-top: 26px solid transparent;
-	content: "";
-	position: absolute;
-	right: 100%;
-	top: 0;
-}
-#take_photo
-{
-	background: rgba(39,174,96,0.5);
-	border: transparent;
-	color: white;
-	outline: none;
-	padding: 0.2em 1em;
-	width: 115px;
-}
-#take_photo:hover
-{
-	background: rgba(46,204,113,0.5);
-}
-#upload_photo
-{
-	background: white;
-	bottom: 0.2em;
-	font-size: 0.8em;
-	border-radius: 0.5em;
-	margin: 0;
-    padding: 0;
-    outline:0;
-	position: absolute;
-	width: 100%;
+	background: #ecf0f1;
+	padding: 1em 0.5em;
 }
 .photo_container
 {
@@ -1132,41 +1154,10 @@ th
 	left: 100%;
 	top: 0;
 }
-#user_label:after
-{
-	content: "\e60f";
-	font-family: "icomoon";
-}
-#ap_label:after
-{
-	content: "\e617";
-	font-family: "icomoon";
-}
-#dir_label:after
-{
-	content: "\e60e";
-	font-family: "icomoon";
-}
-#tel_label:after
-{
-	content: "\e615";
-	font-family: "icomoon";
-}
-#mail_label:after
-{
-	content: "\e60d";
-	font-family: "icomoon";
-}
-#curp_label:after
-{
-	content: "\e601";
-	font-family: "icomoon";
-}
-#rfc_label:after
-{
-	content: "\e601";
-	font-family: "icomoon";
-}
+
+
+
+
 #vertical_spacer
 	{
 		display: none;
@@ -1188,6 +1179,7 @@ th
 	transition: all 0.5s;
 	border-radius: 5px;
 	margin: 0.4em;
+	outline: none;
 	padding: 0.5em;
 	width: 30%;
 }

@@ -436,6 +436,17 @@
 	{
 		text-decoration: none;
 	}
+	.draggable_hour_1, 
+	.draggable_hour_2, 
+	.draggable_hour_3, 
+	.draggable_hour_4, 
+	.draggable_hour_5, 
+	.draggable_hour_6
+	{
+	display: inline-block;
+	font-size: 0.8em;
+	width: 90%;
+}
 	.draggable_hour_1
 	{
 		width: 120px;
@@ -780,29 +791,39 @@
 	{
 		text-decoration: none;
 	}
+	.draggable_hour_1, 
+	.draggable_hour_2, 
+	.draggable_hour_3, 
+	.draggable_hour_4, 
+	.draggable_hour_5, 
+	.draggable_hour_6
+	{
+		display: inline-block;
+		font-size: 0.8em;
+	}
 	.draggable_hour_1
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.draggable_hour_2
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.draggable_hour_3
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.draggable_hour_4
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.draggable_hour_5
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.draggable_hour_6
 	{
-		width: 120px;
+		width: 800px;
 	}
 	.fields_holder
 	{
