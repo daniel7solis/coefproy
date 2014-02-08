@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-touch.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
