@@ -11,6 +11,12 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<!-- Daniel Code -->
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript">
+		function sesion () {
+			sessionStorage.setItem("id", json);
+			document.location.href="perfil.php";
+		}
+	</script>
 	<!-- Daniel code fin -->
 </head>
 
@@ -18,6 +24,7 @@
 	<?php
 			$nombre=$_REQUEST['user'];
 			$pass=$_REQUEST['password'];
+
 			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
@@ -46,22 +53,15 @@
 					$semilla=$arreglo['semilla'];
 					$passF=hash("sha512", $pass.$semilla,false);
 					if($passF==$arreglo['contrasena']){
+						$arr=array('id' => $arreglo['idUsuario'], 'nombre' => $nombre);
+						$json = json_encode($arr);
+						// echo $json;
+						echo "<script language='javascript'>";
+						echo "var json='".$json."';";
+						echo "sesion();";
+						echo "</script>";
 						/**/
-						$nuevoArch=fopen("data.json","w+");
-						$pregunta="pregunta";
-						$json="json";
-						$content='{"id":"'.$arreglo['idUsuario'].'","nombre":"'.$arreglo['nombreUsuario'].'","contrasena":"'.$arreglo['contrasena'].'"}';
-
-						fwrite($nuevoArch,$content);
-						fclose($nuevoArch);
-						/**/
-						// $arr = array('a' => 1);
-						// $pregunta = new stdClass();
-						// $pregunta->titulo = "Altitud del monte Everest";
-						// $json = json_encode($pregunta);
-						// // $json =json_encode($arr);
-						// echo ($json);
-						header("location: perfil.php");
+						// header("location: perfil.php");
 						// header("location: perfil.php?id=".$arreglo['idUsuario']."&nombre=".$arreglo['nombreUsuario']."&contrasena=".$arreglo['contrasena']);
 						exit();
 					}else{
@@ -79,3 +79,4 @@
 	?>
 </body>
 </html>
+8L8w8R4F
