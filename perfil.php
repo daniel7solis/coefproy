@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
@@ -102,7 +102,7 @@
 		<section id='content'>
 			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'><span class="user"></span></p></div>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Datos Generales -</p></div>
+				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
 					<p>ID: <span id='id'></span><br>
 					Nombre: <span class='user'></span></p>

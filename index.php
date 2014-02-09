@@ -4,15 +4,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Login</title>
-	<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Gafata|Pathway+Gothic+One' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsivelogin.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<!-- Daniel Code -->
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
-	<!-- Daniel code fin -->
 </head>
 
 <body>

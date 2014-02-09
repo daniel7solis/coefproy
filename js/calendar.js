@@ -1,4 +1,11 @@
-var $aux, $aux2, $aux3,
+/* -------------------- calendar.js by Daniel Vega -------------------------
+   Plugin que contiene las funcionalidades de calendario.php. Genera los días
+   de cada mes y los meses del 2014. Una vez que pase el año, sólo se actua-
+   lizará ÉSTE archivo js.
+*/
+
+// Definición de las variables necesarias.
+ var $aux, $aux2, $aux3,
 	ene = [31,3,"ENERO"],
 	feb = [28,6,"FEBRERO"],
 	mar = [31,6,"MARZO"],
@@ -22,98 +29,106 @@ var $aux, $aux2, $aux3,
 	$prev = $('.prev_month'),
 	$next = $('.next_month');
 
-	function actual()
+// Cuando la página haya cargado...
+$( document ).ready(function()
+{
+	// Se agrega la funcionalidad a cada día para que envíe sus datos a
+	// agenda.php 
+	$('td.calendar_row').on('click', function()
 	{
-		var num = now.getMonth()
-		asignar(num)
-	}
+		document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes=" + mesesagenda[ref]+"&ano=2014";
+	});
+});
 
-	function asignar(num)
-	{
-		limpiar()
-		ref=num
-		mes = meses[num]
-		generar(num)
-	}
+// Obtiene el mes actual.
+function actual()
+{
+	var num = now.getMonth()
+	asignar(num)
+}
 
-	function limpiar()
+// Asigna el mes deseado.
+function asignar(num)
+{
+	limpiar()
+	ref=num
+	mes = meses[num]
+	generar(num)
+}
+
+// Limpia los días antes de generar un nuevo mes.
+function limpiar()
+{
+	var temp=0;
+	while(temp<=36)
 	{
-		var temp=0;
-		while(temp<=36)
+		$aux3 = $('#esp'+temp)
+		$aux3.html('')
+		temp++
+	}
+	temp=0
+}
+
+// Genera los días en base al mes.
+function generar(num)
+{
+	col = mes[1];
+	$aux2 = $('.month_title');
+	$aux2.html(mes[2]);
+	if(num==now.getMonth())
+	{
+		while(cont<=mes[0])
 		{
-			$aux3 = $('#esp'+temp)
-			$aux3.html('')
-			temp++
-		}
-		temp=0
-	}
-
-	function generar(num)
-	{
-		col = mes[1]
-		$aux2 = $('.month_title')
-		$aux2.html(mes[2])
-		if(num==now.getMonth())
-		{
-			while(cont<=mes[0])
+			$aux = $('#esp'+col)
+			$aux.html(cont)
+			col++
+			cont++
+			if(cont-1<now.getDate())
 			{
-				$aux = $('#esp'+col)
-				$aux.html(cont)
-				col++
-				cont++
-				if(cont-1<now.getDate())
-				{
-					$aux.css({'color':'gray','text-decoration':'line-through'})
-				}
-				if(cont-1==now.getDate())
-				{
-					$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em'})
-				}
+				// Días pasados.
+				$aux.css({'color':'gray','text-decoration':'line-through'})
 			}
-			cont=1
-			col=0
-		}
-		else
-		{
-			while(cont<=mes[0])
+			if(cont-1==now.getDate())
 			{
-				$aux = $('#esp'+col)
-				$aux.html(cont)
-				col++
-				cont++
-				$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'})
+				// Día actual.
+				$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em'})
 			}
-			cont=1
-			col=0
 		}
+		cont=1
+		col=0
 	}
-
-	function anterior()
+	else
 	{
-		if(ref>now.getMonth())
+		while(cont<=mes[0])
 		{
-			ref--
-			asignar(ref)
+			$aux = $('#esp'+col)
+			$aux.html(cont)
+			col++
+			cont++
+			// Días disponibles.
+			$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'})
 		}
+		cont=1
+		col=0
 	}
+}
 
-	function siguiente()
+// Disparador para generar un mes antes. Límite el mes actual.
+function anterior()
+{
+	if(ref>now.getMonth())
 	{
-		if(ref<11)
-		{
-			ref++
-			asignar(ref)
-		}
+		ref--
+		asignar(ref)
 	}
+}
 
-	function actualdate()
+// Disparador para generar un mes después. Límite Diciembre dle año en curso.
+function siguiente()
+{
+	if(ref<11)
 	{
-		$aux = $('#actual_day_name')
-		$aux.html(diasagenda[now.getDay()])
-		$aux = $('#actual_day_numb')
-		$aux.html(now.getDate())
-		$aux = $('#actual_month')
-		$aux.html(mesesagenda[now.getMonth()])
-		$aux = $('#actual_year')
-		$aux.html(now.getFullYear())
+		ref++
+		asignar(ref)
 	}
+}
