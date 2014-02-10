@@ -54,7 +54,7 @@
 			</ul>
 		</nav>
 		<section id="content">
-			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="nombre_user">Listado de Usuarios</p></div>
+			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
 		<?php
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -86,6 +86,14 @@
 				</article>";
 			}	
 		?>
+		<div id="quick_access">
+				<ul>
+					<li><a id="new" href="altaUser.php"></a></li>
+					<li><a id="look" href="#"></a></li>
+					<li><a id="manage" href="#"></a></li>
+					<li><a id="print" href="#"></a></li>
+				</ul>
+			</div>
 		</section>
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Registro Usuario</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -123,16 +123,10 @@
 							</div>
 							<input name="to_user" id="to_user" type="Hidden"/>
 		   					<input name="to_pass" id="to_pass" type="text"/>
-							<!-- Submit button -->
-							<input id="new_user_submit" type="submit" value="Registrar" />   
+		   					<!-- Submit button -->
+							<input id="new_user_submit" type="submit" value="Siguiente" />   
 						</form>
-						<br><br><br><br>
-					</div>
-			</article>
-			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
-					<div id="userName" class='contenido_item_perfil'>
-						
+						<br>
 					</div>
 			</article>
 		</section>
