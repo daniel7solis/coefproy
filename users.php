@@ -68,8 +68,7 @@
 					<div class='title_item_perfil'><p>$arrUsers[nombreUsuario]</p></div>
 					<div class='contenido_item_perfil'>
 						<p>ID: $arrUsers[idUsuario]<br>
-						Nombre: $arrUsers[nombreUsuario]<br>
-						Contraseña: $arrUsers[contrasena]</p>";
+						Nombre: $arrUsers[nombreUsuario]</p>";
 						$info=mysql_query("select * from permisosusuarios where idUsuarios='$arrUsers[idUsuario]'",$conexion);
 						while($datos=mysql_fetch_array($info,MYSQLI_BOTH)){
 							$modulo=mysql_query("select modName from modulos where idModulo='$datos[3]'",$conexion);
@@ -101,10 +100,3 @@
 
 </body>
 </html>
-Nombre
-Direccion
-Telefono
-Foto
-email
-curp
-rfc
