@@ -17,6 +17,7 @@ $( document ).ready(function()
 {
 	// Se obtiene la fecha actual (agenda.php)
 	actualdate();
+	resetSize();
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
@@ -44,7 +45,7 @@ $( document ).ready(function()
 		revert:'invalid'
 	});
 
-	var c=true, original;
+	var c=true, original, averglob;
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
 	$( '.droppable_hour' ).droppable(
 	{
@@ -53,30 +54,39 @@ $( document ).ready(function()
 	    over: function()
 	    {
 	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
 	    		c=true;
-	    		console.log("Si "+aver+" "+c);
 	    	}
 	    	else
 	    	{
 	    		tam = aver+1;
 	    		c=false;
-	    		console.log("No "+aver+" "+c);
 	    	}
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	if(!c)
+	    	if(ui.draggable.children().text()!=$(this).parent().attr('value'))
 	    	{
-	    		var nuevo = (ui.draggable.width()/tam)-35;
+		    	if(!c)
+		    	{
+		    		var nuevo = ($(this).children().width()/tam)-35;
+		    		$(this).children().css('width',nuevo+'px');
+		    	}
+	    		ui.draggable.css('width',nuevo+'px');
+	    		$(this).append(ui.draggable);
+	    		console.log(nuevo);
 	    	}
-	    	console.log((parseInt(nuevo,10)));
-	    	ui.draggable.css('width',(parseInt(nuevo,10))+'px');
 	    	$(this).append(ui.draggable);
+	    	ui.draggable.children().html($(this).parent().attr('value'));
 	    }
 	});
 });
+function resetSize()
+{
+	original = $('.draggable_hour_1').width();
+}
 // Muestra el globo de cuenta.
 function mostrar()
 {

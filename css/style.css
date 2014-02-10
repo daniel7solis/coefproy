@@ -714,6 +714,10 @@ th
 	color: #2c3e50;
 	font-size: 1.3em;
 }
+#vertical_spacer
+{
+	display: none;
+}
 .calendar_row
 {
 	color: black;
@@ -811,13 +815,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	height: 75px;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_2
 {
@@ -825,12 +827,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_3
 {
@@ -838,12 +839,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_4
 {
@@ -851,12 +851,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_5
 {
@@ -864,12 +863,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_6
 {
@@ -877,12 +875,11 @@ th
 	border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
-	min-height: 25px;
+	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	text-align: center;
 	top:0;
-	width: 200px;
+	width: 220px;
 }
 .draggable_hour_1:after,
 .draggable_hour_2:after,
@@ -894,6 +891,7 @@ th
 	color: rgba(236, 240, 241,0.5);
 	content: "...";
 	font-size: 2em;
+	font-weight: bold;
 	margin-top: -16px;
 	position: absolute;
 	right: -0.3em;
@@ -981,13 +979,17 @@ th
 	position: fixed; 
 	top:0;
 }
+.here_hour
+{
+	font-weight: normal;
+}
 .hour_row
 {
 	background: #bdc3c7;
 	border-bottom: 1px solid #7f8c8d;
 	border-left: 1px solid #95a5a6;
 	border-right: 1px solid #95a5a6;
-	height: 25px;
+	height: 40px;
 	padding: 0;
 }
 .hour_row:nth-child(4n+4)
@@ -1154,14 +1156,6 @@ th
 	left: 100%;
 	top: 0;
 }
-
-
-
-
-#vertical_spacer
-	{
-		display: none;
-	}
 .prev_month:after
 {
 	background: rgba(189, 195, 199,0.5);
@@ -1178,6 +1172,7 @@ th
 {
 	transition: all 0.5s;
 	border-radius: 5px;
+	border:0;
 	margin: 0.4em;
 	outline: none;
 	padding: 0.5em;
