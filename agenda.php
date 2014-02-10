@@ -53,7 +53,7 @@
 				<table id="day_table">
 					<?php
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
-						$horas;$idpac;$iddoc;
+						$horas;$idpac;$iddoc;$fecha;
 						$aux=0;
 						# Conexión a la base de datos.
 						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -70,6 +70,7 @@
 							$horas[$aux] = $arreglo['hora'];
 							$idpac[$aux] = $arreglo['idPaciente'];
 							$iddoc[$aux] = $arreglo['idDoctor'];
+							$fecha[$aux] = $arreglo['fecha'];
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
@@ -97,7 +98,7 @@
 								{ 
 									if(strcmp($horas[$m],$h.":".$min.$mer)==0)
 									{
-										echo "<div class='draggable_hour_".$iddoc[$m]."'>".$idpac[$m]."</div>";
+										echo "<div class='draggable_hour_".$iddoc[$m]."'>".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div>";
 									}
 								}
 								# Se cierra cada columna.
