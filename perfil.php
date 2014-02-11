@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/ValAndAltauser.js"></script>>
+	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -42,9 +42,6 @@
 			</figure>
 		</div>
 	</header>
-	<script language="javascript">
-		
-	</script>
 	<div id="search_wrapper">
 		<label id="glass" class="label" for="search"></label>
 		<input id="search" class="search_field" type="text">
@@ -87,6 +84,7 @@
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 			<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
+			<li id="rconfig"></li>
 			<li><a class='menu_help' href=''>&nbsp;&nbsp;Ayuda</a></li>
 			<li><a class='close_session' href=''>Cerrar sesión</a></li>
 		</ul>

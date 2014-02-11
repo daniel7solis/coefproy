@@ -70,10 +70,7 @@ al archivo oerfil.php*/
 function sesion () {
 	sessionStorage.setItem("id", json);
 	var Objjson=JSON.parse(json);
-	if(Objjson.nombre==="root")
-		document.location.href="perfilroot.php";
-	else
-		document.location.href="perfil.php";
+	document.location.href="perfil.php";
 }
 /*Funcion sesionPerfil obtine los datos del usuario logueado del json almacenada en sesionStorage;
 y con ajax hago la petición a la DB del resto de información del usuario para presentarlo
@@ -127,3 +124,29 @@ function sesionPerfil(){
 				}
 			});
 		}
+
+function isRoot(){
+	var ids=sessionStorage.getItem("id");
+	var idd=JSON.parse(ids);
+	var parametros = {
+                "id" : idd.id,
+                "user": idd.nombre
+        	};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'isroot.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			var cadenaP=data['rc'];
+			$("#rconfig").html(cadenaP);
+		}
+	});
+}
+
+$( document ).ready(function(){
+	isRoot();
+});
