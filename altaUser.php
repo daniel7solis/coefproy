@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Registro Usuario</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
+	<script type="text/javascript" src="js/aplication.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -123,22 +124,17 @@
 							</div>
 							<input name="to_user" id="to_user" type="Hidden"/>
 		   					<input name="to_pass" id="to_pass" type="text"/>
-							<!-- Submit button -->
-							<input id="new_user_submit" type="submit" value="Registrar" />   
+		   					<!-- Submit button -->
+							<input id="new_user_submit" type="submit" value="Siguiente" />   
 						</form>
-						<br><br><br><br>
-					</div>
-			</article>
-			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
-					<div id="userName" class='contenido_item_perfil'>
-						
+						<br>
 					</div>
 			</article>
 		</section>
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
+				<li id="rconfig"></li>
 				<li><a class='menu_help' href=''>&nbsp;&nbsp;Ayuda</a></li>
 				<li><a class='close_session' href=''>Cerrar sesión</a></li>
 		</ul>
