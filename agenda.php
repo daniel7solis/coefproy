@@ -49,6 +49,24 @@
 				<h2 id="content_title">Agenda</h2>
 				<p id="content_subtitle"><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
 			</div>	
+			<article id="date_changer">
+				<input id="dc_day" type="number" min=1 max=31 maxlength="2" />
+				<select id="dc_month">
+					<option id="Enero" value="1">Enero</option>
+					<option id="Febrero" value="2">Febrero</option>
+					<option id="Marzo" value="3">Marzo</option>
+					<option id="Abril" value="4">Abril</option>
+					<option id="Mayo" value="5">Mayo</option>
+					<option id="Junio" value="6">Junio</option>
+					<option id="Julio" value="7">Julio</option>
+					<option id="Agosto" value="8">Agosto</option>
+					<option id="Septiembre" value="9">Septiembre</option>
+					<option id="Octubre" value="10">Octubre</option>
+					<option id="Noviembre" value="11">Noviembre</option>
+					<option id="Diciembre" value="12">Diciembre</option>
+				</select>
+				<a id="dc_go">Ir...</a>
+			</article>
 			<article id="hour_container">
 				<table id="day_table">
 					<?php
@@ -74,7 +92,7 @@
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
-						$h=6;$min="00";$mer="am";
+						$h=6;$min="00";$mer="am";$count = 0;
 						# Ciclo que genera las 12 horas.
 						for ($i=0; $i < 12; $i++) 
 						{ 
@@ -88,23 +106,24 @@
 								{
 									echo "<td class='left_hour' rowspan='4'><p class='day_number'>".$h."</p> <p class='meridiane'>".$mer."</p></td>";
 								}
-								# Aquí genera las 5 columnas. ESTO VA A CAMBIAR POR UNA SOLA COLUMNA
-								# Y LA CAPACIDAD DE QUE LAS CITAS DRAGGABLES CAMBIEN DE TAMAÑO.
-								echo "<td class='droppable_hour'>";
+								# Aquí genera los contenedores droppables.
+								echo "<td id='c".$count."' class='droppable_hour'>";
 								# Se muestran las citas de la base de datos.
 								# $horas contiene la hora, $idpac contiene el id del paciente y $iddoc
 								# el id del doctor, osea el color que le corresponde.
-								for ($m=0; $m < 3; $m++) 
+								for ($m=0; $m < count($horas); $m++) 
 								{ 
 									if(strcmp($horas[$m],$h.":".$min.$mer)==0)
 									{
-										echo "<div class='draggable_hour_".$iddoc[$m]."'>".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div>";
+										echo $fecha[$m];
+										echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
 									}
 								}
 								# Se cierra cada columna.
 								echo "</td>";
-								# Se cierra cada renglón
+								# Se cierra cada renglón.
 								echo "</tr>";
+								$count++;
 								# Aquí se aumenta 15 min a cada renglón y se reinicia cuando llega a 60.
 								$min+=15;
 								if($min==60)
