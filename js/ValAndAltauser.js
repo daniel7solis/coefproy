@@ -12,6 +12,8 @@ function validar(str){
 }
 // <!-- Daniel Code end-->
 // Daniel COde
+/*Esta función toma la primer letra del nombre para agregarla al nombre de usuario, que se asigna por default
+al dar de alta un nuevo usuario*/
 var letra1;
 function sentName(str){
 	letra1=str.charAt(0);
@@ -27,6 +29,8 @@ function showHind(str){
 	// alert(str+letra1);
 	pass();
 }
+/*funcion que genera una contraseña aleatoria que se asigna a un usuario cuando es registrado que 
+posteriormente podra ser cambiada, que contiene numeros, letras*/
 function pass(){
 	var passW="";
 	var caracter;
@@ -58,21 +62,91 @@ function pass(){
 	};
 	// document.getElementById('to_pass').innerHTML=passW;
 	document.getElementById('to_pass').value=passW;
-	// alert(passW);
-	// alert("hola");
 }
-// Daniel Code end
-// $.ajax({
-// 	data:obtenerDatos();
-//   url: 'perfil.php',
-//   dataType: 'json',
-//   data: data,
-//   success: callback
-// });
+/*La funcion sesion guarda en sesionStorage el item "id" que contiene un objeto json creado en el archivo sesion2.php,
+despues que se ha identificado el usuario y se a validado con sus datos de la DB;
+tambien despues de almacenar el json en la computadora cliente redirecciona la aplicación
+al archivo oerfil.php*/
+function sesion () {
+	sessionStorage.setItem("id", json);
+	var Objjson=JSON.parse(json);
+	document.location.href="perfil.php";
+}
+/*Funcion sesionPerfil obtine los datos del usuario logueado del json almacenada en sesionStorage;
+y con ajax hago la petición a la DB del resto de información del usuario para presentarlo
+en la vista de su perfil*/
+function sesionPerfil(){
+			var ids=sessionStorage.getItem("id");
+			var idd=JSON.parse(ids);
+			var parametros = {
+                "id" : idd.id,
+                "user": idd.nombre
+        	};
+			$.ajax({
+				/*paso los paramentros al php*/
+				data:parametros,
+				url: 'procesa.php',
+				type:'post',
+				/*defino el tipo de dato de retorno*/
+				dataType:'json',
+				/*funcion de retorno*/
+				success: function(data){
+					/*inserto los datos en las etiquetas html*/
+					$("#id").html(data['id']);
+					$(".user").html(data['user']);
+					var cantidadPer=data['numPerfiles'];
+					var cadena="";
+					/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
+					vacia para insertar el total de perfiles dentro del html)*/
+					for(var i=1; i<=cantidadPer; i++){
+						cadena=cadena+"<p>Numero de Permiso: "+data['perfil'+i].permiso+"<br>"+
+						"Modulo: "+data['perfil'+i].modulo+"<br>"+
+						"Posición: "+data['perfil'+i].posicion+"<br>"+
+						"Sucursal: "+data['perfil'+i].sucursal+"</p>";
+					}
+					$("#perf").html(cadena);
+					/*condiciones para mostrar los permisos del usuario*/
+					var cadenaP="<p>";
+					if(data['at']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
+					if(data['c']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Creación<br>";
+					if(data['e']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Edición<br>";
+					if(data['l']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Lectura<br>";
+					if(data['a']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Añexar<br>";
+					if(data['i']==1)
+						cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
+					cadenaP=cadenaP+"</p>";	
+					$("#perm").html(cadenaP);
+				}
+			});
+		}
 
-// function obtenerDatos(){
-// 	 // Se almacenan todos los datos en un arreglo
-//     datos = [{name:"nombre",value:},{name:"paterno", value:$("#paterno").val()},{name:"materno", value:$("#materno").val()},{name: "nombre", value:$("#nombre").val()},{name:"idiomas", value:idiomas}];
-//     // Se regresa la variable datos con toda la informacion del alumno
-//     return datos;
-// }
+function isRoot(){
+	var ids=sessionStorage.getItem("id");
+	var idd=JSON.parse(ids);
+	var parametros = {
+                "id" : idd.id,
+                "user": idd.nombre
+        	};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'isroot.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			var cadenaP=data['rc'];
+			$("#rconfig").html(cadenaP);
+		}
+	});
+}
+
+$( document ).ready(function(){
+	isRoot();
+});

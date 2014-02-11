@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/aplication.js"></script>
+	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 </head>
 <body>
 	<header>
@@ -74,7 +75,7 @@
 						$horas;$idpac;$iddoc;$fecha;
 						$aux=0;
 						# Conexión a la base de datos.
-						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+						$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 						mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 						mysql_set_charset("utf8", $conexion);
 
@@ -155,6 +156,7 @@
 		<ul id="menu">
 			<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
 			<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>
+			<li id="rconfig"></li>
 			<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
 			<li><a class='close_session' href="">Cerrar sesión</a></li>
 		</ul>

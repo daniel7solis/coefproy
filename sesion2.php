@@ -9,15 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/responsivelogin.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<!-- Daniel Code -->
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
-	<script type="text/javascript">
-		function sesion () {
-			sessionStorage.setItem("id", json);
-			document.location.href="perfil.php";
-		}
-	</script>
-	<!-- Daniel code fin -->
 </head>
 
 <body>
@@ -54,22 +46,16 @@
 					if($passF==$arreglo['contrasena']){
 						$arr=array('id' => $arreglo['idUsuario'], 'nombre' => $nombre);
 						$json = json_encode($arr);
-						// echo $json;
 						echo "<script language='javascript'>";
 						echo "var json='".$json."';";
 						echo "sesion();";
 						echo "</script>";
-						/**/
 						// header("location: perfil.php");
-						// header("location: perfil.php?id=".$arreglo['idUsuario']."&nombre=".$arreglo['nombreUsuario']."&contrasena=".$arreglo['contrasena']);
 						exit();
 					}else{
 						echo "<p>Usuario ó contraseña incorrecta, vuelve a intentarlo</p>";
 					}
 				}
-				/*echo "<p>Usuario inexistente</p>";
-				/*$mensaje="Usuario inexistente";
-				die($mensaje);*/
 			}else{
 				echo "<p>Inserta nombre de usuario y contraseña</p>";
 			}
