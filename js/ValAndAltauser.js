@@ -70,7 +70,10 @@ al archivo oerfil.php*/
 function sesion () {
 	sessionStorage.setItem("id", json);
 	var Objjson=JSON.parse(json);
-	document.location.href="perfil.php";
+	if(Objjson.nombre==="root"){
+		document.location.href="root/perfil.php";	
+	}else
+		document.location.href="perfil.php";
 }
 /*Funcion sesionPerfil obtine los datos del usuario logueado del json almacenada en sesionStorage;
 y con ajax hago la petición a la DB del resto de información del usuario para presentarlo
@@ -150,3 +153,26 @@ function isRoot(){
 $( document ).ready(function(){
 	isRoot();
 });
+
+function get_sucursal(){
+	var ids=sessionStorage.getItem("id");
+	var idd=JSON.parse(ids);
+	var parametros = {
+                "id" : idd.id,
+                "user": idd.nombre
+        	};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'getsucursal.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			var cadenaP=data['name']+" "+data['dir'];
+			$("#suc").val(data['id']);
+			$("#label_suc").html(cadenaP);
+		}
+	});
+}

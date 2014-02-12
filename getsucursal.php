@@ -8,18 +8,12 @@
 		// Defino que la conexion con la base de datos sera con la codificacion UTF-8
 		mysql_set_charset("utf8", $conexion); 
 		/*fin para verificar*/
-		/*verifico la sucursal a la que pertenece el usuario, para mostrar solo los usuarios correspondientes en "users.php"*/
 		$datos=mysql_query("select idSucursal from permisosusuarios where idUsuarios='$id'",$conexion)or die("Problemas en la consulta la base de datos ".mysql_error());
 		$ids=mysql_fetch_array($datos);
-		/*Verifico si es usuario root para mandar informcaión que se muestra en su perfil para configurar los usuarios*/
-		$is_root="";
-		if($nom=="root")
-			$is_root="<a id='config' href='users.php?suc=$ids[0]'>&nbsp;&nbsp;Configuración de Usuarios</a>";
-		else
-			$is_root="";
-
+		$datos=mysql_query("select nombreSucursal,direccionSucursal from Sucursal where idSucursal='$ids[0]'",$conexion)or die("Problemas en la consulta la base de datos ".mysql_error());
+		$arr=mysql_fetch_array($datos);
 		/*Cadena con formato json*/
-		$cadenaJson='{"rc":"'.$is_root.'"}';
+		$cadenaJson='{"id":"'.$ids[0].'","name":"'.$arr[0].'","dir":"'.$arr[1].'"}';
 		// $cadenaJson='{"rc":"hola"}';
 		echo $cadenaJson;
 	}else{

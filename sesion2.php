@@ -20,6 +20,7 @@
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			$datos = mysql_query("select idUsuario,nombreUsuario,contrasena,semilla from usuarios where nombreUsuario='$nombre'",$conexion);
+			// consulto en permisos el id de sucursal
 			echo 
 			"<form name='login_form' action='sesion2.php' method='post'>
 				<section id='login'>

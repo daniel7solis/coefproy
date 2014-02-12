@@ -4,13 +4,13 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Registro Usuario</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
-	<script type="text/javascript" src="js/camera.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
+	<script type="text/javascript" src="../js/camera.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -30,14 +30,14 @@
 <body>
 	<header>
 		<figure id="logo">
-			<img src="images/logo.png" />
+			<img src="../images/logo.png" />
 		</figure>
 		<div id="right_wrapper">
 			<a href="#" id="notifications">
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="images/avatar.jpg" />
+				<img src="../images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
@@ -47,7 +47,7 @@
 		<input id="search" class="search_field" type="text">
 	</div>
 	<div id="content_wrapper">
-		<nav>
+		<!-- <nav>
 			<ul>
 				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
@@ -55,7 +55,7 @@
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
-		</nav>
+		</nav> -->
 		<?php
 			$id=$_GET["id"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
@@ -78,10 +78,14 @@
 							<div id="main_fields_holder">
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="sucursal"></div>
-									<label id="label_suc" for="suc"></label>
-									<!-- <AQUI PONER ETIQUETA CON EL NOMBRE Y DIRECCION DE LA SUCURSAL;
-									LA INFORMACION ESTA EN CADENAP EN "JS/VALANDALTAUSER.JS" -->
-									<input id="suc" type="hidden" name="sucursal" readonly size="60" />
+									<select name="sucursal">
+									<?php
+			   								$datos=mysql_query("select idSucursal,nombreSucursal,direccionSucursal from Sucursal",$conexion)or die(mysql_error());
+			   								while($opciones=mysql_fetch_array($datos)){
+			   										echo "<option value='$opciones[0]'>$opciones[1]$opciones[2]</option>";
+			   								}
+			   						?>
+			   						</select>
 			   					</div>
 			   					<br>
 			   					<div class="fields_holder">
@@ -90,7 +94,7 @@
 			   							<?php
 			   								$datos=mysql_query("select idModulo,modName from modulos",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
-			   									if($opciones[0]!=8)
+			   									if($opciones[0]!=9)
 			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>
@@ -103,7 +107,7 @@
 			   							<?php
 			   								$datos=mysql_query("select idPosicion,posicionName from posicion",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
-			   									if($opciones[0]!=8)
+			   									if($opciones[0]!=9)
 			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>

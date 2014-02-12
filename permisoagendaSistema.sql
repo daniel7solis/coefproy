@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `modulos` (
   `idModulo` int(11) NOT NULL AUTO_INCREMENT,
   `modName` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idModulo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10;
 
 --
 -- Dumping data for table `modulos`
@@ -46,7 +46,8 @@ INSERT INTO `modulos` (`idModulo`, `modName`) VALUES
 (5, 'Produccion'),
 (6, 'Administracion'),
 (7, 'Finanzas'),
-(8, 'Super');
+(8, 'Super'),
+(9, 'root');
 
 
 --
@@ -119,7 +120,7 @@ INSERT INTO `permisos` (`idModulo`, `idPosicion`, `accesoTotal`, `creacion`, `ed
 (7, 5, 0, 0, 0, 1, 0, 1),
 (7, 6, 0, 0, 0, 1, 0, 1),
 (7, 7, 0, 1, 0, 0, 0, 1),
-(8, 8, 1, 1, 1, 1, 1, 1);
+(9, 9, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `permisosusuarios` (
 --
 
 INSERT INTO `permisosusuarios` (`idPermisos`, `idSucursal`, `IdUsuarios`, `IdModulo`, `IdPosicion`) VALUES
-(1, 1, 1, 8, 8);
+(1, 1, 1, 9, 9);
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `posicion` (
   `idPosicion` int(11) NOT NULL AUTO_INCREMENT,
   `posicionName` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idPosicion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `posicion`
@@ -240,7 +241,8 @@ INSERT INTO `posicion` (`idPosicion`, `posicionName`) VALUES
 (5, 'Secretario'),
 (6, 'Recepcionista'),
 (7, 'Empleado'),
-(8, 'Super Usuario');
+(8, 'Super Usuario'),
+(9, 'root');
 
 -- --------------------------------------------------------
 
