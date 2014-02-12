@@ -133,7 +133,9 @@ function isRoot(){
 	var idd=JSON.parse(ids);
 	var parametros = {
                 "id" : idd.id,
-                "user": idd.nombre
+                "user": idd.nombre,
+                "ids": idd.idd,
+                "suc": idd.s
         	};
 	$.ajax({
 		/*paso los paramentros al php*/
