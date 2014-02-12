@@ -14,7 +14,7 @@
 		/*Verifico si es usuario root para mandar informcaión que se muestra en su perfil para configurar los usuarios*/
 		$is_root="";
 		if($nom=="root")
-			$is_root="<a id='config' href='users.php?suc=$ids[0]'>&nbsp;&nbsp;Configuración de Usuarios</a>";
+			$is_root="<a id='config' href='usersroot.php?suc=$ids[0]'>&nbsp;&nbsp;Configuración de Usuarios</a>";
 		else
 			$is_root="";
 
