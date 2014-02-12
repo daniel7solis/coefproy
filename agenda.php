@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/redmond/jquery-ui-1.10.4.custom.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-touch.js"></script>
@@ -51,8 +52,7 @@
 				<p id="content_subtitle"><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
 			</div>	
 			<article id="date_changer">
-				<input id="dc_day" type="number" min=1 max=31 maxlength="2" />
-				<select id="dc_month">
+				<input id="dc_day" type="text" />
 					<option id="Enero" value="1">Enero</option>
 					<option id="Febrero" value="2">Febrero</option>
 					<option id="Marzo" value="3">Marzo</option>
@@ -66,16 +66,17 @@
 					<option id="Noviembre" value="11">Noviembre</option>
 					<option id="Diciembre" value="12">Diciembre</option>
 				</select>
-				<a id="dc_go">Ir...</a>
+				<a id="dc_go" href="#">Ir...</a>
 			</article>
 			<article id="hour_container">
 				<table id="day_table">
 					<?php
+						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
 						$horas;$idpac;$iddoc;$fecha;
 						$aux=0;
 						# Conexión a la base de datos.
-						$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 						mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 						mysql_set_charset("utf8", $conexion);
 
@@ -116,8 +117,24 @@
 								{ 
 									if(strcmp($horas[$m],$h.":".$min.$mer)==0)
 									{
-										echo $fecha[$m];
-										echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+										if(!isset($_GET['ano']))
+										{
+											if(date("20y-m-d")==$fecha[$m])
+											{
+												echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+											}
+										}
+										else
+										{
+											$got_year = $_GET['ano'];
+											$got_month = $_GET['mes'];
+											$got_day = $_GET['dia'];
+											
+											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
+											{
+												echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+											}
+										}
 									}
 								}
 								# Se cierra cada columna.

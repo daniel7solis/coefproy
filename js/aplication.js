@@ -17,7 +17,30 @@ $( document ).ready(function()
 {
 	// Se obtiene la fecha actual (agenda.php)
 	actualdate();
-	$('#chk_date').datepicker();
+	// Se asigna al campo para verificar la fecha del paciente.
+	$('#chk_date').datepicker(
+	{
+		changeMonth: true,
+    	changeYear: true,
+    	yearRange: '1900:+0'
+	});
+	// se asigna al campo para ver la fecha específicada.
+	$('#dc_day').datepicker({
+	    beforeShow: function (input, inst) 
+	    {
+	    	var datelimit = new Date();
+	    	datelimit.getDate();
+	    	// Delimita, sólo de hoy en adelante.
+	    	$(this).datepicker( "option","minDate",datelimit);
+	    	// Redimensiona el widget a la mitad de la pantalla.
+	        setTimeout(function () {
+	            inst.dpDiv.css({
+	                bottom: -100,
+	                left: (($(window).width()/2)-132)
+	            });
+	        }, 0);
+	    }
+	});
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
@@ -82,8 +105,7 @@ $( document ).ready(function()
 	    	}
 	    	$(this).append(ui.draggable);
 	    	ui.draggable.children().html($(this).parent().attr('value'));
-	    	if(tam==0)
-	    		{resetSize();}
+	    	resetSize();
 	    }
 	});
 });
@@ -150,12 +172,8 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
-		$aux = $('#dc_day');
-		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(recieved_month);
-		$aux = $('#'+recieved_month);
-		$aux.attr('selected','selected');
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
@@ -169,12 +187,8 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
-		$aux = $('#dc_day');
-		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(recieved_month);
-		$aux = $('#'+recieved_month);
-		$aux.attr('selected','selected');
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}

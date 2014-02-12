@@ -253,13 +253,19 @@ th
 	padding: 0.5em;
 	text-align: right;
 }
+#day_table
+{
+	padding: 0; 
+	margin: 0 0 1em 0;
+	width: 100%;
+}
 #dc_day
 {
 	border: 0;
 	border-radius: 0.5em;
 	display: inline-block;
 	padding: 0.5em;
-	width: 35px;
+	width: 150px;
 }
 #dc_go
 {
@@ -269,20 +275,6 @@ th
 	border-radius: 0.3em;
 	display: inline-block;
 	padding: 0.5em;
-}
-#dc_month
-{
-	background: white;
-	border: 0;
-	border-radius: 0.5em;
-	display: inline-block;
-	padding: 0.5em;
-}
-#day_table
-{
-	padding: 0; 
-	margin: 0 0 1em 0;
-	width: 100%;
 }
 #departments, #donator, #patients
 {
@@ -1135,7 +1127,7 @@ th
 	position: absolute;
 	right: -1.1em;
 	top: 0;
-	z-index: 10;
+	z-index: 5;
 }
 .next_month:after
 {
