@@ -17,7 +17,7 @@ $( document ).ready(function()
 {
 	// Se obtiene la fecha actual (agenda.php)
 	actualdate();
-	resetSize();
+	$('#chk_date').datepicker();
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
@@ -58,10 +58,13 @@ $( document ).ready(function()
 	    	if ( aver == 0 )
 	    	{
 	    		c=true;
+	    		tam=0;
+	    		console.log('Aquí NO hay '+tam);
 	    	}
 	    	else
 	    	{
-	    		tam = aver+1;
+	    		tam = aver;
+	    		console.log('Aquí hay '+tam);
 	    		c=false;
 	    	}
 	    },
@@ -71,21 +74,48 @@ $( document ).ready(function()
 	    	{
 		    	if(!c)
 		    	{
-		    		var nuevo = ($(this).children().width()/tam)-35;
+		    		var nuevo = (parseInt($(this).width()/(tam+1)))-40;
 		    		$(this).children().css('width',nuevo+'px');
 		    	}
 	    		ui.draggable.css('width',nuevo+'px');
 	    		$(this).append(ui.draggable);
-	    		console.log(nuevo);
 	    	}
 	    	$(this).append(ui.draggable);
 	    	ui.draggable.children().html($(this).parent().attr('value'));
+	    	if(tam==0)
+	    		{resetSize();}
 	    }
 	});
 });
+// Función que detecta cuántos elementos hay dentro de un droppable y los reajusta.
 function resetSize()
 {
-	original = $('.draggable_hour_1').width();
+	for (var i = 0; i < 48; i++) 
+	{
+		if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length!=0)
+		{
+			if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==2)
+			{
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-55)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+			}
+			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==3)
+			{
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-77)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+			}
+			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==4)
+			{
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-105)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+			}
+			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length>=5)
+			{
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-125)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+			}
+			else
+			{
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-35)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+			}
+		}
+	}
 }
 // Muestra el globo de cuenta.
 function mostrar()
@@ -120,8 +150,12 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
+		$aux = $('#dc_day');
+		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(recieved_month);
+		$aux = $('#'+recieved_month);
+		$aux.attr('selected','selected');
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
@@ -135,8 +169,12 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
+		$aux = $('#dc_day');
+		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(recieved_month);
+		$aux = $('#'+recieved_month);
+		$aux.attr('selected','selected');
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
