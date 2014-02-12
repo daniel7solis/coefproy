@@ -4,12 +4,12 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Principal</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -28,14 +28,14 @@
 <body>
 	<header>
 		<figure id="logo">
-			<img src="images/logo.png" />
+			<img src="../images/logo.png" />
 		</figure>
 		<div id="right_wrapper">
 			<a href="#" id="notifications">
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="images/avatar.jpg" />
+				<img src="../images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
@@ -45,7 +45,7 @@
 		<input id="search" class="search_field" type="text">
 	</div>
 	<div id="content_wrapper">
-		<nav>
+		<!-- <nav>
 			<ul>
 				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
@@ -53,14 +53,12 @@
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
-		</nav>
+		</nav> -->
 		<section id="content">
 			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
 		<?php
-			/*Recibo por medio de GET la sucursal en la que se esta trabajando para mostrar los usuarios de esa sucursal*/
-			$suc=$_GET["suc"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
