@@ -54,6 +54,5 @@ $( document ).ready(function()
         });
         oContexto = oFoto[0].getContext('2d');
         oContexto.drawImage(oCamara[0], 0, 0, w, h);
-
     });                
 });

@@ -26,11 +26,12 @@ $( document ).ready(function()
 	});
 	// se asigna al campo para ver la fecha específicada.
 	$('#dc_day').datepicker({
+		dateFormat: 'yy-mm-dd', 
 	    beforeShow: function (input, inst) 
 	    {
+	    	// Delimita, sólo de hoy en adelante.
 	    	var datelimit = new Date();
 	    	datelimit.getDate();
-	    	// Delimita, sólo de hoy en adelante.
 	    	$(this).datepicker( "option","minDate",datelimit);
 	    	// Redimensiona el widget a la mitad de la pantalla.
 	        setTimeout(function () {
@@ -41,6 +42,37 @@ $( document ).ready(function()
 	        }, 0);
 	    }
 	});
+
+	/* Se valida y se envía a la fecha deseada de la agenda.
+	Aquí ya no nos preocupamos por las citas, ya que se generan 
+	dinámicamente desde la base de datos. Ahora sabemos realmente las
+	citas agendadas.*/
+	$('#dc_go').on('click',function(){
+		var diasagenda = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
+		mesesagenda = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+		if($('#dc_day').val()=='')
+		{
+			alert('¡Debe seleccionar una fecha!');
+		}
+		else
+		{
+			var yei = $('#dc_day').datepicker('getDate');
+			var dow = yei.getUTCDay();
+			console.log(diasagenda[(dow-1)]);
+
+			var unsplitted = $('#dc_day').val();
+			var date = unsplitted.split('-');
+			if(date.length!=3)
+			{
+				alert('¡Fecha no váilda!');
+			}
+			else
+			{
+				document.location.href = "agenda.php?ndia="+diasagenda[(dow-1)]+"&dia="+date[2]+"&mes="+date[1]+"&ano=2014";
+			}
+		}
+	});
+
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
@@ -162,7 +194,7 @@ function actualdate()
 	{
     parts = line.split(' ');
 	});
-	if(parts[parts.length-1]=='agenda.php')
+	if(parts[parts.length-1]=='agenda.php'||parts[parts.length-1]=='agenda.php#')
 	{
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();

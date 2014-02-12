@@ -64,7 +64,7 @@
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Personales:</p></div>
 					<div class='contenido_item_perfil'>
-						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
+						<form enctype="multipart/form-data" name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
 							<div id="main_fields_holder">
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
@@ -125,13 +125,6 @@
 							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>
 						<br><br><br><br>
-					</div>
-			</article>
-			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Nombre de usuario:</p></div>
-					<div id="userName" class='contenido_item_perfil'>
-						<p><span id="to_user"></span><br>
-						</p>
 					</div>
 			</article>
 			<div id="quick_access">
