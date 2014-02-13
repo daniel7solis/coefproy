@@ -158,6 +158,12 @@ th
 	content: "\e617";
 	font-family: "icomoon";
 }
+#atention
+{
+	font-size: 0.7rem;
+	margin: 0; 
+	padding: 0.5em 0;
+}
 #calendar_style
 {
 	margin-top: 4em;

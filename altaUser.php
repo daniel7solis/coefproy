@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
-	<script type="text/javascript" src="js/aplication.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -119,13 +118,17 @@
 								<div class="photo_container">
 							    	<div class="photo_frame_title">Foto</div>
 							    	<canvas id="photo" ></canvas>
-							    	<input id='upload_photo' type='file' />
 								</div>
 							</div>
 							<input name="to_user" id="to_user" type="Hidden"/>
 		   					<input name="to_pass" id="to_pass" type="text"/>
-		   					<!-- Submit button -->
-							<input id="new_user_submit" type="submit" value="Siguiente" />   
+		   					<div id="optional_photo">
+			   						Si no puede usar la cámara, cargue una foto: 
+			   						<input id='upload_photo' type='file' />
+			   						<p id="atention">¡La imágen debe ser de <strong>250px</strong> de largo por <strong>187px</strong> de ancho!</p>
+			   				</div>
+							<!-- Submit button -->
+							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>
 						<br>
 					</div>

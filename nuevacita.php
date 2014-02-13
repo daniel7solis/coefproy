@@ -58,7 +58,7 @@
 				</p>
 			</div>
 			<article id="item_perfil">
-			<div class='title_item_perfil'><p>Ingrese nombre y fecha nac.</p></div>
+			<div class='title_item_perfil'><p>Ingrese nombre y fecha nacimiento:</p></div>
 				<div class='contenido_item_perfil'>
 					<div class="fields_holder_chk">
 						<div id="chk_name_label" class="new_user_labels" for="nombre"></div>

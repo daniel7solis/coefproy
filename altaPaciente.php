@@ -122,6 +122,7 @@
 							<div id="optional_photo">
 			   						Si no puede usar la cámara, cargue una foto: 
 			   						<input id='upload_photo' type='file' />
+			   						<p id="atention">¡La imágen debe ser de <strong>250px</strong> de largo por <strong>187px</strong> de ancho!</p>
 			   					</div>
 							<!-- Submit button -->
 							<input id="new_user_submit" type="submit" value="Registrar" />   
