@@ -9,7 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
@@ -64,16 +63,16 @@
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Personales:</p></div>
 					<div class='contenido_item_perfil'>
-						<form enctype="multipart/form-data" name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
+						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
 							<div id="main_fields_holder">
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
-			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
+			   						<input name="nombre" id="nombre" class="new_user_input" type="text" placeHolder="Nombre" required>
 			   					</div>
 			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
-			   						<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
+			   						<input name="ap" id="ap" class="new_user_input" type="text" placeHolder="Apellidos" required>
 			   					</div>
 			   					<br>
 			   					<div class="fields_holder">
@@ -118,23 +117,18 @@
 								<div class="photo_container">
 							    	<div class="photo_frame_title">Foto</div>
 							    	<canvas id="photo" ></canvas>
-							    	<input id='upload_photo' type='file' />
 								</div>
 							</div>
+							<div id="optional_photo">
+			   						Si no puede usar la cámara, cargue una foto: 
+			   						<input id='upload_photo' type='file' />
+			   					</div>
 							<!-- Submit button -->
 							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>
 						<br><br><br><br>
 					</div>
 			</article>
-			<div id="quick_access">
-				<ul>
-					<li><a id="new" href="#"></a></li>
-					<li><a id="look" href="#"></a></li>
-					<li><a id="manage" href="#"></a></li>
-					<li><a id="print" href="#"></a></li>
-				</ul>
-			</div>
 		</section>
 		<ul id='menu'>
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>

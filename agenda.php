@@ -52,21 +52,7 @@
 				<p id="content_subtitle"><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
 			</div>	
 			<article id="date_changer">
-				<input id="dc_day" type="text" />
-					<option id="Enero" value="1">Enero</option>
-					<option id="Febrero" value="2">Febrero</option>
-					<option id="Marzo" value="3">Marzo</option>
-					<option id="Abril" value="4">Abril</option>
-					<option id="Mayo" value="5">Mayo</option>
-					<option id="Junio" value="6">Junio</option>
-					<option id="Julio" value="7">Julio</option>
-					<option id="Agosto" value="8">Agosto</option>
-					<option id="Septiembre" value="9">Septiembre</option>
-					<option id="Octubre" value="10">Octubre</option>
-					<option id="Noviembre" value="11">Noviembre</option>
-					<option id="Diciembre" value="12">Diciembre</option>
-				</select>
-				<a id="dc_go" href="#">Ir...</a>
+				<input id="dc_day" type="text" placeHolder="Ir a otro día..."/>
 			</article>
 			<article id="hour_container">
 				<table id="day_table">

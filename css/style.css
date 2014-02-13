@@ -251,30 +251,33 @@ th
 {
 	display: block;	
 	padding: 0.5em;
+	position: relative;
 	text-align: right;
 }
-#day_table
+#date_changer:after
 {
-	padding: 0; 
-	margin: 0 0 1em 0;
-	width: 100%;
+	content: "\e600";
+	font-family: "icomoon";
+	font-style: normal;
+	font-weight: bold;
+	position: absolute;
+	right: 1em;
+	top: 1.1em;
 }
 #dc_day
 {
 	border: 0;
 	border-radius: 0.5em;
 	display: inline-block;
+	outline: none;
 	padding: 0.5em;
 	width: 170px;
 }
-#dc_go
+#day_table
 {
-	background: #2980b9;
-	border-bottom: 3px solid #0F3A57;
-	color: white;
-	border-radius: 0.3em;
-	display: inline-block;
-	padding: 0.5em;
+	padding: 0; 
+	margin: 0 0 1em 0;
+	width: 100%;
 }
 #departments, #donator, #patients
 {
@@ -719,13 +722,18 @@ th
 {
 	background: white;
 	bottom: 0.2em;
+	display: inline-block;
 	font-size: 0.8em;
 	border-radius: 0.5em;
-	margin: 0;
-    padding: 0;
-    outline:0;
-	position: absolute;
-	width: 100%;
+	margin: 0.5em 0; 
+    padding: 0.5em;
+}
+#optional_photo
+{
+	background: #2980b9;
+	color: white;
+	font-size: 0.8em;
+	text-align: center;
 }
 #user_label:after
 {
@@ -831,6 +839,7 @@ th
 {
 	display: inline-block;
 	font-size: 0.8em;
+	width: 95%;
 }
 .draggable_hour_1
 {
@@ -841,7 +850,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_2
 {
@@ -852,7 +860,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_3
 {
@@ -863,7 +870,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_4
 {
@@ -874,7 +880,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_5
 {
@@ -885,7 +890,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_6
 {
@@ -896,7 +900,6 @@ th
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
-	width: 220px;
 }
 .draggable_hour_1:after,
 .draggable_hour_2:after,
@@ -951,7 +954,7 @@ th
 	margin: 0;
 	padding: 0;
 	position: relative;
-	width: 10%;
+	width: 90%;
 }
 .droppable_hour:last-child
 {
@@ -1030,7 +1033,7 @@ th
 	border: 0px;
 	border-top: 1px solid #999;
 	height: 0;
-	width: 80%
+	width: 80%;
 }
 .left_hour
 {
@@ -1041,7 +1044,7 @@ th
 	font-size: 0.9em;
 	padding: 1em 0.2em;
 	text-align: center;
-	width: 1%;
+	width: 10%;
 }
 .menu_profile:hover, .menu_help:hover, .menu_conf:hover
 {

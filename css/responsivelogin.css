@@ -21,6 +21,10 @@
 		width: 128px;
 		margin: auto;
 	}
+	#advice_close
+	{
+		top: 1.3em;
+	}
 	#login
 	{
 		background: #f3f3f3;
@@ -45,6 +49,10 @@
 	{
 		width: 128px;
 		margin: auto;
+	}
+	#advice_close
+	{
+		top: 1.2em;
 	}
 	#login
 	{
@@ -71,6 +79,10 @@
 		width: 128px;
 		margin: auto;
 	}
+	#advice_close
+	{
+		top: 0.8em;
+	}
 	#login
 	{
 		background: #f3f3f3;
@@ -95,6 +107,10 @@
 	{
 		width: 128px;
 		margin: auto;
+	}
+	#advice_close
+	{
+		top: 0.6em;
 	}
 	#login
 	{

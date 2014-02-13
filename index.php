@@ -10,9 +10,19 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript">
+		function hideAdvice()
+		{
+			$('header').hide('linear');
+		}
+	</script>
 </head>
 
 <body>
+<header>
+	<p id="advice">Para una mejor <span class="enhanced1">funcionalidad</span> y <span class="enhanced1">experiencia</span>, se recomienda usar un navegador actualizado.</p>
+	<a id="advice_close" href="javascript:hideAdvice();"><strong>x</strong></a>
+</header>
 	<form name="login_form" action="sesion2.php" method="post" accept-charset="UTF-8">
 		<section id="login">
 			<!--figure>
