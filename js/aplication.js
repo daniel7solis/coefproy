@@ -11,13 +11,67 @@
 var hora, url = 'nuevacita.php', $aux,
     	recieved_nday,recieved_day,recieved_month,recieved_year,
     	tam;
-
+// Si ocurre un re-dimensionamiento de la ventana.
+$( window ).resize(function() {
+  resetSize();
+});
 // Cuando la página ya cargó...
 $( document ).ready(function()
 {
 	// Se obtiene la fecha actual (agenda.php)
 	actualdate();
-	$('#chk_date').datepicker();
+	resetSize();
+	// Se asigna al campo para verificar la fecha del paciente.
+	$('#chk_date').datepicker(
+	{
+		changeMonth: true,
+    	changeYear: true,
+    	yearRange: '1900:+0'
+	});
+	// se asigna al campo para ver la fecha específicada.
+	$('#dc_day').datepicker({
+		dateFormat: 'yy-mm-dd', 
+	    beforeShow: function (input, inst) 
+	    {
+	    	// Delimita, sólo de hoy en adelante.
+	    	var datelimit = new Date();
+	    	datelimit.getDate();
+	    	console.log(datelimit);
+	    	$(this).datepicker( "option","minDate",datelimit);
+	    },
+	    onClose: function()
+	    {
+	    	var diasagenda = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
+			mesesagenda = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+			if($('#dc_day').val()=='')
+			{
+				alert('¡Debe seleccionar una fecha!');
+			}
+			else
+			{
+				var yei = $('#dc_day').datepicker('getDate');
+				var dow = yei.getUTCDay();
+				console.log(diasagenda[(dow-1)]);
+
+				var unsplitted = $('#dc_day').val();
+				var date = unsplitted.split('-');
+				if(date.length!=3)
+				{
+					alert('¡Fecha no váilda!');
+				}
+				else
+				{
+					document.location.href = "agenda.php?ndia="+diasagenda[(dow-1)]+"&dia="+date[2]+"&mes="+date[1]+"&ano=2014";
+				}
+			}
+	    }
+	});
+
+	/* Se valida y se envía a la fecha deseada de la agenda.
+	Aquí ya no nos preocupamos por las citas, ya que se generan 
+	dinámicamente desde la base de datos. Ahora sabemos realmente las
+	citas agendadas.*/
+
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
@@ -74,7 +128,7 @@ $( document ).ready(function()
 	    	{
 		    	if(!c)
 		    	{
-		    		var nuevo = (parseInt($(this).width()/(tam+1)))-40;
+		    		var nuevo = (parseInt($(this).width()/(tam+1)))-45;
 		    		$(this).children().css('width',nuevo+'px');
 		    	}
 	    		ui.draggable.css('width',nuevo+'px');
@@ -82,8 +136,7 @@ $( document ).ready(function()
 	    	}
 	    	$(this).append(ui.draggable);
 	    	ui.draggable.children().html($(this).parent().attr('value'));
-	    	if(tam==0)
-	    		{resetSize();}
+	    	resetSize();
 	    }
 	});
 });
@@ -140,7 +193,7 @@ function actualdate()
 	{
     parts = line.split(' ');
 	});
-	if(parts[parts.length-1]=='agenda.php')
+	if(parts[parts.length-1]=='agenda.php'||parts[parts.length-1]=='agenda.php#')
 	{
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();
@@ -150,12 +203,8 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
-		$aux = $('#dc_day');
-		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(recieved_month);
-		$aux = $('#'+recieved_month);
-		$aux.attr('selected','selected');
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
@@ -169,12 +218,8 @@ function actualdate()
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
-		$aux = $('#dc_day');
-		$aux.attr('value',recieved_day);
 		$aux = $('#actual_month');
-		$aux.html(recieved_month);
-		$aux = $('#'+recieved_month);
-		$aux.attr('selected','selected');
+		$aux.html(mesesagenda[parseInt(recieved_month)-1]);
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}

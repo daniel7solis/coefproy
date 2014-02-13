@@ -1,16 +1,11 @@
 @media screen and (min-width: 480px) and (max-width: 600px){
-	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,
-	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
-	{
-		width: 375px;
-	}
+	
 }
 @media screen and (min-width: 600px) and (max-width: 768px){
 	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{
 		min-height: 30px;
-		width: 485px;
 	}
 	.new_user_input
 	{
@@ -26,7 +21,6 @@
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{
 		min-height: 30px;
-		width: 650px;
 	}
 	.new_user_input
 	{
@@ -40,7 +34,6 @@
 @media screen and (min-width: 800px) and (max-width: 1024px){
 	nav
 	{
-		
 		border-radius: 3px;
 	}
 	#agenda,#departments, #donator, #patients, #lab_survey
@@ -150,7 +143,6 @@
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{
 		min-height: 30px;
-		width: 700px;
 	}
 	.new_user_input
 	{
@@ -451,15 +443,9 @@
 	.draggable_hour_5, 
 	.draggable_hour_6
 	{
-	display: inline-block;
-	font-size: 0.8em;
-	width: 90%;
-}
-	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,
-	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
-	{
+		display: inline-block;
+		font-size: 0.8em;
 		min-height: 30px;
-		width: 600px;
 	}
 	.fields_holder
 	{
@@ -799,36 +785,7 @@
 	{
 		display: inline-block;
 		font-size: 0.8em;
-	}
-	.draggable_hour_1
-	{
 		min-height: 30px;
-		width: 800px;
-	}
-	.draggable_hour_2
-	{
-		min-height: 30px;
-		width: 800px;
-	}
-	.draggable_hour_3
-	{
-		min-height: 30px;
-		width: 800px;
-	}
-	.draggable_hour_4
-	{
-		min-height: 30px;
-		width: 800px;
-	}
-	.draggable_hour_5
-	{
-		min-height: 30px;
-		width: 800px;
-	}
-	.draggable_hour_6
-	{
-		min-height: 30px;
-		width: 800px;
 	}
 	.fields_holder
 	{

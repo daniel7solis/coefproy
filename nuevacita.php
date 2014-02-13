@@ -4,11 +4,14 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Agendar nueva cita</title>
+	<!-- Hojas de estilos -->
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/redmond/jquery-ui-1.10.4.custom.css" />
+	<!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="jquery-ui-1.10.4/ui/jquery-ui.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
@@ -55,7 +58,7 @@
 				</p>
 			</div>
 			<article id="item_perfil">
-			<div class='title_item_perfil'><p>Ingrese nombre y fecha nac.</p></div>
+			<div class='title_item_perfil'><p>Ingrese nombre y fecha nacimiento:</p></div>
 				<div class='contenido_item_perfil'>
 					<div class="fields_holder_chk">
 						<div id="chk_name_label" class="new_user_labels" for="nombre"></div>

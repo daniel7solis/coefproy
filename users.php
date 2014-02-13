@@ -61,8 +61,12 @@
 			/*Recibo por medio de GET la sucursal en la que se esta trabajando para mostrar los usuarios de esa sucursal*/
 			$suc=$_GET["suc"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
+<<<<<<< HEAD
 			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			// $conexion=mysql_connect("127.0.0.1","root","warcrac2") or die("Problemas con la conexion de base de datos ".mysql_error());
+=======
+			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+>>>>>>> cfad18610b9c8bde1d77f7b731422bcd29772778
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/

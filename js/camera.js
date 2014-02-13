@@ -1,5 +1,38 @@
 $( document ).ready(function()
 {
+    $(function() 
+    {
+        $('#upload_photo').change(function(e)
+        {
+          addImage(e); 
+         });
+
+        function addImage(e)
+        {
+            var file = e.target.files[0],
+            imageType = /image.*/;
+        
+            if (!file.type.match(imageType))
+            return;
+      
+            var reader = new FileReader();
+            reader.onload = fileOnload;
+            reader.readAsDataURL(file);
+        }
+      
+        function fileOnload(e) 
+        {
+            var result=e.target.result,
+                imagen = new Image(250,187);
+            imagen.src=result;
+
+            oFoto = jQuery('#photo');
+            oContexto = oFoto[0].getContext('2d');
+            oContexto.clearRect(0, 0, 250, 187);
+            oContexto.drawImage(imagen, 0, 0);
+        }
+    });
+
     //Nos aseguramos que estén definidas
     //algunas funciones básicas
     window.URL = window.URL || window.webkitURL;
@@ -54,6 +87,5 @@ $( document ).ready(function()
         });
         oContexto = oFoto[0].getContext('2d');
         oContexto.drawImage(oCamara[0], 0, 0, w, h);
-
     });                
 });

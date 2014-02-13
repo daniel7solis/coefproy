@@ -36,7 +36,13 @@ $( document ).ready(function()
 	// agenda.php 
 	$('td.calendar_row').on('click', function()
 	{
-		document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes=" + mesesagenda[ref]+"&ano=2014";
+		if(ref<10)
+		{
+			ref+=1;
+			ref="0"+ref;
+			alert(ref);
+		}
+		document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes="+ref+"&ano=2014";
 	});
 });
 

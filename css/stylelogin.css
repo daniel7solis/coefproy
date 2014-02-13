@@ -12,6 +12,8 @@ body
 {
 	background: url("../images/bg.png");
 	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
 figure
 {
@@ -27,6 +29,42 @@ h1
 {
 	padding-top: 1em;
 	text-align: center;
+}
+header
+{
+	background: #34495e;
+	color: #bdc3c7;
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 2;
+}
+#advice
+{
+	font-size: 0.9em;
+	margin: 0;
+	padding: 1em 0 1em 0.5em;
+	text-align: center;
+	width: 87%;
+}
+#advice_close
+{
+	background: #2c3e50;
+	color: #34495e;
+	border-radius: 50%;
+	line-height: 20px;
+	padding: 0 0.4em 0.2em 0.4em;
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+	top: 1.7em;
+	right: 0.5em;
+	z-index: 3;
+}
+.enhanced1
+{
+	color: #F2F5A9;
+	font-weight: bold;
 }
 #info
 {
