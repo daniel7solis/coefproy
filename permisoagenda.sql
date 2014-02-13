@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `permisosusuarios` (
 --
 
 INSERT INTO `permisosusuarios` (`idPermisos`, `idSucursal`, `IdUsuarios`, `IdModulo`, `IdPosicion`) VALUES
-(1, 1, 1, 9, 9);
+(1, 0, 1, 9, 9);
 
 -- --------------------------------------------------------
 

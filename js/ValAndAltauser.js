@@ -178,3 +178,28 @@ function get_sucursal(){
 		}
 	});
 }
+var codigo1="<article class='item_perfil'><div class='title_item_perfil'><p>";
+var codigo2="</p></div><div class='contenido_item_perfil'><p>Nombre Usuario: ";
+var codigo3="</div></article>";
+
+function usuarios(){
+	var ids=sessionStorage.getItem("id");
+	var idd=JSON.parse(ids);
+	var parametros = {"suc" : idd.s};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'listusers.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			var cadenaP="";
+			for(var i=1; i<=(data['num']); i++){
+				cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3;
+			}
+			$("#users").html(cadenaP);
+		}
+	});
+}

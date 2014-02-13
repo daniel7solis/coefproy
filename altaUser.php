@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
-	<script type="text/javascript" src="js/aplication.js"></script>
+	<!-- // <script type="text/javascript" src="js/aplication.js"></script> -->
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{

@@ -21,7 +21,7 @@
 			$datos=mysql_query("select idModulo,idPosicion from permisosusuarios where idUsuarios='$id' and idSucursal='$suc'",$conexion)or die("Problemas en la consulta la base de datos".mysql_error());
 			$perfil=mysql_fetch_array($datos);
 			if($perfil[0]==8 || $perfil[0]==9 && $perfil[1]==8 || $perfil[1]==9){
-				$is_root="<a id='config' href='usersroot.php?suc=$ids[0]'>&nbsp;&nbsp;Configuración de Usuarios</a>";
+				$is_root="<a id='config' href='usersroot.php'>&nbsp;&nbsp;Configuración de Usuarios</a>";
 			}
 		}else{
 			$is_root="";

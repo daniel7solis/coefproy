@@ -23,6 +23,7 @@
 		{
 		$('#menu').toggle('swing');
 		}
+		window.onload=usuarios;
 	</script>
 </head>
 <body>
@@ -56,7 +57,7 @@
 		</nav>
 		<section id="content">
 			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
-		<?php
+		<!--?php
 			/*Recibo por medio de GET la sucursal en la que se esta trabajando para mostrar los usuarios de esa sucursal*/
 			$suc=$_GET["suc"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
@@ -89,7 +90,8 @@
 					"</div>
 				</article>";
 			}	
-		?>
+		?-->
+		<span id="users"></span>
 		<div id="quick_access">
 				<ul>
 					<li><a id="new" href="altaUser.php"></a></li>
