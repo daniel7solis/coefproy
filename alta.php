@@ -1,4 +1,4 @@
-	<?php
+<?php
 	/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 	$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
@@ -24,7 +24,6 @@
 	// echo "$suc=idd.nombre;";
 	// echo "</script>";
 	// echo $suc;
-	header("location: altaPermiso.php?id=$idUsera[0]");
-
-	
+	$id=$idUsera[0];
+	header("location: altaPermiso.php?id=$id");	
 ?>

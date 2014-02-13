@@ -23,6 +23,7 @@
 		{
 		$('#menu').toggle('swing');
 		}
+		window.onload=usuarios;
 	</script>
 </head>
 <body>
@@ -56,11 +57,16 @@
 		</nav>
 		<section id="content">
 			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
-		<?php
+		<!--?php
 			/*Recibo por medio de GET la sucursal en la que se esta trabajando para mostrar los usuarios de esa sucursal*/
 			$suc=$_GET["suc"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
+<<<<<<< HEAD
+			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+			// $conexion=mysql_connect("127.0.0.1","root","warcrac2") or die("Problemas con la conexion de base de datos ".mysql_error());
+=======
 			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+>>>>>>> cfad18610b9c8bde1d77f7b731422bcd29772778
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
@@ -88,7 +94,8 @@
 					"</div>
 				</article>";
 			}	
-		?>
+		?-->
+		<span id="users"></span>
 		<div id="quick_access">
 				<ul>
 					<li><a id="new" href="altaUser.php"></a></li>
