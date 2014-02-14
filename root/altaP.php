@@ -14,5 +14,5 @@
 	// echo "var idUser=".$idUsera[0].";";
 	// echo "";
 	// echo "</script>";
-	header("location: usersroot.php?suc=$suc");
+	header("location: usersroot.php");
 ?>

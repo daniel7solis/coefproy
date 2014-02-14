@@ -11,6 +11,10 @@
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="js/camera.js"></script>
+<<<<<<< HEAD
+	<!-- // <script type="text/javascript" src="js/aplication.js"></script> -->
+=======
+>>>>>>> cfad18610b9c8bde1d77f7b731422bcd29772778
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{

@@ -90,7 +90,7 @@
 			   							<?php
 			   								$datos=mysql_query("select idModulo,modName from modulos",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
-			   									if($opciones[0]!=8)
+			   									if($opciones[0]!=8 && $opciones[0]!=9)
 			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>
@@ -103,7 +103,7 @@
 			   							<?php
 			   								$datos=mysql_query("select idPosicion,posicionName from posicion",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
-			   									if($opciones[0]!=8)
+			   									if($opciones[0]!=8 && $opciones[0]!=9)
 			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>
