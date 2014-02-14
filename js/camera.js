@@ -1,5 +1,21 @@
 $( document ).ready(function()
 {
+    $('#new_user_submit').on('click',function(){
+        var canvas = document.getElementById('photo');
+        var context = canvas.getContext('2d');
+        var dataURL = canvas.toDataURL();
+        alert(dataURL);
+        $.ajax({
+          type: "POST",
+          url: "guardarimgs.php",
+          data: { 
+             "imgBase64": dataURL
+          }
+        }).done(function(o) {
+          console.log('Guardado!');
+        });
+    });
+
     $(function() 
     {
         $('#upload_photo').change(function(e)
@@ -73,10 +89,8 @@ $( document ).ready(function()
         }
 
     });
-
     jQuery('#take_photo').on('click', function(e) {
         var oCamara, oFoto, oContexto, w, h;
-
         oCamara = jQuery('#camera');
         oFoto = jQuery('#photo');
         w = oCamara.width();

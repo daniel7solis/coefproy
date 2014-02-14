@@ -7,13 +7,13 @@
 	{
 		min-height: 30px;
 	}
+	.fields_holder
+	{
+		margin: 1em 70px;	
+	}
 	.new_user_input
 	{
-		width: 450px
-	}
-	.photo_container
-	{
-		display: inline-block;
+		width: 350px
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 800px){
@@ -21,6 +21,10 @@
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{
 		min-height: 30px;
+	}
+	.fields_holder
+	{
+		margin: 1em 100px;	
 	}
 	.new_user_input
 	{
@@ -144,9 +148,14 @@
 	{
 		min-height: 30px;
 	}
+	.fields_holder
+	{
+		display: inline-block;
+		margin: 1em 10px;
+	}
 	.new_user_input
 	{
-		width: 420px
+		width: 200px
 	}
 	.next_month:after
 	{
@@ -420,7 +429,6 @@
 	.contenido_item_perfil p
 	{
 	border-right: #2C8199 solid 1px;
-	width: 30%;
 	padding: 0 0.5em 0 1em;
 	display: inline-block; 
 	}
@@ -449,7 +457,8 @@
 	}
 	.fields_holder
 	{
-		margin: 0 0 0 20px; 
+		display: inline-block;
+		margin: 1em 10px;
 	}
 	.new_user_input
 	{
@@ -466,6 +475,10 @@
 		position: absolute;
 		right: 0.3em;
 		top: 13%;
+	}
+	.photo_container
+	{
+		display: inline-block;
 	}
 	.prev_month:after
 	{
@@ -506,10 +519,6 @@
 	{
 		display: inline-block;
 		margin-top: 1em; 
-	}
-	#photos_holder
-	{
-		display: inline-block;
 	}
 	.hour_row
 	{
@@ -760,7 +769,6 @@
 	.contenido_item_perfil p
 	{
 	border-right: #2C8199 solid 1px;
-	width: 30%;
 	padding: 0 0.5em 0 1em;
 	display: inline-block; 
 	}
@@ -789,7 +797,8 @@
 	}
 	.fields_holder
 	{
-		margin: 0 0 0 20px; 
+		display: inline-block;
+		margin: 1em 10px;
 	}
 	.hour_row
 	{
@@ -802,7 +811,7 @@
 	}
 	.new_user_input
 	{
-		width: 450px
+		width: 190px
 	}
 	.next_month:after
 	{
@@ -815,6 +824,10 @@
 		position: absolute;
 		right: 0.3em;
 		top: 13%;
+	}
+	.photo_container
+	{
+		display: inline-block;
 	}
 	.prev_month:after
 	{
@@ -855,11 +868,6 @@
 	{
 		display: inline-block;
 		margin-top: 1em; 
-	}
-	#photos_holder
-	{
-		display: inline-block;
-		margin-left: 20px;
 	}
 	.photo_container
 	{

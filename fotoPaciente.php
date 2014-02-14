@@ -3,14 +3,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Registro de pacientes nuevos</title>
+	<title>Registro Usuario</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/camera.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript" src="js/camera.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -59,45 +59,36 @@
 		<section id="content">
 			<div id="up_content">
 				<h2 id="content_title">Paciente nuevo</h2>
-				<p id="content_subtitle">Registro de paciente</p>
+				<p id="content_subtitle">Fotografía de perfil</p>
 			</div>
 			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Datos Personales:</p></div>
+				<div class='title_item_perfil'><p>Tome o cargue la foto:</p></div>
 					<div class='contenido_item_perfil'>
-						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
-							<div id="main_fields_holder">
-								<div class="fields_holder">
-									<div id="user_label" class="new_user_labels" for="nombre"></div>
-			   						<input name="nombre" id="nombre" class="new_user_input" type="text" placeHolder="Nombre" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
-			   						<input name="ap" id="ap" class="new_user_input" type="text" placeHolder="Apellidos" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
-			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
-			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
-			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
-			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
-			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
-		   					</div>
-							<!-- Submit button -->
-							<input id="new_user_continue" type="submit" value="Siguiente" />   
-						</form>
+		   				<!-- Take a picture -->
+		   				<div id="photos_holder">
+			   				<div class="photo_container">
+						    	<div class="photo_frame_title">Cámara</div>
+						    	<video id="camera" autoplay></video>
+						    	<input id='start_camera' class='test' type='button' value = 'Iniciar' />
+							    <input id='stop_camera' type='button' value = 'Detener' />
+							    <div id="miniholder">
+							    <input id='take_photo' type='button' value = 'Tomar foto'></input>
+							    </div>
+							</div>
+							<div class="photo_container">
+						    	<div class="photo_frame_title">Foto</div>
+						    	<canvas id="photo" ></canvas>
+							</div>
+						</div>
+		   				<div id="optional_photo">
+			   					Si no puede usar la cámara, cargue una foto: 
+			   					<input id='upload_photo' type='file' />
+			   					<p id="atention">¡La imágen debe ser de <strong>250px</strong> de largo por <strong>187px</strong> de ancho!</p>
+			   			</div>
+						<!-- Submit button -->
+						<input id="new_user_submit" type="submit" value="Registrar" />   
 					</div>
+				</div>
 			</article>
 		</section>
 		<ul id='menu'>
