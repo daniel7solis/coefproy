@@ -62,14 +62,14 @@
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
-			$users=mysql_query("select * from usuarios",$conexion);
+			$users=mysql_query("select idUsuario,nombreUsuario,nombre from usuarios",$conexion);
 			while($arrUsers=mysql_fetch_array($users,MYSQLI_ASSOC)){
 				echo 
 				"<article class='item_perfil'>
-					<div class='title_item_perfil'><p>$arrUsers[nombreUsuario]</p></div>
+					<div class='title_item_perfil'><p>$arrUsers[nombre]</p></div>
 					<div class='contenido_item_perfil'>
-						<p>ID: $arrUsers[idUsuario]<br>
-						Nombre: $arrUsers[nombreUsuario]</p>";
+						<p><img width='60px' src='../images/users/".$arrUsers['idUsuario'].".png'/></p>
+						<p>Nombre de usuario: $arrUsers[nombreUsuario]</p>";
 						$info=mysql_query("select * from permisosusuarios where idUsuarios='$arrUsers[idUsuario]'",$conexion);
 						while($datos=mysql_fetch_array($info,MYSQLI_BOTH)){
 							$modulo=mysql_query("select modName from modulos where idModulo='$datos[3]'",$conexion);
@@ -77,8 +77,7 @@
 							$posicion=mysql_query("select posicionName from posicion where idPosicion='$datos[4]'",$conexion);
 							$reg2=mysql_fetch_array($posicion);
 							echo
-							"<p>Numero de Permiso: $datos[0]<br>
-							Modulo: $reg[0]<br>
+							"<p>Modulo: $reg[0]<br>
 							Posición: $reg2[0]<br>
 							Sucursal: $datos[1]</p>";
 						}

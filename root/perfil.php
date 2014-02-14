@@ -57,12 +57,11 @@
 			</ul>
 		</nav> -->
 		<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'><span class="user"></span></p></div>
+			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'>ROOT</span></p></div>
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
-					<p>ID: <span id='id'></span><br>
-					Nombre: <span class='user'></span></p>
+					<p>Nombre: ROOT</p>
 				</div>
 			</article>
 			<article class='item_perfil'>
