@@ -1,16 +1,18 @@
 <?php 
-	if($_POST)
+	if(true)
 	{
-		define('UPLOAD_DIR', 'images/pacientes/');
-		$img = $_POST['imgBase64'];
-		$img = str_replace('data:image/png;base64,', '', $img);
-		$img = str_replace('', '+', $img);
-		$data = base64_decode($img);
-		$file = UPLOAD_DIR.2.'.jpg';
+		define('UPLOAD_DIR', 'images/pacientes');
+		$imagen = $_POST['img'];
+		$option = $_POST['op'];
+		$imagen = str_replace('data:image/png;base64,','', $imagen);
+		$imagen = str_replace(' ','+', $imagen);
+		$data = base64_decode($imagen);
+		$file = UPLOAD_DIR.'1.png';
 		$success = file_put_contents($file, $data);
-	}
-	else
-	{
-		echo '{"Fallo":"1"}';
+	}else{
+		/*En caso de no recibir datos de la llamada ajax se pasa un json de error*/
+		$arr = array('fallo' => "");
+		$json = json_encode($arr);
+		echo $json;
 	}
  ?>

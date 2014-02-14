@@ -1,21 +1,5 @@
 $( document ).ready(function()
 {
-    $('#new_user_submit').on('click',function(){
-        var canvas = document.getElementById('photo');
-        var context = canvas.getContext('2d');
-        var dataURL = canvas.toDataURL();
-        alert(dataURL);
-        $.ajax({
-          type: "POST",
-          url: "guardarimgs.php",
-          data: { 
-             "imgBase64": dataURL
-          }
-        }).done(function(o) {
-          console.log('Guardado!');
-        });
-    });
-
     $(function() 
     {
         $('#upload_photo').change(function(e)
@@ -101,5 +85,27 @@ $( document ).ready(function()
         });
         oContexto = oFoto[0].getContext('2d');
         oContexto.drawImage(oCamara[0], 0, 0, w, h);
-    });                
+    });  
+
+    jQuery('#new_user_submit').on('click',function(){
+        var canvas = document.getElementById('photo');
+        var context = canvas.getContext('2d');
+        var dataURL = canvas.toDataURL();
+        dataURL = dataURL+'';
+        var parametros = {'img': dataURL};
+
+        jQuery.ajax(
+        {
+            data: parametros,
+            url: 'guardarimgs.php',
+            type: 'post',
+            success: function(data)
+            {
+                alert(data['success']);
+            }
+        }).done(function(o)
+            {
+              console.log('Guardado!');
+            });
+    }); 
 });
