@@ -96,15 +96,20 @@ function sesionPerfil(){
 		/*funcion de retorno*/
 		success: function(data){
 			/*inserto los datos en las etiquetas html*/
-			$("#id").html(data['id']);
-			$(".user").html(data['user']);
+			$("#id_img").html('<img width="60px" src="images/users/'+data['id']+'.png"/>');
+			$("#user").html(data['user']);
+			$(".nom").html(data['nombre']);
+			$("#dir").html(data['dir']);
+			$("#tel").html(data['tel']);
+			$("#email").html(data['email']);
+			$("#curp").html(data['curp']);
+			$("#rfc").html(data['rfc']);
 			var cantidadPer=data['numPerfiles'];
 			var cadena="";
 			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
 			vacia para insertar el total de perfiles dentro del html)*/
 			for(var i=1; i<=cantidadPer; i++){
-				cadena=cadena+"<p>Numero de Permiso: "+data['perfil'+i].permiso+"<br>"+
-				"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				cadena=cadena+"<p>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
 				"Posición: "+data['perfil'+i].posicion+"<br>"+
 				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
 			}
