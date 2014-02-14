@@ -24,7 +24,7 @@
 		{
 		$('#menu').toggle('swing');
 		}
-		window.onload=get_sucursal;
+		window.onload=get_sucursal;//obtengo los datos de la sucursal donde se esta dando de alta un nuevo usuario
 	</script>
 </head>
 <body>
@@ -49,6 +49,7 @@
 	<div id="content_wrapper">
 		<nav>
 			<ul>
+			<!-- barra de navegación del sistema -->
 				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
 				<li id="donator"><a href="#"></a></li>
@@ -63,12 +64,16 @@
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
+
+			/*Consulto la información del usuario al que se dara de alta el nuevo permiso*/
 			$datos=mysql_query("select nombre from usuarios where idUsuario='$id'",$conexion)or die(mysql_error());
+			/*Convierto los datos de la consulta en un arreglo para poder manipularlo*/
 			$nombre=mysql_fetch_array($datos);
 		?>
 		<section id="content">
 			<div id="up_content">
 				<h2 id="content_title">Perfil nuevo</h2>
+				<!-- Muestro el nombre del usuario que se esta dando de alta -->
 				<p id="content_subtitle"><?php echo $nombre[0] ?></p>
 			</div>
 			<article class='item_perfil'>
@@ -79,8 +84,6 @@
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="sucursal"></div>
 									<label id="label_suc" for="suc"></label>
-									<!-- <AQUI PONER ETIQUETA CON EL NOMBRE Y DIRECCION DE LA SUCURSAL;
-									LA INFORMACION ESTA EN CADENAP EN "JS/VALANDALTAUSER.JS" -->
 									<input id="suc" type="hidden" name="sucursal" readonly size="60" />
 			   					</div>
 			   					<br>
@@ -88,6 +91,7 @@
 			   						<div id="ap_label" class="new_user_labels" for="modulo"></div>
 			   						<select name="modulo">
 			   							<?php
+			   							/*Muestro en  una lista de seleccion los modulos en los que se puede dar de alta el nuevo usuario*/
 			   								$datos=mysql_query("select idModulo,modName from modulos",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
 			   									if($opciones[0]!=8 && $opciones[0]!=9)
@@ -101,6 +105,7 @@
 			   						<div id="dir_label" class="new_user_labels" for="posicion"></div>
 			   						<select name="posicion">
 			   							<?php
+			   							/*Muestro en  una lista de seleccion las posiciones en los que se puede dar de alta el nuevo usuario*/
 			   								$datos=mysql_query("select idPosicion,posicionName from posicion",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
 			   									if($opciones[0]!=8 && $opciones[0]!=9)
@@ -123,6 +128,7 @@
 			</article>
 		</section>
 		<ul id='menu'>
+		<!-- Menu de cuenta y configuraciones -->
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
 				<li id="rconfig"></li>

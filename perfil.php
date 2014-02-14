@@ -57,12 +57,18 @@
 			</ul>
 		</nav>
 		<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'><span class="user"></span></p></div>
+			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'><span class="nom"></span></p></div>
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
-					<p>ID: <span id='id'></span><br>
-					Nombre: <span class='user'></span></p>
+					<p><span id="id_img"></span></p>
+					<p>Nombre de usuario: <span id="user"></span><br>
+					Nombre: <span class="nom"></span></p>
+					<p>Dirección: <span id="dir"></span><br>
+					Telefono: <span id="tel"></span><br>
+					Email: <span id="email"></span></p>
+					<p>CURP: <span id="curp"></span><br>
+					RFC: <span id="rfc"></span></p>
 				</div>
 			</article>
 			<article class='item_perfil'>

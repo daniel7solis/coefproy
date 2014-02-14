@@ -23,6 +23,7 @@
 		{
 		$('#menu').toggle('swing');
 		}
+		// mando ejecutar la función de usuarios donde obtengo los usuarios a mostrar en la pagina dentro del span "users"
 		window.onload=usuarios;
 	</script>
 </head>
@@ -48,6 +49,7 @@
 	<div id="content_wrapper">
 		<nav>
 			<ul>
+			<!-- barra de navegación del sistema -->
 				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
 				<li id="donator"><a href="#"></a></li>
@@ -57,47 +59,10 @@
 		</nav>
 		<section id="content">
 			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
-		<!--?php
-			/*Recibo por medio de GET la sucursal en la que se esta trabajando para mostrar los usuarios de esa sucursal*/
-			$suc=$_GET["suc"];
-			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-<<<<<<< HEAD
-			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
-			// $conexion=mysql_connect("127.0.0.1","root","warcrac2") or die("Problemas con la conexion de base de datos ".mysql_error());
-=======
-			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
->>>>>>> cfad18610b9c8bde1d77f7b731422bcd29772778
-			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
-			mysql_set_charset("utf8", $conexion); 
-			/*fin para verificar*/
-			$users=mysql_query("select * from usuarios",$conexion);
-			while($arrUsers=mysql_fetch_array($users,MYSQLI_ASSOC)){
-				echo 
-				"<article class='item_perfil'>
-					<div class='title_item_perfil'><p>$arrUsers[nombreUsuario]</p></div>
-					<div class='contenido_item_perfil'>
-						<p>ID: $arrUsers[idUsuario]<br>
-						Nombre: $arrUsers[nombreUsuario]</p>";
-						$info=mysql_query("select * from permisosusuarios where idUsuarios='$arrUsers[idUsuario]'",$conexion);
-						while($datos=mysql_fetch_array($info,MYSQLI_BOTH)){
-							$modulo=mysql_query("select modName from modulos where idModulo='$datos[3]'",$conexion);
-							$reg=mysql_fetch_array($modulo);
-							$posicion=mysql_query("select posicionName from posicion where idPosicion='$datos[4]'",$conexion);
-							$reg2=mysql_fetch_array($posicion);
-							echo
-							"<p>Numero de Permiso: $datos[0]<br>
-							Modulo: $reg[0]<br>
-							Posición: $reg2[0]<br>
-							Sucursal: $datos[1]</p>";
-						}
-						echo 
-					"</div>
-				</article>";
-			}	
-		?-->
-		<span id="users"></span>
+			<span id="users"></span>
 		<div id="quick_access">
 				<ul>
+				<!-- Barra de herramientas para editar lo usuarios -->
 					<li><a id="new" href="altaUser.php"></a></li>
 					<li><a id="look" href="#"></a></li>
 					<li><a id="manage" href="#"></a></li>
@@ -106,6 +71,7 @@
 			</div>
 		</section>
 		<ul id='menu'>
+		<!-- Menu desplegable para la configuración de usuarios y de perfil -->
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
 				<li id="rconfig"></li>
