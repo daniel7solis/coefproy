@@ -18,12 +18,6 @@
 	 values ('$nombreUser','$passF','$nombre','$dir','$tel','$mail','$curp','$rfc','$semilla')",$conexion) or die(mysql_error());
 	$idUser=mysql_query("select idUsuario from usuarios where nombreUsuario='$nombreUser' and nombre='$nombre' and contrasena='$passF'",$conexion) or die(mysql_error());
 	$idUsera=mysql_fetch_array($idUser);
-	// echo "<script language='javascript'>";
-	// echo "var ids=sessionStorage.getItem('id');";
-	// echo "var idd=JSON.parse(ids);";
-	// echo "$suc=idd.nombre;";
-	// echo "</script>";
-	// echo $suc;
 	$id=$idUsera[0];
 	header("location: altaPermiso.php?id=$id");	
 ?>

@@ -5,7 +5,7 @@
 function validar(str){
 	var regE = new RegExp("[$<>]");
 	if (regE.test(str)){
-		alert("Caracter invalido, ingresa datos nuevamente");
+		// alert("Caracter invalido, ingresa datos nuevamente");
 		document.getElementById('user').value="";
 		document.getElementById('password').value="";
 	};
@@ -36,8 +36,8 @@ function pass(){
 	var caracter;
 	for (var i=0; i<8; i++){
 		if(i===0){
+			//inicia con un numero la contraseña 0-9
 			caracter=Math.round((Math.random()*9));
-			// alert(caracter);
 			passW=passW.concat(caracter);
 		}else if(i%2!=0){
 			// impar--> debe de estar entre el 65-90(A-Z) o 97-122(a-z)
@@ -56,11 +56,11 @@ function pass(){
 				break;
 			}
 		}else{
-			// par
+			// par debe concatenarse un digito 0-9
 			passW=passW.concat(Math.round((Math.random()*9)));
 		}
 	};
-	// document.getElementById('to_pass').innerHTML=passW;
+	//inserto la contraseña resultante en el campo para verla temporalmente
 	document.getElementById('to_pass').value=passW;
 }
 /*La funcion sesion guarda en sesionStorage el item "id" que contiene un objeto json creado en el archivo sesion2.php,
@@ -70,6 +70,7 @@ al archivo oerfil.php*/
 function sesion () {
 	sessionStorage.setItem("id", json);
 	var Objjson=JSON.parse(json);
+	//si es usuario root se redirecciona al portal de administración total del sistema, si no accede al sistema normalmente
 	if(Objjson.nombre==="root"){
 		document.location.href="root/perfil.php";	
 	}else
@@ -79,55 +80,56 @@ function sesion () {
 y con ajax hago la petición a la DB del resto de información del usuario para presentarlo
 en la vista de su perfil*/
 function sesionPerfil(){
-			var ids=sessionStorage.getItem("id");
-			var idd=JSON.parse(ids);
-			var parametros = {
-                "id" : idd.id,
-                "user": idd.nombre
-        	};
-			$.ajax({
-				/*paso los paramentros al php*/
-				data:parametros,
-				url: 'procesa.php',
-				type:'post',
-				/*defino el tipo de dato de retorno*/
-				dataType:'json',
-				/*funcion de retorno*/
-				success: function(data){
-					/*inserto los datos en las etiquetas html*/
-					$("#id").html(data['id']);
-					$(".user").html(data['user']);
-					var cantidadPer=data['numPerfiles'];
-					var cadena="";
-					/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
-					vacia para insertar el total de perfiles dentro del html)*/
-					for(var i=1; i<=cantidadPer; i++){
-						cadena=cadena+"<p>Numero de Permiso: "+data['perfil'+i].permiso+"<br>"+
-						"Modulo: "+data['perfil'+i].modulo+"<br>"+
-						"Posición: "+data['perfil'+i].posicion+"<br>"+
-						"Sucursal: "+data['perfil'+i].sucursal+"</p>";
-					}
-					$("#perf").html(cadena);
-					/*condiciones para mostrar los permisos del usuario*/
-					var cadenaP="<p>";
-					if(data['at']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
-					if(data['c']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Creación<br>";
-					if(data['e']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Edición<br>";
-					if(data['l']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Lectura<br>";
-					if(data['a']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Añexar<br>";
-					if(data['i']==1)
-						cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
-					cadenaP=cadenaP+"</p>";	
-					$("#perm").html(cadenaP);
-				}
-			});
+	var ids=sessionStorage.getItem("id");
+	var idd=JSON.parse(ids);
+	var parametros = {
+        "id" : idd.id,
+        "user": idd.nombre
+   	};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'procesa.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			/*inserto los datos en las etiquetas html*/
+			$("#id").html(data['id']);
+			$(".user").html(data['user']);
+			var cantidadPer=data['numPerfiles'];
+			var cadena="";
+			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
+			vacia para insertar el total de perfiles dentro del html)*/
+			for(var i=1; i<=cantidadPer; i++){
+				cadena=cadena+"<p>Numero de Permiso: "+data['perfil'+i].permiso+"<br>"+
+				"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				"Posición: "+data['perfil'+i].posicion+"<br>"+
+				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
+			}
+			$("#perf").html(cadena);
+			/*condiciones para mostrar los permisos del usuario*/
+			var cadenaP="<p>";
+			if(data['at']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
+			if(data['c']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Creación<br>";
+			if(data['e']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Edición<br>";
+			if(data['l']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Lectura<br>";
+			if(data['a']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Añexar<br>";
+			if(data['i']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
+			cadenaP=cadenaP+"</p>";	
+			$("#perm").html(cadenaP);
 		}
-
+	});
+}
+/*Con la función isRoot verifico si a sido logueado un SUPER USUARIO y si lo es agrego la pestaña de configuración
+de usuarios*/
 function isRoot(){
 	var ids=sessionStorage.getItem("id");
 	var idd=JSON.parse(ids);
@@ -147,21 +149,24 @@ function isRoot(){
 		/*funcion de retorno*/
 		success: function(data){
 			var cadenaP=data['rc'];
-			$("#rconfig").html(cadenaP);
+			$("#rconfig").html(cadenaP);/*agrego el codigo retornado por el php, en caso de ser super usuarios
+			se presenta la configuracion de usuarios*/
 		}
 	});
 }
-
+/*Llamo a esta función cuando se carga todas las paginas para verificar si es un super usuario*/
 $( document ).ready(function(){
 	isRoot();
 });
-
+/*Funciona para consultar los datos de una sucursal apartir de la sucursal a la que pertenece el usuario
+logueado*/
 function get_sucursal(){
 	var ids=sessionStorage.getItem("id");
 	var idd=JSON.parse(ids);
 	var parametros = {
                 "id" : idd.id,
-                "user": idd.nombre
+                "user": idd.nombre,
+                "suc": idd.s
         	};
 	$.ajax({
 		/*paso los paramentros al php*/
@@ -172,34 +177,46 @@ function get_sucursal(){
 		dataType:'json',
 		/*funcion de retorno*/
 		success: function(data){
+			/*Agrego el numero de sucursal y los datos respectivos en la etiqueta para mostrar al usuario 
+			la sucursal en la que se esta registrando el nuevo usuario*/
 			var cadenaP=data['name']+" "+data['dir'];
 			$("#suc").val(data['id']);
 			$("#label_suc").html(cadenaP);
 		}
 	});
 }
+/*Codigo necesario para concatener a los datos devueltos por la consulta y se muestren con formato a la 
+vista del usuario*/
 var codigo1="<article class='item_perfil'><div class='title_item_perfil'><p>";
 var codigo2="</p></div><div class='contenido_item_perfil'><p>Nombre Usuario: ";
-var codigo3="</div></article>";
+var codigo3='<img width="60px" src="images/users/';
+var codigo4='.png"/></div></article>';
 
+// Función para consultar los usuarios de "X" sucursal y mostrarlos en la pagina de users.php
 function usuarios(){
+	/*Tomo la sucursal del usuario logueado para enviarla como paramentro de la consulta y solo retorne los usuarios
+	de la misma sucursal, impediendo que veo la lista completa de todos los usuarios registrados*/
 	var ids=sessionStorage.getItem("id");
-	var idd=JSON.parse(ids);
-	var parametros = {"suc" : idd.s};
+	var idd=JSON.parse(ids);//Conviero la cadena a un JSON para acceder a los datos
+	var parametros = {"suc" : idd.s};//tomo la sucursal en curso para mandarla como parametro
 	$.ajax({
 		/*paso los paramentros al php*/
 		data:parametros,
-		url: 'listusers.php',
-		type:'post',
+		url: 'listusers.php',//nombre del archivo php que procesa la consulta de los usuarios
+		type:'post',//especifico el tipo de metodo para enviar los datos
 		/*defino el tipo de dato de retorno*/
-		dataType:'json',
+		dataType:'json',////especifico el tipo de dato de retorno de la pagina php
 		/*funcion de retorno*/
-		success: function(data){
+		success: function(data){//esta funcion se ejecuta cuando la consulta fue satisfactoria y se obtiene la respuesta
 			var cadenaP="";
-			for(var i=1; i<=(data['num']); i++){
-				cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3;
+			for(var i=1; i<=(data['num']); i++){//ciclo para la cantidad de usuarios que se mostraran "data['num']"
+				/*concateno en la cadenaP los datos mas el codigo que será insertado en la etiqueta span, destinada a mostrar
+				el resultado de la consulta de los usuarios*/
+				cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
+				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3+
+				data['usuario'+i].ph+codigo4;
 			}
-			$("#users").html(cadenaP);
+			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
 		}
 	});
 }
