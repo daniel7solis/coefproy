@@ -1,9 +1,16 @@
 <?php 
 	if(true)
 	{
-		define('UPLOAD_DIR', 'images/pacientes');
-		$imagen = $_POST['img'];
 		$option = $_POST['op'];
+		if(strcmp($option,"usuario")==0)
+		{
+			define('UPLOAD_DIR', 'images/users/');
+		}
+		else if(strcmp($option,"paciente")==0)
+		{
+			define('UPLOAD_DIR', 'images/pacientes/');
+		}
+		$imagen = $_POST['img'];
 		$imagen = str_replace('data:image/png;base64,','', $imagen);
 		$imagen = str_replace(' ','+', $imagen);
 		$data = base64_decode($imagen);

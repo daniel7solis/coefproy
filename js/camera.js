@@ -91,8 +91,26 @@ $( document ).ready(function()
         var canvas = document.getElementById('photo');
         var context = canvas.getContext('2d');
         var dataURL = canvas.toDataURL();
+        var opt;
         dataURL = dataURL+'';
-        var parametros = {'img': dataURL};
+
+        var temp = window.location.href,
+        temp2 = temp.split('/'),
+        parts;
+        $.each(temp2, function(key, line) 
+        {
+            parts = line.split(' ');
+        });
+        if(parts[parts.length-1]=='fotoUser.php')
+        {
+            opt="usuario";
+        }
+        else if(parts[parts.length-1]=='fotoPaciente.php')
+        {
+            opt="paciente";
+        }
+        alert(opt);
+        var parametros = {'img': dataURL,'op':opt};
 
         jQuery.ajax(
         {
@@ -101,7 +119,7 @@ $( document ).ready(function()
             type: 'post',
             success: function(data)
             {
-                alert(data['success']);
+                alert(data['option']);
             }
         }).done(function(o)
             {
