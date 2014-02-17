@@ -71,38 +71,31 @@
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
 			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onblur="sentName(this.value)" placeHolder="Nombre" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
 			   						<input name="ap" id="ap" class="new_user_input" type="text" onblur="showHind(this.value)" placeHolder="Apellidos" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
 			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
 			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
 			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
 			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
 			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
 			   					</div>
 			   					<div id="vertical_spacer">
-			   					<br><br>
 			   					</div>
 		   					</div>
 		   					<!-- Take a picture -->

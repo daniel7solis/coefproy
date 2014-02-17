@@ -58,6 +58,7 @@
 			</ul>
 		</nav>
 		<?php
+			// Recibo el id del usuario al que se le dara de alta el permiso
 			$id=$_GET["id"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());

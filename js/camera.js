@@ -119,6 +119,8 @@ $( document ).ready(function()
         }).done(function(o)
             {
               console.log('Guardado!');
+              cadena="altaPermiso.php?id="+identificador_img;
+              document.location.href=cadena;
             });
     }); 
 });
