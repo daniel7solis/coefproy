@@ -23,7 +23,7 @@
 			$reg=mysql_fetch_array($modulo);
 			$posicion=mysql_query("select posicionName from posicion where idPosicion='$datos[2]'",$conexion);
 			$reg2=mysql_fetch_array($posicion);
-			$cadena=$cadena.'"usuario'.$x.'":{"nomUser":"'.$arruser['nombreUsuario'].'","nom":"'.$arruser['nombre'].'","mod":"'.$reg[0].'","pos":"'.$reg2[0].'","ph":"'.$idu.'"}';
+			$cadena=$cadena.'"usuario'.$x.'":{"id":"'.$idu.'","nomUser":"'.$arruser['nombreUsuario'].'","nom":"'.$arruser['nombre'].'","mod":"'.$reg[0].'","pos":"'.$reg2[0].'","ph":"'.$idu.'"}';
 			$x++;
 		}
 		echo '{"num":'.$cont.''.$cadena.',"s":"'.$suc.'"}';//cadena JSON por la que viajan los datos
