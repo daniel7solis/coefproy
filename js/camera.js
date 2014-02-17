@@ -101,11 +101,11 @@ $( document ).ready(function()
         {
             parts = line.split(' ');
         });
-        if(parts[parts.length-1]=='fotoUser.php')
+        if(parts[parts.length-1]=='alta.php')
         {
             opt="usuario";
         }
-        else if(parts[parts.length-1]=='fotoPaciente.php')
+        else if(parts[parts.length-1]=='altaPaci.php')
         {
             opt="paciente";
         }

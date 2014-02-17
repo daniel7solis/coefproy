@@ -162,6 +162,15 @@ function isRoot(){
 /*Llamo a esta función cuando se carga todas las paginas para verificar si es un super usuario*/
 $( document ).ready(function(){
 	isRoot();
+	$('#manage').on('click', function()
+	{
+		// $('.item_perfil').lightBox({fixedNavigation:true});
+		$('.item_perfil').on('click', function()
+		{
+			hora = $('.item_perfil #nom').value;
+			alert(hora);
+		});
+	});
 });
 /*Funciona para consultar los datos de una sucursal apartir de la sucursal a la que pertenece el usuario
 logueado*/
@@ -193,7 +202,7 @@ function get_sucursal(){
 /*Codigo necesario para concatener a los datos devueltos por la consulta y se muestren con formato a la 
 vista del usuario*/
 var codigo1="<article class='item_perfil'><div class='title_item_perfil'><p>";
-var codigo2="</p></div><div class='contenido_item_perfil'><p>Nombre Usuario: ";
+var codigo2="</p></div><div class='contenido_item_perfil'><p id='nom'>Nombre Usuario: ";
 var codigo3='<img width="60px" src="images/users/';
 var codigo4='.png"/></div></article>';
 
@@ -225,3 +234,5 @@ function usuarios(){
 		}
 	});
 }
+// Se asigna la capacidad al botón de Quick Access de una nueva cita.
+
