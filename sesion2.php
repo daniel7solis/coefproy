@@ -16,8 +16,8 @@
 	<?php
 			$nombre=$_REQUEST['user'];
 			$pass=$_REQUEST['password'];
-			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
-			// $conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+			// $conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+			$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			$datos = mysql_query("select idUsuario,nombreUsuario,contrasena,semilla from usuarios where nombreUsuario='$nombre'",$conexion);
