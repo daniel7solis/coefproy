@@ -109,7 +109,6 @@ $( document ).ready(function()
         {
             opt="paciente";
         }
-        alert(opt);
         var parametros = {'img': dataURL,'op':opt};
 
         jQuery.ajax(
@@ -117,10 +116,6 @@ $( document ).ready(function()
             data: parametros,
             url: 'guardarimgs.php',
             type: 'post',
-            success: function(data)
-            {
-                alert(data['option']);
-            }
         }).done(function(o)
             {
               console.log('Guardado!');
