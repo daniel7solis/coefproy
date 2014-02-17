@@ -70,63 +70,35 @@
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
 			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
 			   						<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
 			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
 			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
 			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
 			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
 			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
 			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
 			   					</div>
 			   					<div id="vertical_spacer">
-			   					<br><br>
 			   					</div>
 		   					</div>
-		   					<!-- Take a picture -->
-		   					<div id="photos_holder">
-			   					<div class="photo_container">
-							    	<div class="photo_frame_title">Cámara</div>
-							    	<video id="camera" autoplay></video>
-							    	<input id='start_camera' class='test' type='button' value = 'Iniciar' />
-								    <input id='stop_camera' type='button' value = 'Detener' />
-								    <div id="miniholder">
-								    <input id='take_photo' type='button' value = 'Tomar foto'></input>
-								    </div>
-								</div>
-								<div class="photo_container">
-							    	<div class="photo_frame_title">Foto</div>
-							    	<canvas id="photo" ></canvas>
-								</div>
-							</div>
 							<input name="to_user" id="to_user" type="Hidden"/>
 		   					<input name="to_pass" id="to_pass" type="text"/>
-		   					<div id="optional_photo">
-			   						Si no puede usar la cámara, cargue una foto: 
-			   						<input id='upload_photo' type='file' />
-			   						<p id="atention">¡La imágen debe ser de <strong>250px</strong> de largo por <strong>187px</strong> de ancho!</p>
-			   				</div>
 							<!-- Submit button -->
 							<input id="new_user_submit" type="submit" value="Registrar" />   
 						</form>

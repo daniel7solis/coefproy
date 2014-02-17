@@ -164,6 +164,11 @@ th
 	margin: 0; 
 	padding: 0.5em 0;
 }
+#button_holder_down
+{
+	margin: 0;
+	text-align: right;
+}
 #calendar_style
 {
 	margin-top: 4em;
@@ -507,8 +512,7 @@ th
 	border-bottom: 3px solid #704b00;
 	border-radius: 0.3em;
 	color: #704B00;
-	float: right;
-	margin: 1em 1.1em 1em 0;
+	margin: 1em 1.1em 0 0;
 	outline: none;
 	padding: 0.5em 1.5em;
 }
