@@ -101,15 +101,17 @@ $( document ).ready(function()
         {
             parts = line.split(' ');
         });
-        if(parts[parts.length-1]=='fotoUser.php')
+        if(parts[parts.length-1]=='alta.php')
         {
             opt="usuario";
+            alert(opt);
         }
-        else if(parts[parts.length-1]=='fotoPaciente.php')
+        else if(parts[parts.length-1]=='altaPaci.php')
         {
             opt="paciente";
+            alert(opt);
         }
-        var parametros = {'img': dataURL,'op':opt};
+        var parametros = {'img': dataURL,'op':opt,'id':idimg};
 
         jQuery.ajax(
         {
@@ -119,8 +121,11 @@ $( document ).ready(function()
         }).done(function(o)
             {
               console.log('Guardado!');
-              cadena="altaPermiso.php?id="+identificador_img;
-              document.location.href=cadena;
+              if(opt=="usuario")
+              {
+                cadena="altaPermiso.php?id="+identificador_img;
+                document.location.href=cadena;
+              }
             });
     }); 
 });

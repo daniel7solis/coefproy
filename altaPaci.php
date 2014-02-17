@@ -1,5 +1,5 @@
 <?php
-	$conexion=mysql_connect("127.0.0.1","root","warcrack") or die("Problemas con la conexion de base de datos ".mysql_error());
+	$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 	mysql_set_charset("utf8", $conexion); 
 	/*fin para verificar*/
@@ -10,11 +10,13 @@
 	$bir=$_REQUEST['bir'];
 	$mail=$_REQUEST['mail'];
 	$tel=$_REQUEST['tel'];
-	mysql_query("insert into Paciente (idPaciente, nombre, apeidos, direccion, edad, fecha_nac, email,tel)
-	 values (null,'$nombre','$ap','$dir','$dir','$age','$bir','$mail','$tel')",$conexion) or die(mysql_error());
-	$seleccionado = mysql_query("select idPaciente from Paciente where nombre='$nombre' and fecha_nac=$bir");
-	while()
-	$id=$idUsera[0];	
+	$suc=$_REQUEST['suc'];
+	mysql_query("insert into Paciente (idPaciente, nombre, apeidos, direccion, edad, fecha_nac, email,tel,idSucursal)
+	 values (null,'$nombre','$ap','$dir','$age','$bir','$mail','$tel','$suc')",$conexion) or die(mysql_error());
+	$seleccionado = mysql_query("select idPaciente from Paciente where nombre='$nombre' and fecha_nac='$bir'");
+	$ok=mysql_fetch_array($seleccionado);
+	$id=$ok['idPaciente'];
+	echo "<script language='javascript'> var idimg = $id; alert(idimg); </script>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
