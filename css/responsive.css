@@ -1,5 +1,8 @@
 @media screen and (min-width: 480px) and (max-width: 600px){
-	
+	.new_user_input
+	{
+		width: 80%;
+	}
 }
 @media screen and (min-width: 600px) and (max-width: 768px){
 	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,

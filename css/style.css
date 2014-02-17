@@ -142,6 +142,11 @@ th
 	background: #2980b9;
 	font-style: italic;
 }
+#age_label:after
+{
+	content: "\e600";
+	font-family: "icomoon";
+}
 #agenda
 {
 	font-size: 1.3em;
@@ -163,6 +168,11 @@ th
 	font-size: 0.7rem;
 	margin: 0; 
 	padding: 0.5em 0;
+}
+#bir_label:after
+{
+	content: "\e600";
+	font-family: "icomoon";
 }
 #button_holder_down
 {
@@ -1127,7 +1137,7 @@ th
 	display: inline-block;
 	padding: 0.5em 0.5em 0.5em 2em; 
 	position: relative;
-	width: 150px;
+	width: 65%;
 }
 .new_user_input_chk
 {	

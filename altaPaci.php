@@ -1,3 +1,21 @@
+<?php
+	$conexion=mysql_connect("127.0.0.1","root","warcrack") or die("Problemas con la conexion de base de datos ".mysql_error());
+	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+	mysql_set_charset("utf8", $conexion); 
+	/*fin para verificar*/
+	$nombre=$_REQUEST['nombre'];
+	$ap=$_REQUEST['ap'];
+	$dir=$_REQUEST['dir'];
+	$age=$_REQUEST['age'];
+	$bir=$_REQUEST['bir'];
+	$mail=$_REQUEST['mail'];
+	$tel=$_REQUEST['tel'];
+	mysql_query("insert into Paciente (idPaciente, nombre, apeidos, direccion, edad, fecha_nac, email,tel)
+	 values (null,'$nombre','$ap','$dir','$dir','$age','$bir','$mail','$tel')",$conexion) or die(mysql_error());
+	$seleccionado = mysql_query("select idPaciente from Paciente where nombre='$nombre' and fecha_nac=$bir");
+	while()
+	$id=$idUsera[0];	
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,51 +77,37 @@
 		<section id="content">
 			<div id="up_content">
 				<h2 id="content_title">Usuario nuevo</h2>
-				<p id="content_subtitle">Registro de Usuario</p>
+				<p id="content_subtitle">Fotografía de perfil</p>
 			</div>
 			<article class='item_perfil'>
-					<div class='title_item_perfil'><p>Datos Personales:</p></div>
+				<div class='title_item_perfil'><p>Tome o cargue la foto:</p></div>
 					<div class='contenido_item_perfil'>
-						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
-							<div id="main_fields_holder">
-								<div class="fields_holder">
-									<div id="user_label" class="new_user_labels" for="nombre"></div>
-			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
-			   						<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
-			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
-			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
-			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
-			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
-			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
-			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
-			   					</div>
-			   					<div id="vertical_spacer">
-			   					</div>
-		   					</div>
-							<input name="to_user" id="to_user" type="Hidden"/>
-		   					<input name="to_pass" id="to_pass" type="text"/>
-							<!-- Submit button -->
-							<input id="new_user_submit" type="submit" value="Continuar" />   
-						</form>
-						<br>
+		   				<!-- Take a picture -->
+		   				<div id="photos_holder">
+			   				<div class="photo_container">
+						    	<div class="photo_frame_title">Cámara</div>
+						    	<video id="camera" autoplay></video>
+						    	<input id='start_camera' class='test' type='button' value = 'Iniciar' />
+							    <input id='stop_camera' type='button' value = 'Detener' />
+							    <div id="miniholder">
+							    <input id='take_photo' type='button' value = 'Tomar foto'></input>
+							    </div>
+							</div>
+							<div class="photo_container">
+						    	<div class="photo_frame_title">Foto</div>
+						    	<canvas id="photo" ></canvas>
+							</div>
+						</div>
+		   				<div id="optional_photo">
+			   					Si no puede usar la cámara, cargue una foto: 
+			   					<input id='upload_photo' type='file' />
+			   					<p id="atention">¡La imágen debe ser de <strong>250px</strong> de largo por <strong>187px</strong> de ancho!</p>
+			   			</div>
+						<div id="button_holder_down">
+							<input id="new_user_submit" type="submit" value="Registrar" />   
+						</div>
 					</div>
+				</div>
 			</article>
 		</section>
 		<ul id='menu'>

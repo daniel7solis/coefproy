@@ -58,7 +58,7 @@
 
 		<section id="content">
 			<div id="up_content">
-				<h2 id="content_title">Paciente nuevo</h2>
+				<h2 id="content_title">Usuario nuevo</h2>
 				<p id="content_subtitle">Fotografía de perfil</p>
 			</div>
 			<article class='item_perfil'>

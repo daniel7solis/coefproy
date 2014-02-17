@@ -7,9 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/redmond/jquery-ui-1.10.4.custom.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/camera.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
@@ -18,6 +19,13 @@
 				$('html').click(function() 
 				{
 					$('#menu').hide('swing');
+				});
+				$('#bir').datepicker(
+				{
+					dateFormat: 'yy-mm-dd',
+					changeMonth: true,
+			    	changeYear: true,
+			    	yearRange: '1900:+0'
 				});
 			});
 		function mostrar()
@@ -64,7 +72,7 @@
 			<article class='item_perfil'>
 					<div class='title_item_perfil'><p>Datos Personales:</p></div>
 					<div class='contenido_item_perfil'>
-						<form name="alta" id="alta" method="post" action="alta.php" accept-charset="UTF-8">
+						<form name="alta" id="alta" method="post" action="altaPaci.php" accept-charset="UTF-8">
 							<div id="main_fields_holder">
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
@@ -79,21 +87,21 @@
 			   						<input name="dir" id="dir" class="new_user_input" type="text" placeHolder="Direccion" required>
 			   					</div>
 			   					<div class="fields_holder">
-			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
-			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
+			   						<div id="age_label" class="new_user_labels" for="age"></div>
+			   						<input name="age" id="age" class="new_user_input" type="number" placeHolder="Edad" required>
+			   					</div>
+			   					<div class="fields_holder">
+			   						<div id="bir_label" class="new_user_labels" for="bir"></div>
+			   						<input name="bir" id="bir" class="new_user_input" type="text" placeHolder="Fecha de nacimiento" required>
 			   					</div>
 			   					<div class="fields_holder">
 			   						<div id="mail_label" class="new_user_labels" for="mail"></div>
 			   						<input name="mail" id="mail" class="new_user_input" type="text" placeHolder="E-mail" required>
 			   					</div>
 			   					<div class="fields_holder">
-			   						<div id="curp_label" class="new_user_labels" for="curp"></div>
-			   						<input name="curp" id="curp" class="new_user_input" type="text" placeHolder="CURP" required>
+			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
+			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
 			   					</div>
-			   					<div class="fields_holder">
-			   						<div id="rfc_label" class="new_user_labels" for="rfc"></div>
-			   						<input name="rfc" id="rfc" class="new_user_input" type="text" placeHolder="RFC" required>
-		   					</div>
 							<!-- Submit button -->
 							<input id="new_user_continue" type="submit" value="Siguiente" />   
 						</form>
