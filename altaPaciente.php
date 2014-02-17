@@ -27,6 +27,10 @@
 			    	changeYear: true,
 			    	yearRange: '1900:+0'
 				});
+				var aqui = sessionStorage.getItem('id');
+				var omg = JSON.parse(aqui);
+				var sucursal = omg.s; 
+				$('#suc').attr('value',sucursal)
 			});
 		function mostrar()
 		{
@@ -102,6 +106,7 @@
 			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
 			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
 			   					</div>
+			   					<input name="suc" id="suc" type="text" />
 							<!-- Submit button -->
 							<input id="new_user_continue" type="submit" value="Siguiente" />   
 						</form>
