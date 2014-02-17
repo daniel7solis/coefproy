@@ -167,7 +167,7 @@ $( document ).ready(function(){
 		// $('.item_perfil').lightBox({fixedNavigation:true});
 		$('.item_perfil').on('click', function()
 		{
-			hora = $('.item_perfil #nom').value;
+			hora = $('#nom').val();
 			alert(hora);
 		});
 	});
@@ -201,10 +201,11 @@ function get_sucursal(){
 }
 /*Codigo necesario para concatener a los datos devueltos por la consulta y se muestren con formato a la 
 vista del usuario*/
-var codigo1="<article class='item_perfil'><div class='title_item_perfil'><p>";
-var codigo2="</p></div><div class='contenido_item_perfil'><p id='nom'>Nombre Usuario: ";
-var codigo3='<img width="60px" src="images/users/';
-var codigo4='.png"/></div></article>';
+var codigo1="<article class='item_perfil'><div class='title_item_perfil'><a href='setting_user.php?x=";//aqui va el id
+var codigo12="'>";//aqui va el usuario
+var codigo2='</a></div><div class="contenido_item_perfil"><img width="60px" src="images/users/';
+var codigo3='.png"/><p>Nombre Usuario: ';
+var codigo4='</div></article>';
 
 // Función para consultar los usuarios de "X" sucursal y mostrarlos en la pagina de users.php
 function usuarios(){
@@ -226,9 +227,11 @@ function usuarios(){
 			for(var i=1; i<=(data['num']); i++){//ciclo para la cantidad de usuarios que se mostraran "data['num']"
 				/*concateno en la cadenaP los datos mas el codigo que será insertado en la etiqueta span, destinada a mostrar
 				el resultado de la consulta de los usuarios*/
-				cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
-				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3+
-				data['usuario'+i].ph+codigo4;
+				// cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
+				// data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3+
+				// data['usuario'+i].ph+codigo4;
+				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+data['usuario'+i].ph+codigo3+data['usuario'+i].nomUser+"</p><p>Modulo: "+
+				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo4;
 			}
 			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
 		}
