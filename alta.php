@@ -21,7 +21,7 @@
 	$idUsera=mysql_fetch_array($idUser);
 	$id=$idUsera[0];
 	echo "<script language='javascript'> var identificador_img=$id; </script>";
-	// header("location: fotoUser.php");
+	// header("location: altaPermiso?id=$id.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
