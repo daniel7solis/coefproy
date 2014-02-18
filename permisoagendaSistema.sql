@@ -120,6 +120,7 @@ INSERT INTO `permisos` (`idModulo`, `idPosicion`, `accesoTotal`, `creacion`, `ed
 (7, 5, 0, 0, 0, 1, 0, 1),
 (7, 6, 0, 0, 0, 1, 0, 1),
 (7, 7, 0, 1, 0, 0, 0, 1),
+(8, 8, 1, 1, 1, 1, 1, 1),
 (9, 9, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
@@ -215,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `permisosusuarios` (
 --
 
 INSERT INTO `permisosusuarios` (`idPermisos`, `idSucursal`, `IdUsuarios`, `IdModulo`, `IdPosicion`) VALUES
-(1, 1, 1, 9, 9);
+(1, 0, 1, 9, 9);
 
 -- --------------------------------------------------------
 
@@ -251,7 +252,7 @@ INSERT INTO `posicion` (`idPosicion`, `posicionName`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `idUsuario` int(1) NOT NULL AUTO_INCREMENT,
+  `idUsuario` int(3) NOT NULL AUTO_INCREMENT,
   `nombreUsuario` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `contrasena` text COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
@@ -262,14 +263,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `rfc` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `semilla` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `contrasena`,`semilla`) VALUES
-(1, 'root', '0ff234d1fdaaa63a658c09421162296d013fbe02ea3ec272dab25b75768f10574b02f13e736d9d5bd0374be17190a7d7b5ed3593199609c629aee5bb3445024f','c5045cf9b602c65154b5b1cf11de19de0501d4b41100f624d38550bd42cb0e7d06cb8afe80b06e07733273025141e3e14a1353a38645704e5f27d8820542da25');
+INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `contrasena`,`nombre`,`semilla`) VALUES
+(1, 'root', '0ff234d1fdaaa63a658c09421162296d013fbe02ea3ec272dab25b75768f10574b02f13e736d9d5bd0374be17190a7d7b5ed3593199609c629aee5bb3445024f','ROOT','c5045cf9b602c65154b5b1cf11de19de0501d4b41100f624d38550bd42cb0e7d06cb8afe80b06e07733273025141e3e14a1353a38645704e5f27d8820542da25');
 
 -- --------------------------------------------------------
 

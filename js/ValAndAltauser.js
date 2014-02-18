@@ -162,15 +162,7 @@ function isRoot(){
 /*Llamo a esta función cuando se carga todas las paginas para verificar si es un super usuario*/
 $( document ).ready(function(){
 	isRoot();
-	$('#manage').on('click', function()
-	{
-		// $('.item_perfil').lightBox({fixedNavigation:true});
-		$('.item_perfil').on('click', function()
-		{
-			hora = $('#nom').val();
-			alert(hora);
-		});
-	});
+	// $('.item_perfil').on('click',function(){console.log("dio clic");});
 });
 /*Funciona para consultar los datos de una sucursal apartir de la sucursal a la que pertenece el usuario
 logueado*/
@@ -234,8 +226,14 @@ function usuarios(){
 				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo4;
 			}
 			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
+			escucha();
 		}
 	});
 }
-// Se asigna la capacidad al botón de Quick Access de una nueva cita.
+function escucha(){
+	/*Activo la seleccion de usuarios para modificarlos, se selecciona el usuario de la lista que
+	se muestra en la pag users.php*/
+	var x=document.getElementsByTagName("article");//[0].onclick=alert("clic");
+	console.log(x[0]);
+}
 
