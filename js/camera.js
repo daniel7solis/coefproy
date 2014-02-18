@@ -123,7 +123,7 @@ $( document ).ready(function()
               console.log('Guardado!');
               if(opt=="usuario")
               {
-                cadena="altaPermiso.php?id="+identificador_img;
+                cadena="altaPermiso.php?id="+idimg;
                 document.location.href=cadena;
               }
             });

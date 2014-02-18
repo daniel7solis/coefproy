@@ -367,6 +367,11 @@ th
 {
 	top:45px;
 }
+#id_img img
+{
+	border-radius: 50%;
+	width: 200px;
+}
 #indicator_actual
 {
 	background: #DD4F24;
@@ -586,11 +591,45 @@ th
 {
 	margin: 0;
 }
+#other_data
+{
+	color: #7f8c8d;
+	background: #ecf0f1;
+	border: 1px solid #7f8c8d;
+	border-radius: 0.3em;
+	display: inline-block;
+	font-size: 0.9em;
+	margin: 0.5em;
+	padding: 0.7em;
+	text-align: left;
+}
+#other_data span
+{
+	color: black;
+	font-size: 1em;
+}
 #patients a:after
 {
 	color: white;
 	content: "\e601";
 	font-family: "icomoon";
+}
+#personal_data
+{
+	color: #7f8c8d;
+	background: #ecf0f1;
+	border: 1px solid #7f8c8d;
+	border-radius: 0.3em;
+	display: inline-block;
+	font-size: 0.9em;
+	margin: 0.5em;
+	padding: 0.7em;
+	text-align: left;
+}
+#personal_data span
+{
+	color: black;
+	font-size: 1em;
 }
 #photo
 {
@@ -612,6 +651,18 @@ th
 {
 	content: "\e613";
 	font-family: "icomoon";
+}
+#profile_controls_holder
+{
+	background: #2980b9;
+	display: inline-block;
+	padding: 0;
+	width: 100%;
+}
+#profile_pic
+{
+	border: transparent;
+	display: inline-block;
 }
 #rfc_label:after
 {
@@ -765,6 +816,18 @@ th
 {
 	color: #2980b9;
 }
+#update_pass, #update_pic
+{
+	background: #FFBC00;
+	border: 1px solid #704b00;
+	border-bottom: 3px solid #704b00;
+	color: #704b00;
+	display: inline-block;
+	float: right;
+	font-size: 0.8em;
+	padding: 0.5em 0.6em;
+	width: 70px;
+}
 #upload_photo
 {
 	background: white;
@@ -774,6 +837,14 @@ th
 	border-radius: 0.5em;
 	margin: 0.5em 0; 
     padding: 0.5em;
+}
+#user
+{
+	color: white;
+	display: inline-block;
+	font-size: 1em;
+	padding: 0.95em 1em;
+	width: 70px;
 }
 #user_label:after
 {
@@ -810,15 +881,16 @@ th
 }
 .contenido_item_perfil
 {
-	border-top: #2C8199 solid 1px;
 	background: rgba(86,194,255,0.1);
 	color: black;
 	margin-top: 0;
 	padding-bottom: 1em;
+	text-align: center;
 }
 .contenido_item_perfil p
 {
-	padding-left: 1em;
+	border: 1px solid red;
+	padding: 0.5em 1em;
 	display: inline-block; 
 }
 .current a

@@ -75,6 +75,8 @@ $( document ).ready(function()
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
+		alert("Ahora, selecciona la hora a agendar...");
+		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content').css({'-webkit-filter':'blur(6px)'});
 		$('tr').on('click', function()
 		{
 			hora = $(this).attr('value');

@@ -5,6 +5,7 @@
 	}
 }
 @media screen and (min-width: 600px) and (max-width: 768px){
+	
 	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{
@@ -20,6 +21,7 @@
 	}
 }
 @media screen and (min-width: 768px) and (max-width: 800px){
+	
 	.draggable_hour_1,.draggable_hour_2,.draggable_hour_3,
 	.draggable_hour_4,.draggable_hour_5,.draggable_hour_6
 	{

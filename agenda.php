@@ -55,7 +55,7 @@
 				<input id="dc_day" type="text" placeHolder="Ir a otro día..."/>
 			</article>
 			<article id="hour_container">
-				<table id="day_table">
+				<table id="day_table" name="agendita">
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.

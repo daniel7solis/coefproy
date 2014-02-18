@@ -24,7 +24,7 @@
 		$('#menu').toggle('swing');
 		}
 		// mando ejecutar la función de usuarios donde obtengo los usuarios a mostrar en la pagina dentro del span "users"
-		window.onload=usuarios;
+		window.onload=usuarios();
 	</script>
 </head>
 <body>

@@ -194,7 +194,7 @@ function get_sucursal(){
 vista del usuario*/
 var codigo1="<article class='item_perfil'><div class='title_item_perfil'><p>";
 var codigo2="</p></div><div class='contenido_item_perfil'><p>Nombre Usuario: ";
-var codigo3='<img width="60px" src="images/users/';
+var codigo3='<img src="images/users/';
 var codigo4='.png"/></div></article>';
 
 // Función para consultar los usuarios de "X" sucursal y mostrarlos en la pagina de users.php
@@ -217,7 +217,7 @@ function usuarios(){
 			for(var i=1; i<=(data['num']); i++){//ciclo para la cantidad de usuarios que se mostraran "data['num']"
 				/*concateno en la cadenaP los datos mas el codigo que será insertado en la etiqueta span, destinada a mostrar
 				el resultado de la consulta de los usuarios*/
-				cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
+				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
 				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3+
 				data['usuario'+i].ph+codigo4;
 			}
