@@ -193,9 +193,9 @@ function get_sucursal(){
 }
 /*Codigo necesario para concatener a los datos devueltos por la consulta y se muestren con formato a la 
 vista del usuario*/
-var codigo1="<article class='item_perfil'><div class='title_item_perfil'><a href='setting_user.php?x=";//aqui va el id
-var codigo12="'>";//aqui va el usuario
-var codigo2='</a></div><div class="contenido_item_perfil"><img width="60px" src="images/users/';
+var codigo1="<article class='item_perfil'><div class='title_item_perfil'><input type='hidden' value='";//aqui va el id
+var codigo12="'><p>";//aqui va el usuario
+var codigo2='</p></div><div class="contenido_item_perfil"><img width="60px" src="images/users/';
 var codigo3='.png"/><p>Nombre Usuario: ';
 var codigo4='</div></article>';
 
@@ -230,10 +230,41 @@ function usuarios(){
 		}
 	});
 }
+/*En este arreglo se almacenaran todos los usuarios a modificar el indice se incrementa conforme se 
+seleccionan con el evento onclick, para fines practicos se quitara el incremento del indice en la
+configuracion de la informacion del usuario en la pagina users.php ya que solo se puede modificar un
+usuario a la vez, igualemte se cambiara el efecto que se tome con las lineas de codigo posteriormente
+señaladas, dado que en el caso de users.php solo se puede sellecionar un solo usuario, y en posteriores 
+configuraciones del sistema se debera dotar la capacidad de seleccionar mas de un usuario o elemento
+segun sea el caso */
+var confUsers=new Array();/*arreglo donde se almacenan los usuarios o elementos a modificar, en el caso
+de users.php solo se gusrdara un solo usuario a modificar*/ 
+var indice=0;//indice que controla la cantidad de elementos que se almacenaran conforme suceda el click
 function escucha(){
 	/*Activo la seleccion de usuarios para modificarlos, se selecciona el usuario de la lista que
 	se muestra en la pag users.php*/
-	var x=document.getElementsByTagName("article");//[0].onclick=alert("clic");
-	console.log(x[0]);
+	var x=document.getElementsByTagName("article");/*selecciono todos los usuarios ya qye se encuentran
+	dentro de article*/
+	for(var z=0; z<x.length; z++){/*recorro el total de elemtos que se dara la capacidad de resaltar al
+		ser seleccionados mediante un click*/
+		x[z].onclick=function(){//activo el evento del click
+			/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
+			limpiar();
+			$(this).css({'border':'3px solid #f39c12'});
+			var y=$(this).find("input");
+			confUsers[indice]=y.val();
+			console.log(confUsers[indice]);
+			/* indice++; Comento esta linea dado que solo se puede modificar un usuario, y se deja para 
+			un uso posterior, cuando se requiera modificar o seleccionar a mas de un elemento, que se
+			almacene en el arreglo de confUser los id que identifican al elemento*/
+		};
+	}
 }
-
+/*La funcion siguiente devuelve a todos los elementos seleccionados o no a sus caracteristicas normales,
+que indican se elimino la seleccion de ese objeto*/
+function limpiar(){
+	var arr=$('article');
+	for(var z=0; z<arr.length; z++){/*recorro el total de elemtos que se eliminara la seleccion*/		
+		$(arr[z]).css({'border':'transparent'});//modifico sus caracteristicas css
+	}
+}
