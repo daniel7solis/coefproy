@@ -131,6 +131,7 @@ $( document ).ready(function()
 		    	if(!c)
 		    	{
 		    		var nuevo = (parseInt($(this).width()/(tam+1)))-45;
+		    		console.log(nuevo);
 		    		$(this).children().css('width',nuevo+'px');
 		    	}
 	    		ui.draggable.css('width',nuevo+'px');
@@ -155,7 +156,7 @@ function resetSize()
 			}
 			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==3)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-77)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-80)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
 			}
 			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==4)
 			{

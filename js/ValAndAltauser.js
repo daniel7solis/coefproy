@@ -96,7 +96,7 @@ function sesionPerfil(){
 		/*funcion de retorno*/
 		success: function(data){
 			/*inserto los datos en las etiquetas html*/
-			$("#id_img").html('<img width="60px" src="images/users/'+data['id']+'.png"/>');
+			$("#id_img").html('<img src="images/users/'+data['id']+'.png"/>');
 			$("#user").html(data['user']);
 			$(".nom").html(data['nombre']);
 			$("#dir").html(data['dir']);
@@ -109,13 +109,13 @@ function sesionPerfil(){
 			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
 			vacia para insertar el total de perfiles dentro del html)*/
 			for(var i=1; i<=cantidadPer; i++){
-				cadena=cadena+"<p>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				cadena=cadena+"<p id='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
 				"Posición: "+data['perfil'+i].posicion+"<br>"+
 				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
 			}
 			$("#perf").html(cadena);
 			/*condiciones para mostrar los permisos del usuario*/
-			var cadenaP="<p>";
+			var cadenaP="<p id='privileges_data'>";
 			if(data['at']==1)
 				cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
 			if(data['c']==1)

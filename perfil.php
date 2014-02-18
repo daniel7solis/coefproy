@@ -61,16 +61,15 @@
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
-					<p id="profile_pic"><span id="id_img"></span></p>
-					<div id="profile_controls_holder">
-					<span id="user"></span><a id="update_pic" href="update_pic.php">Cambiar foto</a><a id="update_pass" href="update_pass.php">Cambiar contraseña</a>
+					<p id="profile_pic"><span id="id_img"></span><span id="user"></span></p>
+					<div id="data_holder">
+						<p id="personal_data">Nombre: <span class="nom"></span><br>
+						Dirección: <span id="dir"></span><br>
+						Telefono: <span id="tel"></span><br>
+						Email: <span id="email"></span></p>
+						<p id="other_data">CURP: <span id="curp"></span><br>
+						RFC: <span id="rfc"></span></p>
 					</div>
-					<p id="personal_data">Nombre: <span class="nom"></span><br>
-					Dirección: <span id="dir"></span><br>
-					Telefono: <span id="tel"></span><br>
-					Email: <span id="email"></span></p>
-					<p id="other_data">CURP: <span id="curp"></span><br>
-					RFC: <span id="rfc"></span></p>
 				</div>
 			</article>
 			<article class='item_perfil'>
