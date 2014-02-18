@@ -75,6 +75,8 @@ $( document ).ready(function()
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new').on('click', function()
 	{
+		alert("Ahora, selecciona la hora a agendar...");
+		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content').css({'-webkit-filter':'blur(6px)'});
 		$('tr').on('click', function()
 		{
 			hora = $(this).attr('value');
@@ -129,6 +131,7 @@ $( document ).ready(function()
 		    	if(!c)
 		    	{
 		    		var nuevo = (parseInt($(this).width()/(tam+1)))-45;
+		    		console.log(nuevo);
 		    		$(this).children().css('width',nuevo+'px');
 		    	}
 	    		ui.draggable.css('width',nuevo+'px');
@@ -153,7 +156,7 @@ function resetSize()
 			}
 			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==3)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-77)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-80)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
 			}
 			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==4)
 			{

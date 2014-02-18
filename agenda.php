@@ -55,15 +55,15 @@
 				<input id="dc_day" type="text" placeHolder="Ir a otro día..."/>
 			</article>
 			<article id="hour_container">
-				<table id="day_table">
+				<table id="day_table" name="agendita">
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
 						$horas;$idpac;$iddoc;$fecha;
 						$aux=0;
 						# Conexión a la base de datos.
-						$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
-						// $conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+						//$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
+						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 						mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 						mysql_set_charset("utf8", $conexion);
 

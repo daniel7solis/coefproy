@@ -96,7 +96,7 @@ function sesionPerfil(){
 		/*funcion de retorno*/
 		success: function(data){
 			/*inserto los datos en las etiquetas html*/
-			$("#id_img").html('<img width="60px" src="images/users/'+data['id']+'.png"/>');
+			$("#id_img").html('<img src="images/users/'+data['id']+'.png"/>');
 			$("#user").html(data['user']);
 			$(".nom").html(data['nombre']);
 			$("#dir").html(data['dir']);
@@ -109,13 +109,13 @@ function sesionPerfil(){
 			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
 			vacia para insertar el total de perfiles dentro del html)*/
 			for(var i=1; i<=cantidadPer; i++){
-				cadena=cadena+"<p>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				cadena=cadena+"<p id='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
 				"Posición: "+data['perfil'+i].posicion+"<br>"+
 				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
 			}
 			$("#perf").html(cadena);
 			/*condiciones para mostrar los permisos del usuario*/
-			var cadenaP="<p>";
+			var cadenaP="<p id='privileges_data'>";
 			if(data['at']==1)
 				cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
 			if(data['c']==1)
@@ -195,7 +195,7 @@ function get_sucursal(){
 vista del usuario*/
 var codigo1="<article class='item_perfil'><div class='title_item_perfil'><input type='hidden' value='";//aqui va el id
 var codigo12="'><p>";//aqui va el usuario
-var codigo2='</p></div><div class="contenido_item_perfil"><img width="60px" src="images/users/';
+var codigo2='</p></div><div class="contenido_item_perfil"><img src="images/users/';
 var codigo3='.png"/><p>Nombre Usuario: ';
 var codigo4='</div></article>';
 
@@ -224,6 +224,7 @@ function usuarios(){
 				// data['usuario'+i].ph+codigo4;
 				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+data['usuario'+i].ph+codigo3+data['usuario'+i].nomUser+"</p><p>Modulo: "+
 				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo4;
+
 			}
 			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
 			escucha();

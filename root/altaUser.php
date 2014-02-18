@@ -11,7 +11,6 @@
 	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
 	<script type="text/javascript" src="../js/camera.js"></script>
-	<!-- <script type="text/javascript" src="../js/aplication.js"></script> -->
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -47,7 +46,7 @@
 		<input id="search" class="search_field" type="text">
 	</div>
 	<div id="content_wrapper">
-		<!-- <nav>
+		<nav>
 			<ul>
 				<li id="agenda"><a href="agenda.php"></a></li>
 				<li id="patients"><a href="#"></a></li>
@@ -55,7 +54,7 @@
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
-		</nav> -->
+		</nav>
 
 		<section id="content">
 			<div id="up_content">
@@ -69,11 +68,11 @@
 							<div id="main_fields_holder">
 								<div class="fields_holder">
 									<div id="user_label" class="new_user_labels" for="nombre"></div>
-			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onblur="sentName(this.value)" placeHolder="Nombre" required>
+			   						<input name="nombre" id="nombre" class="new_user_input" type="text" onkeyup="sentName(this.value)" placeHolder="Nombre" required>
 			   					</div>
 			   					<div class="fields_holder">
 			   						<div id="ap_label" class="new_user_labels" for="ap"></div>
-			   						<input name="ap" id="ap" class="new_user_input" type="text" onblur="showHind(this.value)" placeHolder="Apellidos" required>
+			   						<input name="ap" id="ap" class="new_user_input" type="text" onkeyup="showHind(this.value)" placeHolder="Apellidos" required>
 			   					</div>
 			   					<div class="fields_holder">
 			   						<div id="dir_label" class="new_user_labels" for="dir"></div>
@@ -98,27 +97,10 @@
 			   					<div id="vertical_spacer">
 			   					</div>
 		   					</div>
-		   					<!-- Take a picture -->
-		   					<div id="photos_holder">
-			   					<div class="photo_container">
-							    	<div class="photo_frame_title">Cámara</div>
-							    	<video id="camera" autoplay></video>
-							    	<input id='start_camera' class='test' type='button' value = 'Iniciar' />
-								    <input id='stop_camera' type='button' value = 'Detener' />
-								    <div id="miniholder">
-								    <input id='take_photo' type='button' value = 'Tomar foto'></input>
-								    </div>
-								</div>
-								<div class="photo_container">
-							    	<div class="photo_frame_title">Foto</div>
-							    	<canvas id="photo" ></canvas>
-							    	<input id='upload_photo' type='file' />
-								</div>
-							</div>
-							<input name="to_user" id="to_user" type="text"/>
+							<input name="to_user" id="to_user" type="Hidden"/>
 		   					<input name="to_pass" id="to_pass" type="text"/>
-		   					<!-- Submit button -->
-							<input id="new_user_submit" type="submit" value="Siguiente" />   
+							<!-- Submit button -->
+							<input id="new_user_submit" type="submit" value="Continuar" />   
 						</form>
 						<br>
 					</div>
