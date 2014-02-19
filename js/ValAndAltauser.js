@@ -109,25 +109,25 @@ function sesionPerfil(){
 			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
 			vacia para insertar el total de perfiles dentro del html)*/
 			for(var i=1; i<=cantidadPer; i++){
-				cadena=cadena+"<p id='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
-				"Posición: "+data['perfil'+i].posicion+"<br>"+
-				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
+				cadena=cadena+"<p id='other_data'>"+"Modulo: <span>"+data['perfil'+i].modulo+"</span><br>"+
+				"Posición: <span>"+data['perfil'+i].posicion+"</span><br>"+
+				"Sucursal: <span>"+data['perfil'+i].sucursal+"</span><br><br></p>";
 			}
 			$("#perf").html(cadena);
 			/*condiciones para mostrar los permisos del usuario*/
-			var cadenaP="<p id='privileges_data'>";
+			var cadenaP="<p id='other_data'>";
 			if(data['at']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Acceso Total</span><br>";
 			if(data['c']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Creación<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Creación</span><br>";
 			if(data['e']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Edición<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Edición</span><br>";
 			if(data['l']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Lectura<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Lectura</span><br>";
 			if(data['a']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Añexar<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Añexar</span><br>";
 			if(data['i']==1)
-				cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
+				cadenaP=cadenaP+"Tiene permiso de: <span>Imprimir</span><br>";
 			cadenaP=cadenaP+"</p>";	
 			$("#perm").html(cadenaP);
 		}

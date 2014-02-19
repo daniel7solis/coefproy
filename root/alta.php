@@ -1,6 +1,5 @@
 <?php
 	/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-	// $conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 	$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 	mysql_set_charset("utf8", $conexion); 
@@ -19,8 +18,9 @@
 	 values ('$nombreUser','$passF','$nombre','$dir','$tel','$mail','$curp','$rfc','$semilla')",$conexion) or die(mysql_error());
 	$idUser=mysql_query("select idUsuario from usuarios where nombreUsuario='$nombreUser' and nombre='$nombre' and contrasena='$passF'",$conexion) or die(mysql_error());
 	$idUsera=mysql_fetch_array($idUser);
+	echo $nombreUser." ".$nombre." ".$passF;
 	$id=$idUsera[0];
-	echo "<script language='javascript'> var idimg=$id; </script>";
+	echo "<script language='javascript'> var idimg = $id; alert(idimg); </script>";
 	// header("location: altaPermiso?id=$id.php");
 ?>
 <!DOCTYPE html>

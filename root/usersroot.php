@@ -59,7 +59,6 @@
 		<?php
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
-			//$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
@@ -69,8 +68,9 @@
 				"<article class='item_perfil'>
 					<div class='title_item_perfil'><p>$arrUsers[nombre]</p></div>
 					<div class='contenido_item_perfil'>
-						<p><img width='60px' src='../images/users/".$arrUsers['idUsuario'].".png'/></p>
-						<p>Nombre de usuario: $arrUsers[nombreUsuario]</p>";
+						<p id='profile_pic_root'><img src='../images/users/".$arrUsers['idUsuario'].".png'/></p>
+						<div id='data_holder'>
+						<p id='personal_data_root'>Nombre de usuario: <span>$arrUsers[nombreUsuario]</span></p>";
 						$info=mysql_query("select * from permisosusuarios where idUsuarios='$arrUsers[idUsuario]'",$conexion);
 						while($datos=mysql_fetch_array($info,MYSQLI_BOTH)){
 							$modulo=mysql_query("select modName from modulos where idModulo='$datos[3]'",$conexion);
@@ -78,12 +78,12 @@
 							$posicion=mysql_query("select posicionName from posicion where idPosicion='$datos[4]'",$conexion);
 							$reg2=mysql_fetch_array($posicion);
 							echo
-							"<p>Modulo: $reg[0]<br>
-							Posición: $reg2[0]<br>
-							Sucursal: $datos[1]</p>";
+							"<p id='other_data_root'>Modulo: <span>$reg[0]</span><br>
+							Posición: <span>$reg2[0]</span><br>
+							Sucursal: <span>$datos[1]</span></p>";
 						}
 						echo 
-					"</div>
+					"</div></div>
 				</article>";
 			}	
 		?>

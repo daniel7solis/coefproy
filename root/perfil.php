@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="js/checkroot.js"></script>
 	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
@@ -61,18 +62,18 @@
 			<article class='item_perfil'>
 				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
-					<p>Nombre: ROOT</p>
+					<p id='personal_data'>Nombre:<span> ROOT</span></p>
 				</div>
 			</article>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
+				<div class='title_item_perfil'><p>Aspecto Laboral:</p></div>
 				<div class='contenido_item_perfil'>
 					 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
 					<span id="perf"></span>
 				</div>
 			</article>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Permisos -</p></div>
+				<div class='title_item_perfil'><p>Permisos:</p></div>
 				<div class='contenido_item_perfil'>
 					<!-- Aqui van los "n" permisos que puede tener el usuario -->
 					<span id="perm"></span>
