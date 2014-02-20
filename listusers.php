@@ -9,7 +9,7 @@
 		mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 		mysql_set_charset("utf8", $conexion); 
 		/*fin para verificar*/
-		$list_idusers=mysql_query("select idUsuarios from permisosusuarios where idSucursal='$suc'",$conexion);
+		$list_idusers=mysql_query("select idUsuarios from permisosusuarios where idSucursal='$suc' order by idUsuarios",$conexion);
 		while ($arreglo=mysql_fetch_array($list_idusers, MYSQLI_BOTH)){
 			$cadena=$cadena.",";
 			$cont++;
