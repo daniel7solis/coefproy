@@ -198,6 +198,7 @@ var codigo1="<article class='item_perfil'><div class='title_item_perfil'><input 
 var codigo12="'><p>";//aqui va el usuario
 var codigo2='</p></div><div class="contenido_item_perfil"><img src="images/users/';
 var codigo3='.png"/><p>Nombre Usuario: ';
+var codigo31='<p>Modulo: Aqui<br>Posición: Aqui 2<br>Sucursal: aqui 3</p>';
 var codigo4='</div></article>';
 
 // Función para consultar los usuarios de "X" sucursal y mostrarlos en la pagina de users.php
@@ -223,12 +224,27 @@ function usuarios(){
 				// cadenaP=cadenaP+codigo1+data['usuario'+i].nom+codigo2+data['usuario'+i].nomUser+"</p><p>Modulo: "+
 				// data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo3+
 				// data['usuario'+i].ph+codigo4;
-				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+data['usuario'+i].ph+codigo3+data['usuario'+i].nomUser+"</p><p>Modulo: "+
-				data['usuario'+i].mod+"<br>Posición: "+data['usuario'+i].pos+"<br>Sucursal: "+data['s']+"</p>"+codigo4;
-
+				var cadPer="";
+				/*Ciclo para concatenar los "n" perfiles de un usuario y los mande en la cadena JSON para
+				ser usada en la pagina "users.php" y solo me muestre los usuarios de la suc que pertenece 
+				el usuario que hace la consulta*/
+				for(var j=1; j<=(data['usuario'+i].totPer); j++){//ciclo para el total de perfiles de un usuario
+					/*en el JSON "data['usuario'+i].totPer" tengo almacenada la cantidad de perfiles de este usuario*/
+					var c="perfil"+j;//evaluo el perfil en curso durante el ciclo
+					eval("var m=data['usuario'+i]."+c+".mod;");/*evaluo una cadena como codigo; que me 
+					regresa el modulo de dicho usuario en dicho perfil en el momento del ciclo*/
+					eval("var p=data['usuario'+i]."+c+".pos;");/*evaluo una cadena como codigo; que me 
+					regresa la posicion de dicho usuario en dicho perfil en el momento del ciclo*/
+					cadPer=cadPer+"<p>Modulo: "+m+"<br>Posición: "+p+"<br>Sucursal: "+data['s'];
+				}
+				/*Genero la cadena que sera añadida al HTML con el codigo necesario para la semantica y 
+				presentación de la información, junto con la cadena de los "n" perfiles del usuario*/
+				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+data['usuario'+i].id+codigo3+data['usuario'+i].nomUser+"</p>"+cadPer+codigo4;
+				//Limpio la cadena de los perfiles, dado que el sigiente usuario hace uso de esta misma.
+				cadPer="";
 			}
 			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
-			escucha();//mando llamar la funcion que sirve de escucha para cuando un elemento en este caso
+			escucha_users();//mando llamar la funcion que sirve de escucha para cuando un elemento en este caso
 			//un usuario es seleccionado para modificar su información o eliminarlo
 		}
 	});
@@ -241,9 +257,9 @@ señaladas, dado que en el caso de users.php solo se puede sellecionar un solo u
 configuraciones del sistema se debera dotar la capacidad de seleccionar mas de un usuario o elemento
 segun sea el caso */
 var confUsers=new Array();/*arreglo donde se almacenan los usuarios o elementos a modificar, en el caso
-de users.php solo se gusrdara un solo usuario a modificar*/ 
+de users.php solo se permitira un solo usuario a modificar*/ 
 var indice=0;//indice que controla la cantidad de elementos que se almacenaran conforme suceda el click
-function escucha(){
+function escucha_users(){
 	/*Activo la seleccion de usuarios para modificarlos, se selecciona el usuario de la lista que
 	se muestra en la pag users.php*/
 	var x=document.getElementsByTagName("article");/*selecciono todos los usuarios ya qye se encuentran
@@ -252,7 +268,7 @@ function escucha(){
 		ser seleccionados mediante un click*/
 		x[z].onclick=function(){//activo el evento del click
 			/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
-			limpiar();
+			limpiar("article");
 			$(this).css({'border':'3px solid #f39c12'});
 			var y=$(this).find("input");
 			confUsers[indice]=y.val();
@@ -266,8 +282,8 @@ function escucha(){
 }
 /*La funcion siguiente devuelve a todos los elementos seleccionados o no a sus caracteristicas normales,
 que indican se elimino la seleccion de ese objeto*/
-function limpiar(){
-	var arr=$('article');
+function limpiar(p){
+	var arr=$(p);
 	for(var z=0; z<arr.length; z++){/*recorro el total de elemtos que se eliminara la seleccion*/		
 		$(arr[z]).css({'border':'transparent'});//modifico sus caracteristicas css
 	}
@@ -299,23 +315,24 @@ function confUser(){
 			$("#email").val(data['email']);
 			$("#curp").val(data['curp']);
 			$("#rfc").val(data['rfc']);
+			$("#id").val(data['id']);			
 			var cantidadPer=data['numPerfiles'];
 			var cadena="";
 			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
 			vacia para insertar el total de perfiles dentro del html)*/
 			for(var i=1; i<=cantidadPer; i++){
-				cadena=cadena+"<p id='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				cadena=cadena+"<p class='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
 				"Posición: "+data['perfil'+i].posicion+"<br>"+
-				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
+				"Sucursal: "+data['perfil'+i].sucursal+"<input type='hidden' value='"+data['perfil'+i].idp+"'/></p>";
 			}
 			$("#perf").html(cadena);
-			if(data['perfil1'].modulo==="Super" || data['perfil1'].modulo==="root"){
-				if(data['perfil1'].posicion==="Super Usuario" || data['perfil1'].posicion==="root"){
-					$("#modulo").prop('disabled', true);//la siguiente linea comentada es lo mismo pero con javascript
-					// document.getElementById('modulo').disabled = true;
-					$("#posicion").prop('disabled', true);
-				}
-			}
+			// if(data['perfil1'].modulo==="Super" || data['perfil1'].modulo==="root"){
+			// 	if(data['perfil1'].posicion==="Super Usuario" || data['perfil1'].posicion==="root"){
+			// 		$("#modulo").prop('disabled', true);//la siguiente linea comentada es lo mismo pero con javascript
+			// 		// document.getElementById('modulo').disabled = true;
+			// 		$("#posicion").prop('disabled', true);
+			// 	}
+			// }
 
 			/*condiciones para mostrar los permisos del usuario*/
 			var cadenaP="<p id='privileges_data'>";
@@ -333,9 +350,35 @@ function confUser(){
 				cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
 			cadenaP=cadenaP+"</p>";	
 			$("#perm").html(cadenaP);
+			escucha_Permisos();
 		}
 	});
 }
+var confPerf=new Array();/*arreglo donde se almacenan los perfiles o elementos a modificar, en el caso
+de "setting_user.php" solo se permitira un solo permiso a modificar*/ 
+var indiceP=0;//indice que controla la cantidad de elementos que se almacenaran conforme suceda el click
+function escucha_Permisos(){
+	/*Activo la seleccion de usuarios para modificarlos, se selecciona el usuario de la lista que
+	se muestra en la pag users.php*/
+	var x=document.getElementsByClassName("work_data");/*selecciono todos los usuarios ya qye se encuentran
+	dentro de article*/
+	for(var z=0; z<x.length; z++){/*recorro el total de elemtos que se dara la capacidad de resaltar al
+		ser seleccionados mediante un click*/
+		x[z].onclick=function(){//activo el evento del click
+			/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
+			limpiar(".work_data");
+			$(this).css({'border':'3px solid #f39c12'});
+			var y=$(this).find("input");
+			confUsers[indice]=y.val();
+			console.log(confUsers[indice]);
+			/* indice++; Comento esta linea dado que solo se puede modificar un usuario, y se deja para 
+			un uso posterior, cuando se requiera modificar o seleccionar a mas de un elemento, que se
+			almacene en el arreglo de confUser los id que identifican al elemento*/
+			sessionStorage.setItem("confp", confUsers[indice]);
+		};
+	}
+}
+
 /*Función que direcciona para dar de alta un nuevo perfil laboral de un usuario en la pagina de configuración
 de usuarios "setting_user.php"*/
 function perfil_mas(){
@@ -348,4 +391,8 @@ function cerrarSesion(){
 	sessionStorage.removeItem("id");
 	sessionStorage.removeItem("conf");
 	document.location.href="index.php";
+}
+
+function modPerfil(){
+
 }

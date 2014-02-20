@@ -22,7 +22,7 @@
 		/*En el arreglo "datos" se tiene almacenado la cantidad de permisos con su respectiva información,
 		cada iteración del ciclo while significan uno mas a la cantidad de perfiles que tiene el usuario;
 		y en el areglo "perfil" se concatena la "x" para almacenar la informacion de cada perfil en su arreglo
-		correspondiente, por ejemplo, en el arrglo "perfil0" se tiene la informacion de un perfil del usuario,
+		correspondiente, por ejemplo, en el arreglo "perfil0" se tiene la informacion de un perfil del usuario,
 		en el "perfil1" la información del segundo perfil y así sucesivamente hasta "n" perfiles */
 		while ($arreglo=mysql_fetch_array($datos, MYSQLI_BOTH)){
 			$codestring='$perfil'.$x.';';
@@ -43,8 +43,8 @@
 		de esta manera consultando en la DB la informacion como el id de permiso, modulo, posicion y sucursal
 		del perfil en curso*/
 		while ($cont>0) {
-			// $codestring='$p=$perfil'.$x.'[0];';//guardo en "p" el id del permiso
-			// eval($codestring);//evaluo como codigo la cadena que se pasa como argumento
+			$codestring='$p=$perfil'.$x.'[0];';//guardo en "p" el id del permiso
+			eval($codestring);//evaluo como codigo la cadena que se pasa como argumento
 			$codestring='$z=$perfil'.$x.'[3];';/*guando en z el identificador de modulo para 
 			posteriormente consultar el nombre del modulo en la DB*/
 			eval($codestring);
@@ -72,7 +72,7 @@
 			$codestring='$s=$perfil'.$x.'[1];';
 			eval($codestring);
 			/*creo la cadena con formato json en la que paso un json anidado con los datos antes capturados */
-			$perfiles=$perfiles.',"perfil'.$x.'":{"modulo":"'.$moduloJ.'","posicion":"'.$posicionJ.'","sucursal":"'.$s.'"}';
+			$perfiles=$perfiles.',"perfil'.$x.'":{"idp":"'.$p.'","modulo":"'.$moduloJ.'","posicion":"'.$posicionJ.'","sucursal":"'.$s.'"}';
 			$cont--;
 			$x++;
 		}
