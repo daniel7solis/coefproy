@@ -8,9 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsivelogin.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/sesiones.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
+	revisarSesionIndex();
 		function hideAdvice()
 		{
 			$('header').hide('linear');

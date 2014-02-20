@@ -11,12 +11,16 @@
 	<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/redmond/jquery-ui-1.10.4.custom.css" />
 	<!-- Scripts -->
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/sesiones.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
 	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/aplication.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
+	<script type="text/javascript">
+		revisarSesion();
+	</script>
 </head>
 <body>
 	<header>
@@ -28,7 +32,6 @@
 			<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar();"><figcaption></figcaption></a>
 			</figure>
 		</div>
