@@ -1,4 +1,5 @@
-// <!-- Daniel Code -->
+// <!-- VAlAndAltauser.js by Daniel Solis -->
+
 // Funcion para validar el texto que entra al formulario, se crea un objeto RegExp (espresion regular) que 
 // contiene los caracteres invalidos, para posteriormente hacer el match con la cadena de entrada al 
 // formulario, se llama a cada evento onkeyup, para asegurar que no se pueda poner alguna cadena invalida
@@ -227,11 +228,12 @@ function usuarios(){
 
 			}
 			$("#users").html(cadenaP);//Asigno el contenido de la cadenaP como codigo html dentro de la etiqueta span
-			escucha();
+			escucha();//mando llamar la funcion que sirve de escucha para cuando un elemento en este caso
+			//un usuario es seleccionado para modificar su información o eliminarlo
 		}
 	});
 }
-/*En este arreglo se almacenaran todos los usuarios a modificar el indice se incrementa conforme se 
+/*En este arreglo "confUsers" se almacenaran todos los usuarios a modificar el indice se incrementa conforme se 
 seleccionan con el evento onclick, para fines practicos se quitara el incremento del indice en la
 configuracion de la informacion del usuario en la pagina users.php ya que solo se puede modificar un
 usuario a la vez, igualemte se cambiara el efecto que se tome con las lineas de codigo posteriormente
@@ -258,6 +260,7 @@ function escucha(){
 			/* indice++; Comento esta linea dado que solo se puede modificar un usuario, y se deja para 
 			un uso posterior, cuando se requiera modificar o seleccionar a mas de un elemento, que se
 			almacene en el arreglo de confUser los id que identifican al elemento*/
+			sessionStorage.setItem("conf", confUsers[indice]);
 		};
 	}
 }
@@ -268,4 +271,75 @@ function limpiar(){
 	for(var z=0; z<arr.length; z++){/*recorro el total de elemtos que se eliminara la seleccion*/		
 		$(arr[z]).css({'border':'transparent'});//modifico sus caracteristicas css
 	}
+}
+
+/**/
+function confUser(){
+	console.log(sessionStorage.getItem("conf"));
+	var conf=sessionStorage.getItem("conf");
+	var parametros = {
+        "id" : conf
+       	};
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'userConf.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			/*inserto los datos en las etiquetas html*/
+			$("#id_img").html('<img src="images/users/'+data['id']+'.png"/>');
+			$("#user").html(data['user']);
+			$(".nom").html(data['nombre']);
+			$("#nombre").val(data['nombre']);
+			$("#dir").val(data['dir']);
+			$("#tel").val(data['tel']);
+			$("#email").val(data['email']);
+			$("#curp").val(data['curp']);
+			$("#rfc").val(data['rfc']);
+			var cantidadPer=data['numPerfiles'];
+			var cadena="";
+			/*ciclo para mostrar los "n" perfiles del usuario (todo se concatena a una cadena definida
+			vacia para insertar el total de perfiles dentro del html)*/
+			for(var i=1; i<=cantidadPer; i++){
+				cadena=cadena+"<p id='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
+				"Posición: "+data['perfil'+i].posicion+"<br>"+
+				"Sucursal: "+data['perfil'+i].sucursal+"</p>";
+			}
+			$("#perf").html(cadena);
+			if(data['perfil1'].modulo==="Super" || data['perfil1'].modulo==="root"){
+				if(data['perfil1'].posicion==="Super Usuario" || data['perfil1'].posicion==="root"){
+					$("#modulo").prop('disabled', true);//la siguiente linea comentada es lo mismo pero con javascript
+					// document.getElementById('modulo').disabled = true;
+					$("#posicion").prop('disabled', true);
+				}
+			}
+
+			/*condiciones para mostrar los permisos del usuario*/
+			var cadenaP="<p id='privileges_data'>";
+			if(data['at']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Acceso Total<br>";
+			if(data['c']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Creación<br>";
+			if(data['e']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Edición<br>";
+			if(data['l']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Lectura<br>";
+			if(data['a']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Añexar<br>";
+			if(data['i']==1)
+				cadenaP=cadenaP+"Tiene permiso de: Imprimir<br>";
+			cadenaP=cadenaP+"</p>";	
+			$("#perm").html(cadenaP);
+		}
+	});
+}
+/*Función que direcciona para dar de alta un nuevo perfil laboral de un usuario en la pagina de configuración
+de usuarios "setting_user.php"*/
+function perfil_mas(){
+	var ss=sessionStorage.getItem('conf');
+	var link="altaPermiso.php?id="+ss;
+	document.location.href=link;
 }
