@@ -69,12 +69,15 @@
 					<!--img width="60px" src="images/users/1.png"></img-->
 				<form name="form_conf" id="form_conf" method="post" action="modificarUser.php" accept-charset="UTF-8">
 					<p id="profile_pic"><span id="id_img"></span><span id="user"></span></p>
-					Nombre: <input type="text" id="nombre">
-					Dirección: <input type="text" id="dir">
-					Telefono: <input type="text" id="tel">
-					Email: <input type="text" id="email">
-					CURP: <input type="text" id="curp">
-					RFC: <input type="text" id="rfc">
+					Nombre: <input type="text" id="nombre" name="nombre">
+					Dirección: <input type="text" id="dir" name="dir">
+					Telefono: <input type="text" id="tel" name="tel">
+					Email: <input type="text" id="email" name="email">
+					CURP: <input type="text" id="curp" name="curp">
+					RFC: <input type="text" id="rfc" name="rfc"> 
+					<input type="hidden" id="id" name="id"> 
+					<input type="submit" id="eviar_mod" value="Actualizar">
+				</form>
 				</div>
 			</article>
 			<article class='item_perfil'>
@@ -82,38 +85,15 @@
 				<div class='contenido_item_perfil'>
 					 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
 					<span id="perf"></span>
-					<!--?php
-						/*Hacer de nuevo la conexion----*/
-						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
-						mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
-						mysql_set_charset("utf8", $conexion);
-						/*Muestro en  una lista de seleccion los modulos en los que se puede dar de alta el nuevo usuario*/
-			   			$datos=mysql_query("select idModulo,modName from modulos",$conexion)or die(mysql_error());
-			   			echo '<select id="modulo" name="modulo">';
-			   			while($opciones=mysql_fetch_array($datos)){
-			   				if($opciones[0]!=8 && $opciones[0]!=9)
-			   					echo "<option value='$opciones[0]'>$opciones[1]</option>";
-			   			}
-			   			echo "</select>";
-			   			$datos=mysql_query("select idPosicion,posicionName from posicion",$conexion)or die(mysql_error());
-			   			echo '<select id="posicion" name="posicion">';
-			   			while($opciones=mysql_fetch_array($datos)){
-			   				if($opciones[0]!=8 && $opciones[0]!=9)
-			   					echo "<option value='$opciones[0]'>$opciones[1]</option>";
-			   			}
-			   			echo "</select>";
-			   		?-->
 			   		<div id="masPerfil">
 			   			<ul>
 			   				<!-- Barra de herramientas para editar lo usuarios -->
 							<li><a id="new" href="#" onclick="perfil_mas()"></a></li>
 							<!--li><a id="look" href="#"></a></li-->
-							<li><a id="manage" ></a></li>
+							<li><a id="manage" href="modPerfil.php"></a></li>
 							<!--li><a id="print" href="#"></a></li-->
 						</ul>
 					</div>
-
-			   	</form>
 				</div>
 			</article>
 			<article class='item_perfil'>
