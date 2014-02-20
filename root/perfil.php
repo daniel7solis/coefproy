@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
+	revisarSesion();
 		$( document ).ready(function()
 			{
 				$('#menu').hide();
