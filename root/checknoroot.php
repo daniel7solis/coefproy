@@ -18,7 +18,7 @@
 			$isEmpty = 1;
 		}
 
-		if(strcmp($n, $regrt['nombreUsuario'])!=0 && strcmp($idd, $regrt['contrasena'])!=0)
+		if(strcmp($n, $regrt['nombreUsuario'])!=0 && strcmp($idd, $rt['contrasena'])!=0)
 		{
 			$isDifferent = 1;
 		}
@@ -26,6 +26,7 @@
 		{
 			$isDifferent = 0;
 		}
+		
 		$cadena = '{"ok":'.$isDifferent.',"em":'.$isEmpty.'}';
 		echo $cadena;
 		$isDifferent = 0;
