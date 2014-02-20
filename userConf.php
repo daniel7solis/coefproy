@@ -1,20 +1,19 @@
 <?php
-	// Recibo datos de pagina perfil con AJAX, y pregunto si existe valor en el metodo $_POST, para continuar
+	// Recibo datos de pagina "setting_user.php" con AJAX, y pregunto si existe valor en el metodo $_POST, para continuar
 	if($_POST){
 		$id=$_POST['id'];
-		$nom=$_POST['user'];
 		/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
-		// $conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+		// $conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 		mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 		// Defino que la conexion con la base de datos sera con la codificacion UTF-8
 		mysql_set_charset("utf8", $conexion); 
 		/*fin para verificar*/
 
-		/*Consulto los permisos que tiene el usuario, dentro de los permisos un usuario puede
+		/*Consulto los permisos que tiene el usuario; dentro de los permisos un usuario puede
 		tener mas de un perfil, lo que corresponde por cada perfil de permisos se tiene una posicion ("puesto")
 		y un modulo ("departamento") dentro de la DB*/
-		$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion);
+		$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion) or die("Problemas en consulta ".mysql_error());
 		//Se evalua 
 		$cont=0;//respaldar la cantidad de iteraciones que ocurrieron durante la consulta de los perfiles de un usuario
 		$x=1;/*variable que controla el numero de perfiles de un usuario, se concatena a $perfil, para crear una funcion
@@ -44,8 +43,8 @@
 		de esta manera consultando en la DB la informacion como el id de permiso, modulo, posicion y sucursal
 		del perfil en curso*/
 		while ($cont>0) {
-			$codestring='$p=$perfil'.$x.'[0];';//guardo en "p" el id del permiso
-			eval($codestring);//evaluo como codigo la cadena que se pasa como argumento
+			// $codestring='$p=$perfil'.$x.'[0];';//guardo en "p" el id del permiso
+			// eval($codestring);//evaluo como codigo la cadena que se pasa como argumento
 			$codestring='$z=$perfil'.$x.'[3];';/*guando en z el identificador de modulo para 
 			posteriormente consultar el nombre del modulo en la DB*/
 			eval($codestring);
@@ -73,7 +72,7 @@
 			$codestring='$s=$perfil'.$x.'[1];';
 			eval($codestring);
 			/*creo la cadena con formato json en la que paso un json anidado con los datos antes capturados */
-			$perfiles=$perfiles.',"perfil'.$x.'":{"permiso":"'.$p.'","modulo":"'.$moduloJ.'","posicion":"'.$posicionJ.'","sucursal":"'.$s.'"}';
+			$perfiles=$perfiles.',"perfil'.$x.'":{"modulo":"'.$moduloJ.'","posicion":"'.$posicionJ.'","sucursal":"'.$s.'"}';
 			$cont--;
 			$x++;
 		}
@@ -108,8 +107,13 @@
 			$cont_r--;
 			$x++;
 		}
+		$datos=mysql_query("select nombreUsuario,nombre,direccion,telefono,email,curp,rfc from usuarios where idUsuario='$id'",$conexion) or die("Problemas la consulta ".mysql_error());
+		$datUser=mysql_fetch_array($datos);
 		/*Cadena con formato json*/
-		$cadenaJson='{"id":'.$id.',"user":"'.$nom.'","numPerfiles":"'.$numPerfiles.'"'.$perfiles.',"at":'.$perFin[0].',"c":'.$perFin[1].',"e":'.$perFin[2].',"l":'.$perFin[3].',"a":'.$perFin[4].',"i":'.$perFin[5].'}';
+		$cadenaJson='{"id":'.$id.',"user":"'.$datUser['nombreUsuario'].'","nombre":"'.$datUser['nombre'].'",
+		"dir":"'.$datUser['direccion'].'","tel":"'.$datUser['telefono'].'","email":"'.$datUser['email'].'",
+		"curp":"'.$datUser['curp'].'","rfc":"'.$datUser['rfc'].'","numPerfiles":"'.$numPerfiles.'"'.$perfiles.',
+		"at":'.$perFin[0].',"c":'.$perFin[1].',"e":'.$perFin[2].',"l":'.$perFin[3].',"a":'.$perFin[4].',"i":'.$perFin[5].'}';
 		echo $cadenaJson;
 	}else{
 		/*En caso de no recibir datos de la llamada ajax se pasa un json de error*/
