@@ -9,12 +9,18 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.4.custom/css/redmond/jquery-ui-1.10.4.custom.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/sesiones.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
+	revisarSesion();
 		$( document ).ready(function()
 			{
+				var ses = sessionStorage.getItem("id");
+				var idim = JSON.parse(ses);
+				$('#deploy_menu').prepend("<img src='images/users/"+idim.id+".png' />");
+				
 				$('#menu').hide();
 				$('html').click(function() 
 				{
@@ -48,7 +54,6 @@
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
@@ -106,7 +111,7 @@
 			   						<div id="tel_label" class="new_user_labels" for="tel"></div>
 			   						<input name="tel" id="tel" class="new_user_input" type="text" maxlength="10" placeHolder="Teléfono" required>
 			   					</div>
-			   					<input name="suc" id="suc" type="text" />
+			   					<input name="suc" id="suc" type="Hidden" />
 							<!-- Submit button -->
 							<input id="new_user_continue" type="submit" value="Siguiente" />   
 						</form>

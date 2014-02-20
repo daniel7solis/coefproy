@@ -18,7 +18,11 @@ $( window ).resize(function() {
 // Cuando la página ya cargó...
 $( document ).ready(function()
 {
+	var ses = sessionStorage.getItem("id");
+		var idim = JSON.parse(ses);
+		$('#deploy_menu').prepend("<img src='images/users/"+idim.id+".png' />");
 	// Se obtiene la fecha actual (agenda.php)
+	revisarSesion();
 	actualdate();
 	resetSize();
 	// Se asigna al campo para verificar la fecha del paciente.

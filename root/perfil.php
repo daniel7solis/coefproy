@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
 	<link rel="stylesheet" type="text/css" href="../css/responsive.css" />
 	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="js/checkroot.js"></script>
+	<script type="text/javascript" src="js/sesiones.js"></script>
 	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
 	<script type="text/javascript">

@@ -18,7 +18,7 @@
 			$isEmpty = 1;
 		}
 
-		if(strcmp($n, $rt['nombreUsuario'])!=0 && strcmp($idd, $rt['contrasena'])!=0)
+		if(strcmp($n, $rt['nombreUsuario'])==0 && strcmp($idd, $rt['contrasena'])==0)
 		{
 			$isDifferent = 1;
 		}
