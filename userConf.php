@@ -1,8 +1,7 @@
 <?php
-	// Recibo datos de pagina perfil con AJAX, y pregunto si existe valor en el metodo $_POST, para continuar
+	// Recibo datos de pagina "setting_user.php" con AJAX, y pregunto si existe valor en el metodo $_POST, para continuar
 	if($_POST){
 		$id=$_POST['id'];
-		$nom=$_POST['user'];
 		/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 		// $conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -11,7 +10,7 @@
 		mysql_set_charset("utf8", $conexion); 
 		/*fin para verificar*/
 
-		/*Consulto los permisos que tiene el usuario, dentro de los permisos un usuario puede
+		/*Consulto los permisos que tiene el usuario; dentro de los permisos un usuario puede
 		tener mas de un perfil, lo que corresponde por cada perfil de permisos se tiene una posicion ("puesto")
 		y un modulo ("departamento") dentro de la DB*/
 		$datos=mysql_query("select * from permisosusuarios where idUsuarios='$id'",$conexion) or die("Problemas en consulta ".mysql_error());
@@ -108,10 +107,10 @@
 			$cont_r--;
 			$x++;
 		}
-		$datos=mysql_query("select nombre,direccion,telefono,email,curp,rfc from usuarios where idUsuario='$id'",$conexion) or die("Problemas la consulta ".mysql_error());
+		$datos=mysql_query("select nombreUsuario,nombre,direccion,telefono,email,curp,rfc from usuarios where idUsuario='$id'",$conexion) or die("Problemas la consulta ".mysql_error());
 		$datUser=mysql_fetch_array($datos);
 		/*Cadena con formato json*/
-		$cadenaJson='{"id":'.$id.',"user":"'.$nom.'","nombre":"'.$datUser['nombre'].'",
+		$cadenaJson='{"id":'.$id.',"user":"'.$datUser['nombreUsuario'].'","nombre":"'.$datUser['nombre'].'",
 		"dir":"'.$datUser['direccion'].'","tel":"'.$datUser['telefono'].'","email":"'.$datUser['email'].'",
 		"curp":"'.$datUser['curp'].'","rfc":"'.$datUser['rfc'].'","numPerfiles":"'.$numPerfiles.'"'.$perfiles.',
 		"at":'.$perFin[0].',"c":'.$perFin[1].',"e":'.$perFin[2].',"l":'.$perFin[3].',"a":'.$perFin[4].',"i":'.$perFin[5].'}';
