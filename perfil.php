@@ -72,14 +72,14 @@
 					</div>
 				</div>
 			</article>
-			<article class='item_perfil'>
+			<article class='item_perfil_in'>
 				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
 				<div class='contenido_item_perfil'>
 					 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
-					<span id="perf"></span>
+					<span id="perf"><br></span>
 				</div>
 			</article>
-			<article class='item_perfil'>
+			<article class='item_perfil_in'>
 				<div class='title_item_perfil'><p>Permisos -</p></div>
 				<div class='contenido_item_perfil'>
 					<!-- Aqui van los "n" permisos que puede tener el usuario -->

@@ -60,7 +60,6 @@
 			$id=$_GET["id"];
 			/*Hacer de nuevo la conexion (aun no se si es la manera mas apropiada) ----verificar-----*/
 			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
-			//$conexion=mysql_connect("127.0.0.1","root","") or die("Problemas con la conexion de base de datos ".mysql_error());
 			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 			mysql_set_charset("utf8", $conexion); 
 			/*fin para verificar*/
@@ -78,43 +77,40 @@
 						<form name="altaPermiso" id="altaPermiso" method="post" action="altaP.php" accept-charset="UTF-8">
 							<div id="main_fields_holder">
 								<div class="fields_holder">
-									<div id="user_label" class="new_user_labels" for="sucursal"></div>
+									<div>Sucursal:</div>
 									<select name="sucursal">
 									<?php
 			   								$datos=mysql_query("select idSucursal,nombreSucursal,direccionSucursal from Sucursal",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
-			   										echo "<option value='$opciones[0]'>$opciones[1]$opciones[2]</option>";
+			   										echo "<option class='selecion_privileges' value='$opciones[0]'>$opciones[1] | $opciones[2]</option>";
 			   								}
 			   						?>
 			   						</select>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
-			   						<div id="ap_label" class="new_user_labels" for="modulo"></div>
+			   						<div>Departamento:</div>
 			   						<select name="modulo">
 			   							<?php
 			   								$datos=mysql_query("select idModulo,modName from modulos",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
 			   									if($opciones[0]!=9)
-			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
+			   										echo "<option class='selecion_privileges' value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>
 			   						</select>
 			   					</div>
-			   					<br>
 			   					<div class="fields_holder">
-			   						<div id="dir_label" class="new_user_labels" for="posicion"></div>
+			   						<div>Puesto:</div>
 			   						<select name="posicion">
 			   							<?php
 			   								$datos=mysql_query("select idPosicion,posicionName from posicion",$conexion)or die(mysql_error());
 			   								while($opciones=mysql_fetch_array($datos)){
 			   									if($opciones[0]!=9)
-			   										echo "<option value='$opciones[0]'>$opciones[1]</option>";
+			   										echo "<option class='selecion_privileges' value='$opciones[0]'>$opciones[1]</option>";
 			   								}
 			   							?>
 			   						</select>
 			   					</div>
-			   					<br>
 		   					</div>	 
 		   					<?php
 		   						// hidden de el id de usuario
