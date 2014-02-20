@@ -343,3 +343,9 @@ function perfil_mas(){
 	var link="altaPermiso.php?id="+ss;
 	document.location.href=link;
 }
+
+function cerrarSesion(){
+	sessionStorage.removeItem("id");
+	sessionStorage.removeItem("conf");
+	document.location.href="index.php";
+}
