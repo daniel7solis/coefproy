@@ -14,7 +14,12 @@ function revisarSesion()
 			success: function(data){
 				if(data['ok']==1)
 				{
+					alert(data['ok']);
 					document.location.href="../perfil.php";
+				}
+				else
+				{
+					alert("OMG");
 				}
 			},
 		});	

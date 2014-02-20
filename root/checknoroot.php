@@ -12,16 +12,23 @@
 			/*fin para verificar*/
 		$regrt=mysql_query("select nombreUsuario,contrasena from usuarios where nombreUsuario='root'",$conexion)or die("Problemas en la consulta la base de datos ".mysql_error());
 		$rt=mysql_fetch_array($regrt);
-		if(strcmp($n, $regrt['nombreUsuario'])!=0 && strcmp($idd, $regrt['contrasena'])!=0)
-		{
-			$isDifferent = 1;
-		}
+
 		if(strcmp($idd, "")==0 || strcmp($n, "")==0 || strcmp($s,"")==0)
 		{
 			$isEmpty = 1;
 		}
+
+		if(strcmp($n, $regrt['nombreUsuario'])!=0 && strcmp($idd, $regrt['contrasena'])!=0)
+		{
+			$isDifferent = 1;
+		}
+		else
+		{
+			$isDifferent = 0;
+		}
 		$cadena = '{"ok":'.$isDifferent.',"em":'.$isEmpty.'}';
 		echo $cadena;
+		$isDifferent = 0;
 	}
 	else
 	{
