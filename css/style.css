@@ -92,7 +92,6 @@ header #avatar figcaption:after
 header #avatar img
 {
 	float: left;
-	width: 50px;
 	height: 50px;
 }
 footer
@@ -112,6 +111,7 @@ nav
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	display: block;
 	font-size: 1em;
 	font-weight: bold;
 	margin: 0 10px 0 10px;
@@ -213,11 +213,38 @@ th
 	background: #E7E3FF;
 	border-radius: 5px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	margin: 2em 10px 1em 10px; 
-	padding:0;
+	display: inline-block;
 	position: relative;
 }
+#content_calendar
+{
+	background: #E7E3FF;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	display: inline-block;
+	float: right;
+	margin-right: 1em; 
+	padding:0;
+	position: relative;
+	width: 20%;
+}
 #content_title
+{
+	background: #FFBC00;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #704b00;
+	display: block;
+	font-size: 1.3em;
+	margin-left: -95px;
+	padding: 0.3em 0.7em;
+	position: absolute;
+	left: 50%;
+	text-align: center;
+	top: -1.7em;
+	width: 160px;
+}
+#content_title_calendar
 {
 	background: #FFBC00;
 	border-radius: 5px;
@@ -263,6 +290,10 @@ th
 	right:-1.2em;
 	position:absolute;
 	bottom:0;
+}
+#content_wrapper
+{
+	vertical-align: top;
 }
 #curp_label:after
 {
@@ -435,10 +466,27 @@ th
 	content: "\e608";
 	font-family: "icomoon";
 }
+#left_wrapper
+{
+	display: inline-block;
+	float: left;
+	position: relative;
+}
 #look, #manage, #new, #print
 {
 	color: rgba(255,255,255,0.9);
 	font-size: 1.5em;
+}
+#new_h, #manage_h, #print_h
+{
+	color: rgba(0,0,0,0.5);
+	cursor: pointer;
+	font-size: 0.8em;
+	transition: all 0.5s;
+}
+#new_h:hover, #manage_h:hover, #print_h:hover
+{
+	color: rgba(0,0,0,0.9);
 }
 #look:after
 {
@@ -680,8 +728,9 @@ th
 #photo
 {
 	border-radius: 0.7em;
-	height: 187px;
+	height: 200px;
 	margin: 0;
+	padding: 0;
 	width: 250px;
 }
 #photos_holder
@@ -763,6 +812,38 @@ th
 	padding: 0.5em 0.5em;
 	text-decoration: none;
 }
+#quick_access_h
+{
+	display: block;
+	padding: 0.5em 0.5em;
+	position:absolute;
+	right: 0.5em;
+	top: 0.7em;
+}
+#quick_access_h ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+#quick_access_h ul li
+{
+	border-left: 1px solid gray;
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+}
+#quick_access_h ul li:first-child
+{
+	border-left: 0px;
+}
+#quick_access_h ul li a
+{
+	display: block;
+	padding: 0.5em 0.5em;
+	text-decoration: none;
+}
 #right_wrapper
 { 
 	float: right;
@@ -835,6 +916,30 @@ th
 	content: "\e615";
 	font-family: "icomoon";
 }
+#temporal_date_catcher
+{
+	display: block;
+	margin: 12em 10px 0 10px;
+	width: 145px;
+}
+#temporal_date_catcher tbody
+{
+	margin: 0;
+	width: 145px;
+}
+#temporal_date_catcher tr
+{
+	margin: 0;
+	padding: 0;
+	width: 145px;
+}
+#temporal_date_catcher tr td
+{
+	border: transparent;
+	color: transparent;
+	padding: 0.5em 0.2em;
+	width: 145px;
+}
 #up_content
 {
 	background: white;
@@ -845,36 +950,15 @@ th
 	position: relative;
 	height: 6em;
 }
-#up_content ul
+#up_content_calendar
 {
+	background: white;
+	border-bottom: 1px solid #7f8c8d;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	display: block;
-	list-style: none;
-	margin: 0;
-	padding: 1em 0 0 0;
-	text-align: center;
-}
-#up_content ul li
-{
-	display: inline-block;
-	margin: 0;
-	vertical-align: top;
-	width: 14%;
-}
-#up_content ul li a
-{
-	transition: all 0.5s;
-	border-bottom: 2px solid #2980b9;
-	color: black;
-	display: block;
-	font-weight: bold;
-	padding: 0.5em 0;
-	text-decoration: none;
-	text-align: center;
-	width: 100%;
-}
-#up_content ul li a:hover
-{
-	color: #2980b9;
+	position: relative;
+	height: 6em;
 }
 #upload_photo
 {
@@ -913,10 +997,12 @@ th
 }
 .calendar_row
 {
-	color: black;
 	font-weight: bold;
 	padding-left: 0.4em; 
-	width: 10%;
+}
+.calendar_row
+{
+	
 }
 .close_session
 {
@@ -1252,7 +1338,7 @@ th
 	background: #DD4F24;
 	border-radius: 4px;
 	color:white;
-	margin-top: 1em;
+	margin-top: 2.5em;
 	margin-left: -100px;
 	text-align: center;
 	position: absolute;
@@ -1323,6 +1409,7 @@ th
 	border-radius: 0.7em;
 	display: inline-block;
 	margin: 1.5em 1em 0.5em 1em;
+	padding: 0;
 	position: relative;
 	width: 250px;
 }

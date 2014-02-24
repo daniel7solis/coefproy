@@ -302,7 +302,6 @@
 	{
 		background: #878787;
 		border-radius: 3px;
-		display: inline-block;
 		float:left;
 		font-size: 1em;
 		font-weight: bold;
@@ -417,7 +416,7 @@
 		display: inline-block;
 		margin: 0 1em 1em 1em;
 		position: relative;
-		width: 70%;
+		width: 63%;
 	}
 	#content_wrapper
 	{
@@ -676,7 +675,6 @@
 	{
 		background: #878787;
 		border-radius: 3px;
-		display: inline-block;
 		float:left;
 		font-size: 1em;
 		font-weight: bold;
@@ -776,12 +774,11 @@
 		display: inline-block;
 		margin: 0 1em 1em 1em;
 		position: relative;
-		width: 70%;
+		width: 63%;
 	}
 	#content_wrapper
 	{
 		display: block;
-		margin: 0 30px;
 	}
 	#agenda,#departments, #donator, #patients, #lab_survey
 	{

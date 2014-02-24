@@ -22,6 +22,7 @@ $( document ).ready(function()
 		var idim = JSON.parse(ses);
 		$('#deploy_menu').prepend("<img src='images/users/"+idim.id+".png' />");
 	// Se obtiene la fecha actual (agenda.php)
+	actual();
 	revisarSesion();
 	actualdate();
 	resetSize();
@@ -32,44 +33,6 @@ $( document ).ready(function()
     	changeYear: true,
     	yearRange: '1900:+0'
 	});
-	// se asigna al campo para ver la fecha específicada.
-	$('#dc_day').datepicker({
-		dateFormat: 'yy-mm-dd', 
-	    beforeShow: function (input, inst) 
-	    {
-	    	// Delimita, sólo de hoy en adelante.
-	    	var datelimit = new Date();
-	    	datelimit.getDate();
-	    	console.log(datelimit);
-	    	$(this).datepicker( "option","minDate",datelimit);
-	    },
-	    onClose: function()
-	    {
-	    	var diasagenda = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
-			mesesagenda = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-			if($('#dc_day').val()=='')
-			{
-				alert('¡Debe seleccionar una fecha!');
-			}
-			else
-			{
-				var yei = $('#dc_day').datepicker('getDate');
-				var dow = yei.getUTCDay();
-				console.log(diasagenda[(dow-1)]);
-
-				var unsplitted = $('#dc_day').val();
-				var date = unsplitted.split('-');
-				if(date.length!=3)
-				{
-					alert('¡Fecha no váilda!');
-				}
-				else
-				{
-					document.location.href = "agenda.php?ndia="+diasagenda[(dow-1)]+"&dia="+date[2]+"&mes="+date[1]+"&ano=2014";
-				}
-			}
-	    }
-	});
 
 	/* Se valida y se envía a la fecha deseada de la agenda.
 	Aquí ya no nos preocupamos por las citas, ya que se generan 
@@ -77,11 +40,12 @@ $( document ).ready(function()
 	citas agendadas.*/
 
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
-	$('#new').on('click', function()
+	$('#new_h').on('click', function()
 	{
 		alert("Ahora, selecciona la hora a agendar...");
-		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content').css({'-webkit-filter':'blur(6px)'});
-		$('tr').on('click', function()
+		$('.calendar_row').unbind('click');
+		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content, #content_calendar').css({'-webkit-filter':'blur(6px)'});
+		$('.droppable_hour').on('click', function()
 		{
 			hora = $(this).attr('value');
 			document.location.href = "nuevacita.php?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora;
@@ -102,9 +66,30 @@ $( document ).ready(function()
    		snap: true,
    		cursor: 'move',
 		helper: 'clone',
-		revert:'invalid'
-	});
+		revert:'invalid',
+		drag: function()
+		{
+			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
+		}
+	}).resizable();
 
+	$('.temporal_droppable').droppable({
+		accept:'div',
+	    helper:'',
+	    over: function()
+	    {
+	    	console.log('Holi :3');
+	    },
+	    drop: function( event, ui ) 
+	    {
+	    	$(this).html('');
+	    	ui.draggable.width($(this).width()-20);
+	    	$(this).append(ui.draggable);
+	    	ui.draggable.children().html('A cambiar...');
+	    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+	    }
+	});
+	
 	var c=true, original, averglob;
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
 	$( '.droppable_hour' ).droppable(
@@ -119,12 +104,10 @@ $( document ).ready(function()
 	    	{
 	    		c=true;
 	    		tam=0;
-	    		console.log('Aquí NO hay '+tam);
 	    	}
 	    	else
 	    	{
 	    		tam = aver;
-	    		console.log('Aquí hay '+tam);
 	    		c=false;
 	    	}
 	    },
@@ -134,8 +117,7 @@ $( document ).ready(function()
 	    	{
 		    	if(!c)
 		    	{
-		    		var nuevo = (parseInt($(this).width()/(tam+1)))-45;
-		    		console.log(nuevo);
+		    		var nuevo = (parseInt($(this).width()/(tam+1)));
 		    		$(this).children().css('width',nuevo+'px');
 		    	}
 	    		ui.draggable.css('width',nuevo+'px');
@@ -144,6 +126,22 @@ $( document ).ready(function()
 	    	$(this).append(ui.draggable);
 	    	ui.draggable.children().html($(this).parent().attr('value'));
 	    	resetSize();
+
+	    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+
+	    	var newhora = $(this).parent().attr('value')
+	    	var ident = ui.draggable.attr('id');
+	    	var param = {'h':newhora,'id':ident};
+	    	$.ajax({
+	    		data: param,
+	            url: 'updatehour.php',
+	            type: 'post',
+	            dataType: 'json',
+	            success: function(o)
+	            {
+	            	alert("Se modificó a las "+newhora);
+	            }
+	    	});
 	    }
 	});
 });
@@ -168,7 +166,7 @@ function resetSize()
 			}
 			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length>=5)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-125)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-130)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
 			}
 			else
 			{
@@ -226,7 +224,7 @@ function actualdate()
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
 		$aux = $('#actual_month');
-		$aux.html(mesesagenda[parseInt(recieved_month)-1]);
+		$aux.html(mesesagenda[parseInt(recieved_month)]);
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}

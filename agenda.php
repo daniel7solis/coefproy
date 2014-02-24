@@ -34,34 +34,54 @@
 			</figure>
 		</div>
 	</header>
+
 	<div id="search_wrapper">
 		<label id="glass" class="label" for="search"></label>
 		<input id="search" class="search_field" type="text" placeHolder="Buscar...">
 	</div>
+
 	<div id="content_wrapper">
-		<nav>
-			<ul>
-				<li id="agenda" class="current"><a href="agenda.php"></a></li>
-				<li id="patients"><a href="#"></a></li>
-				<li id="donator"><a href="#"></a></li>
-				<li id="departments"><a href="#"></a></li>
-				<li id="lab_survey"><a href="#"></a></li>
-			</ul>
-		</nav>
+		<div id="left_wrapper">
+			<nav id="asas">
+				<ul>
+					<li id="agenda" class="current"><a href="agenda.php"></a></li>
+					<li id="patients"><a href="#"></a></li>
+					<li id="donator"><a href="#"></a></li>
+					<li id="departments"><a href="#"></a></li>
+					<li id="lab_survey"><a href="#"></a></li>
+				</ul>
+			</nav>
+			<table id="temporal_date_catcher">
+				<tbody>
+					<tr>
+						<td class="temporal_droppable">Guarda aquí...</td>
+					</tr>
+					<tr>
+						<td class="temporal_droppable">Guarda aquí...</td>
+					</tr>
+					<tr>
+						<td class="temporal_droppable">Guarda aquí...</td>
+					</tr>
+					<tr>
+						<td class="temporal_droppable">Guarda aquí...</td>
+					</tr>
+					<tr>
+						<td class="temporal_droppable">Guarda aquí...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<section id="content">
 			<div id="up_content">
 				<h2 id="content_title">Agenda</h2>
 				<p id="content_subtitle"><span id="actual_day_name"></span>,&nbsp;<span id="actual_day_numb"></span>&nbsp;de&nbsp;<span id="actual_month"></span>&nbsp;-&nbsp;<span id="actual_year"></span></p>
-			</div>	
-			<article id="date_changer">
-				<input id="dc_day" type="text" placeHolder="Ir a otro día..."/>
-			</article>
+			</div>
 			<article id="hour_container">
 				<table id="day_table" name="agendita">
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
-						$horas;$idpac;$iddoc;$fecha;
+						$horas;$idpac;$iddoc;$fecha;$ids;
 						$aux=0;
 						# Conexión a la base de datos.
 						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -79,6 +99,7 @@
 							$idpac[$aux] = $arreglo['idPaciente'];
 							$iddoc[$aux] = $arreglo['idDoctor'];
 							$fecha[$aux] = $arreglo['fecha'];
+							$ids[$aux] = $arreglo['idCita'];
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
@@ -109,7 +130,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
 											}
 										}
 										else
@@ -120,7 +141,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
 											}
 										}
 									}
@@ -145,12 +166,11 @@
 					?>
 				</table>
 			</article>
-			<div id="quick_access">
+			<div id="quick_access_h">
 				<ul>
-					<li><a id="new"></a></li>
-					<li><a id="look" href="#"></a></li>
-					<li><a id="manage" href="#"></a></li>
-					<li><a id="print" href="#"></a></li>
+					<li><a id="new_h">Nueva</a></li>
+					<li><a id="manage_h" href="#">Modificar</a></li>
+					<li><a id="print_h" href="#">Imprimir</a></li>
 				</ul>
 			</div>
 		<div id='down_content'>
@@ -158,14 +178,89 @@
 		</div>
 		</section>
 
-		<ul id="menu">
-			<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
-			<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>
-			<li id="rconfig"></li>
-			<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
-			<li><a class='close_session' href="index.php" onclick="cerrarSesion()">Cerrar sesión</a></li>
-		</ul>
+		<section id="content_calendar">
+			<div id='up_content_calendar'>
+				<h2 id="content_title_calendar">Calendario</h2>
+				<h3 class="month_title"></h3>
+			</div>
+			<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
+			<table id="calendar_style" class="month">
+				<tbody>
+					<tr class="day_title">
+						<th>D</th>
+						<th>L</th>
+						<th>M</th>
+						<th>M</th>
+						<th>J</th>
+						<th>V</th>
+						<th>S</th>
+					</tr>
+					<tr class="day_height">
+						<td class="calendar_row" value="Domingo"><span id="esp0"></span><p></p></td>
+						<td class="calendar_row" value="Lunes"><span id="esp1"></span><p></p></td>
+						<td class="calendar_row" value="Martes"><span id="esp2"></span><p></p></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp3"></span><p></p></td>
+						<td class="calendar_row" value="Jueves"><span id="esp4"></span><p></p></td>
+						<td class="calendar_row" value="Viernes"><span id="esp5"></span><p></p></td>
+						<td class="calendar_row" value="Sábado"><span id="esp6"></span><p></p></td>
+					</tr>
+					<tr class="day_height_gray">
+						<td class="calendar_row" value="Domingo"><span id="esp7"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp8"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp9"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp10"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp11"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp12"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp13"></span></td>
+					</tr>
+					<tr class="day_height">
+						<td class="calendar_row" value="Domingo"><span id="esp14"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp15"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp16"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp17"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp18"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp19"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp20"></span></td>
+					</tr>
+					<tr class="day_height_gray">
+						<td class="calendar_row" value="Domingo"><span id="esp21"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp22"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp23"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp24"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp25"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp26"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp27"></span></td>
+					</tr>
+					<tr class="day_height">
+						<td class="calendar_row" value="Domingo"><span id="esp28"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp29"></span></td>
+						<td class="calendar_row" value="Martes"><span id="esp30"></span></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp31"></span></td>
+						<td class="calendar_row" value="Jueves"><span id="esp32"></span></td>
+						<td class="calendar_row" value="Viernes"><span id="esp33"></span></td>
+						<td class="calendar_row" value="Sábado"><span id="esp34"></span></td>
+					</tr>
+					<tr class="day_height_gray">
+						<td class="calendar_row" value="Domingo"><span id="esp35"></span></td>
+						<td class="calendar_row" value="Lunes"><span id="esp36"></span></td>
+						<td id="info_calendar" colspan="5">
+							<p><div id="indicator_unaviable">1</div>Día no disponible</p>
+							<p><div id="indicator_actual">2</div>Día actual</p>
+							<p><div id="indicator_aviable">3</div>Día disponible</p>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			<div id='down_content'></div>
+		</section>
 	</div>
+	<ul id="menu">
+		<li><a class="menu_profile" href="perfil.php">&nbsp;&nbsp;Perfil</a></li>
+		<li><a class="menu_conf" href="">&nbsp;&nbsp;Configuración de cuenta</a></li>
+		<li id="rconfig"></li>
+		<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
+		<li><a class='close_session' href="index.php" onclick="cerrarSesion()">Cerrar sesión</a></li>
+	</ul>
 	<footer>
 		<p>Coeficient &copy; 2014</p>
 	</footer>

@@ -15,6 +15,10 @@
 	revisarSesion();
 		$( document ).ready(function()
 			{
+				var ses = sessionStorage.getItem("id");
+				var idim = JSON.parse(ses);
+				$('#deploy_menu').prepend("<img src='../images/users/"+idim.id+".png' />");
+				
 				$('#menu').hide();
 				$('html').click(function() 
 				{
@@ -37,7 +41,6 @@
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="../images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>

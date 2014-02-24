@@ -23,13 +23,21 @@ $( document ).ready(function()
         function fileOnload(e) 
         {
             var result=e.target.result,
-                imagen = new Image(250,187);
+                imagen = new Image(250,187), 
+                soCamara, oFoto, oContexto, w, h;
             imagen.src=result;
-
             oFoto = jQuery('#photo');
+            oCamara = jQuery('#camera');
+                    w = oCamara.width();
+                    h = oCamara.height();
+                    oFoto.attr({
+                        'width': w,
+                        'height': h
+                    });
+
             oContexto = oFoto[0].getContext('2d');
-            oContexto.clearRect(0, 0, 250, 187);
-            oContexto.drawImage(imagen, 0, 0);
+            oContexto.clearRect(0, 0, w, h);
+            oContexto.drawImage(imagen, 0, 0, w, h);
         }
     });
 
@@ -104,12 +112,10 @@ $( document ).ready(function()
         if(parts[parts.length-1]=='alta.php')
         {
             opt="usuario";
-            alert(opt);
         }
         else if(parts[parts.length-1]=='altaPaci.php')
         {
             opt="paciente";
-            alert(opt);
         }
         var parametros = {'img': dataURL,'op':opt,'id':idimg};
 

@@ -34,15 +34,19 @@ $( document ).ready(function()
 {
 	// Se agrega la funcionalidad a cada día para que envíe sus datos a
 	// agenda.php 
+	/* TEMPORAL ----> */
 	$('td.calendar_row').on('click', function()
 	{
-		if(ref<10)
+		var auxiliary = ref;
+		if(auxiliary<10)
 		{
-			ref+=1;
-			ref="0"+ref;
-			alert(ref);
+			auxiliary+=1;
+			auxiliary="0"+auxiliary;
 		}
-		document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes="+ref+"&ano=2014";
+		if($(this).children().attr('value')=='able')
+		{
+			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes="+auxiliary+"&ano=2014";
+		}
 	});
 });
 
@@ -56,23 +60,23 @@ function actual()
 // Asigna el mes deseado.
 function asignar(num)
 {
-	limpiar()
-	ref=num
-	mes = meses[num]
-	generar(num)
+	cleaning();
+	ref=num;
+	mes = meses[num];
+	generar(num);
 }
 
 // Limpia los días antes de generar un nuevo mes.
-function limpiar()
+function cleaning()
 {
 	var temp=0;
 	while(temp<=36)
 	{
-		$aux3 = $('#esp'+temp)
-		$aux3.html('')
-		temp++
+		$aux3 = $('#esp'+temp);
+		$aux3.html('');
+		temp++;
 	}
-	temp=0
+	temp=0;
 }
 
 // Genera los días en base al mes.
@@ -85,37 +89,48 @@ function generar(num)
 	{
 		while(cont<=mes[0])
 		{
-			$aux = $('#esp'+col)
-			$aux.html(cont)
-			col++
-			cont++
+			$aux = $('#esp'+col);
+			$aux.html(cont);
+			col++;
+			cont++;
 			if(cont-1<now.getDate())
 			{
 				// Días pasados.
-				$aux.css({'color':'gray','text-decoration':'line-through'})
+				$aux.css({'color':'gray','text-decoration':'line-through'});
+				$aux.attr('value','unable');
 			}
-			if(cont-1==now.getDate())
+			else if(cont-1==now.getDate())
 			{
 				// Día actual.
-				$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em'})
+				$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em','cursor':'pointer'});
+				$aux.parent().css({'cursor':'pointer'});
+				$aux.attr('value','able');
+			}
+			else
+			{
+				$aux.attr('value','able');
+				$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'});
+				$aux.parent().css({'cursor':'pointer'});
 			}
 		}
-		cont=1
-		col=0
+		cont=1;
+		col=0;
 	}
 	else
 	{
 		while(cont<=mes[0])
 		{
-			$aux = $('#esp'+col)
-			$aux.html(cont)
-			col++
-			cont++
+			$aux = $('#esp'+col);
+			$aux.html(cont);
+			col++;
+			cont++;
 			// Días disponibles.
-			$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'})
+			$aux.attr('value','able');
+			$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'});
+			$aux.parent().css({'cursor':'pointer'});
 		}
-		cont=1
-		col=0
+		cont=1;
+		col=0;
 	}
 }
 
@@ -124,17 +139,17 @@ function anterior()
 {
 	if(ref>now.getMonth())
 	{
-		ref--
-		asignar(ref)
+		ref--;
+		asignar(ref);
 	}
 }
 
-// Disparador para generar un mes después. Límite Diciembre dle año en curso.
+// Disparador para generar un mes después. Límite Diciembre del año en curso.
 function siguiente()
 {
 	if(ref<11)
 	{
-		ref++
-		asignar(ref)
+		ref++;
+		asignar(ref);
 	}
 }

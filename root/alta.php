@@ -18,7 +18,6 @@
 	 values ('$nombreUser','$passF','$nombre','$dir','$tel','$mail','$curp','$rfc','$semilla')",$conexion) or die(mysql_error());
 	$idUser=mysql_query("select idUsuario from usuarios where nombreUsuario='$nombreUser' and nombre='$nombre' and contrasena='$passF'",$conexion) or die(mysql_error());
 	$idUsera=mysql_fetch_array($idUser);
-	echo $nombreUser." ".$nombre." ".$passF;
 	$id=$idUsera[0];
 	echo "<script language='javascript'> var idimg = $id; alert(idimg); </script>";
 	// header("location: altaPermiso?id=$id.php");
@@ -41,6 +40,10 @@
 		revisarSesion();
 		$( document ).ready(function()
 			{
+				var ses = sessionStorage.getItem("id");
+				var idim = JSON.parse(ses);
+				$('#deploy_menu').prepend("<img src='../images/users/"+idim.id+".png' />");
+				
 				$('#menu').hide();
 				$('html').click(function() 
 				{
@@ -63,7 +66,6 @@
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="../images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
