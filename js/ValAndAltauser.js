@@ -422,3 +422,33 @@ function modPerfil(){
 		}
 	});
 }
+
+/*FUNCIÓN PARA ELIMINAR USUARIOS*/
+function deleteUser(x){
+	var ss=sessionStorage.getItem('conf');
+	var ids=sessionStorage.getItem("id");
+	var id=JSON.parse(ids);//Conviero la cadena a un JSON para acceder a los datos
+	if (ss===id.id){
+		alert("No te puedes eliminar");
+	}else{
+		var parametros = {
+        "idu" : ss
+       	};
+    	$.ajax({
+			/*paso los paramentros al php*/
+			data:parametros,
+			url: 'deleteuser.php',
+			type:'post',
+			// defino el tipo de dato de retorno
+			dataType:'json',
+			/*funcion de retorno*/
+			success: function(data){
+				if(data['ok']==1){
+					document.location.href="usersroot.php";
+				}else{
+					document.location.href="users.php";
+				}
+			}
+		});
+	}
+}
