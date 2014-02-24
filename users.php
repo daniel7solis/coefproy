@@ -72,6 +72,7 @@
 					<!--li><a id="look" href="#"></a></li-->
 					<li><a id="manage" href="setting_user.php"></a></li>
 					<!--li><a id="print" href="#"></a></li-->
+					<li><a id="look" href="#"></a></li>
 				</ul>
 			</div>
 		</section>

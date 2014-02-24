@@ -239,7 +239,8 @@ function usuarios(){
 				}
 				/*Genero la cadena que sera añadida al HTML con el codigo necesario para la semantica y 
 				presentación de la información, junto con la cadena de los "n" perfiles del usuario*/
-				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+data['usuario'+i].id+codigo3+data['usuario'+i].nomUser+"</p>"+cadPer+codigo4;
+				cadenaP=cadenaP+codigo1+data['usuario'+i].id+codigo12+data['usuario'+i].nom+codigo2+
+				data['usuario'+i].id+codigo3+data['usuario'+i].nomUser+"</p>"+cadPer+codigo4;
 				//Limpio la cadena de los perfiles, dado que el sigiente usuario hace uso de esta misma.
 				cadPer="";
 			}
@@ -323,7 +324,7 @@ function confUser(){
 			for(var i=1; i<=cantidadPer; i++){
 				cadena=cadena+"<p class='work_data'>"+"Modulo: "+data['perfil'+i].modulo+"<br>"+
 				"Posición: "+data['perfil'+i].posicion+"<br>"+
-				"Sucursal: "+data['perfil'+i].sucursal+"<input type='hidden' value='"+data['perfil'+i].idp+"'/></p>";
+				"Sucursal: "+data['perfil'+i].sucursal+"<input id='idp' type='hidden' value='"+data['perfil'+i].idp+"'/></p>";
 			}
 			$("#perf").html(cadena);
 			// if(data['perfil1'].modulo==="Super" || data['perfil1'].modulo==="root"){
@@ -365,16 +366,18 @@ function escucha_Permisos(){
 	for(var z=0; z<x.length; z++){/*recorro el total de elemtos que se dara la capacidad de resaltar al
 		ser seleccionados mediante un click*/
 		x[z].onclick=function(){//activo el evento del click
-			/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
-			limpiar(".work_data");
-			$(this).css({'border':'3px solid #f39c12'});
-			var y=$(this).find("input");
-			confUsers[indice]=y.val();
-			console.log(confUsers[indice]);
-			/* indice++; Comento esta linea dado que solo se puede modificar un usuario, y se deja para 
-			un uso posterior, cuando se requiera modificar o seleccionar a mas de un elemento, que se
-			almacene en el arreglo de confUser los id que identifican al elemento*/
-			sessionStorage.setItem("confp", confUsers[indice]);
+			if($(this).find("input").val()!=0){/*Encuentro el input con el valor de id de permiso*/
+				/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
+				limpiar(".work_data");
+				$(this).css({'border':'3px solid #f39c12'});
+				var y=$(this).find("input");/*Encuentro el input con el valor de id de permiso*/
+				confUsers[indice]=y.val();/*Obtengo el valor del input "idPermiso" y lo almaceno*/
+				console.log(confUsers[indice]);
+				/* indice++; Comento esta linea dado que solo se puede modificar un usuario, y se deja para 
+				un uso posterior, cuando se requiera modificar o seleccionar a mas de un elemento, que se
+				almacene en el arreglo de confUser los id que identifican al elemento*/
+				sessionStorage.setItem("confp", confUsers[indice]);
+			}
 		};
 	}
 }
@@ -392,7 +395,30 @@ function cerrarSesion(){
 	sessionStorage.removeItem("conf");
 	document.location.href="index.php";
 }
-
+/*Funcion para modificar un permiso de un usuario llamada desde la pagina "modPerfil.php" para agregar
+los datos faltantes para hacer el update*/
 function modPerfil(){
-
+	var ss=sessionStorage.getItem('confp');
+	var parametros = {
+        "idp" : ss
+       	};
+    $.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'dataPerm.php',
+		type:'post',
+		/*defino el tipo de dato de retorno*/
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			$("#nom").html(data['nom']);
+			var cadenaP=data['noms']+" "+data['dirs'];
+			$("#label_suc").html(cadenaP);
+			// $("#suc").val(data['suc']);
+			$("#idu").val(data['idu']);
+			$("#pos").html(data['pos']);
+			$("#mod").html(data['mod']);
+			$("#idp").val(ss);		
+		}
+	});
 }

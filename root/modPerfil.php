@@ -4,13 +4,13 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<title>Registro Usuario</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/prefixfree.min.js"></script>
-	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
-	<script type="text/javascript" src="js/camera.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css" />
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/prefixfree.min.js"></script>
+	<script type="text/javascript" src="../js/ValAndAltauser.js"></script>
+	<script type="text/javascript" src="../js/camera.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function()
 			{
@@ -30,14 +30,14 @@
 <body>
 	<header>
 		<figure id="logo">
-			<img src="images/logo.png" />
+			<img src="../images/logo.png" />
 		</figure>
 		<div id="right_wrapper">
 			<a href="#" id="notifications">
 				<span id="numb">3</span>
 			</a>
 			<figure id="avatar">
-				<img src="images/avatar.jpg" />
+				<img src="../images/avatar.jpg" />
 				<a id="deploy_menu" href="javascript:mostrar()"><figcaption></figcaption></a>
 			</figure>
 		</div>
