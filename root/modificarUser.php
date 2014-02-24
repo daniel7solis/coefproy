@@ -13,5 +13,5 @@
 	$rfc=$_REQUEST['rfc'];
 	mysql_query("update usuarios set nombre='$nombre',direccion='$dir',telefono='$tel',email='$mail',curp='$curp',rfc='$rfc' where idUsuario='$id'",$conexion) or die(mysql_error());
 	// echo "<script language='javascript'> var idimg=$id; </script>";
-	header("location: users.php");
+	header("location: usersroot.php");
 ?>

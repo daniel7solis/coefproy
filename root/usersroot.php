@@ -29,6 +29,7 @@
 		{
 		$('#menu').toggle('swing');
 		}
+		window.onload=escucha_users;
 	</script>
 </head>
 <body>
@@ -71,7 +72,7 @@
 			while($arrUsers=mysql_fetch_array($users,MYSQLI_ASSOC)){
 				echo 
 				"<article class='item_perfil'>
-					<div class='title_item_perfil'><p>$arrUsers[nombre]</p></div>
+					<div class='title_item_perfil'><input type='hidden' value='$arrUsers[idUsuario]'><p>$arrUsers[nombre]</p></div>
 					<div class='contenido_item_perfil'>
 						<p id='profile_pic_root'><img src='../images/users/".$arrUsers['idUsuario'].".png'/></p>
 						<div id='data_holder'>
@@ -95,8 +96,8 @@
 		<div id="quick_access">
 				<ul>
 					<li><a id="new" href="altaUser.php"></a></li>
-					<li><a id="look" href="#"></a></li>
-					<li><a id="manage" href="#"></a></li>
+					<li><a id="manage" href="setting_user.php"></a></li>
+					<li><a id="look" href="usersroot.php" onclick="deleteUser(1)"></a></li>
 					<li><a id="print" href="#"></a></li>
 				</ul>
 			</div>

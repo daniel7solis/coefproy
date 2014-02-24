@@ -4,14 +4,11 @@
 	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 	mysql_set_charset("utf8", $conexion); 
 	/*fin para verificar*/
-	$id=$_REQUEST['id'];
-	$nombre=$_REQUEST['nombre'];
-	$dir=$_REQUEST['dir'];
-	$tel=$_REQUEST['tel'];
-	$mail=$_REQUEST['email'];
-	$curp=$_REQUEST['curp'];
-	$rfc=$_REQUEST['rfc'];
-	mysql_query("update usuarios set nombre='$nombre',direccion='$dir',telefono='$tel',email='$mail',curp='$curp',rfc='$rfc' where idUsuario='$id'",$conexion) or die(mysql_error());
+	$idu=$_REQUEST['idu'];
+	$idp=$_REQUEST['idp'];
+	$modulo=$_REQUEST['modulo'];
+	$posicion=$_REQUEST['posicion'];
+	mysql_query("update permisosusuarios set idModulo='$modulo',idPosicion='$posicion' where idUsuarios='$idu' and idPermisos='$idp'",$conexion) or die(mysql_error());
 	// echo "<script language='javascript'> var idimg=$id; </script>";
-	header("location: users.php");
+	header("location: setting_user.php");
 ?>
