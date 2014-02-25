@@ -89,9 +89,9 @@
 			   			<ul>
 			   				<!-- Barra de herramientas para editar lo usuarios -->
 							<li><a id="new" href="#" onclick="perfil_mas()"></a></li>
-							<!--li><a id="look" href="#"></a></li-->
 							<li><a id="manage" href="modPerfil.php"></a></li>
 							<!--li><a id="print" href="#"></a></li-->
+							<li><a id="look" href="setting_user.php" onclick="deletePer()">Eliminar</a></li>
 						</ul>
 					</div>
 				</div>
