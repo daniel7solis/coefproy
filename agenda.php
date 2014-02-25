@@ -53,21 +53,39 @@
 			</nav>
 			<table id="temporal_date_catcher">
 				<tbody>
-					<tr>
-						<td class="temporal_droppable">Guarda aquí...</td>
-					</tr>
-					<tr>
-						<td class="temporal_droppable">Guarda aquí...</td>
-					</tr>
-					<tr>
-						<td class="temporal_droppable">Guarda aquí...</td>
-					</tr>
-					<tr>
-						<td class="temporal_droppable">Guarda aquí...</td>
-					</tr>
-					<tr>
-						<td class="temporal_droppable">Guarda aquí...</td>
-					</tr>
+					<?php
+						date_default_timezone_set('America/Mexico_City');
+						# Arreglos necesarios para pasar los registros y manejarlos mejor.
+						$ids_temps;$horas_temps;$idpac_temps;$iddoc_temps;$fecha_temps;
+						$aux_temps=0;
+						# Conexión a la base de datos.
+						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+						mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+						mysql_set_charset("utf8", $conexion);
+
+						# Query para seleccionar todo los registros de la cita. AQUÍ FALTA QUE VERIFIQUE LA FECHA
+						# PARA QUE SOLO MUESTRE LAS CITAS DEL DÍA QUE SE SELECCIONE.
+						$datos_temps=mysql_query("select * from tempCitas",$conexion);
+						while($arreglo_temps=mysql_fetch_array($datos_temps))
+						{
+							$horas_temps[$aux_temps] = $arreglo_temps['hora'];
+							$idpac_temps[$aux_temps] = $arreglo_temps['idPaciente'];
+							$iddoc_temps[$aux_temps] = $arreglo_temps['idDoctor'];
+							$fecha[$aux_temps] = $arreglo_temps['fecha'];
+							$ids_temps[$aux_temps] = $arreglo_temps['idCita'];
+							$aux_temps++;
+						}
+
+						for ($m=0; $m < count($horas_temps); $m++) 
+						{
+							echo "<tr><td class='temporal_droppable'>";
+							echo "<div id='".$ids_temps[$m]."' class='draggable_hour_".$iddoc_temps[$m]."'>Id.".$idpac_temps[$m]."<br><span class='here_hour'>".$horas_temps[$m]."</span></div>";
+							echo "</td></tr>";
+						}
+						for ($j=0; $j < 3; $j++) { 
+							echo "<tr><td class='temporal_droppable'>Guarda aquí...</td></tr>";
+						}
+					?>
 				</tbody>
 			</table>
 		</div>
