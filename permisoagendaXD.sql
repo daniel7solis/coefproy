@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `permisos` (
   `impresion` tinyint(1) NOT NULL,
   PRIMARY KEY (`idModulo`,`idPosicion`,`accesoTotal`,`creacion`,`edicion`,`lectura`,`anexar`,`impresion`),
   KEY `modulo` (`idModulo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10;
 
 --
 -- Dumping data for table `permisos`
