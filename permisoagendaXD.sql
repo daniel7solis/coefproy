@@ -354,6 +354,31 @@ INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
 (3, '2014-02-06', '3:00pm', 1, 4);
 
 -- --------------------------------------------------------
+- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tempCitas`
+--
+
+CREATE TABLE IF NOT EXISTS `tempCitas` (
+  `idCita` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
+  `idPaciente` int(11) NOT NULL,
+  `idDoctor` int(11) NOT NULL,
+  PRIMARY KEY (`idPaciente`,`idDoctor`,`idCita`),
+  UNIQUE KEY `idCita_2` (`idCita`),
+  KEY `idCita` (`idCita`),
+  KEY `idCita_3` (`idCita`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tempCitas`
+--
+
+INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
+(3, '2014-02-25', '6:30am', 1, 4);
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
