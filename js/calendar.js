@@ -43,6 +43,10 @@ $( document ).ready(function()
 			auxiliary+=1;
 			auxiliary="0"+auxiliary;
 		}
+		else
+		{
+			auxiliary+=1;
+		}
 		if($(this).children().attr('value')=='able')
 		{
 			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes="+auxiliary+"&ano=2014";

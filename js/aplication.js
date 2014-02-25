@@ -144,13 +144,25 @@ $( document ).ready(function()
 	    {
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
-	    		alert(recieved_day+" "+recieved_month+" "+recieved_year);
+	    		var recieved_mes;
+	    		
+	    		if((recieved_month+1)<10)
+	    		{
+	    			recieved_mes = "0"+(recieved_month+1);
+	    			alert(recieved_day+" "+recieved_mes+" "+recieved_year);
+	    		}
+	    		else
+	    		{
+	    			alert(recieved_day+" "+(recieved_month+1)+" "+recieved_year);
+	    		}
+
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
-		    	var param = {'h':newhora,'id':ident};
+		    	var param = {'h':newhora,'id':ident,'nd':recieved_day};
 		    	$.ajax({
 		    		data: param,
 		            url: 'reagendar.php',
@@ -250,14 +262,14 @@ function actualdate()
 	{
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();
-		recieved_month = mesesagenda[now.getMonth()];
+		recieved_month = now.getMonth();
 		recieved_year = now.getFullYear();
 		$aux = $('#actual_day_name');
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
 		$aux = $('#actual_month');
-		$aux.html(recieved_month);
+		$aux.html(mesesagenda[recieved_month]);
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
@@ -266,13 +278,14 @@ function actualdate()
 		recieved_nday = getParameterByName("ndia");
 		recieved_day = getParameterByName("dia");
 		recieved_month = getParameterByName("mes");
+		console.log(recieved_month);
 		recieved_year = getParameterByName("ano");
 		$aux = $('#actual_day_name');
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
 		$aux.html(recieved_day);
 		$aux = $('#actual_month');
-		$aux.html(mesesagenda[parseInt(recieved_month)]);
+		$aux.html(mesesagenda[parseInt(recieved_month)-1]);
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
