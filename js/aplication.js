@@ -76,10 +76,6 @@ $( document ).ready(function()
 	$('.temporal_droppable').droppable({
 		accept:'div',
 	    helper:'',
-	    over: function()
-	    {
-	    	console.log('Holi :3');
-	    },
 	    drop: function( event, ui ) 
 	    {
 	    	$(this).html('');
@@ -87,6 +83,16 @@ $( document ).ready(function()
 	    	$(this).append(ui.draggable);
 	    	ui.draggable.children().html('A cambiar...');
 	    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+	    	resetSize();
+
+	    	var ident = ui.draggable.attr('id');
+	    	var param = {'id':ident};
+	    	$.ajax({
+	    		data: param,
+	            url: 'putOntemp.php',
+	            type: 'post',
+	            dataType: 'json'
+	    	});
 	    }
 	});
 	
