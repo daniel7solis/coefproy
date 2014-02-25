@@ -19,7 +19,7 @@
 	$idUser=mysql_query("select idUsuario from usuarios where nombreUsuario='$nombreUser' and nombre='$nombre' and contrasena='$passF'",$conexion) or die(mysql_error());
 	$idUsera=mysql_fetch_array($idUser);
 	$id=$idUsera[0];
-	echo "<script language='javascript'> var idimg = $id; alert(idimg); </script>";
+	echo "<script language='javascript'> var idimg = $id; </script>";
 	// header("location: altaPermiso?id=$id.php");
 ?>
 <!DOCTYPE html>

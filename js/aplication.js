@@ -10,7 +10,8 @@
 // Definición de variables necesarias.
 var hora, url = 'nuevacita.php', $aux,
     	recieved_nday,recieved_day,recieved_month,recieved_year,
-    	tam;
+    	tam,
+	fromTempToAgenda = 0;
 // Si ocurre un re-dimensionamiento de la ventana.
 $( window ).resize(function() {
   resetSize();
@@ -76,23 +77,45 @@ $( document ).ready(function()
 	$('.temporal_droppable').droppable({
 		accept:'div',
 	    helper:'',
+	    over: function()
+	    {
+	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	averglob = aver;
+	    	if ( aver == 0 )
+	    	{
+	    		// No hay nada y si puede ponerlo.
+	    		c=true;
+	    		tam=0;
+	    	}
+	    	else
+	    	{
+	    		// Hay algo y no puede ponerlo.
+	    		tam = aver;
+	    		c=false;
+	    	}
+	    },
 	    drop: function( event, ui ) 
 	    {
-	    	$(this).html('');
-	    	ui.draggable.width($(this).width()-20);
-	    	$(this).append(ui.draggable);
-	    	ui.draggable.children().html('A cambiar...');
-	    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
-	    	resetSize();
+			if(c==true)
+			{
+				$(this).html('');
+				ui.draggable.width($(this).width()-25);
+				$(this).append(ui.draggable);
+				c=false;
+				resetSize();
+				ui.draggable.children().html('A cambiar...');
+		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
-	    	var ident = ui.draggable.attr('id');
-	    	var param = {'id':ident};
-	    	$.ajax({
-	    		data: param,
-	            url: 'putOntemp.php',
-	            type: 'post',
-	            dataType: 'json'
-	    	});
+		    	ui.draggable.attr('value','true');
+		    	var ident = ui.draggable.attr('id');
+		    	var param = {'id':ident};
+		    	$.ajax({
+		    		data: param,
+		            url: 'putOntemp.php',
+		            type: 'post',
+		            dataType: 'json'
+		    	});
+			}
 	    }
 	});
 	
@@ -119,35 +142,53 @@ $( document ).ready(function()
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	if(ui.draggable.children().text()!=$(this).parent().attr('value'))
+	    	if(ui.draggable.attr('value')=='true')
 	    	{
-		    	if(!c)
-		    	{
-		    		var nuevo = (parseInt($(this).width()/(tam+1)));
-		    		$(this).children().css('width',nuevo+'px');
-		    	}
-	    		ui.draggable.css('width',nuevo+'px');
 	    		$(this).append(ui.draggable);
+		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	resetSize();
+	    		var newhora = $(this).parent().attr('value')
+		    	var ident = ui.draggable.attr('id');
+		    	var param = {'h':newhora,'id':ident};
+		    	$.ajax({
+		    		data: param,
+		            url: 'reagendar.php',
+		            type: 'post',
+		            dataType: 'json'
+		    	});
 	    	}
-	    	$(this).append(ui.draggable);
-	    	ui.draggable.children().html($(this).parent().attr('value'));
-	    	resetSize();
+	    	else
+	    	{
+	    		if(ui.draggable.children().text()!=$(this).parent().attr('value'))
+		    	{
+			    	if(!c)
+			    	{
+			    		var nuevo = (parseInt($(this).width()/(tam+1)));
+			    		$(this).children().css('width',nuevo+'px');
+			    	}
+		    		ui.draggable.css('width',nuevo+'px');
+		    		$(this).append(ui.draggable);
+		    	}
+		    	$(this).append(ui.draggable);
+		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	resetSize();
 
-	    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
-	    	var newhora = $(this).parent().attr('value')
-	    	var ident = ui.draggable.attr('id');
-	    	var param = {'h':newhora,'id':ident};
-	    	$.ajax({
-	    		data: param,
-	            url: 'updatehour.php',
-	            type: 'post',
-	            dataType: 'json',
-	            success: function(o)
-	            {
-	            	alert("Se modificó a las "+newhora);
-	            }
-	    	});
+		    	var newhora = $(this).parent().attr('value')
+		    	var ident = ui.draggable.attr('id');
+		    	var param = {'h':newhora,'id':ident};
+		    	$.ajax({
+		    		data: param,
+		            url: 'updatehour.php',
+		            type: 'post',
+		            dataType: 'json',
+		            success: function(o)
+		            {
+		            	alert("Se modificó a las "+newhora);
+		            }
+		    	});
+	    	}
 	    }
 	});
 });

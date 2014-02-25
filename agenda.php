@@ -40,17 +40,18 @@
 		<input id="search" class="search_field" type="text" placeHolder="Buscar...">
 	</div>
 
+	<nav>
+		<ul>
+			<li id="agenda" class="current"><a href="agenda.php"></a></li>
+			<li id="patients"><a href="#"></a></li>
+			<li id="donator"><a href="#"></a></li>
+			<li id="departments"><a href="#"></a></li>
+			<li id="lab_survey"><a href="#"></a></li>
+		</ul>
+	</nav>
+
 	<div id="content_wrapper">
 		<div id="left_wrapper">
-			<nav id="asas">
-				<ul>
-					<li id="agenda" class="current"><a href="agenda.php"></a></li>
-					<li id="patients"><a href="#"></a></li>
-					<li id="donator"><a href="#"></a></li>
-					<li id="departments"><a href="#"></a></li>
-					<li id="lab_survey"><a href="#"></a></li>
-				</ul>
-			</nav>
 			<table id="temporal_date_catcher">
 				<tbody>
 					<?php
@@ -79,7 +80,7 @@
 						for ($m=0; $m < count($horas_temps); $m++) 
 						{
 							echo "<tr><td class='temporal_droppable'>";
-							echo "<div id='".$ids_temps[$m]."' class='draggable_hour_".$iddoc_temps[$m]."'>Id.".$idpac_temps[$m]."<br><span class='here_hour'>".$horas_temps[$m]."</span></div>";
+							echo "<div id='".$ids_temps[$m]."' class='draggable_hour_".$iddoc_temps[$m]."' style='width:100px;' value='true'>Id.".$idpac_temps[$m]."<br><span class='here_hour'>".$horas_temps[$m]."</span></div>";
 							echo "</td></tr>";
 						}
 						for ($j=0; $j < 3; $j++) { 
@@ -186,9 +187,9 @@
 			</article>
 			<div id="quick_access_h">
 				<ul>
-					<li><a id="new_h">Nueva</a></li>
-					<li><a id="manage_h" href="#">Modificar</a></li>
-					<li><a id="print_h" href="#">Imprimir</a></li>
+					<li><a id="new_h"></a></li>
+					<li><a id="manage_h" href="#"></a></li>
+					<li><a id="print_h" href="#"></a></li>
 				</ul>
 			</div>
 		<div id='down_content'>
@@ -200,8 +201,8 @@
 			<div id='up_content_calendar'>
 				<h2 id="content_title_calendar">Calendario</h2>
 				<h3 class="month_title"></h3>
+				<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
 			</div>
-			<a class="prev_month" href="javascript:anterior();" ></a> <a class="next_month" href="javascript:siguiente();"></a>
 			<table id="calendar_style" class="month">
 				<tbody>
 					<tr class="day_title">

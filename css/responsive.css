@@ -99,6 +99,10 @@
 	{
 		border-radius: 3px;
 	}
+	nav ul
+	{		
+		margin: 1em;
+	}
 	#agenda,#departments, #donator, #patients, #lab_survey
 	{
 		font-size: 1em;
@@ -142,12 +146,7 @@
 	}
 	#search_wrapper
 	{
-		background: transparent;
-		color: black;
-		height: 0;
-		margin: 10px 10px 0 10px;
-		padding: 0.5em;
-		text-align: right;
+		display:none;
 	}
 	#glass
 	{
@@ -281,6 +280,10 @@
 	}
 }
 @media screen and (min-width: 1024px) and (max-width: 1200px){
+	nav ul
+	{		
+		margin: 1em;
+	}
 	#appointment
 	{
 		background: #fff;
@@ -298,33 +301,6 @@
 		border: 1px solid #eee;
 		padding: 0 0.5em;
 	}
-	nav
-	{
-		background: #878787;
-		border-radius: 3px;
-		float:left;
-		font-size: 1em;
-		font-weight: bold;
-		margin: 0 10px 0 10px;
-	}
-	nav ul
-	{
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	nav ul li
-	{
-		border-bottom: 1px solid #666;
-		display: block;
-		margin: 0;
-	}
-	nav ul li a
-	{
-		display: block;
-		padding: 0.5em 0;
-		text-decoration: none;
-	}
 	#agenda,#departments, #donator, #patients, #lab_survey
 	{
 		font-size: 0.8em;
@@ -335,6 +311,10 @@
 		color: white;
 		content: "AGENDA";
 		font-family: "icomoon";
+	}
+	#search_wrapper
+	{
+		display:none;
 	}
 	#up_content ul
 	{
@@ -463,23 +443,14 @@
 	{
 		width: 40%;
 	}
-	#content_subtitle:before
-	{
-		border-left: 19px solid #DD4F24;
-		border-top: 19px solid transparent;
-		content: "";
-		right: -1.2em;
-		position:absolute;
-		top:0;
-	}
 	#content_subtitle:after
 	{
-		border-right: 19px solid transparent;
-		border-top: 19px solid #DD4F24;
+		border-left: 37px #DD4F24;
+		border-top: 37px solid transparent;
 		content: "";
-		right:-1.2em;
+		right: -2.3em;
 		position:absolute;
-		bottom:0;
+		top:0;
 	}
 	#new_user_submit
 	{
@@ -523,12 +494,7 @@
 	}
 	#search_wrapper
 	{
-		background: transparent;
-		color: black;
-		height: 1em;
-		margin: 10px 10px 0 10px;
-		padding: 0.5em;
-		text-align: right;
+		display:none;
 	}
 	.contenido_item_perfil p
 	{
@@ -654,6 +620,10 @@
 	}
 }
 @media screen and (min-width: 1200px){
+	nav ul
+	{		
+		margin: 1em;
+	}
 	#appointment
 	{
 		background: #fff;
@@ -670,33 +640,6 @@
 	{
 		border: 1px solid #eee;
 		padding: 0 0.5em;
-	}
-	nav
-	{
-		background: #878787;
-		border-radius: 3px;
-		float:left;
-		font-size: 1em;
-		font-weight: bold;
-		margin: 0 10px 0 10px;
-	}
-	nav ul
-	{
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	nav ul li
-	{
-		border-bottom: 1px solid #666;
-		display: block;
-		margin: 0;
-	}
-	nav ul li a
-	{
-		display: block;
-		padding: 0.5em 0;
-		text-decoration: none;
 	}
 	#up_content ul
 	{
@@ -831,23 +774,14 @@
 	{
 		width: 40%;
 	}
-	#content_subtitle:before
-	{
-		border-left: 19px solid #DD4F24;
-		border-top: 19px solid transparent;
-		content: "";
-		right: -1.2em;
-		position:absolute;
-		top:0;
-	}
 	#content_subtitle:after
 	{
-		border-right: 19px solid transparent;
-		border-top: 19px solid #DD4F24;
+		border-left: 37px solid #DD4F24;
+		border-top: 37px solid transparent;
 		content: "";
-		right:-1.2em;
+		right: -2.3em;
 		position:absolute;
-		bottom:0;
+		top:0;
 	}
 	#new_user_submit
 	{
@@ -891,12 +825,7 @@
 	}
 	#search_wrapper
 	{
-		background: transparent;
-		color: black;
-		height: 1em;
-		margin: 10px 10px 0 10px;
-		padding: 0.5em;
-		text-align: right;
+		display:none;
 	}
 	.contenido_item_perfil p
 	{
@@ -952,15 +881,14 @@
 	}
 	.next_month:after
 	{
-		background: rgba(189, 195, 199,0.5);
 		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
+		color: rgba(220,220,220,0.7);
 		content: "\e61f";
 		font-family: "icomoon";
 		font-size: 2.5em;
 		position: absolute;
-		right: 0.3em;
-		top: 13%;
+		right: 1.7em;
+		top: 59%;
 	}
 	.photo_container
 	{
@@ -968,15 +896,14 @@
 	}
 	.prev_month:after
 	{
-		background: rgba(189, 195, 199,0.5);
 		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
+		color: rgba(220,220,220,0.7);
 		content: "\e620";
 		font-family: "icomoon";
 		font-size:2.5em;
-		left: 0.3em;
+		left: 0.15em;
 		position: absolute;
-		top: 13%;
+		top: 59%;
 	}
 	.search_field
 	{
