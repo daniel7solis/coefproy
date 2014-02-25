@@ -144,6 +144,7 @@ $( document ).ready(function()
 	    {
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
+	    		alert(recieved_day+" "+recieved_month+" "+recieved_year);
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.children().html($(this).parent().attr('value'));
 		    	resetSize();
