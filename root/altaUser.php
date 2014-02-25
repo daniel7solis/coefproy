@@ -17,7 +17,7 @@
 		$( document ).ready(function()
 			{
 				var ses = sessionStorage.getItem("id");
-				avr idim = JSON.parse(ses);
+				var idim = JSON.parse(ses);
 				$('#deploy_menu').prepend("<img src='../images/users/"+idim.id+".png' />");
 				
 				$('#menu').hide();

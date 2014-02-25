@@ -424,7 +424,7 @@ function modPerfil(){
 }
 
 /*FUNCIÓN PARA ELIMINAR USUARIOS*/
-function deleteUser(x){
+function deleteUser(){
 	var ss=sessionStorage.getItem('conf');
 	var ids=sessionStorage.getItem("id");
 	var id=JSON.parse(ids);//Conviero la cadena a un JSON para acceder a los datos
@@ -451,4 +451,23 @@ function deleteUser(x){
 			}
 		});
 	}
+}
+/*FUNCIÓN PARA ELIMINAR PERMISOS*/
+function deletePer(){
+	var ss=sessionStorage.getItem('confp');
+	var parametros = {
+        "idp" : ss
+   	};
+   	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'deleteper.php',
+		type:'post',
+		// defino el tipo de dato de retorno
+		dataType:'json',
+		/*funcion de retorno*/
+		success: function(data){
+			document.location.href="setting_user.php";
+		}
+	});
 }
