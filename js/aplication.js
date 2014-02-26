@@ -108,7 +108,8 @@ $( document ).ready(function()
 
 		    	ui.draggable.attr('value','true');
 		    	var ident = ui.draggable.attr('id');
-		    	var param = {'id':ident};
+		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
+		    	var param = {'id':ident,'us':miusuario,'pass':miusuario.idd};
 		    	$.ajax({
 		    		data: param,
 		            url: 'putOntemp.php',
@@ -144,25 +145,13 @@ $( document ).ready(function()
 	    {
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
-	    		var recieved_mes;
-	    		
-	    		if((recieved_month+1)<10)
-	    		{
-	    			recieved_mes = "0"+(recieved_month+1);
-	    			alert(recieved_day+" "+recieved_mes+" "+recieved_year);
-	    		}
-	    		else
-	    		{
-	    			alert(recieved_day+" "+(recieved_month+1)+" "+recieved_year);
-	    		}
-
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.children().html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
-		    	var param = {'h':newhora,'id':ident,'nd':recieved_day};
+		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
 		    	$.ajax({
 		    		data: param,
 		            url: 'reagendar.php',
@@ -278,7 +267,6 @@ function actualdate()
 		recieved_nday = getParameterByName("ndia");
 		recieved_day = getParameterByName("dia");
 		recieved_month = getParameterByName("mes");
-		console.log(recieved_month);
 		recieved_year = getParameterByName("ano");
 		$aux = $('#actual_day_name');
 		$aux.html(recieved_nday);
@@ -289,4 +277,162 @@ function actualdate()
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
+}
+function ListarTemps()
+{
+   	var miusuario = JSON.parse(sessionStorage.getItem('id'));
+   	var param = {'us':miusuario.id,'pass':miusuario.idd};
+    	$.ajax({
+	   		data: param,
+	        url: 'getTemps.php',
+            type: 'post',
+            dataType: 'json',
+            success: function(data)
+            {
+            	var index = data['nc'], citas;
+            	for (var i = 0; i < index; i++) 
+            	{
+            		citas+="<tr><td class='temporal_droppable'>"+
+            		"<div id='"+data['cita'+i].id+"' class='draggable_hour_"+data['cita'+i].iddoc+"' style='width:100px;' value='true'>Id."+data['cita'+i].idpac+"<br><span class='here_hour'>"+data['cita'+i].hora+"</span></div>"+
+            		"</td></tr>";
+            	};
+            	citas+="<tr><td class='temporal_droppable'>Guarda aquí...</td></tr>";
+            	$('#temporal_date_catcher').html(citas);
+            	reAsignarDrags();
+            }
+    	});
+}
+function reAsignarDrags()
+{
+	$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable(
+	{
+   		appendTo: "body",
+   		snap: true,
+   		cursor: 'move',
+		helper: 'clone',
+		revert:'invalid',
+		drag: function()
+		{
+			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
+		}
+	}).resizable();
+
+	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
+	$( '.droppable_hour' ).droppable(
+	{
+	    accept:'div',
+	    helper:'',
+	    over: function()
+	    {
+	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	averglob = aver;
+	    	if ( aver == 0 )
+	    	{
+	    		c=true;
+	    		tam=0;
+	    	}
+	    	else
+	    	{
+	    		tam = aver;
+	    		c=false;
+	    	}
+	    },
+	    drop: function( event, ui ) 
+	    {
+	    	if(ui.draggable.attr('value')=='true')
+	    	{
+	    		$(this).append(ui.draggable);
+		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	ui.draggable.attr('value','false');
+		    	resetSize();
+	    		var newhora = $(this).parent().attr('value')
+		    	var ident = ui.draggable.attr('id');
+		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month+1,'na':recieved_year};
+		    	$.ajax({
+		    		data: param,
+		            url: 'reagendar.php',
+		            type: 'post',
+		            dataType: 'json'
+		    	});
+	    	}
+	    	else
+	    	{
+	    		if(ui.draggable.children().text()!=$(this).parent().attr('value'))
+		    	{
+			    	if(!c)
+			    	{
+			    		var nuevo = (parseInt($(this).width()/(tam+1)));
+			    		$(this).children().css('width',nuevo+'px');
+			    	}
+		    		ui.draggable.css('width',nuevo+'px');
+		    		$(this).append(ui.draggable);
+		    	}
+		    	$(this).append(ui.draggable);
+		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	resetSize();
+
+		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+
+		    	var newhora = $(this).parent().attr('value')
+		    	var ident = ui.draggable.attr('id');
+		    	var param = {'h':newhora,'id':ident};
+		    	$.ajax({
+		    		data: param,
+		            url: 'updatehour.php',
+		            type: 'post',
+		            dataType: 'json',
+		            success: function(o)
+		            {
+		            	alert("Se modificó a las "+newhora);
+		            }
+		    	});
+	    	}
+	    }
+	});
+
+	$('.temporal_droppable').droppable({
+		accept:'div',
+	    helper:'',
+	    over: function()
+	    {
+	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	averglob = aver;
+	    	if ( aver == 0 )
+	    	{
+	    		// No hay nada y si puede ponerlo.
+	    		c=true;
+	    		tam=0;
+	    	}
+	    	else
+	    	{
+	    		// Hay algo y no puede ponerlo.
+	    		tam = aver;
+	    		c=false;
+	    	}
+	    },
+	    drop: function( event, ui ) 
+	    {
+			if(c==true)
+			{
+				$(this).html('');
+				ui.draggable.width($(this).width()-25);
+				$(this).append(ui.draggable);
+				c=false;
+				resetSize();
+				ui.draggable.children().html('A cambiar...');
+		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
+
+		    	ui.draggable.attr('value','true');
+		    	var ident = ui.draggable.attr('id');
+		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
+		    	var param = {'id':ident,'us':miusuario.id,'pass':miusuario.idd};
+		    	$.ajax({
+		    		data: param,
+		            url: 'putOntemp.php',
+		            type: 'post',
+		            dataType: 'json'
+		    	});
+			}
+	    }
+	});
 }
