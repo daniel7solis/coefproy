@@ -10,7 +10,7 @@
 		/*fin*/
 		mysql_query("delete from usuarios where idUsuario='$idu'",$conexion) or die("Problemas en la eliminacion".mysql_error());
 		mysql_query("delete from permisosusuarios where idUsuarios='$idu'",$conexion) or die("Problemas en la eliminacion".mysql_error());
-		unlink("images/users/".$idu.".png");
+		unlink("../images/users/".$idu.".png");
 		$arr = array('ok' => "1");
 		$json = json_encode($arr);
 		echo $json;
