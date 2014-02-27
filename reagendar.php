@@ -6,7 +6,15 @@
 		$nuevodia = $_POST['nd'];
 		$nuevomes = $_POST['nm'];
 		$nuevoano = $_POST['na'];
-		$nuevafecha = $nuevoano."-".$nuevomes."-".$nuevodia;
+		if($nuevomes<10)
+		{
+			$nuevafecha = $nuevoano."-0".$nuevomes."-".$nuevodia;
+		}
+		else
+		{
+			$nuevafecha = $nuevoano."-".$nuevomes."-".$nuevodia;
+		}
+		echo $nuevafecha;
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 		mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 		mysql_set_charset("utf8", $conexion);

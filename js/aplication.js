@@ -61,7 +61,7 @@ $( document ).ready(function()
 	});
 
 	// Se asigna la capacidad de ser arrastable a las citas.
-	$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable(
+	$( '.draggable_hour' ).draggable(
 	{
    		appendTo: "body",
    		snap: true,
@@ -82,7 +82,7 @@ $( document ).ready(function()
 	    helper:'',
 	    over: function()
 	    {
-	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	var aver = $(this).find(".draggable_hour").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
@@ -97,10 +97,11 @@ $( document ).ready(function()
 	    },
 	    drop: function( event, ui ) 
 	    {
+	    	debugger
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
 	    		$(this).append(ui.draggable);
-		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	//ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
@@ -153,27 +154,27 @@ function resetSize()
 {
 	for (var i = 0; i < 48; i++) 
 	{
-		if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length!=0)
+		if($('#c'+i).find('.draggable_hour').length!=0)
 		{
-			if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==2)
+			if($('#c'+i).find('.draggable_hour').length==2)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-55)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-70)/$('#c'+i).find('.draggable_hour').length));
 			}
-			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==3)
+			else if($('#c'+i).find('.draggable_hour').length==3)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-80)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-105)/$('#c'+i).find('.draggable_hour').length));
 			}
-			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length==4)
+			else if($('#c'+i).find('.draggable_hour').length==4)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-105)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-130)/$('#c'+i).find('.draggable_hour').length));
 			}
-			else if($('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length>=5)
+			else if($('#c'+i).find('.draggable_hour').length>=5)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-130)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-160)/$('#c'+i).find('.draggable_hour').length));
 			}
 			else
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-35)/$('#c'+i).find('.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6').length));
+				$('#c'+i).children().width(parseInt(($('#c'+i).width()-35)/$('#c'+i).find('.draggable_hour').length));
 			}
 		}
 	}
@@ -203,6 +204,11 @@ function actualdate()
 	});
 	if(parts[parts.length-1]=='agenda.php'||parts[parts.length-1]=='agenda.php#')
 	{
+		var dt = new Date(), hrs = dt.getHours(), mins = dt.getMinutes(), mer = "am";
+		if(hrs>12){hrs-=12;mer="pm";}
+		if(mins<10){mins="0"+mins;}
+		var time = hrs+":"+mins+mer;
+		alert(time);
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();
 		recieved_month = now.getMonth();
@@ -247,7 +253,7 @@ function ListarTemps()
             	for (var i = 0; i < index; i++) 
             	{
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div id='"+data['cita'+i].id+"' class='draggable_hour_"+data['cita'+i].iddoc+"' style='width:100px;' value='true'>Id."+data['cita'+i].idpac+"<br><span class='here_hour'>"+data['cita'+i].hora+"</span></div>"+
+            		"<div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'>Id."+data['cita'+i].idpac+"<br><span class='here_hour'>...</span><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -259,7 +265,7 @@ function ListarTemps()
 function reAsignarDrags()
 {
 	$('#ppp').css({'display':'none'});
-	$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable(
+	$( '.draggable_hour' ).draggable(
 	{
    		appendTo: "body",
    		snap: true,
@@ -279,7 +285,7 @@ function reAsignarDrags()
 	    helper:'',
 	    over: function()
 	    {
-	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	var aver = $(this).find(".draggable_hour").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
@@ -296,9 +302,9 @@ function reAsignarDrags()
 	    {
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
-	    		ui.draggable.css({'display':'block'});
+	    		ui.draggable.css({'display':'inline-block'});
 	    		$(this).append(ui.draggable);
-		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
@@ -324,7 +330,7 @@ function reAsignarDrags()
 		    		$(this).append(ui.draggable);
 		    	}
 		    	$(this).append(ui.draggable);
-		    	ui.draggable.children().html($(this).parent().attr('value'));
+		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	resetSize();
 
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
@@ -351,7 +357,7 @@ function reAsignarDrags()
 	    helper:'',
 	    over: function()
 	    {
-	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
+	    	var aver = $(this).find(".draggable_hour").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
@@ -368,7 +374,7 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
-				ui.draggable.css({'display':'block'});
+				ui.draggable.css({'display':'inline-block'});
 			if(c==true)
 			{
 				$(this).find('span').css({'display':'none'});
@@ -376,7 +382,7 @@ function reAsignarDrags()
 				$(this).append(ui.draggable);
 				c=false;
 				resetSize();
-				ui.draggable.children().html('A cambiar...');
+				ui.draggable.find('.here_hour').html('...');
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
 		    	var ident = ui.draggable.attr('id');

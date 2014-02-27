@@ -5,8 +5,8 @@
 		# Arreglos necesarios para pasar los registros y manejarlos mejor.
 		$ids_temps;$horas_temps;$idpac_temps;$iddoc_temps;$fecha_temps;
 		$aux_temps=0;
-		$user = 2;#$_POST['us'];
-		$passwd = "521327041573bb189b2b924dc64aeb364e29cbca1c75ac80a6d2e54cbb77b01d74755867abf620247d2ebe6b1f107cb5d688e42575080103d80fe2bf0873894a";#$_POST['pass'];
+		$user = $_POST['us'];
+		$passwd = $_POST['pass'];
 		$cadena = "";
 		# Conexión a la base de datos.
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());

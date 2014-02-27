@@ -116,7 +116,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span><div class='draggable_tag_".$iddoc[$m]."'></div></div>";
 											}
 										}
 										else
@@ -127,7 +127,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour_".$iddoc[$m]."'>Id.".$idpac[$m]."<br><span class='here_hour'>".$horas[$m]."</span></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span><div class='draggable_tag_".$iddoc[$m]."'></div></div>";
 											}
 										}
 									}
@@ -155,7 +155,6 @@
 			<div id="quick_access_h">
 				<ul>
 					<li><a id="new_h"></a></li>
-					<li><a id="manage_h" href="#"></a></li>
 					<li><a id="print_h" href="#"></a></li>
 				</ul>
 			</div>
