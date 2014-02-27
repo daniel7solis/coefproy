@@ -52,6 +52,7 @@
 
 	<div id="content_wrapper">
 		<div id="left_wrapper">
+			<h2 id="content_title_left">Temporales</h2>
 			<table id="temporal_date_catcher">
 					<script type="text/javascript">ListarTemps();</script>
 			</table>

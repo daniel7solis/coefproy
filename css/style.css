@@ -251,6 +251,20 @@ th
 	text-align: center;
 	width: 160px;
 }
+#content_title_left
+{
+	background: #FFBC00;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	color: #704b00;
+	display: block;
+	font-size: 1.3em;
+	margin-left: 0.5em;
+	padding: 0.3em 0.7em;
+	position: relative;
+	text-align: center;
+	width: 120px;
+}
 #content_subtitle
 {
 	background: #DD4F24;
@@ -912,6 +926,7 @@ th
 }
 #temporal_date_catcher
 {
+	border-radius: 0.3em;
 	display: block;
 	margin: 0 10px 0 10px;
 	width: 145px;
@@ -1245,7 +1260,7 @@ th
 }
 .hour_row
 {
-	background: #bdc3c7;
+	background: #ECECEC;
 	border-bottom: 1px solid #7f8c8d;
 	border-left: 1px solid #95a5a6;
 	border-right: 1px solid #95a5a6;

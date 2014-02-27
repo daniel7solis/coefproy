@@ -23,12 +23,15 @@
 			$datos_temps=mysql_query("select * from tempCitas where usuario='$user'");
 			while($arreglo_temps=mysql_fetch_array($datos_temps))
 			{
-				$horas_temps[$aux_temps] = $arreglo_temps['hora'];
-				$idpac_temps[$aux_temps] = $arreglo_temps['idPaciente'];
-				$iddoc_temps[$aux_temps] = $arreglo_temps['idDoctor'];
-				$fecha[$aux_temps] = $arreglo_temps['fecha'];
-				$ids_temps[$aux_temps] = $arreglo_temps['idCita'];
-				$aux_temps++;
+				if($arreglo_temps['idCita']!=0)
+				{
+					$horas_temps[$aux_temps] = $arreglo_temps['hora'];
+					$idpac_temps[$aux_temps] = $arreglo_temps['idPaciente'];
+					$iddoc_temps[$aux_temps] = $arreglo_temps['idDoctor'];
+					$fecha[$aux_temps] = $arreglo_temps['fecha'];
+					$ids_temps[$aux_temps] = $arreglo_temps['idCita'];
+					$aux_temps++;
+				}
 			}
 			for ($m=0; $m < $aux_temps; $m++) 
 			{

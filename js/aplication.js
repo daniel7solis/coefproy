@@ -73,52 +73,6 @@ $( document ).ready(function()
 			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
 		}
 	}).resizable();
-
-	$('.temporal_droppable').droppable({
-		accept:'div',
-	    helper:'',
-	    over: function()
-	    {
-	    	var aver = $(this).find(".draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6").length;
-	    	averglob = aver;
-	    	if ( aver == 0 )
-	    	{
-	    		// No hay nada y si puede ponerlo.
-	    		c=true;
-	    		tam=0;
-	    	}
-	    	else
-	    	{
-	    		// Hay algo y no puede ponerlo.
-	    		tam = aver;
-	    		c=false;
-	    	}
-	    },
-	    drop: function( event, ui ) 
-	    {
-			if(c==true)
-			{
-				$(this).html('');
-				ui.draggable.width($(this).width()-25);
-				$(this).append(ui.draggable);
-				c=false;
-				resetSize();
-				ui.draggable.children().html('A cambiar...');
-		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
-
-		    	ui.draggable.attr('value','true');
-		    	var ident = ui.draggable.attr('id');
-		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
-		    	var param = {'id':ident,'us':miusuario,'pass':miusuario.idd};
-		    	$.ajax({
-		    		data: param,
-		            url: 'putOntemp.php',
-		            type: 'post',
-		            dataType: 'json'
-		    	});
-			}
-	    }
-	});
 	
 	var c=true, original, averglob;
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
@@ -292,11 +246,11 @@ function ListarTemps()
             	var index = data['nc'], citas;
             	for (var i = 0; i < index; i++) 
             	{
-            		citas+="<tr><td class='temporal_droppable'>"+
+            		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
             		"<div id='"+data['cita'+i].id+"' class='draggable_hour_"+data['cita'+i].iddoc+"' style='width:100px;' value='true'>Id."+data['cita'+i].idpac+"<br><span class='here_hour'>"+data['cita'+i].hora+"</span></div>"+
             		"</td></tr>";
             	};
-            	citas+="<tr><td class='temporal_droppable'>Guarda aquí...</td></tr>";
+            	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
             	$('#temporal_date_catcher').html(citas);
             	reAsignarDrags();
             }
@@ -304,6 +258,7 @@ function ListarTemps()
 }
 function reAsignarDrags()
 {
+	$('#ppp').css({'display':'none'});
 	$( '.draggable_hour_1, .draggable_hour_2, .draggable_hour_3, .draggable_hour_4, .draggable_hour_5, .draggable_hour_6' ).draggable(
 	{
    		appendTo: "body",
@@ -341,13 +296,14 @@ function reAsignarDrags()
 	    {
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
+	    		ui.draggable.css({'display':'block'});
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.children().html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
-		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month+1,'na':recieved_year};
+		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
 		    	$.ajax({
 		    		data: param,
 		            url: 'reagendar.php',
@@ -412,9 +368,10 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
+				ui.draggable.css({'display':'block'});
 			if(c==true)
 			{
-				$(this).html('');
+				$(this).find('span').css({'display':'none'});
 				ui.draggable.width($(this).width()-25);
 				$(this).append(ui.draggable);
 				c=false;
@@ -422,7 +379,6 @@ function reAsignarDrags()
 				ui.draggable.children().html('A cambiar...');
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
-		    	ui.draggable.attr('value','true');
 		    	var ident = ui.draggable.attr('id');
 		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
 		    	var param = {'id':ident,'us':miusuario.id,'pass':miusuario.idd};
@@ -432,7 +388,17 @@ function reAsignarDrags()
 		            type: 'post',
 		            dataType: 'json'
 		    	});
+		    	if(ui.draggable.attr('value')!='true')
+		    	{
+		    		$(this).parent().parent().append("<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>");
+		    		reAsignarDrags();
+		    	}
+		    	ui.draggable.attr('value','true');
 			}
+	    },
+	    out: function( event, ui )
+	    {
+	    	$(this).find('span').css({'display':'block'});
 	    }
 	});
 }
