@@ -38,14 +38,23 @@ $( document ).ready(function()
 	$('td.calendar_row').on('click', function()
 	{
 		var auxiliary = ref;
+		var dn = parseInt($(this).text());
+		if(dn<10)
+		{
+			dn="0"+dn;
+		}
 		if(auxiliary<10)
 		{
 			auxiliary+=1;
 			auxiliary="0"+auxiliary;
 		}
+		else
+		{
+			auxiliary+=1;
+		}
 		if($(this).children().attr('value')=='able')
 		{
-			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+$(this).text()+"&mes="+auxiliary+"&ano=2014";
+			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+dn+"&mes="+auxiliary+"&ano=2014";
 		}
 	});
 });
