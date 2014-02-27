@@ -41,7 +41,7 @@
 		   		<input name="password" id="password" type="password" onkeyup="validar(this.value)" required>
 			</p>
 			<p id="info">
-				<a href="#">¿Olvidaste tu contraseña?</a>
+				<a href="olvidarPass.php">¿Olvidaste tu contraseña?</a>
 			</p>
 			<p id="button_field">
 				<input id="login_button" type="submit" value="Iniciar sesión" />

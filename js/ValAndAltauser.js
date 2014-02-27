@@ -75,7 +75,7 @@ function sesion () {
 	if(Objjson.nombre==="root"){
 		document.location.href="root/perfil.php";	
 	}else
-		document.location.href="perfil.php";
+		document.location.href="agenda.php";
 }
 /*Funcion sesionPerfil obtine los datos del usuario logueado del json almacenada en sesionStorage;
 y con ajax hago la petición a la DB del resto de información del usuario para presentarlo
