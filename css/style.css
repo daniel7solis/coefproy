@@ -219,7 +219,6 @@ th
 	background: #FFFFFF;
 	border-radius: 5px;
 	display: inline-block;
-	float: right;
 	margin-right: 1em; 
 	padding:0;
 	position: relative;
@@ -1089,11 +1088,27 @@ th
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
 	display: inline-block;
-
 	min-height: 40px;
 	padding: 0 1em;
 	position: relative;
 	width: 95%;
+}
+.draggable_hour:after
+{
+	color: rgba(236, 240, 241,0.5);
+	content: "...";
+	font-size: 2em;
+	font-weight: bold;
+	margin-top: -16px;
+	position: absolute;
+	right: -0.3em;
+	top: 50%;
+	transform: rotate(90deg);
+}
+.draggable_hour:hover
+{
+	background: #34495e;
+	cursor: move;
 }
 .draggable_tag_1, 
 .draggable_tag_2, 
@@ -1132,23 +1147,6 @@ th
 .draggable_tag_6
 {
 	background: #27ae60;
-}
-.draggable_hour:after
-{
-	color: rgba(236, 240, 241,0.5);
-	content: "...";
-	font-size: 2em;
-	font-weight: bold;
-	margin-top: -16px;
-	position: absolute;
-	right: -0.3em;
-	top: 50%;
-	transform: rotate(90deg);
-}
-.draggable_hour:hover
-{
-	background: #1abc9c;
-	cursor: move;
 }
 /* Droppables! */
 .droppable_hour

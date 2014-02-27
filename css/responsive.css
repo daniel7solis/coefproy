@@ -52,25 +52,9 @@
 	{
 		display: block;
 	}
-	#other_data_root span
-	{
-		
-	}
 	#personal_data_root
 	{
 		display: block;
-	}
-	#personal_data_root span
-	{
-		
-	}
-	#profile_pic_root
-	{
-		
-	}
-	#profile_pic_root img
-	{
-		
 	}
 	.contenido_item_perfil p
 	{
@@ -119,6 +103,19 @@
 		display: inline-block;
 		border: 1px solid red;
 		margin: 1em 0;
+	}
+	#content
+	{
+		width: 50%;
+	}
+	#content_subtitle:after
+	{
+		border-left: 37px solid #DD4F24;
+		border-top: 37px solid transparent;
+		content: "";
+		left: 100%;
+		position:absolute;
+		top:0;
 	}
 	#departments a:before
 	{
@@ -396,7 +393,7 @@
 		display: inline-block;
 		margin: 0 1em 1em 1em;
 		position: relative;
-		width: 63%;
+		width: 55%;
 	}
 	#content_wrapper
 	{
@@ -716,7 +713,7 @@
 		display: inline-block;
 		margin: 0 1em 1em 1em;
 		position: relative;
-		width: 63%;
+		width: 60%;
 	}
 	#content_wrapper
 	{

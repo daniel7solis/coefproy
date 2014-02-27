@@ -207,8 +207,20 @@ function actualdate()
 		var dt = new Date(), hrs = dt.getHours(), mins = dt.getMinutes(), mer = "am";
 		if(hrs>12){hrs-=12;mer="pm";}
 		if(mins<10){mins="0"+mins;}
-		var time = hrs+":"+mins+mer;
-		alert(time);
+		if(mins>=0&&mins<15){mins = 0;}
+		if(mins>=15&&mins<30){mins = 15;}
+		if(mins>=30&&mins<45){mins = 30;}
+		if(mins>=45){mins = 45;}
+		var time = hrs+":"+"45"+mer;
+		for (var i = 0; i < 48; i++) 
+		{
+			var str = "#c"+i;
+			var t = $(str).parent().attr('value');
+			if(t == time)
+				{
+					$(str).parent().css({'border-bottom':'4px solid #DD4F24'});
+				}
+		};
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();
 		recieved_month = now.getMonth();
