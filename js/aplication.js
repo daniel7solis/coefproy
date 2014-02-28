@@ -35,6 +35,8 @@ $( document ).ready(function()
     	yearRange: '1900:+0'
 	});
 
+// Aquí voy a empezar en Marzo! -> $('draggable_hour').hover(function(){$(this).css({'display':'block'})},function(){$(this).css({'display':'none'})});
+
 	/* Se valida y se envía a la fecha deseada de la agenda.
 	Aquí ya no nos preocupamos por las citas, ya que se generan 
 	dinámicamente desde la base de datos. Ahora sabemos realmente las
@@ -198,7 +200,6 @@ function actualdate()
 		if(mins>=30&&mins<45){mins = 30;}
 		if(mins>=45){mins = 45;}
 		var time = hrs+":"+mins+mer;
-		alert(time);
 		for (var i = 0; i < 48; i++) 
 		{
 			var str = "#c"+i;

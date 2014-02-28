@@ -1003,6 +1003,21 @@ th
 {
 	display: none;
 }
+.app_identifier
+{
+	margin: 0.6em 0;
+}
+.border_manageapp
+{
+	background: #13273C;
+	border-radius: 50%;
+	margin-top: -13px;
+	padding: 0.3em 0.5em;
+	position:absolute;
+	right: 18%;
+	top: 50%;
+	z-index: 12;
+}
 .calendar_row
 {
 	font-weight: bold;
@@ -1088,8 +1103,9 @@ th
 	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 	color: white;
 	display: inline-block;
+	font-size: 0.9em;
 	min-height: 40px;
-	padding: 0 1em;
+	padding: 0 1em 0 0.5em;
 	position: relative;
 	width: 95%;
 }
@@ -1099,7 +1115,7 @@ th
 	content: "...";
 	font-size: 2em;
 	font-weight: bold;
-	margin-top: -16px;
+	margin-top: -21px;
 	position: absolute;
 	right: -0.3em;
 	top: 50%;
@@ -1117,10 +1133,11 @@ th
 .draggable_tag_5, 
 .draggable_tag_6
 {
+	border-radius: 0 3px 3px 0;
 	display: block;
 	height: 100%;
 	position: absolute;
-	right: 2em;
+	right: 0;
 	top: 0;
 	width: 20%;
 }
