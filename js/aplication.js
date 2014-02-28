@@ -59,20 +59,6 @@ $( document ).ready(function()
 	{
 		$('#menu').hide('swing');
 	});
-
-	// Se asigna la capacidad de ser arrastable a las citas.
-	$( '.draggable_hour' ).draggable(
-	{
-   		appendTo: "body",
-   		snap: true,
-   		cursor: 'move',
-		helper: 'clone',
-		revert:'invalid',
-		drag: function()
-		{
-			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
-		}
-	}).resizable();
 	
 	var c=true, original, averglob;
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
@@ -207,18 +193,19 @@ function actualdate()
 		var dt = new Date(), hrs = dt.getHours(), mins = dt.getMinutes(), mer = "am";
 		if(hrs>12){hrs-=12;mer="pm";}
 		if(mins<10){mins="0"+mins;}
-		if(mins>=0&&mins<15){mins = 0;}
+		if(mins>=0&&mins<15){mins = "00";}
 		if(mins>=15&&mins<30){mins = 15;}
 		if(mins>=30&&mins<45){mins = 30;}
 		if(mins>=45){mins = 45;}
-		var time = hrs+":"+"45"+mer;
+		var time = hrs+":"+mins+mer;
+		alert(time);
 		for (var i = 0; i < 48; i++) 
 		{
 			var str = "#c"+i;
 			var t = $(str).parent().attr('value');
 			if(t == time)
 				{
-					$(str).parent().css({'border-bottom':'4px solid #DD4F24'});
+					$(str).css({'border-bottom':'4px solid #DD4F24'});
 				}
 		};
 		recieved_nday = diasagenda[now.getDay()];
@@ -231,6 +218,7 @@ function actualdate()
 		$aux.html(recieved_day);
 		$aux = $('#actual_month');
 		$aux.html(mesesagenda[recieved_month]);
+		recieved_month+=1;
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
 	}
@@ -282,12 +270,19 @@ function reAsignarDrags()
    		appendTo: "body",
    		snap: true,
    		cursor: 'move',
-		helper: 'clone',
 		revert:'invalid',
+		cursorAt: {left:50, top:0},
 		drag: function()
 		{
 			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
-		}
+		},
+		helper: function() 
+		{
+	        var helper = $(this).clone();
+	        helper.animate({width:100});
+	        helper.css({'width': '100px'});
+	        return helper;
+   		}
 	}).resizable();
 
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
@@ -321,7 +316,6 @@ function reAsignarDrags()
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
-		    	// alert(recieved_month);
 		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
 		    	$.ajax({
 		    		data: param,

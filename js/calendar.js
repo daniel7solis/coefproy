@@ -54,6 +54,7 @@ $( document ).ready(function()
 		}
 		if($(this).children().attr('value')=='able')
 		{
+			
 			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+dn+"&mes="+auxiliary+"&ano=2014";
 		}
 	});
