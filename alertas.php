@@ -7,9 +7,9 @@
 	// echo $datos['id1']['nombre'];
 	// var_dump($ciclo);
 	/*Recorremos la lista de elementos para enviar la alerta*/
-	for($i=0; $i<10; $i++){//((int)$datos['cant']);
+	for($i=0; $i<((int)$datos['cant']); $i++){//
 		send_email("webservicecoefproy@gmail.com","DANNNN");
-		// send_email($datos['id'.$i]['email'],$datos['id'.$i]['nombre']);
+		send_email($datos['id'.$i]['email'],$datos['id'.$i]['nombre']);
 	}
 	/*FUNCION PARA ENVIAR EMAIL*/
 	/*Recibo el correo, y el nombre del elemento */

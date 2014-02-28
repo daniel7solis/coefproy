@@ -68,12 +68,12 @@ function pass(){
 despues que se ha identificado el usuario y se a validado con sus datos de la DB;
 tambien despues de almacenar el json en la computadora cliente redirecciona la aplicación
 al archivo oerfil.php*/
-function sesion () {
+function sesion() {
 	sessionStorage.setItem("id", json);
 	var Objjson=JSON.parse(json);
 	//si es usuario root se redirecciona al portal de administración total del sistema, si no accede al sistema normalmente
 	if(Objjson.nombre==="root"){
-		document.location.href="root/perfil.php";	
+		document.location.href="root/usersroot.php";	
 	}else
 		document.location.href="agenda.php";
 }
@@ -393,6 +393,7 @@ function perfil_mas(){
 function cerrarSesion(){
 	sessionStorage.removeItem("id");
 	sessionStorage.removeItem("conf");
+	sessionStorage.removeItem("confp");
 	document.location.href="index.php";
 }
 /*Funcion para modificar un permiso de un usuario llamada desde la pagina "modPerfil.php" para agregar
@@ -470,4 +471,32 @@ function deletePer(){
 			document.location.href="setting_user.php";
 		}
 	});
+}
+/*Función para consultar y registrar una cita a una persona y saber si es ya un paciente o si no,
+registrarlo como nuevo paciente que posteriormente en su consulta se capaturaran todos sus dato*/
+function busq_paciente(){
+	var name=document.getElementById("chk_name").value;
+	var lastname=document.getElementById("chk_lastname").value;
+	var dateBirt=document.getElementById("chk_date").value;
+	if(name==="" || dateBirt==="" || lastname===""){
+		alert("Por favor ingresa datos para buscar");
+	}else{
+		var parametros = {
+	        "nom" : name,
+	        "ap" : lastname,	        
+	        "dateB": dateBirt
+	   	};
+	   	$.ajax({
+			/*paso los paramentros al php*/
+			data:parametros,
+			url: 'busquedaPaciente.php',
+			type:'post',
+			// defino el tipo de dato de retorno
+			dataType:'json',
+			/*funcion de retorno*/
+			success: function(data){
+				alert("funciono");
+			}
+		});	
+	}
 }
