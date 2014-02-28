@@ -65,16 +65,21 @@
 				<div class='contenido_item_perfil'>
 					<div class="fields_holder_chk">
 						<div id="chk_name_label" class="new_user_labels" for="nombre"></div>
-			   			<input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+						<!--input donde se tiene los nombres del usuario-->
+			   			<input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombres" required>
+						<!--input donde se tiene los apellidos del usuario-->
+		   				<input name="apellido" id="chk_lastname" class="new_user_input_chk" type="text" placeHolder="Apellidos" required>
 			   		</div>
 				   	<div class="fields_holder_chk">
 				   		<div id="chk_date_label" class="new_user_labels" for="ap"></div>
+				   		<!--input donde se tiene la fecha de nacimiento-->
 				   		<input name="fecha" id="chk_date" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
 				   	</div>
-			   		<input id="new_user_submit2" type="submit" value="Siguiente" />
+				   	<!--Boton de envio de consulta para buscar al paciente-->
+			   		<input id="new_user_submit2" type="submit" value="Siguiente" onclick="busq_paciente()" />
 				</div>
 			</article>
-			<article id="new_patient" class="patient_check">
+			<article id="new_patient" class="patient_check" >
 				<h3>NUEVO PACIENTE</h3>
 				<hr class="inner_separator">
 				<div class="fields_holder_chk">

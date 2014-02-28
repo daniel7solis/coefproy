@@ -321,6 +321,7 @@ function reAsignarDrags()
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
+		    	// alert(recieved_month);
 		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
 		    	$.ajax({
 		    		data: param,

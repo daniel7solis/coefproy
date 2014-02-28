@@ -472,3 +472,31 @@ function deletePer(){
 		}
 	});
 }
+/*Función para consultar y registrar una cita a una persona y saber si es ya un paciente o si no,
+registrarlo como nuevo paciente que posteriormente en su consulta se capaturaran todos sus dato*/
+function busq_paciente(){
+	var name=document.getElementById("chk_name").value;
+	var lastname=document.getElementById("chk_lastname").value;
+	var dateBirt=document.getElementById("chk_date").value;
+	if(name==="" || dateBirt==="" || lastname===""){
+		alert("Por favor ingresa datos para buscar");
+	}else{
+		var parametros = {
+	        "nom" : name,
+	        "ap" : lastname,	        
+	        "dateB": dateBirt
+	   	};
+	   	$.ajax({
+			/*paso los paramentros al php*/
+			data:parametros,
+			url: 'busquedaPaciente.php',
+			type:'post',
+			// defino el tipo de dato de retorno
+			dataType:'json',
+			/*funcion de retorno*/
+			success: function(data){
+				alert("funciono");
+			}
+		});	
+	}
+}

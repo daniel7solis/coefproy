@@ -1,5 +1,5 @@
 <?php
-	if(true)
+	if($_POST)
 	{
 		$ident = $_POST['id'];
 		$nuevahora = $_POST['h'];
