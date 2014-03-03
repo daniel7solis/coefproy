@@ -112,7 +112,14 @@ function generar(num)
 			else if(cont-1==now.getDate())
 			{
 				// Día actual.
-				$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em','cursor':'pointer'});
+				if(cont-1<10)
+				{
+					$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em 0.5em','cursor':'pointer'});
+				}
+				else
+				{
+					$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em','cursor':'pointer'});
+				}
 				$aux.parent().css({'cursor':'pointer'});
 				$aux.attr('value','able');
 			}

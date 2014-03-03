@@ -1007,21 +1007,10 @@ th
 {
 	margin: 0.6em 0;
 }
-.border_manageapp
-{
-	background: #13273C;
-	border-radius: 50%;
-	margin-top: -13px;
-	padding: 0.3em 0.5em;
-	position:absolute;
-	right: 18%;
-	top: 50%;
-	z-index: 12;
-}
 .calendar_row
 {
 	font-weight: bold;
-	padding-left: 0.4em; 
+	padding-left: 0.4em;
 }
 .close_session
 {
@@ -1066,7 +1055,7 @@ th
 .day_height
 {
 	background: #eee;
-	height: 100px;
+	height:50px;
 }
 .day_height p
 {
@@ -1077,7 +1066,7 @@ th
 .day_height_gray
 {
 	background: #ccc;
-	height: 100px;
+	height:50px;
 }
 .day_number
 {
@@ -1270,6 +1259,56 @@ th
 	padding: 1em 0.2em;
 	text-align: center;
 	width: 10%;
+}
+.manageapp
+{
+	background: #13273C;
+	border-radius: 50%;
+	color: white;
+	display: none;
+	margin-top: -13px;
+	padding: 0.3em 0.5em;
+	position:absolute;
+	right: 7.7%;
+	text-align: center;
+	top: 50%;
+	z-index: 12;
+}
+.manageapp:after
+{
+	content: "\e60b";
+	font-family: "icomoon";
+}
+.manage_option_del, .manage_option_man
+{
+	border: 1px solid rgba(255,255,255,0.5);
+	border-radius: 0.5em; 
+	margin: 0.5em;
+	padding: 0.3em;
+}
+.manage_option_del:hover, .manage_option_man:hover
+{
+	background: #34495e;
+}
+.manage_options
+{
+	background: #13273C;
+	border-radius: 0.7em;
+	padding: 0.8em 0 0.8em 0;
+	position: absolute;
+	right: 0;
+	top: -4em;
+}
+.manage_options:after
+{
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #13273C;
+	content: "";
+	margin-right: -10px;
+	position: absolute;
+	right: 50%;
+	top: 100%;
 }
 .menu_profile:hover, .menu_help:hover, .menu_conf:hover
 {

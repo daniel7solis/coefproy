@@ -116,7 +116,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><div class='border_manageapp'><a class='manageapp' href='javascript:showManageOptions();'>O</a></div><div class='draggable_tag_".$iddoc[$m]."'></div></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
 											}
 										}
 										else
@@ -127,7 +127,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><div class='border_manageapp'><a class='manageapp' href='javascript:showManageOptions();'>O</a></div><div class='draggable_tag_".$iddoc[$m]."'></div></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
 											}
 										}
 									}
@@ -228,11 +228,6 @@
 					<tr class="day_height_gray">
 						<td class="calendar_row" value="Domingo"><span id="esp35"></span></td>
 						<td class="calendar_row" value="Lunes"><span id="esp36"></span></td>
-						<td id="info_calendar" colspan="5">
-							<p><div id="indicator_unaviable">1</div>Día no disponible</p>
-							<p><div id="indicator_actual">2</div>Día actual</p>
-							<p><div id="indicator_aviable">3</div>Día disponible</p>
-						</td>
 					</tr>
 					</tbody>
 				</table>

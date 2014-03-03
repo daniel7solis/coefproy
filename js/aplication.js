@@ -35,7 +35,7 @@ $( document ).ready(function()
     	yearRange: '1900:+0'
 	});
 
-// Aquí voy a empezar en Marzo! -> $('draggable_hour').hover(function(){$(this).css({'display':'block'})},function(){$(this).css({'display':'none'})});
+	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 
 	/* Se valida y se envía a la fecha deseada de la agenda.
 	Aquí ya no nos preocupamos por las citas, ya que se generan 
@@ -89,7 +89,7 @@ $( document ).ready(function()
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
 	    		$(this).append(ui.draggable);
-		    	//ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
+		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value')
@@ -136,6 +136,7 @@ $( document ).ready(function()
 	    	}
 	    }
 	});
+	$('.manage_options').hide();
 });
 // Función que detecta cuántos elementos hay dentro de un droppable y los reajusta.
 function resetSize()
@@ -254,7 +255,7 @@ function ListarTemps()
             	for (var i = 0; i < index; i++) 
             	{
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'>Id."+data['cita'+i].idpac+"<br><span class='here_hour'>...</span><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div></div>"+
+            		"<div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -265,6 +266,11 @@ function ListarTemps()
 }
 function reAsignarDrags()
 {
+	$('.manageapp').on('click', function(){
+		$(this).parent().find('.manage_options').toggle('swing');
+	});
+
+	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 	$('#ppp').css({'display':'none'});
 	$( '.draggable_hour' ).draggable(
 	{
@@ -382,7 +388,7 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
-				ui.draggable.css({'display':'inline-block'});
+			ui.draggable.css({'display':'inline-block'});
 			if(c==true)
 			{
 				$(this).find('span').css({'display':'none'});
@@ -412,7 +418,7 @@ function reAsignarDrags()
 	    },
 	    out: function( event, ui )
 	    {
-	    	$(this).find('span').css({'display':'block'});
+	    	$(this).find('span').css({'display':'inline-block'});
 	    }
 	});
 }
