@@ -116,7 +116,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
 											}
 										}
 										else
@@ -127,7 +127,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
+												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
 											}
 										}
 									}
