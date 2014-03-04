@@ -340,6 +340,7 @@ CREATE TABLE IF NOT EXISTS `citas` (
   `hora` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `idPaciente` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
+  `minutos` int(3) NOT NULL,
   PRIMARY KEY (`idPaciente`,`idDoctor`,`idCita`),
   KEY `idCita` (`idCita`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
@@ -349,12 +350,12 @@ CREATE TABLE IF NOT EXISTS `citas` (
 --
 
 INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
-(2, '2014-02-06', '9:00am', 1, 2),
-(1, '2014-02-06', '7:00am', 1, 3),
-(3, '2014-02-06', '3:00pm', 1, 4);
+(2, '2014-02-06', '9:00am', 1, 2, 30),
+(1, '2014-02-06', '7:00am', 1, 3, 60),
+(3, '2014-02-06', '3:00pm', 1, 4, 45);
 
 -- --------------------------------------------------------
-- --------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tempCitas`
@@ -366,10 +367,10 @@ CREATE TABLE IF NOT EXISTS `tempCitas` (
   `hora` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `idPaciente` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
+  `minutos` int(3) NOT NULL,
+  `usuario` int(11) NOT NULL,
   PRIMARY KEY (`idPaciente`,`idDoctor`,`idCita`),
-  UNIQUE KEY `idCita_2` (`idCita`),
-  KEY `idCita` (`idCita`),
-  KEY `idCita_3` (`idCita`)
+  KEY `idCita` (`idCita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -377,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `tempCitas` (
 --
 
 INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
-(3, '2014-02-25', '6:30am', 1, 4);
+(3, '2014-02-25', '6:30am', 1, 4, 60, 2);
 
 
 

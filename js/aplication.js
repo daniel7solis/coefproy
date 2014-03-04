@@ -143,29 +143,34 @@ function resetSize()
 	{
 		if($('#c'+i).find('.draggable_wrapper').length!=0)
 		{
-			if($('#c'+i).find('.draggable_wrapper').length==2)
+			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+			}
+			else if($('#c'+i).find('.draggable_wrapper').length==2)
+			{
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==3)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==4)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==5)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length>=6)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 		}
@@ -280,7 +285,6 @@ function reAsignarDrags()
 	{
 		handler: "div.draggable_hour",
    		appendTo: "body",
-   		snap: true,
    		cursor: 'move',
 		revert:'invalid',
 		cursorAt: {left:50, top:0},
@@ -290,15 +294,11 @@ function reAsignarDrags()
 		},
 		helper: function() 
 		{
-	        var helper = $(this).clone();
+	        var helper = $(this).children().clone();
 	        helper.animate({width:100});
 	        helper.css({'width': '100px'});
 	        return helper;
    		}
-	});
-
-	$('.draggable_hour').resizable({
-		 handles: 'n,s'
 	});
 
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
@@ -342,14 +342,15 @@ function reAsignarDrags()
 	    	}
 	    	else
 	    	{
-	    		if(ui.draggable.children().text()!=$(this).parent().attr('value'))
+	    		if(ui.draggable.children().children().text()!=$(this).parent().attr('value'))
 		    	{
 			    	if(!c)
 			    	{
 			    		var nuevo = (parseInt($(this).width()/(tam+1)));
 			    		$(this).children().css('width',nuevo+'px');
 			    	}
-		    		ui.draggable.css('width',nuevo+'px');
+			    	ui.draggable.css('width',nuevo+'px');
+		    		ui.draggable.children().css('width',nuevo+'px');
 		    		$(this).append(ui.draggable);
 		    	}
 		    	$(this).append(ui.draggable);
@@ -430,4 +431,5 @@ function reAsignarDrags()
 	    	$(this).find('span').css({'display':'inline-block'});
 	    }
 	});
+	$('.draggable_hour').css({'position':'absolute'});
 }
