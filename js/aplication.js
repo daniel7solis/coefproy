@@ -27,6 +27,7 @@ $( document ).ready(function()
 	// Se asigna al campo para verificar la fecha del paciente.
 	$('#chk_date').datepicker(
 	{
+		dateFormat: "dd-mm-yy",
 		changeMonth: true,
     	changeYear: true,
     	yearRange: '1900:+0'

@@ -475,14 +475,13 @@ function deletePer(){
 /*Función para consultar y registrar una cita a una persona y saber si es ya un paciente o si no,
 registrarlo como nuevo paciente que posteriormente en su consulta se capaturaran todos sus dato*/
 function busq_paciente(){
-	var name=document.getElementById("chk_name").value;
+	// var name=document.getElementById("chk_name").value;
 	var lastname=document.getElementById("chk_lastname").value;
 	var dateBirt=document.getElementById("chk_date").value;
-	if(name==="" || dateBirt==="" || lastname===""){
+	if(dateBirt==="" || lastname===""){
 		alert("Por favor ingresa datos para buscar");
 	}else{
 		var parametros = {
-	        "nom" : name,
 	        "ap" : lastname,	        
 	        "dateB": dateBirt
 	   	};
@@ -495,8 +494,49 @@ function busq_paciente(){
 			dataType:'json',
 			/*funcion de retorno*/
 			success: function(data){
-				alert("funciono");
+				var code1='<article class="item_list"><img src="images/pacientes/';
+				var img='.png"/><input type="hidden" value="';
+				var code2='</article>';
+				var endcode="";
+				if(data['num']==0){
+					$("#lista").html('<div>No existe por favor registrelo</div>');
+					// $("#new_user_submit2").css({'display':'none'});
+					$("#new_patient").css({'display':'block'});
+				}else{
+					$("#new_patient").css({'display':'none'});
+					for(var i=0; i<data['num']; i++){
+						endcode=endcode+code1+data[i].id+img+data[i].id+'"/>'+data[i].nom+" "+data[i].ap+" "+data[i].ed+" años"+code2;
+					}
+					$("#lista").html(endcode);
+					escucha_Pacientes();
+				}
 			}
 		});	
+	}
+}
+/*Variable donde almaceno el id del Paciente a crear la cita*/
+var idPac;
+/*Función de escucha para la seleccion de pacientes, para agendar una nueva cita en la pag "nuevacita.php"*/
+function escucha_Pacientes(){
+	/*Activo la seleccion de los pacientes para crear una nueva cita, se selecciona el paciente de la lista que
+	se muestra en la pag nuevacita.php*/
+	var x=document.getElementsByClassName("item_list");/*selecciono todos los paceintes ya que se encuentran
+	dentro de article*/
+	for(var z=0; z<x.length; z++){/*recorro el total de elemtos que se dara la capacidad de resaltar al
+		ser seleccionados mediante un click*/
+		x[z].onclick=function(){//activo el evento del click
+			/*La funcion siguiente desmarca todo los articles antes de seleccionar nuevamente a un elemento*/
+			limpiar(".item_list");
+			$(this).css({'border':'3px solid #f39c12'});
+		};
+		x[z].ondblclick=function(){/*activo el doble click para activar la seleccion del
+			//objeto y pasar a crear la cita*/
+			var y=$(this).find("input");
+			idPac=y.val();
+			console.log(idPac);
+			
+			$("#already_patient").css({'display':'block'});
+			$("#lista").css({'display':'none'});
+		};
 	}
 }
