@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `citas` (
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
+INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`) VALUES
 (2, '2014-02-06', '9:00am', 1, 2, 30),
 (1, '2014-02-06', '7:00am', 1, 3, 60),
 (3, '2014-02-06', '3:00pm', 1, 4, 45);
@@ -377,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `tempCitas` (
 -- Volcado de datos para la tabla `tempCitas`
 --
 
-INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
+INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`, `usuario`) VALUES
 (3, '2014-02-25', '6:30am', 1, 4, 60, 2);
 
 

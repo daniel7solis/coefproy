@@ -99,6 +99,10 @@
 				   		<div id="np_age_label" class="new_user_labels" for="ap"></div>
 				   		<input name="np_email" id="np_email" class="new_user_input_chk" type="text" placeHolder="Email" required>
 				   	</div>
+				   	<div class="fields_holder_chk">
+				   		<div id="np_doctor_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_doctor" id="np_doctor" class="new_user_input_chk" type="text" placeHolder="Doctor" required>
+				   	</div>
 			</article>
 			<article id="already_patient" class="patient_check" style="display:none">
 				<h3>Id. NOMBRE</h3>

@@ -49,7 +49,6 @@ $( document ).ready(function()
 		$('.droppable_hour').on('click', function()
 		{
 			hora = $(this).parent().attr('value');
-			alert(hora);
 			document.location.href = "nuevacita.php?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora;
 		});
 	});

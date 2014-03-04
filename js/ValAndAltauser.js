@@ -499,6 +499,8 @@ function busq_paciente(){
 				var code2='</article>';
 				var endcode="";
 				if(data['num']==0){
+					$("#lista").css({'display':'block'});
+					$("#already_patient").css({'display':'none'});
 					$("#lista").html('<div>No existe por favor registrelo</div>');
 					// $("#new_user_submit2").css({'display':'none'});
 					$("#new_patient").css({'display':'block'});
