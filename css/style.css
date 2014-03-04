@@ -1094,9 +1094,10 @@ th
 	display: inline-block;
 	font-size: 0.9em;
 	min-height: 40px;
+	margin: 0;
 	padding: 0 1em 0 0.5em;
-	position: relative;
-	width: 95%;
+	position: absolute;
+	width: 93%;
 }
 .draggable_hour:after
 {
@@ -1153,6 +1154,15 @@ th
 .draggable_tag_6
 {
 	background: #27ae60;
+}
+.draggable_wrapper
+{
+	border: 1px solid red;
+	display: inline-block;
+	min-height: 40px;
+	position: relative;
+	padding: 0;
+	width: 100%;
 }
 /* Droppables! */
 .droppable_hour

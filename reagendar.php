@@ -25,7 +25,8 @@
 		$hor=$datos['hora'];
 		$idPacient=$datos['idPaciente'];
 		$idDocto=$datos['idDoctor'];
-		mysql_query("insert into citas (idCita, fecha, hora, idPaciente, idDoctor) values ('$idCit','$nuevafecha','$nuevahora','$idPacient','$idDocto')",$conexion) or die(mysql_error());
+		$minuto=$datos['minutos'];
+		mysql_query("insert into citas (idCita, fecha, hora, idPaciente, idDoctor, minutos) values ('$idCit','$nuevafecha','$nuevahora','$idPacient','$idDocto','$minuto')",$conexion) or die(mysql_error());
 		mysql_query("delete from tempCitas where idCita='$idCit'",$conexion) or die(mysql_error());
 	}
 	else

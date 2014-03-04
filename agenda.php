@@ -67,7 +67,7 @@
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
-						$horas;$idpac;$iddoc;$fecha;$ids;
+						$horas;$idpac;$iddoc;$fecha;$ids;$mins;
 						$aux=0;
 						# Conexión a la base de datos.
 						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -86,10 +86,14 @@
 							$iddoc[$aux] = $arreglo['idDoctor'];
 							$fecha[$aux] = $arreglo['fecha'];
 							$ids[$aux] = $arreglo['idCita'];
+							$mins[$aux] = $arreglo['minutos'];
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
 						$h=6;$min="00";$mer="am";$count = 0;
+						# Se obtienen los minutos de la cita. Se dividen entre 15 para determinar 
+						# el número de filas a ocupar.
+					
 						# Ciclo que genera las 12 horas.
 						for ($i=0; $i < 12; $i++) 
 						{ 
@@ -116,7 +120,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
+												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
 											}
 										}
 										else
@@ -127,7 +131,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void(0);'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>";
+												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
 											}
 										}
 									}
@@ -158,9 +162,6 @@
 					<li><a id="print_h" href="#"></a></li>
 				</ul>
 			</div>
-		<div id='down_content'>
-			<p class="down_text"><a id="down_text_cal" href="calendario.php">¿Consultar otro día?&nbsp;&nbsp;<a></p>
-		</div>
 		</section>
 
 		<section id="content_calendar">
