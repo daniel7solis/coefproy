@@ -61,12 +61,12 @@
 				</p>
 			</div>
 			<article id="item_perfil">
-			<div class='title_item_perfil'><p>Ingrese nombre y fecha nacimiento:</p></div>
+			<div class='title_item_perfil'><p>Ingrese apellidos y fecha nacimiento:</p></div>
 				<div class='contenido_item_perfil'>
 					<div class="fields_holder_chk">
 						<div id="chk_name_label" class="new_user_labels" for="nombre"></div>
 						<!--input donde se tiene los nombres del usuario-->
-			   			<input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombres" required>
+			   			<!--input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombres" required-->
 						<!--input donde se tiene los apellidos del usuario-->
 		   				<input name="apellido" id="chk_lastname" class="new_user_input_chk" type="text" placeHolder="Apellidos" required>
 			   		</div>
@@ -77,9 +77,10 @@
 				   	</div>
 				   	<!--Boton de envio de consulta para buscar al paciente-->
 			   		<input id="new_user_submit2" type="submit" value="Siguiente" onclick="busq_paciente()" />
+					<span id="lista"></span>
 				</div>
 			</article>
-			<article id="new_patient" class="patient_check" >
+			<article id="new_patient" class="patient_check" style="display:none">
 				<h3>NUEVO PACIENTE</h3>
 				<hr class="inner_separator">
 				<div class="fields_holder_chk">
@@ -92,26 +93,14 @@
 				   	</div>
 				   	<div class="fields_holder_chk">
 						<div id="np_direction_label" class="new_user_labels" for="nombre"></div>
-			   			<input name="np_direction" id="np_direction" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+			   			<input name="np_tel" id="np_tel" class="new_user_input_chk" type="text" placeHolder="Movil" required>
 			   		</div>
 				   	<div class="fields_holder_chk">
 				   		<div id="np_age_label" class="new_user_labels" for="ap"></div>
-				   		<input name="np_age" id="np_age" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
-				   	</div>
-				   	<div class="fields_holder_chk">
-						<div id="np_birth_label" class="new_user_labels" for="nombre"></div>
-			   			<input name="np_birth" id="np_birth" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
-			   		</div>
-				   	<div class="fields_holder_chk">
-				   		<div id="np_email_label" class="new_user_labels" for="ap"></div>
-				   		<input name="np_email" id="np_email" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
-				   	</div>
-				   	<div class="fields_holder_chk">
-				   		<div id="np_tel_label" class="new_user_labels" for="ap"></div>
-				   		<input name="np_tel" id="np_tel" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   		<input name="np_email" id="np_email" class="new_user_input_chk" type="text" placeHolder="Email" required>
 				   	</div>
 			</article>
-			<article id="already_patient" class="patient_check">
+			<article id="already_patient" class="patient_check" style="display:none">
 				<h3>Id. NOMBRE</h3>
 				<hr class="inner_separator">
 				<p>Fecha de cita:</p>

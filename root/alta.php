@@ -5,7 +5,7 @@
 	mysql_set_charset("utf8", $conexion); 
 	/*fin para verificar*/
 	$nombre=$_REQUEST['nombre']." ".$_REQUEST['ap'];
-	$nombreUser=$_REQUEST['to_user'];
+	$nombreUser=strtolower($_REQUEST['to_user']);
 	$pass=$_REQUEST['to_pass'];
 	$semilla=hash("sha512", $pass, false);
 	$passF=hash("sha512", $pass.$semilla,false);
