@@ -12,10 +12,7 @@ var hora, url = 'nuevacita.php', $aux,
     	recieved_nday,recieved_day,recieved_month,recieved_year,
     	tam,
 	fromTempToAgenda = 0;
-// Si ocurre un re-dimensionamiento de la ventana.
-$( window ).resize(function() {
-  resetSize();
-});
+
 // Cuando la página ya cargó...
 $( document ).ready(function()
 {
@@ -50,7 +47,8 @@ $( document ).ready(function()
 		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content, #content_calendar').css({'-webkit-filter':'blur(6px)'});
 		$('.droppable_hour').on('click', function()
 		{
-			hora = $(this).attr('value');
+			hora = $(this).parent().attr('value');
+			alert(hora);
 			document.location.href = "nuevacita.php?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora;
 		});
 	});
@@ -85,7 +83,6 @@ $( document ).ready(function()
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	debugger
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
 	    		$(this).append(ui.draggable);
@@ -143,27 +140,32 @@ function resetSize()
 {
 	for (var i = 0; i < 48; i++) 
 	{
-		if($('#c'+i).find('.draggable_hour').length!=0)
+		if($('#c'+i).find('.draggable_wrapper').length!=0)
 		{
-			if($('#c'+i).find('.draggable_hour').length==2)
+			if($('#c'+i).find('.draggable_wrapper').length==2)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-70)/$('#c'+i).find('.draggable_hour').length));
+				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
-			else if($('#c'+i).find('.draggable_hour').length==3)
+			else if($('#c'+i).find('.draggable_wrapper').length==3)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-105)/$('#c'+i).find('.draggable_hour').length));
+				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
-			else if($('#c'+i).find('.draggable_hour').length==4)
+			else if($('#c'+i).find('.draggable_wrapper').length==4)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-130)/$('#c'+i).find('.draggable_hour').length));
+				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
-			else if($('#c'+i).find('.draggable_hour').length>=5)
+			else if($('#c'+i).find('.draggable_wrapper').length==5)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-160)/$('#c'+i).find('.draggable_hour').length));
+				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
-			else
+			else if($('#c'+i).find('.draggable_wrapper').length>=6)
 			{
-				$('#c'+i).children().width(parseInt(($('#c'+i).width()-35)/$('#c'+i).find('.draggable_hour').length));
+				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 		}
 	}
@@ -255,7 +257,7 @@ function ListarTemps()
             	for (var i = 0; i < index; i++) 
             	{
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div>"+
+            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -272,8 +274,10 @@ function reAsignarDrags()
 
 	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 	$('#ppp').css({'display':'none'});
-	$( '.draggable_hour' ).draggable(
+
+	$( '.draggable_wrapper' ).draggable(
 	{
+		handler: "div.draggable_hour",
    		appendTo: "body",
    		snap: true,
    		cursor: 'move',
@@ -290,7 +294,11 @@ function reAsignarDrags()
 	        helper.css({'width': '100px'});
 	        return helper;
    		}
-	}).resizable();
+	});
+
+	$('.draggable_hour').resizable({
+		 handles: 'n,s'
+	});
 
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
 	$( '.droppable_hour' ).droppable(
@@ -299,7 +307,7 @@ function reAsignarDrags()
 	    helper:'',
 	    over: function()
 	    {
-	    	var aver = $(this).find(".draggable_hour").length;
+	    	var aver = $(this).find(".draggable_wrapper").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
@@ -314,15 +322,15 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	if(ui.draggable.attr('value')=='true')
+	    	if(ui.draggable.children().attr('value')=='true')
 	    	{
 	    		ui.draggable.css({'display':'inline-block'});
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
 		    	resetSize();
-	    		var newhora = $(this).parent().attr('value')
-		    	var ident = ui.draggable.attr('id');
+	    		var newhora = $(this).parent().attr('value');
+	    		var ident = ui.draggable.find('.draggable_hour').attr('id');
 		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
 		    	$.ajax({
 		    		data: param,
@@ -349,8 +357,8 @@ function reAsignarDrags()
 
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
-		    	var newhora = $(this).parent().attr('value')
-		    	var ident = ui.draggable.attr('id');
+		    	var newhora = $(this).parent().attr('value');
+		    	var ident = ui.draggable.find('.draggable_hour').attr('id');
 		    	var param = {'h':newhora,'id':ident};
 		    	$.ajax({
 		    		data: param,
@@ -371,7 +379,7 @@ function reAsignarDrags()
 	    helper:'',
 	    over: function()
 	    {
-	    	var aver = $(this).find(".draggable_hour").length;
+	    	var aver = $(this).find(".draggable_wrapper").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
 	    	{
@@ -399,7 +407,7 @@ function reAsignarDrags()
 				ui.draggable.find('.here_hour').html('...');
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
-		    	var ident = ui.draggable.attr('id');
+		    	var ident = ui.draggable.children().attr('id');
 		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
 		    	var param = {'id':ident,'us':miusuario.id,'pass':miusuario.idd};
 		    	$.ajax({
