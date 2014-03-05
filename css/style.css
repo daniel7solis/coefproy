@@ -267,6 +267,7 @@ th
 #content_subtitle
 {
 	background: #DD4F24;
+	border-radius: 0.5em 0 0 0;
 	color: white;
 	font-weight: bold;
 	margin-bottom: 0;
@@ -744,6 +745,28 @@ th
 	margin: 0 1em 0 1em;
 	text-align: center;
 }
+#pop_notification
+{
+	background: #dcf2a7;
+	border: 1px solid #9EC445;
+	border-radius: 0.5em;
+	display: none;
+	left: 0.2em;
+	padding: 0.5em;
+	position: fixed;
+	bottom: 0.2em;
+	width: 200px;
+}
+#pop_notification p
+{
+	font-size: 0.8em;
+	margin: 0;
+	text-align: center;
+}
+#pop_notification p:last-child
+{
+	font-style: italic;
+}
 #print:after
 {
 	content: "\e613";
@@ -1087,7 +1110,7 @@ th
 }
 .draggable_hour
 {
-	background: #13273C;
+	background: rgba(19,39,60,0.8);
 	border: 1px solid rgba(255,255,255,0.5);
 	border-radius: 5px 3px;
 	color: white;
@@ -1133,27 +1156,27 @@ th
 }
 .draggable_tag_1
 {
-	background: #16a085;
+	background: rgba(22,160,133,0.8);/*#16a085;*/
 }
 .draggable_tag_2
 {
-	background: #8e44ad;
+	background: rgba(142,68,173,0.8);/*#8e44ad;*/
 }
 .draggable_tag_3
 {
-	background: #c0392b;
+	background: rgba(192,57,43,0.8);/*#c0392b;*/
 }
 .draggable_tag_4
 {
-	background: #d35400;
+	background: rgba(211,84,0,0.8);/*#d35400;*/
 }
 .draggable_tag_5
 {
-	background: #f39c12;
+	background: rgba(243,156,18,0.8);/*#f39c12;*/
 }
 .draggable_tag_6
 {
-	background: #27ae60;
+	background: rgba(39,174,96,0.8);/*#27ae60;*/
 }
 .draggable_wrapper
 {
@@ -1172,6 +1195,28 @@ th
 	padding: 0;
 	position: relative;
 	width: 90%;
+}
+.visual_help:after
+{
+	border-bottom: 12px solid transparent;
+	border-left: 12px solid #DD4F24;
+	border-top: 12px solid transparent;
+	content: "";
+	margin-top: -9px;
+	position: absolute;
+	right: 100%;
+	top: 50%;
+}
+.visual_help:before
+{
+	border-bottom: 12px solid transparent;
+	border-right: 12px solid #DD4F24;
+	border-top: 12px solid transparent;
+	content: "";
+	margin-top: -9px;
+	position: absolute;
+	left: 100%;
+	top: 50%;
 }
 .droppable_hour:last-child
 {
@@ -1356,6 +1401,7 @@ th
 .month_title
 {
 	background: #DD4F24;
+	border-radius: 0.5em 0 0 0;
 	color:white;
 	margin-bottom: 0;
 	padding: 0.3em 0 0.4em 0;
