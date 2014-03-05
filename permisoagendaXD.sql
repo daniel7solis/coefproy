@@ -281,7 +281,6 @@ INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `contrasena`,`nombre`,`sem
 CREATE TABLE IF NOT EXISTS `newPaciente` (
   `nombre` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `apeidos` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `direccion` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `edad` int(3) NOT NULL,
   `fecha_nac` date NOT NULL,
   `email` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
@@ -341,6 +340,8 @@ CREATE TABLE IF NOT EXISTS `citas` (
   `idPaciente` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
   `minutos` int(3) NOT NULL,
+  `isPac` int(3) NOT NULL,
+  `idSucursal` int(3) NOT NULL,
   PRIMARY KEY (`idPaciente`,`idDoctor`,`idCita`),
   KEY `idCita` (`idCita`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
@@ -349,10 +350,10 @@ CREATE TABLE IF NOT EXISTS `citas` (
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`) VALUES
-(2, '2014-02-06', '9:00am', 1, 2, 30),
-(1, '2014-02-06', '7:00am', 1, 3, 60),
-(3, '2014-02-06', '3:00pm', 1, 4, 45);
+INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`,`isPac`,`idSucursal`) VALUES
+(2, '2014-02-06', '9:00am', 1, 2, 30,1,1),
+(1, '2014-02-06', '7:00am', 1, 3, 60,1,1),
+(3, '2014-02-06', '3:00pm', 1, 4, 45,1,1);
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------

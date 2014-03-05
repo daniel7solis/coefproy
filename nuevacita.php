@@ -69,6 +69,7 @@
 			   			<!--input name="nombre" id="chk_name" class="new_user_input_chk" type="text" placeHolder="Nombres" required-->
 						<!--input donde se tiene los apellidos del usuario-->
 		   				<input name="apellido" id="chk_lastname" class="new_user_input_chk" type="text" placeHolder="Apellidos" required>
+			   			Daniel poner mensaje aqui, que ingresen los datos correctamene, bueno al lado-->
 			   		</div>
 				   	<div class="fields_holder_chk">
 				   		<div id="chk_date_label" class="new_user_labels" for="ap"></div>
@@ -85,29 +86,52 @@
 				<hr class="inner_separator">
 				<div class="fields_holder_chk">
 						<div id="np_name_label" class="new_user_labels" for="nombre"></div>
-			   			<input name="np_name" id="np_name" class="new_user_input_chk" type="text" placeHolder="Nombre" required>
+			   			<input name="np_name" id="np_name" class="new_user_input_chk" type="text" placeHolder="Nombres" required>
 			   		</div>
 				   	<div class="fields_holder_chk">
 				   		<div id="np_ap_label" class="new_user_labels" for="ap"></div>
-				   		<input name="np_ap" id="np_ap" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
+				   		<input name="np_ap" id="np_ap" class="new_user_input_chk" type="text" placeHolder="Apellidos" required>
+				   	</div>
+				   	seria bueno poner una etiqueta, a los campos, xq al autocompletar no se sabe exactamente a se refiere, aparte de dejar la nota que verifique estos datos con el paciente
+				   	<div class="fields_holder_chk">
+				   		<div id="np_fn_label" class="new_user_labels" for="ap"></div>
+				   		<input name="np_fn" id="np_fn" class="new_user_input_chk" type="text" placeHolder="Fecha nacimiento" required>
 				   	</div>
 				   	<div class="fields_holder_chk">
 						<div id="np_direction_label" class="new_user_labels" for="nombre"></div>
-			   			<input name="np_tel" id="np_tel" class="new_user_input_chk" type="text" placeHolder="Movil" required>
+			   			<input name="np_tel" id="np_tel" class="new_user_input_chk" type="text" placeHolder="Telefono movil" required>
 			   		</div>
 				   	<div class="fields_holder_chk">
 				   		<div id="np_age_label" class="new_user_labels" for="ap"></div>
 				   		<input name="np_email" id="np_email" class="new_user_input_chk" type="text" placeHolder="Email" required>
 				   	</div>
-				   	<div class="fields_holder_chk">
-				   		<div id="np_doctor_label" class="new_user_labels" for="ap"></div>
-				   		<input name="np_doctor" id="np_doctor" class="new_user_input_chk" type="text" placeHolder="Doctor" required>
-				   	</div>
+				   	<!--Boton de registro de un nuevo paciente-->
+				   	<input id="new_user_submit2" type="submit" value="Registrar" onclick="registrar_paci()" />
 			</article>
 			<article id="already_patient" class="patient_check" style="display:none">
-				<h3>Id. NOMBRE</h3>
-				<hr class="inner_separator">
-				<p>Fecha de cita:</p>
+				<div class='title_item_perfil'><p>Datos de la cita</p></div>
+				<div>Nombre: <span id="nom"></span></div>
+				<div>Duración:
+				<select name="dur"/>
+					<option value="15">0:15</option>
+					<option value="30">0:30</option>
+					<option value="45">0:45</option>
+					<option value="60" selected>1</option>
+					<option value="75">1:15</option>
+					<option value="90">1:30</option>
+					<option value="105">1:45</option>
+					<option value="120">2</option>
+					<option value="135">2:15</option>
+					<option value="150">2:30</option>
+					<option value="165">2:45</option>
+					<option value="180">3</option>
+					<option value="195">3:15</option>
+					<option value="210">3:30</option>
+					<option value="225">3:45</option>
+					<option value="240">4</option>
+				</select> hora(s)</div>
+				<div>Doctor: <input type="number" id="doc" name="doc" required></div>
+				<input type="submit" id="envio" value="Agendar" onclick="agendar()">
 			</article>
 		<div id='down_content'></div>
 		</section>

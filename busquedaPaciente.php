@@ -6,7 +6,7 @@
 		$d=str_split($_POST['dateB']);
 		// $ap="cruz solis";strtolower($_POST['ap']);
 		// $d="12-02-1992";/*str_split($_POST['dateB']);*/
-		$dateB=$d[6].$d[7].$d[8].$d[9].$d[2].$d[3].$d[4].$d[2].$d[0].$d[1];//formateo la fecha
+		$dateB=$d[6].$d[7].$d[8].$d[9].$d[2].$d[3].$d[4].$d[2].$d[0].$d[1];//formateo la fecha aaaa-mm-dd
 		/*Hacer de nuevo la conexion*/
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 		mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
