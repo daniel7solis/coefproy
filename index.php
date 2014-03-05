@@ -41,6 +41,7 @@
 		   		<input name="password" id="password" type="password" onkeyup="validar(this.value)" required>
 			</p>
 			<p id="info">
+			Daniel falta que aparesca un modal para lo de olvidaste tu contraseña, tambien en sesion2
 				<a href="olvidarPass.php">¿Olvidaste tu contraseña?</a>
 			</p>
 			<p id="button_field">

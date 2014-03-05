@@ -33,7 +33,14 @@ $( document ).ready(function()
     	changeYear: true,
     	yearRange: '1900:+0'
 	});
-
+	/*se da formato al campo de fecha*/
+$('#np_fn').datepicker(
+	{
+		dateFormat: "dd-mm-yy",
+		changeMonth: true,
+    	changeYear: true,
+    	yearRange: '1900:+0'
+});
 	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 
 	/* Se valida y se envía a la fecha deseada de la agenda.
@@ -50,7 +57,6 @@ $( document ).ready(function()
 		$('.droppable_hour').on('click', function()
 		{
 			hora = $(this).parent().attr('value');
-			alert(hora);
 			document.location.href = "nuevacita.php?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora;
 		});
 	});

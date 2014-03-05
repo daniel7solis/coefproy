@@ -474,10 +474,12 @@ function deletePer(){
 }
 /*Función para consultar y registrar una cita a una persona y saber si es ya un paciente o si no,
 registrarlo como nuevo paciente que posteriormente en su consulta se capaturaran todos sus dato*/
+/*Variables globales del nombre y fecha de nac. de la persona a agendar una cita*/
+var lastname, dateBirt;
 function busq_paciente(){
 	// var name=document.getElementById("chk_name").value;
-	var lastname=document.getElementById("chk_lastname").value;
-	var dateBirt=document.getElementById("chk_date").value;
+	lastname=document.getElementById("chk_lastname").value;
+	dateBirt=document.getElementById("chk_date").value;
 	if(dateBirt==="" || lastname===""){
 		alert("Por favor ingresa datos para buscar");
 	}else{
@@ -499,21 +501,27 @@ function busq_paciente(){
 				var code2='</article>';
 				var endcode="";
 				if(data['num']==0){
+					$("#lista").css({'display':'block'});
+					$("#already_patient").css({'display':'none'});
 					$("#lista").html('<div>No existe por favor registrelo</div>');
 					// $("#new_user_submit2").css({'display':'none'});
 					$("#new_patient").css({'display':'block'});
+					$("#np_fn").val(dateBirt);
+					$("#np_ap").val(lastname);
 				}else{
 					$("#new_patient").css({'display':'none'});
 					for(var i=0; i<data['num']; i++){
 						endcode=endcode+code1+data[i].id+img+data[i].id+'"/>'+data[i].nom+" "+data[i].ap+" "+data[i].ed+" años"+code2;
 					}
-					$("#lista").html(endcode);
+					$("#lista").html('<div>Seleccione al paciente correcto</div>'+endcode);
 					escucha_Pacientes();
 				}
 			}
 		});	
 	}
 }
+
+
 /*Variable donde almaceno el id del Paciente a crear la cita*/
 var idPac;
 /*Función de escucha para la seleccion de pacientes, para agendar una nueva cita en la pag "nuevacita.php"*/
@@ -534,9 +542,75 @@ function escucha_Pacientes(){
 			var y=$(this).find("input");
 			idPac=y.val();
 			console.log(idPac);
-			
+			/*AQUI VOY A LLAMAR A UN AJAX PARA CONSULTAR EL NOMBRE DEL PACIENTE Y PASAR TAMBIEN
+			LOS NOMBRES DE LOS DOCTORES*/
 			$("#already_patient").css({'display':'block'});
+			var parametros = {
+		        "id":idPac
+		   	};
+		   	$.ajax({
+				/*paso los paramentros al php*/
+				data:parametros,
+				url: 'consulPaciente.php',
+				type:'post',
+				// defino el tipo de dato de retorno
+				dataType:'json',
+				/*funcion de retorno*/
+				success: function(data){
+					if(data['ok']===1){
+						$("#nom").html(data['nom']+" "+data['ap']);
+					}else{
+						alert("No se pudo registrar, vuelva a intentarlo.");
+					}
+				}
+			});	
 			$("#lista").css({'display':'none'});
+			$("#item_perfil").css({'display':'none'});
 		};
+	}
+}
+/*Función para registrar un nuevo paciente*/
+function registrar_paci(){
+	//tomo los datos de lon inputs
+	var namep,lastnamep,fechana,tel,mail;
+	namep=document.getElementById("np_name").value;
+	lastnamep=document.getElementById("np_ap").value;
+	fechana=document.getElementById("np_fn").value;
+	tel=document.getElementById("np_tel").value;
+	mail=document.getElementById("np_email").value;
+	if(namep==="" || lastnamep==="" || fechana===""){
+		alert("Por favor ingresa el nombre, apellidos y fecha de nacimiento del nuevo paciente");
+	}else{
+		var id=JSON.parse(sessionStorage.getItem("id"));//Conviero la cadena a un JSON para acceder a los datos
+		var parametros = {
+			"nom" : namep,
+	        "ap" : lastnamep,	        
+	        "dateB": fechana,
+	        "tel": tel,
+	        "mail":mail,
+	        "suc":id.s
+	   	};
+	   	$.ajax({
+			/*paso los paramentros al php*/
+			data:parametros,
+			url: 'regisPaciente.php',
+			type:'post',
+			// defino el tipo de dato de retorno
+			dataType:'json',
+			/*funcion de retorno*/
+			success: function(data){
+				if(data['ok']===1){
+					$("#already_patient").css({'display':'block'});
+					$("#new_patient").css({'display':'none'});
+					$("#lista").css({'display':'none'});
+					$("#item_perfil").css({'display':'none'});
+					/*AQUI SE DEVUELVE TAMBIEN LOS NOMBRES DE LOS DOCTORES PARA MOSTRARLOS EN LA LISTA*/
+					//tambien hace falta mandar el id del paciente temporal, para registrar la cita
+					$("#nom").html(data['nom']+" "+data['ap']);
+				}else{
+					alert("No se pudo registrar, vuelva a intentarlo.");
+				}
+			}
+		});	
 	}
 }
