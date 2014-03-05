@@ -20,7 +20,7 @@
 		 values ('$nom','$ap','$edad','$dateB','$mail','$tel','$s')",$conexion) or die(mysql_error());
 		$arr = array('ok' => 1,'nom' => $nom,'ap' => $ap);
 		/*APARTE DE DEVOLVER LOS DATOS DEL PACIENTE RECIEN REGISTRADO, TAMBIEN
-		SE VA A MANDAR LOS NOMBRES DE LOS DOCTORES Y SU ID*/
+		SE VA A MANDAR LOS NOMBRES DE LOS DOCTORES Y SU ID y el id del usuario*/
 		$json = json_encode($arr);
 		echo $json;
 	}else{
