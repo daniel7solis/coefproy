@@ -24,6 +24,7 @@ $( document ).ready(function()
 	revisarSesion();
 	actualdate();
 	resetSize();
+	getDuration();
 	// Se asigna al campo para verificar la fecha del paciente.
 	$('#chk_date').datepicker(
 	{
@@ -142,6 +143,34 @@ $('#np_fn').datepicker(
 	});
 	$('.manage_options').hide();
 });
+function getDuration()
+{
+	for (var i = 0; i < 48; i++) 
+	{
+		if($('#c'+i).find('.draggable_wrapper').length!=0)
+		{
+			if($('#c'+i).find('.draggable_wrapper').length==1)
+			{
+				var x = $('#c'+i).find('.draggable_wrapper').children().attr('title');
+				var nx = ((x/15)*30)+10;
+				console.log(x+" - "+nx);
+				$('#c'+i).find('.draggable_wrapper').children().css({'height':nx});
+			}
+			else
+			{
+				var cits = $('#c'+i).find('.draggable_wrapper').children(); // Hasta aquí es un objeto jQuery.
+				var qty = $('#c'+i).find('.draggable_wrapper').length;
+				for (var j = 0; j < qty; j++) 
+				{
+					var x = $(cits[j]).attr('title');
+					var nx = ((x/15)*30)+10;
+					console.log(x+" - "+nx);
+					$(cits[j]).css({'height':nx});
+				}
+			}
+		}
+	}
+}
 // Función que detecta cuántos elementos hay dentro de un droppable y los reajusta.
 function resetSize()
 {
@@ -149,29 +178,34 @@ function resetSize()
 	{
 		if($('#c'+i).find('.draggable_wrapper').length!=0)
 		{
-			if($('#c'+i).find('.draggable_wrapper').length==2)
+			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+			}
+			else if($('#c'+i).find('.draggable_wrapper').length==2)
+			{
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==3)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==4)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-10)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==5)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length>=6)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-15)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
 				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
 			}
 		}
@@ -264,7 +298,7 @@ function ListarTemps()
             	for (var i = 0; i < index; i++) 
             	{
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
+            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -275,6 +309,7 @@ function ListarTemps()
 }
 function reAsignarDrags()
 {
+	$('.manage_options').hide();
 	$('.manageapp').on('click', function(){
 		$(this).parent().find('.manage_options').toggle('swing');
 	});
@@ -284,27 +319,24 @@ function reAsignarDrags()
 
 	$( '.draggable_wrapper' ).draggable(
 	{
-		handler: "div.draggable_hour",
+		
    		appendTo: "body",
-   		snap: true,
    		cursor: 'move',
 		revert:'invalid',
 		cursorAt: {left:50, top:0},
 		drag: function()
 		{
 			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
+			$(this).height(40);
+			$(this).children().height(40);
 		},
 		helper: function() 
 		{
-	        var helper = $(this).clone();
-	        helper.animate({width:100});
+	        var helper = $(this).children().clone();
+	        helper.animate({width:100,height:40});
 	        helper.css({'width': '100px'});
 	        return helper;
    		}
-	});
-
-	$('.draggable_hour').resizable({
-		 handles: 'n,s'
 	});
 
 	// Se asigna la capacidad de contenedor a las celdas (generadas dinámicamente) de agenda.php
@@ -314,6 +346,7 @@ function reAsignarDrags()
 	    helper:'',
 	    over: function()
 	    {
+	    	$(this).addClass('visual_help');
 	    	var aver = $(this).find(".draggable_wrapper").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
@@ -329,7 +362,7 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	if(ui.draggable.children().attr('value')=='true')
+	    	if(ui.draggable.children().attr('value')=='true'||ui.draggable.attr('value')=='true')
 	    	{
 	    		ui.draggable.css({'display':'inline-block'});
 	    		$(this).append(ui.draggable);
@@ -345,17 +378,22 @@ function reAsignarDrags()
 		            type: 'post',
 		            dataType: 'json'
 		    	});
+		    	$('#pop_notification_title').html('¡Listo! Re-agendado');
+		    	$('#pop_notification_content').html('La cita se ha cambiado exitosamente a las '+newhora+' del '+recieved_day+'/'+recieved_month+'/'+recieved_year+'.');
+		    	showPopUp();
+		    	getDuration();
 	    	}
 	    	else
 	    	{
-	    		if(ui.draggable.children().text()!=$(this).parent().attr('value'))
+	    		if(ui.draggable.children().children().text()!=$(this).parent().attr('value'))
 		    	{
 			    	if(!c)
 			    	{
 			    		var nuevo = (parseInt($(this).width()/(tam+1)));
 			    		$(this).children().css('width',nuevo+'px');
 			    	}
-		    		ui.draggable.css('width',nuevo+'px');
+			    	ui.draggable.css('width',nuevo+'px');
+		    		ui.draggable.children().css('width',nuevo+'px');
 		    		$(this).append(ui.draggable);
 		    	}
 		    	$(this).append(ui.draggable);
@@ -371,13 +409,18 @@ function reAsignarDrags()
 		    		data: param,
 		            url: 'updatehour.php',
 		            type: 'post',
-		            dataType: 'json',
-		            success: function(o)
-		            {
-		            	alert("Se modificó a las "+newhora);
-		            }
+		            dataType: 'json'
 		    	});
+		    	$('#pop_notification_title').html('¡Listo! Re-agendado');
+		    	$('#pop_notification_content').html('La cita se ha cambiado exitosamente a las '+newhora);
+		    	showPopUp();
 	    	}
+	    	getDuration();
+	    	$(this).removeClass('visual_help');
+	    },
+	    out: function()
+	    {
+	    	$(this).removeClass('visual_help');
 	    }
 	});
 
@@ -408,6 +451,7 @@ function reAsignarDrags()
 			{
 				$(this).find('span').css({'display':'none'});
 				ui.draggable.width($(this).width()-25);
+				ui.draggable.children().width($(this).width()-25);
 				$(this).append(ui.draggable);
 				c=false;
 				resetSize();
@@ -430,10 +474,19 @@ function reAsignarDrags()
 		    	}
 		    	ui.draggable.attr('value','true');
 			}
+			$('#pop_notification_title').html('¡Listo! Ahora es temporal');
+		    $('#pop_notification_content').html('La cita se ha movido a temporales. No olvide Re-agendar.');
+		    showPopUp();
+		    getDuration();
 	    },
 	    out: function( event, ui )
 	    {
 	    	$(this).find('span').css({'display':'inline-block'});
 	    }
 	});
+	$('.draggable_hour').css({'position':'absolute'});
+}
+function showPopUp()
+{
+	$('#pop_notification').fadeIn( "fast" ).delay( 7000 ).fadeOut( "slow" );
 }

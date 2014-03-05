@@ -120,7 +120,7 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
+												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
 											}
 										}
 										else
@@ -131,7 +131,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour'><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
+												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
 											}
 										}
 									}
@@ -242,6 +242,10 @@
 		<li><a class="menu_help" href="">&nbsp;&nbsp;Ayuda</a></li>
 		<li><a class='close_session' href="index.php" onclick="cerrarSesion()">Cerrar sesión</a></li>
 	</ul>
+	<div id="pop_notification">
+	<p><strong><span id="pop_notification_title"></span></strong></p>
+	<p><span id="pop_notification_content"></span></p>
+	</div>
 	<footer>
 		<p>Coeficient &copy; 2014</p>
 	</footer>
