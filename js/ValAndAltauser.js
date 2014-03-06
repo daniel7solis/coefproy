@@ -198,8 +198,7 @@ function get_sucursal(){
 vista del usuario*/
 var codigo1="<article class='item_perfil'><div class='title_item_perfil'><input type='hidden' value='";//aqui va el id
 var codigo12="'><p>";//aqui va el usuario
-var codigo2='</p></div><div class="contenido_item_perfil"><img src="images/users/';
-var codigo3='.png"/><p>Nombre Usuario: ';
+var codigo2='</p></div><div class="contenido_item_perfil_u"><img src="images/users/'; var codigo3='.png"/><p>Nombre Usuario: ';
 var codigo31='<p>Modulo: Aqui<br>Posición: Aqui 2<br>Sucursal: aqui 3</p>';
 var codigo4='</div></article>';
 

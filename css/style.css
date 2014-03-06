@@ -22,12 +22,7 @@ a
 {
 	text-decoration: none;
 }
-article
-{
-	display: inline-block;
-	width: 49%;
-	position: relative;
-}
+
 body
 {
 	background: #ecf0f1;
@@ -406,6 +401,24 @@ th
 	content: "\e605";
 	font-family: "icomoon";
 }
+#group_profile_pic
+{
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+}
+#group_settings1
+{
+	display: inline-block;
+	margin-right: 1.5em;
+	width: 30%;
+}
+#group_settings2
+{
+	display: inline-block;
+	margin-left: 1.5em;
+	width: 30%;
+}
 #half
 {
 	top:45px;
@@ -420,8 +433,8 @@ th
 }
 #id_img img
 {
-	border-radius: 5%;
-	width: 250px;
+	border-radius: 10%;
+	width: 150px;
 }
 #indicator_actual
 {
@@ -514,9 +527,32 @@ th
 }
 #masPerfil
 {
-	border: 1px solid red;
 	position: absolute;
-	top: 0;
+	top: 0em;
+	right: 0;
+}
+#masPerfil ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#masPerfil ul li
+{
+	display: inline-block;
+	margin: 0;
+	padding: 0.3em 0.5em;
+}
+#masPerfil ul li a
+{
+	font-size: 1em;
+	margin: 0;
+	padding: 0.3em 0.5em;
+	transition: all 0.5s;
+}
+#masPerfil ul li a:hover
+{
+	border-bottom: 3px solid white;
 }
 #menu
 {
@@ -808,11 +844,12 @@ th
 #profile_pic
 {
 	border: transparent;
-	display: inline-block;
+	display: block;
 	height: 150px;
+	margin: 0;
 	position: relative;
 	padding: 0;
-	width: 250px;
+	width: 160px;
 }
 #profile_pic_root
 {
@@ -1026,9 +1063,8 @@ th
 #user
 {
 	background: rgba(221,79,36,0.5);
-	bottom: -1.7em;
+	bottom: 0;
 	color: white;
-	display: inline-block;
 	font-size: 1em;
 	padding: 0.2em 1em;
 	position: absolute;
@@ -1051,6 +1087,25 @@ th
 .app_identifier
 {
 	margin: 0.6em 0;
+}
+.button_yellow
+{
+	background: transparent;
+	border: transparent;
+	color: rgba(255,255,255,0.6);
+	display: block;
+	margin: 1em 1.1em 0 0;
+	outline: none;
+	padding: 0.3em 1.5em;
+	position: absolute;
+	right: 0;
+	top: -1em;
+	transition: all 0.5s;
+}
+.button_yellow:hover
+{ 
+	border-bottom: 3px solid white;
+	color: white;
 }
 .calendar_row
 {
@@ -1086,6 +1141,27 @@ th
 	width: 150px;
 }
 .contenido_item_perfil p
+{
+	padding: 0.5em 1em; 
+}
+.contenido_item_perfil_u
+{
+	background: rgba(86,194,255,0.1);
+	color: black;
+	margin-top: 0;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	padding-left: 7em; 
+	text-align: center;
+}
+.contenido_item_perfil_u img
+{
+	border: 3px solid #ecf0f1;
+	left: 0.5em;
+	position: absolute;
+	width: 150px;
+}
+.contenido_item_perfil_u p
 {
 	padding: 0.5em 1em; 
 }
@@ -1304,6 +1380,21 @@ th
 	height: 0;
 	width: 80%;
 }
+.input_su
+{
+	background: white;
+	border: transparent;
+	border-radius: 0.5em;
+	outline: none;
+	padding: 0.5em;
+	width: 150px;
+}
+.item_perfil
+{
+	display: inline-block;
+	position: relative;
+	width: 100%%;
+}
 .item_perfil_in
 {
 	display: inline-block;
@@ -1312,10 +1403,27 @@ th
 .item_perfil_block_right
 {
 	display: inline-block;
-	width: 50%;
+	float: right;
+	margin:0;
+	min-height: 220px;
+	width: 24%;
 }
 .item_perfil_su
 {
+	position: relative;
+	width: 100%;
+}
+.item_perfil_su_per
+{
+	display: inline-block;
+	position: relative;
+	width: 75%;
+}
+.item_perfil_su_up
+{
+	display: inline-block;
+	min-height: 220px;
+	position: relative;
 	width: 100%;
 }
 .left_hour
@@ -1578,6 +1686,15 @@ th
 	position: absolute;
 	right: 100%;
 	top: 50%;
+}
+.work_data
+{
+	transition: all 0.5s;
+}
+.work_data:hover
+{
+	background: white;
+	cursor: pointer;
 }
 .minutitos
 {
