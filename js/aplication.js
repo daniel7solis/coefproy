@@ -364,6 +364,7 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
+	    	debugger
 	    	if(ui.draggable.children().attr('value')=='true'||ui.draggable.attr('value')=='true')
 	    	{
 	    		ui.draggable.css({'display':'inline-block'});
