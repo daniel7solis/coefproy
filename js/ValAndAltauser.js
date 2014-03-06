@@ -504,17 +504,18 @@ function busq_paciente(){
 				if(data['num']==0){//cero significa que no encontro al paciente, por lo tanto se tiene q registrar
 					$("#lista").css({'display':'block'});
 					$("#already_patient").css({'display':'none'});
-					$("#lista").html('<div>No existe por favor registrelo</div>');
+					$("#lista").html('<div id="lista_title">Paciente no existente, por favor registrelo.</div>');
 					// $("#new_user_submit2").css({'display':'none'});
 					$("#new_patient").css({'display':'block'});
 					$("#np_fn").val(dateBirt);
 					$("#np_ap").val(lastname);
+					$('.you_should_check').delay(3500).fadeOut('slow');
 				}else{
 					$("#new_patient").css({'display':'none'});
 					for(var i=0; i<data['num']; i++){
 						endcode=endcode+code1+data[i].id+img+data[i].id+'"/>'+data[i].nom+" "+data[i].ap+" "+data[i].ed+" años"+code2;
 					}
-					$("#lista").html('<div>Seleccione al paciente correcto</div>'+endcode);
+					$("#lista").html('<div id="lista_title">Seleccione al paciente correcto:</div>'+endcode);
 					escucha_Pacientes();
 				}
 			}
