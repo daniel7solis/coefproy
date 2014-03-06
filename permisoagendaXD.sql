@@ -279,14 +279,16 @@ INSERT INTO `usuarios` (`idUsuario`, `nombreUsuario`, `contrasena`,`nombre`,`sem
 --
 
 CREATE TABLE IF NOT EXISTS `newPaciente` (
+  `idPacTemp` int(5) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `apeidos` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `edad` int(3) NOT NULL,
   `fecha_nac` date NOT NULL,
   `email` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `tel` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `idSucursal` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `idSucursal` int(11) NOT NULL,
+  PRIMARY KEY (`idPacTemp`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
 -- --------------------------------------------------------
 
@@ -336,15 +338,12 @@ INSERT INTO `Sucursal` (`idSucursal`, `nombreSucursal`, `direccionSucursal`) VAL
 CREATE TABLE IF NOT EXISTS `citas` (
   `idCita` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
-  `hora` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `hora` varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `idPaciente` int(11) NOT NULL,
   `idDoctor` int(11) NOT NULL,
   `minutos` int(3) NOT NULL,
-<<<<<<< HEAD
   `isPac` int(3) NOT NULL,
   `idSucursal` int(3) NOT NULL,
-=======
->>>>>>> 474b22279c477b0963eafa62dd374eab9772ec12
   PRIMARY KEY (`idPaciente`,`idDoctor`,`idCita`),
   KEY `idCita` (`idCita`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
@@ -353,17 +352,11 @@ CREATE TABLE IF NOT EXISTS `citas` (
 -- Volcado de datos para la tabla `citas`
 --
 
-<<<<<<< HEAD
 INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`,`isPac`,`idSucursal`) VALUES
 (2, '2014-02-06', '9:00am', 1, 2, 30,1,1),
 (1, '2014-02-06', '7:00am', 1, 3, 60,1,1),
 (3, '2014-02-06', '3:00pm', 1, 4, 45,1,1);
-=======
-INSERT INTO `citas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
-(2, '2014-02-06', '9:00am', 1, 2, 30),
-(1, '2014-02-06', '7:00am', 1, 3, 60),
-(3, '2014-02-06', '3:00pm', 1, 4, 45);
->>>>>>> 474b22279c477b0963eafa62dd374eab9772ec12
+
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -388,11 +381,7 @@ CREATE TABLE IF NOT EXISTS `tempCitas` (
 -- Volcado de datos para la tabla `tempCitas`
 --
 
-<<<<<<< HEAD
 INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`, `minutos`, `usuario`) VALUES
-=======
-INSERT INTO `tempCitas` (`idCita`, `fecha`, `hora`, `idPaciente`, `idDoctor`) VALUES
->>>>>>> 474b22279c477b0963eafa62dd374eab9772ec12
 (3, '2014-02-25', '6:30am', 1, 4, 60, 2);
 
 

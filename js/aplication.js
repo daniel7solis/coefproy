@@ -33,14 +33,16 @@ $( document ).ready(function()
     	changeYear: true,
     	yearRange: '1900:+0'
 	});
-	/*se da formato al campo de fecha*/
-$('#np_fn').datepicker(
+	/*Eloi Daniel Cruz Solis CODE*/
+	/*Datepicker de la pagina nuevacita.php en los campos de registro de un nuevo paciente*/
+	$('#np_fn').datepicker(
 	{
 		dateFormat: "dd-mm-yy",
 		changeMonth: true,
     	changeYear: true,
     	yearRange: '1900:+0'
-});
+	});
+	/*END CODE Eloi Daniel Cruz Solis*/
 	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 
 	/* Se valida y se envía a la fecha deseada de la agenda.
@@ -51,13 +53,19 @@ $('#np_fn').datepicker(
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new_h').on('click', function()
 	{
-		alert("Ahora, selecciona la hora a agendar...");
+		// alert("Ahora, selecciona la hora a agendar...");
 		$('.calendar_row').unbind('click');
 		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content, #content_calendar').css({'-webkit-filter':'blur(6px)'});
 		$('.droppable_hour').on('click', function()
 		{
 			hora = $(this).parent().attr('value');
-			document.location.href = "nuevacita.php?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora;
+			/*Eloi Daniel Cruz Solis CODE*/
+			if(recieved_day)
+			var paraJson='{"ndia":"'+recieved_nday+'","dia":"'+recieved_day+'","mes":"'+recieved_month+'","ano":"'+recieved_year+'","hora":"'+hora+'"}';
+			localStorage.setItem("cit", paraJson);
+			document.location.href = "nuevacita.php";
+			// ?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora
+			/*END CODE Eloi Daniel Cruz Solis*/
 		});
 	});
 

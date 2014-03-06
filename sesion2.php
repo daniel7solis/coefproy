@@ -65,7 +65,7 @@
 						$arr=array('id' => $arreglo['idUsuario'], 'nombre' => $nombre,'idd' => $passF,'s' => $suc['idSucursal']);
 						$json = json_encode($arr);
 						echo "<script language='javascript'>";
-						echo "var json='".$json."';";
+						echo "var json='".$json."';";#creo un objeto json para almacenar los datos
 						echo "sesion();";
 						echo "</script>";
 						// header("location: perfil.php");
