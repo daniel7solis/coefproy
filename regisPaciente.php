@@ -18,7 +18,9 @@
 		mysql_set_charset("utf8", $conexion);
 		mysql_query("insert into newPaciente (nombre,apeidos,edad,fecha_nac,email,tel,idSucursal)
 		 values ('$nom','$ap','$edad','$dateB','$mail','$tel','$s')",$conexion) or die(mysql_error());
-		$arr = array('ok' => 1,'nom' => $nom,'ap' => $ap);
+		$data=mysql_query("select idPacTemp from newPaciente where apeidos='$ap' and fecha_nac='$dateB'",$conexion)or die("Problemas en la consulta de datos ".mysql_error());
+		$datos=mysql_fetch_array($data);
+		$arr = array('ok' => 1,'nom' => $nom,'ap' => $ap,'idp' => $datos['idPacTemp']);
 		/*APARTE DE DEVOLVER LOS DATOS DEL PACIENTE RECIEN REGISTRADO, TAMBIEN
 		SE VA A MANDAR LOS NOMBRES DE LOS DOCTORES Y SU ID y el id del usuario*/
 		$json = json_encode($arr);

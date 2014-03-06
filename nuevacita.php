@@ -15,7 +15,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/calendar.js"></script>
-	<script type="text/javascript" src="js/menu.js"></script>
 	<script type="text/javascript" src="js/aplication.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
@@ -54,9 +53,10 @@
 			<div id='up_content'>
 				<h2 id="content_title">Agendar</h2>
 				<p id="content_subtitle">
-				<span id="actual_day_numb"></span>/<span id="actual_month"></span>/<span id="actual_year"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="actual_day_nom"></span>,&nbsp;&nbsp;<span id="actual_day_numb"></span>/<span id="actual_month"></span>/<span id="actual_year"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<span id="hora"></span>
 				<?PHP
-					echo $_REQUEST['hora'];	 
+					// echo $_REQUEST['hora'];	 
 				?>
 				</p>
 			</div>
@@ -110,9 +110,12 @@
 			</article>
 			<article id="already_patient" class="patient_check" style="display:none">
 				<div class='title_item_perfil'><p>Datos de la cita</p></div>
+			<!-- <form onsubmit="agendarCita()"> -->
 				<div>Nombre: <span id="nom"></span></div>
+				<input type="hidden" name="idp" id="idp"/>
+				<input type="hidden" name="isPac" id="isPac"/>
 				<div>Duración:
-				<select name="dur"/>
+				<select name="dur" id="dur"/>
 					<option value="15">0:15</option>
 					<option value="30">0:30</option>
 					<option value="45">0:45</option>
@@ -131,7 +134,8 @@
 					<option value="240">4</option>
 				</select> hora(s)</div>
 				<div>Doctor: <input type="number" id="doc" name="doc" required></div>
-				<input type="submit" id="envio" value="Agendar" onclick="agendar()">
+				<input type="submit" id="envio" value="Agendar" onclick="agendarCita()">
+			<!-- </form> -->
 			</article>
 		<div id='down_content'></div>
 		</section>

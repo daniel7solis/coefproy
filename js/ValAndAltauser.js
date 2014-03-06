@@ -164,6 +164,7 @@ function isRoot(){
 $( document ).ready(function(){
 	isRoot();
 	// $('.item_perfil').on('click',function(){console.log("dio clic");});
+	setDateTime();
 });
 /*Funciona para consultar los datos de una sucursal apartir de la sucursal a la que pertenece el usuario
 logueado*/
@@ -500,7 +501,7 @@ function busq_paciente(){
 				var img='.png"/><input type="hidden" value="';
 				var code2='</article>';
 				var endcode="";
-				if(data['num']==0){
+				if(data['num']==0){//cero significa que no encontro al paciente, por lo tanto se tiene q registrar
 					$("#lista").css({'display':'block'});
 					$("#already_patient").css({'display':'none'});
 					$("#lista").html('<div>No existe por favor registrelo</div>');
@@ -558,6 +559,8 @@ function escucha_Pacientes(){
 				/*funcion de retorno*/
 				success: function(data){
 					if(data['ok']===1){
+						$("#isPac").val(1);//asignamos un 1 por que es una cita de un paciente ya registrado
+						$("#idp").val(idPac);
 						$("#nom").html(data['nom']+" "+data['ap']);
 					}else{
 						alert("No se pudo registrar, vuelva a intentarlo.");
@@ -607,10 +610,73 @@ function registrar_paci(){
 					/*AQUI SE DEVUELVE TAMBIEN LOS NOMBRES DE LOS DOCTORES PARA MOSTRARLOS EN LA LISTA*/
 					//tambien hace falta mandar el id del paciente temporal, para registrar la cita
 					$("#nom").html(data['nom']+" "+data['ap']);
+					$("#idp").val(data['idp']);
+					$("#isPac").val(0);//asignamos un 0 porque es un nuevo paciente, q no esta registrado
 				}else{
 					alert("No se pudo registrar, vuelva a intentarlo.");
 				}
 			}
 		});	
+	}
+}
+/*Función para poner la fecha y la hora de la cita en la pagina "nuevacita.php"*/
+var mesesagenda = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+function setDateTime(){
+	var date=JSON.parse(localStorage.getItem('cit'));//tomo los datos de la cita en local storage
+	$("#actual_day_numb").html(date.dia);
+	$("#actual_month").html(mesesagenda[(date.mes)-1]);
+	$("#actual_year").html(date.ano);
+	$("#hora").html(date.hora);
+	$("#actual_day_nom").html(date.ndia);
+}
+/*Función para registrar una cita*/
+function agendarCita(){
+	var idp,idd,min,isPac;
+	idd=document.getElementById("doc").value;
+	if(idd===""){
+		alert("Ingresa doctor, por favor");
+	}else{
+		idp=document.getElementById("idp").value;
+		min=document.getElementById("dur").value;
+		isPac=document.getElementById("isPac").value;
+		var dateCita=JSON.parse(localStorage.getItem('cit'));//obtener la fecha,hora de la cita 
+		var suc=JSON.parse(sessionStorage.getItem('id'));//para obtener la sucursal en la que se creara la cita
+		// alert("hola");
+		var mes=dateCita.mes, dia=dateCita.dia;
+		if(mes<10){
+			mes="0"+dateCita.mes;
+		}
+		if(dia<10){
+			dia="0"+dateCita.dia;
+		}
+		var fecha=dateCita.ano+"-"+mes+"-"+dia;
+		var parametros = {
+			"fecha" : fecha,
+		    "hora" : dateCita.hora,	        
+		    "idp": idp,
+		    "idd": idd,
+		    "min": min,
+		    "isPac": isPac,
+		    "suc": suc.s
+		};
+		// alert("hola");
+		$.ajax({
+			/*paso los paramentros al php*/
+			data:parametros,
+			url: 'regisCita.php',
+			type:'post',
+			// defino el tipo de dato de retorno
+			dataType:'json',
+			// funcion de retorno
+			success: function(data){
+				if(data['ok']===1){
+					alert("Cita agendada.");
+					document.location.href="agenda.php";
+				}else{
+					alert("Lo siento hubo un error, no se pudo agendar intentalo de nuevo");
+				}
+			}
+		});
+		// alert("hola");
 	}
 }
