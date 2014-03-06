@@ -90,7 +90,7 @@
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
-						$h=6;$min="00";$mer="am";$count = 0;
+						$h=6;$min="00";$mer="am";$count = 0;$minutitos=00;
 						# Se obtienen los minutos de la cita. Se dividen entre 15 para determinar 
 						# el número de filas a ocupar.
 					
@@ -108,7 +108,8 @@
 									echo "<td class='left_hour' rowspan='4'><p class='day_number'>".$h."</p> <p class='meridiane'>".$mer."</p></td>";
 								}
 								# Aquí genera los contenedores droppables.
-								echo "<td id='c".$count."' class='droppable_hour'>";
+								echo "<td id='c".$count."' class='droppable_hour'><span class='minutitos'>.".$minutitos."</span>";
+								$minutitos+=15;
 								# Se muestran las citas de la base de datos.
 								# $horas contiene la hora, $idpac contiene el id del paciente y $iddoc
 								# el id del doctor, osea el color que le corresponde.
@@ -147,6 +148,7 @@
 								{$min="00";}
 							}
 							# Aquí se aumenta 1 hora y se cambia el meridiano de AM a PM cuando llega a las 12.
+							$minutitos=00;
 							$h++;
 							if($h==12)
 							{$mer="pm";}

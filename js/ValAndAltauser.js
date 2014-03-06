@@ -162,6 +162,7 @@ function isRoot(){
 }
 /*Llamo a esta función cuando se carga todas las paginas para verificar si es un super usuario*/
 $( document ).ready(function(){
+	$('#modal_forgot').hide();
 	isRoot();
 	// $('.item_perfil').on('click',function(){console.log("dio clic");});
 	setDateTime();

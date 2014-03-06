@@ -81,6 +81,7 @@ $( document ).ready(function()
 	$( '.droppable_hour' ).droppable(
 	{
 	    accept:'div',
+	    tolerance: 'pointer',
 	    helper:'',
 	    over: function()
 	    {
@@ -188,33 +189,33 @@ function resetSize()
 		{
 			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==2)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==3)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==4)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-5)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length==5)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 			else if($('#c'+i).find('.draggable_wrapper').length>=6)
 			{
-				$('#c'+i).children().width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
-				$('#c'+i).children().children().width($('#c'+i).children().width()-23);
+				$('#c'+i).children('div.draggable_wrapper').width(($('#c'+i).width()-8)/$('#c'+i).find('.draggable_wrapper').length);
+				$('#c'+i).children('div.draggable_wrapper').children().width($('#c'+i).children('div.draggable_wrapper').width()-23);
 			}
 		}
 	}
@@ -331,17 +332,17 @@ function reAsignarDrags()
    		appendTo: "body",
    		cursor: 'move',
 		revert:'invalid',
-		cursorAt: {left:50, top:0},
+		cursorAt: {left:50, top:20},
 		drag: function()
 		{
 			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
-			$(this).height(40);
-			$(this).children().height(40);
+			$(this).height(30);
+			$(this).children().height(30);
 		},
 		helper: function() 
 		{
 	        var helper = $(this).children().clone();
-	        helper.animate({width:100,height:40});
+	        helper.animate({width:100,height:30});
 	        helper.css({'width': '100px'});
 	        return helper;
    		}
@@ -351,6 +352,7 @@ function reAsignarDrags()
 	$( '.droppable_hour' ).droppable(
 	{
 	    accept:'div',
+	    tolerance: 'pointer',
 	    helper:'',
 	    over: function()
 	    {
@@ -434,6 +436,7 @@ function reAsignarDrags()
 
 	$('.temporal_droppable').droppable({
 		accept:'div',
+		tolerance: 'pointer',
 	    helper:'',
 	    over: function()
 	    {

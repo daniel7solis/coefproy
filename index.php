@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsivelogin.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/sesiones.js"></script>
 	<script type="text/javascript" src="js/prefixfree.min.js"></script>
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
@@ -16,6 +17,14 @@
 		function hideAdvice()
 		{
 			$('header').hide('linear');
+		}
+		function showModal()
+		{
+			$('#modal_forgot').dialog({
+		      modal: true
+		    });
+		    $('.ui-button-text').html('x');
+		    $('#modal_forgot').css({'width':'265px'});
 		}
 	</script>
 </head>
@@ -41,13 +50,20 @@
 		   		<input name="password" id="password" type="password" onkeyup="validar(this.value)" required>
 			</p>
 			<p id="info">
-			Daniel falta que aparesca un modal para lo de olvidaste tu contraseña, tambien en sesion2
-				<a href="olvidarPass.php">¿Olvidaste tu contraseña?</a>
+				<a href="javascript:showModal();">¿Olvidaste tu contraseña?</a>
 			</p>
 			<p id="button_field">
 				<input id="login_button" type="submit" value="Iniciar sesión" />
 			</p>
 		</section>
 	</form>
+	<div id="modal_forgot">
+		<h4>Para recuperar tu contraseña:</h4>
+		<form id="modal_form_forgot" name="forgot_form" action="resetPass.php" method="post" accept-charset="UTF-8">
+			<input class="restore" type="text" name="user" placeHolder="Ingresa tu nombre de usuario" required/><br>
+			<input class="restore" type="text" name="curp" placeHolder="Ingresa tu nombre de CURP" required/>
+			<input class="go_btn" type="submit" value="Aceptar"/>
+		</form>
+	</div>
 </body>
 </html>
