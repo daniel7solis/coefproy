@@ -13,10 +13,26 @@
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		revisarSesionIndex();
+		function hideAdvice()
+		{
+			$('header').hide('linear');
+		}
+		function showModal()
+		{
+			$('#modal_forgot').dialog({
+		      modal: true
+		    });
+		    $('.ui-button-text').html('x');
+		    $('#modal_forgot').css({'width':'265px'});
+		}
 	</script>
 </head>
 
 <body>
+<header>
+	<p id="advice">Para una mejor <span class="enhanced1">funcionalidad</span> y <span class="enhanced1">experiencia</span>, se recomienda usar un navegador actualizado.</p>
+	<a id="advice_close" href="javascript:hideAdvice();"><strong>x</strong></a>
+</header>
 	<?php
 			$nombre=$_REQUEST['user'];
 			$pass=$_REQUEST['password'];
@@ -36,12 +52,7 @@
 						<label  id='password_label' for='password'></label>
 		    			<input name='password' id='password'type='password' onkeyup='validar(this.value)' required>
 					</p>
-					<p id='info'>
-						<a href='olvidarPass.php'>¿Olvidaste tu contraseña?</a>
-					</p>
-					<p id='button_field'>
-						<input type='submit' value='Iniciar sesión' id='login_button'/>
-					</p>"; 
+					";
 			
 			if($arreglo=mysql_fetch_array($datos)){
 				if($nombre==$arreglo['nombreUsuario']){
@@ -60,14 +71,28 @@
 						// header("location: perfil.php");
 						exit();
 					}else{
-						echo "<p>Usuario ó contraseña incorrecta, vuelve a intentarlo</p>";
+						echo "<p id='error_message'>Usuario ó contraseña incorrecta, vuelve a intentarlo.</p>";
 					}
 				}
 			}else{
-				echo "<p>Inserta nombre de usuario y contraseña</p>";
-			}
+				echo "<p id='error_message'>Inserta nombre de usuario y contraseña.</p>";
+			}echo "<p id='info'>
+						<a href='javascript:showModal();'>¿Olvidaste tu contraseña?</a>
+					</p>
+					<p id='button_field'>
+						<input type='submit' value='Iniciar sesión' id='login_button'/>
+					</p>"; 
 			echo "</section>";
 			echo "</form>";
 	?>
+	<script type="text/javascript">$(function(){$('#user').css({'border':'1px solid #c0392b'});$('#password').css({'border':'1px solid #c0392b'});}());</script>
+	<div id="modal_forgot">
+		<h4>Para recuperar tu contraseña:</h4>
+		<form id="modal_form_forgot" name="forgot_form" action="resetPass.php" method="post" accept-charset="UTF-8">
+			<input class="restore" type="text" name="user" placeHolder="Ingresa tu nombre de usuario" required/><br>
+			<input class="restore" type="text" name="curp" placeHolder="Ingresa tu nombre de CURP" required/>
+			<input class="go_btn" type="submit" value="Aceptar"/>
+		</form>
+	</div>
 </body>
 </html>
