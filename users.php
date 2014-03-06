@@ -62,8 +62,8 @@
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
 		</nav>
-		<section id="content">
-			<div id="up_content"><h2 id="content_title">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
+		<section id="content_users">
+			<div id="up_content"><h2 id="content_title_users">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
 			<span id="users"></span>
 		<div id="quick_access">
 				<ul>

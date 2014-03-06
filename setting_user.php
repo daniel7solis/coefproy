@@ -60,11 +60,11 @@
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
 		</nav>
-		<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Configuración</h2><p id='content_subtitle'>
+		<section id='content_users'>
+			<div id='up_content'><h2 id='content_title_users'>Configuración</h2><p id='content_subtitle'>
 			<span class="nom"></span></p></div>
 			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Datos Generales -</p></div>
+				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
 					<!--img width="60px" src="images/users/1.png"></img-->
 				<form name="form_conf" id="form_conf" method="post" action="modificarUser.php" accept-charset="UTF-8">
@@ -80,29 +80,31 @@
 				</form>
 				</div>
 			</article>
-			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
-				<div class='contenido_item_perfil'>
-					 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
-					<span id="perf"></span>
-			   		<div id="masPerfil">
-			   			<ul>
-			   				<!-- Barra de herramientas para editar lo usuarios -->
-							<li><a id="new" href="#" onclick="perfil_mas()"></a></li>
-							<li><a id="manage" href="modPerfil.php"></a></li>
-							<!--li><a id="print" href="#"></a></li-->
-							<li><a id="look" href="setting_user.php" onclick="deletePer()">Eliminar</a></li>
-						</ul>
+			<div class="item_perfil_block_right">
+				<article class='item_perfil_su'>
+					<div class='title_item_perfil'><p>Aspecto Laboral:</p></div>
+					<div class='contenido_item_perfil'>
+						 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
+						<span id="perf"></span>
+				   		<div id="masPerfil">
+				   			<ul>
+				   				<!-- Barra de herramientas para editar lo usuarios -->
+								<li><a id="new" href="#" onclick="perfil_mas()"></a></li>
+								<li><a id="manage" href="modPerfil.php"></a></li>
+								<!--li><a id="print" href="#"></a></li-->
+								<li><a id="look" href="setting_user.php" onclick="deletePer()">Eliminar</a></li>
+							</ul>
+						</div>
 					</div>
-				</div>
-			</article>
-			<article class='item_perfil'>
-				<div class='title_item_perfil'><p>Permisos -</p></div>
-				<div class='contenido_item_perfil'>
-					<!-- Aqui van los "n" permisos que puede tener el usuario -->
-					<span id="perm"></span>
-		 		</div>
-			</article>
+				</article>
+				<article class='item_perfil_su'>
+					<div class='title_item_perfil'><p>Permisos:</p></div>
+					<div class='contenido_item_perfil'>
+						<!-- Aqui van los "n" permisos que puede tener el usuario -->
+						<span id="perm"></span>
+			 		</div>
+				</article>
+			</div>
 			<div id='down_content'></div>
 		</section>
 		<ul id='menu'>

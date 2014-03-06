@@ -55,7 +55,6 @@ $( document ).ready(function()
 	{
 		// alert("Ahora, selecciona la hora a agendar...");
 		$('.calendar_row').unbind('click');
-		$('header, nav, #up_content, #quick_access, #date_changer, footer, #down_content, #content_calendar').css({'-webkit-filter':'blur(6px)'});
 		$('.droppable_hour').on('click', function()
 		{
 			hora = $(this).parent().attr('value');
@@ -161,7 +160,7 @@ function getDuration()
 			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
 				var x = $('#c'+i).find('.draggable_wrapper').children().attr('title');
-				var nx = ((x/15)*30)+10;
+				var nx = ((x/15)*30);
 				console.log(x+" - "+nx);
 				$('#c'+i).find('.draggable_wrapper').children().css({'height':nx});
 			}
@@ -172,7 +171,7 @@ function getDuration()
 				for (var j = 0; j < qty; j++) 
 				{
 					var x = $(cits[j]).attr('title');
-					var nx = ((x/15)*30)+10;
+					var nx = ((x/15)*30);
 					console.log(x+" - "+nx);
 					$(cits[j]).css({'height':nx});
 				}
@@ -357,6 +356,8 @@ function reAsignarDrags()
 	    over: function()
 	    {
 	    	$(this).addClass('visual_help');
+	    	$(this).find('span.minutitos').css({'background':'white','color':'black'}).animate();
+	    	$(this).parent().parent().find('.left_hour').css({'text-align':'left'});
 	    	var aver = $(this).find(".draggable_wrapper").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
@@ -372,7 +373,6 @@ function reAsignarDrags()
 	    },
 	    drop: function( event, ui ) 
 	    {
-	    	debugger
 	    	if(ui.draggable.children().attr('value')=='true'||ui.draggable.attr('value')=='true')
 	    	{
 	    		ui.draggable.css({'display':'inline-block'});
@@ -401,7 +401,7 @@ function reAsignarDrags()
 			    	if(!c)
 			    	{
 			    		var nuevo = (parseInt($(this).width()/(tam+1)));
-			    		$(this).children().css('width',nuevo+'px');
+			    		$(this).children('div.draggable_wrapper').css('width',nuevo+'px');
 			    	}
 			    	ui.draggable.css('width',nuevo+'px');
 		    		ui.draggable.children().css('width',nuevo+'px');
@@ -428,10 +428,13 @@ function reAsignarDrags()
 	    	}
 	    	getDuration();
 	    	$(this).removeClass('visual_help');
+	    	$(this).find('span.minutitos').css({'background':'transparent','color':'transparent'});
+	    	$(this).parent().parent().find('.left_hour').css({'text-align':'center'});
 	    },
 	    out: function()
 	    {
 	    	$(this).removeClass('visual_help');
+	    	$(this).find('span.minutitos').css({'background':'transparent','color':'transparent'});
 	    }
 	});
 
@@ -500,5 +503,5 @@ function reAsignarDrags()
 }
 function showPopUp()
 {
-	$('#pop_notification').fadeIn( "fast" ).delay( 7000 ).fadeOut( "slow" );
+	$('#pop_notification').fadeIn( "fast" ).delay( 1500 ).fadeOut( "slow" );
 }

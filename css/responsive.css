@@ -230,33 +230,9 @@
 	{
 		width: 200px
 	}
-	.next_month:after
-	{
-		background: rgba(189, 195, 199,0.5);
-		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
-		content: "\e61f";
-		font-family: "icomoon";
-		font-size: 2.5em;
-		position: absolute;
-		right: 0.3em;
-		top: 13%;
-	}
 	.photo_container
 	{
 		display: inline-block;
-	}
-	.prev_month:after
-	{
-		background: rgba(189, 195, 199,0.5);
-		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
-		content: "\e620";
-		font-family: "icomoon";
-		font-size:2.5em;
-		left: 0.3em;
-		position: absolute;
-		top: 13%;
 	}
 	.search_field
 	{
@@ -531,33 +507,9 @@
 	{
 		width: 410px
 	}
-	.next_month:after
-	{
-		background: rgba(189, 195, 199,0.5);
-		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
-		content: "\e61f";
-		font-family: "icomoon";
-		font-size: 2.5em;
-		position: absolute;
-		right: 0.3em;
-		top: 13%;
-	}
 	.photo_container
 	{
 		display: inline-block;
-	}
-	.prev_month:after
-	{
-		background: rgba(189, 195, 199,0.5);
-		border-radius: 50%;
-		color: rgba(100,100,100,0.7);
-		content: "\e620";
-		font-family: "icomoon";
-		font-size:2.5em;
-		left: 0.3em;
-		position: absolute;
-		top: 13%;
 	}
 	.search_field
 	{
@@ -770,15 +722,6 @@
 	{
 		width: 40%;
 	}
-	#content_subtitle:after
-	{
-		border-left: 37px solid #DD4F24;
-		border-top: 37px solid transparent;
-		content: "";
-		right: -2.3em;
-		position:absolute;
-		top:0;
-	}
 	#new_user_submit
 	{
 		top: 20em;
@@ -874,31 +817,9 @@
 	{
 		width: 190px
 	}
-	.next_month:after
-	{
-		border-radius: 50%;
-		color: rgba(220,220,220,0.7);
-		content: "\e61f";
-		font-family: "icomoon";
-		font-size: 2.5em;
-		position: absolute;
-		right: 1.7em;
-		top: 59%;
-	}
 	.photo_container
 	{
 		display: inline-block;
-	}
-	.prev_month:after
-	{
-		border-radius: 50%;
-		color: rgba(220,220,220,0.7);
-		content: "\e620";
-		font-family: "icomoon";
-		font-size:2.5em;
-		left: 0.15em;
-		position: absolute;
-		top: 59%;
 	}
 	.search_field
 	{
