@@ -19,6 +19,7 @@
 	<script type="text/javascript" src="js/ValAndAltauser.js"></script>
 	<script type="text/javascript">
 		revisarSesion();
+		window.onload=setDateTime;
 	</script>
 </head>
 <body>
