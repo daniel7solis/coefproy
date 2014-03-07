@@ -111,7 +111,6 @@
 			</article>
 			<article id="already_patient" class="patient_check" style="display:none">
 				<div class='title_item_perfil'><p>Datos de la cita</p></div>
-				<form onsubmit="agendarCita()">
 				<div class="contenido_item_perfil">
 					<div id="name_already_patient">Nombre: <span id="nom"></span></div>
 					<input type="hidden" name="idp" id="idp"/>
@@ -137,7 +136,6 @@
 					</select> hora(s)</div>
 					<div>Doctor: <input type="number" id="doc" name="doc" required></div>
 					<input type="submit" id="new_user_submit" value="Agendar" onclick="agendarCita()">
-				</form>
 				</div>
 			</article>
 		<div id='down_content'></div>
