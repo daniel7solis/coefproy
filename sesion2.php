@@ -75,7 +75,7 @@
 					}
 				}
 			}else{
-				echo "<p id='error_message'>Inserta nombre de usuario y contraseña.</p>";
+				echo "<p id='error_message'>Inserta nombre de usuario y contraseña válidos.</p>";
 			}echo "<p id='info'>
 						<a href='javascript:showModal();'>¿Olvidaste tu contraseña?</a>
 					</p>
@@ -90,7 +90,7 @@
 		<h4>Para recuperar tu contraseña:</h4>
 		<form id="modal_form_forgot" name="forgot_form" action="resetPass.php" method="post" accept-charset="UTF-8">
 			<input class="restore" type="text" name="user" placeHolder="Ingresa tu nombre de usuario" required/><br>
-			<input class="restore" type="text" name="curp" placeHolder="Ingresa tu nombre de CURP" required/>
+			<input class="restore" type="text" name="curp" placeHolder="Ingresa tu CURP" required/>
 			<input class="go_btn" type="submit" value="Aceptar"/>
 		</form>
 	</div>

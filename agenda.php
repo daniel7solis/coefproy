@@ -108,6 +108,7 @@
 									echo "<td class='left_hour' rowspan='4'><p class='day_number'>".$h."</p> <p class='meridiane'>".$mer."</p></td>";
 								}
 								# Aquí genera los contenedores droppables.
+								if($minutitos==0){$minutitos="00";}
 								echo "<td id='c".$count."' class='droppable_hour'><span class='minutitos'>.".$minutitos."</span>";
 								$minutitos+=15;
 								# Se muestran las citas de la base de datos.

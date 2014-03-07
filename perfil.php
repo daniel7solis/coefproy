@@ -61,13 +61,15 @@
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
 		</nav>
-		<section id='content'>
-			<div id='up_content'><h2 id='content_title'>Perfil</h2><p id='content_subtitle'><span class="nom"></span></p></div>
-			<article class='item_perfil'>
+		<section id='content_users'>
+			<div id='up_content'><h2 id='content_title_users'>Perfil</h2><p id='content_subtitle'><span class="nom"></span></p></div>
+			<article class='item_perfil_su_per'>
 				<div class='title_item_perfil'><p>Datos Generales:</p></div>
 				<div class='contenido_item_perfil'>
-					<p id="profile_pic"><span id="id_img"></span><span id="user"></span></p>
-					<div id="data_holder">
+					<div id="group_profile_pic">
+						<p id="profile_pic"><span id="id_img"></span><span id="user"></span></p>
+					</div>
+					<div id="group_settings1">
 						<p id="personal_data">Nombre: <span class="nom"></span><br>
 						Dirección: <span id="dir"></span><br>
 						Telefono: <span id="tel"></span><br>
@@ -77,19 +79,21 @@
 					</div>
 				</div>
 			</article>
-			<article class='item_perfil_in'>
+			<div class="item_perfil_block_right">
+				<article class='item_perfil_su_up'>
+					<div class='title_item_perfil'><p>Permisos -</p></div>
+					<div class='contenido_item_perfil'>
+						<!-- Aqui van los "n" permisos que puede tener el usuario -->
+						<span id="perm"></span>
+			 		</div>
+				</article>
+			</div>
+			<article class='item_perfil_su'>
 				<div class='title_item_perfil'><p>Aspecto Laboral -</p></div>
 				<div class='contenido_item_perfil'>
 					 <!-- Aqui van los "n" perfiles que puede tener el usuario -->
 					<span id="perf"><br></span>
 				</div>
-			</article>
-			<article class='item_perfil_in'>
-				<div class='title_item_perfil'><p>Permisos -</p></div>
-				<div class='contenido_item_perfil'>
-					<!-- Aqui van los "n" permisos que puede tener el usuario -->
-					<span id="perm"></span>
-		 		</div>
 			</article>
 			<div id='down_content'></div>
 		</section>

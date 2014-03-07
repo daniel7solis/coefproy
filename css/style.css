@@ -22,11 +22,11 @@ a
 {
 	text-decoration: none;
 }
+
 body
 {
 	background: #ecf0f1;
 	color: #4C4C4C;
-	font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 16px;
 	margin: 0px;
 }
@@ -224,56 +224,78 @@ th
 	position: relative;
 	width: 20%;
 }
+#content_users
+{
+	background: #FFFFFF;
+	border-radius: 5px;
+	display: inline-block;
+	margin: 0 0 1em 1em;
+	position: relative;
+	width: 90%;
+}
 #content_title
 {
-	background: #CBE3F4;
-	border-bottom: 3px solid #7f8c8d;
-	color: rgba(0,0,0,0.9);
-	display: block;
-	font-size: 1.3em;
+	background: #2980b9;
+	color: white;
+	display: inline-block;
+	font-size: 1em;
 	padding: 0.4em;
 	position: relative;
+	text-align: center;
+	width: 80px;
 }
 #content_title_calendar
 {
-	background: #CBE3F4;
-	border-bottom: 3px solid #7f8c8d;
-	color: rgba(0,0,0,0.9);
-	display: block;
-	font-size: 1.3em;
+	background: #2980b9;
+	color: white;
+	display: inline-block;
+	font-size: 1em;
 	padding: 0.4em;
 	position: relative;
+	width: 85px;
 }
 #content_title_left
 {
-	background: #CBE3F4;
-	border-bottom: 3px solid #7f8c8d;
-	color: rgba(0,0,0,0.9);
+	background: #2980b9;
+	color: white;
 	display: block;
-	font-size: 1.3em;
+	font-size: 1em;
 	margin-left: 0.5em;
 	padding: 0.4em;
 	position: relative;
+	width: 130px;
+}
+#content_title_users
+{
+	background: #2980b9;
+	color: white;
+	display: inline-block;
+	font-size: 1em;
+	padding: 0.4em;
+	position: relative;
+	text-align: center;
+	width: 150px;
+}
+#content_title:after, #content_title_calendar:after, #content_title_users:after
+{
+	border-left: 34px solid #2980b9;
+	border-bottom: 34px solid transparent;
+	content: "";
+	left: 100%;
+	position: absolute;
+	top: 0;
 }
 #content_subtitle
 {
-	background: #DD4F24;
 	border-radius: 0.5em 0 0 0;
-	color: white;
-	font-weight: bold;
-	margin-bottom: 0;
+	color: #2980b9;
+	display: inline-block;
+	font-size: 1.2em;
+	font-style: italic;
+	margin: 0 0 0 2em;
 	padding: 0.5em 0 0.5em 0.5em;
 	position: relative;
 	width: 80%;
-}
-#content_subtitle:after
-{
-	border-left: 35px solid #DD4F24;
-	border-top: 35px solid transparent;
-	content: "";
-	right: -3em;
-	position:absolute;
-	top:0;
 }
 #content_wrapper
 {
@@ -327,11 +349,22 @@ th
 	content: "\e618";
 	font-family: "icomoon";
 }
+#dir_label:after
+{
+	content: "\e60e";
+	font-family: "icomoon";
+}
 #departments a:before
 {
 	color: white;
 	content: "\e606";
 	font-family: "icomoon";
+}
+#doc
+{
+	background: white;
+	border: transparent;
+	border-radius: 0.5em;
 }
 #donator a:after
 {
@@ -356,10 +389,15 @@ th
 	font-style: normal;
 	font-weight: bold;
 }
-#dir_label:after
+#dur
 {
-	content: "\e60e";
-	font-family: "icomoon";
+	background: white;
+	border: transparent;
+	border-radius: 0.5em;
+}
+#duration_already_patient
+{
+	margin: 1em;
 }
 #fifteen, #fourtyfive, #half
 {
@@ -379,6 +417,24 @@ th
 	content: "\e605";
 	font-family: "icomoon";
 }
+#group_profile_pic
+{
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+}
+#group_settings1
+{
+	display: inline-block;
+	margin-right: 1.5em;
+	width: 30%;
+}
+#group_settings2
+{
+	display: inline-block;
+	margin-left: 1.5em;
+	width: 30%;
+}
 #half
 {
 	top:45px;
@@ -393,8 +449,8 @@ th
 }
 #id_img img
 {
-	border-radius: 5%;
-	width: 250px;
+	border-radius: 10%;
+	width: 150px;
 }
 #indicator_actual
 {
@@ -456,6 +512,16 @@ th
 	float: left;
 	position: relative;
 }
+#lista_title
+{
+	background: #DD4F24;
+	border-radius: 0.7em;
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+	margin: 1em 1em 0 1em;
+	padding: 0.5em 0;
+}
 #look, #manage, #new, #print
 {
 	color: rgba(255,255,255,0.9);
@@ -484,6 +550,35 @@ th
 {
 	content: "\e60b";
 	font-family: "icomoon";
+}
+#masPerfil
+{
+	position: absolute;
+	top: 0em;
+	right: 0;
+}
+#masPerfil ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#masPerfil ul li
+{
+	display: inline-block;
+	margin: 0;
+	padding: 0.3em 0.5em;
+}
+#masPerfil ul li a
+{
+	font-size: 1em;
+	margin: 0;
+	padding: 0.3em 0.5em;
+	transition: all 0.5s;
+}
+#masPerfil ul li a:hover
+{
+	border-bottom: 3px solid white;
 }
 #menu
 {
@@ -537,6 +632,16 @@ th
 	position: absolute;
 	right: 100%;
 	top: 0;
+}
+#name_already_patient
+{
+	margin: 1em;
+}
+#nom
+{
+	background: rgba(0,0,0,0.2);
+	border-radius: 0.2em;
+	padding: 0.3em;
 }
 #new:after
 {
@@ -775,11 +880,12 @@ th
 #profile_pic
 {
 	border: transparent;
-	display: inline-block;
+	display: block;
 	height: 150px;
+	margin: 0;
 	position: relative;
 	padding: 0;
-	width: 250px;
+	width: 160px;
 }
 #profile_pic_root
 {
@@ -805,7 +911,7 @@ th
 	border-radius: 10px;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	display: block;
-	margin: 1em 0.5em 1em 0.5em;
+	margin: 1em 1em 0.5em 0.5em;
 	padding: 0.5em 0.5em;
 	top: 15em;
 }
@@ -839,7 +945,7 @@ th
 	padding: 0.5em 0.5em;
 	position:absolute;
 	right: 0.5em;
-	top: 0.6em;
+	top: 0em;
 }
 #quick_access_h ul
 {
@@ -965,7 +1071,6 @@ th
 #up_content
 {
 	background: white;
-	border-bottom: 1px solid #7f8c8d;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	display: block;
@@ -994,9 +1099,8 @@ th
 #user
 {
 	background: rgba(221,79,36,0.5);
-	bottom: -1.7em;
+	bottom: 0;
 	color: white;
-	display: inline-block;
 	font-size: 1em;
 	padding: 0.2em 1em;
 	position: absolute;
@@ -1019,6 +1123,25 @@ th
 .app_identifier
 {
 	margin: 0.6em 0;
+}
+.button_yellow
+{
+	background: transparent;
+	border: transparent;
+	color: rgba(255,255,255,0.6);
+	display: block;
+	margin: 1em 1.1em 0 0;
+	outline: none;
+	padding: 0.3em 1.5em;
+	position: absolute;
+	right: 0;
+	top: -1em;
+	transition: all 0.5s;
+}
+.button_yellow:hover
+{ 
+	border-bottom: 3px solid white;
+	color: white;
 }
 .calendar_row
 {
@@ -1043,9 +1166,38 @@ th
 	color: black;
 	margin-top: 0;
 	padding-bottom: 1em;
+	padding-top: 1em;
 	text-align: center;
 }
+.contenido_item_perfil img
+{
+	border: 3px solid #ecf0f1;
+	left: 0.5em;
+	position: absolute;
+	width: 150px;
+}
 .contenido_item_perfil p
+{
+	padding: 0.5em 1em; 
+}
+.contenido_item_perfil_u
+{
+	background: rgba(86,194,255,0.1);
+	color: black;
+	margin-top: 0;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	padding-left: 7em; 
+	text-align: center;
+}
+.contenido_item_perfil_u img
+{
+	border: 3px solid #ecf0f1;
+	left: 0.5em;
+	position: absolute;
+	width: 150px;
+}
+.contenido_item_perfil_u p
 {
 	padding: 0.5em 1em; 
 }
@@ -1212,15 +1364,12 @@ th
 {
 	background: white;
 	border-radius: 0.2em 0.2em 0.2em 0.2em;
-	display: block;
+	display: inline-block;
 	margin: 0.5em 19px;
 	padding: 0;
+	position: relative;
 	vertical-align: top;
 	width: 240px;
-}
-.fields_holder_chk:first-child
-{
-	margin-top: 1em;
 }
 .fixed
 {
@@ -1237,7 +1386,7 @@ th
 	border-bottom: 1px solid #7f8c8d;
 	border-left: 1px solid #95a5a6;
 	border-right: 1px solid #95a5a6;
-	height: 40px;
+	height: 30px;
 	padding: 0;
 	position: relative;
 }
@@ -1264,9 +1413,66 @@ th
 	height: 0;
 	width: 80%;
 }
+.input_su
+{
+	background: white;
+	border: transparent;
+	border-radius: 0.5em;
+	outline: none;
+	padding: 0.5em;
+	width: 150px;
+}
+.item_list
+{
+	background: #2980b9;
+	border-radius: 0.5em;
+	color: white;
+	font-size: 1.5em;
+	margin: 1em;
+	padding: 1em;
+	position: relative;
+}
+.item_list img
+{
+	border-radius: 50%;
+	top: -0.8em;
+}
+.item_perfil
+{
+	display: inline-block;
+	position: relative;
+	width: 100%%;
+}
 .item_perfil_in
 {
-	display: block;
+	display: inline-block;
+	width: 50%;
+}
+.item_perfil_block_right
+{
+	display: inline-block;
+	float: right;
+	margin:0;
+	min-height: 220px;
+	width: 24%;
+}
+.item_perfil_su
+{
+	position: relative;
+	width: 100%;
+}
+.item_perfil_su_per
+{
+	display: inline-block;
+	position: relative;
+	width: 75%;
+}
+.item_perfil_su_up
+{
+	display: inline-block;
+	min-height: 220px;
+	position: relative;
+	width: 100%;
 }
 .left_hour
 {
@@ -1276,7 +1482,13 @@ th
 	font-weight: normal;
 	font-size: 0.9em;
 	padding: 1em 0.2em 1em 0.5em;
+	text-align: center;
+	transition: all 0.5s;
 	width: 10%;
+}
+.left_hour_i
+{
+	text-align: left;
 }
 .manageapp
 {
@@ -1369,23 +1581,15 @@ th
 }
 .month_title
 {
-	background: #DD4F24;
 	border-radius: 0.5em 0 0 0;
-	color:white;
-	margin-bottom: 0;
+	color: #2980b9;
+	display: inline-block;
+	font-weight: normal;
+	font-style: italic;
+	margin: 0 0 1.5em 2em;
 	padding: 0.3em 0 0.4em 0;
 	position: relative;
 	text-align: center;
-	width: 200px;
-}
-.month_title:after
-{
-	border-left: 39px solid #DD4F24;
-	border-top: 39px solid transparent;
-	content: "";
-	right: -2.1em;
-	position:absolute;
-	top:0;
 }
 .new_user_input
 {
@@ -1430,13 +1634,15 @@ th
 }
 .next_month:after
 {
+	background: rgba(12,12,12,0.5);
 	border-radius: 50%;
 	color: white;
 	content: "\e61f";
 	font-family: "icomoon";
-	font-size: 2.5em;
+	font-size: 1.7em;
 	position: absolute;
-	right: 0em;
+	right: 0.3em;
+	text-align: center;
 	top: 59%;
 }
 .patient_check
@@ -1475,13 +1681,15 @@ th
 }
 .prev_month:after
 {
+	background: rgba(12,12,12,0.5);
 	border-radius: 50%;
-	color: rgba(100,100,100,0.7);
+	color: white;
 	content: "\e620";
 	font-family: "icomoon";
-	font-size:2.5em;
-	left: 0em;
+	font-size:1.7em;
+	right: 1.5em;
 	position: absolute;
+	text-align: center;
 	top: 59%;
 }
 .search_field
@@ -1522,15 +1730,49 @@ th
 	border-left: 7px solid white;
 	border-top: 7px solid transparent;
 	content: "";
-	margin-top: -9px;
+	margin-top: -5px;
 	position: absolute;
 	right: 100%;
 	top: 50%;
 }
+.work_data
+{
+	transition: all 0.5s;
+}
+.work_data:hover
+{
+	background: white;
+	cursor: pointer;
+}
+.you_should_check
+{
+	background: #DD4F24;
+	border-radius: 0.5em 0.3em 0.3em 0.5em;
+	color: white;
+	display: inline-block;
+	font-size: 0.8em;
+	font-style: italic;
+	left: 100%;
+	margin-top: 0.2em;
+	margin-left: 1em; 
+	padding: 0.5em;
+	position:absolute;
+	width: 300px;
+}
+.you_should_check:after
+{
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #DD4F24;
+	border-top: 10px solid transparent;
+	content: "";
+	position: absolute;
+	right: 100%;
+	top: 0.4em;
+}
 .minutitos
 {
-	border: 1px solid red;
 	border-radius: 0.3em;
+	color: transparent;
 	padding: 0.2em;
 	bottom: 0.1em;
 	font-size: 0.8em; 
