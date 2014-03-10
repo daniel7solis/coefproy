@@ -84,6 +84,7 @@ $( document ).ready(function()
 	    helper:'',
 	    over: function()
 	    {
+	    	// Verifica si hay algo dentro de los contenedores.
 	    	var aver = $(this).find(".draggable_hour").length;
 	    	averglob = aver;
 	    	if ( aver == 0 )
@@ -99,26 +100,30 @@ $( document ).ready(function()
 	    },
 	    drop: function( event, ui ) 
 	    {
+	    	// Si la cita viene de 'temporales'.
 	    	if(ui.draggable.attr('value')=='true')
 	    	{
+	    		// Lo concatena.
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
-		    	resetSize();
+		    	resetSize(); // Acomoda el tamaño a lo ancho según los elementos que existan.
 	    		var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
 		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
-		    	$.ajax({
+		    	$.ajax({ // Se envía al servidor con los datos correspondientes y se agenda. Aquí se borra de temporales.
 		    		data: param,
 		            url: 'reagendar.php',
 		            type: 'post',
 		            dataType: 'json'
 		    	});
 	    	}
+	    	// si no viene de 'temporales'.
 	    	else
 	    	{
 	    		if(ui.draggable.children().text()!=$(this).parent().attr('value'))
 		    	{
+		    		// Aquí verifica si hay algo dentro.
 			    	if(!c)
 			    	{
 			    		var nuevo = (parseInt($(this).width()/(tam+1)));
@@ -127,12 +132,15 @@ $( document ).ready(function()
 		    		ui.draggable.css('width',nuevo+'px');
 		    		$(this).append(ui.draggable);
 		    	}
+		    	// Lo concatena.
 		    	$(this).append(ui.draggable);
 		    	ui.draggable.children().html($(this).parent().attr('value'));
 		    	resetSize();
 
+		    	// Visualmente, cambia el estilo de la tabla de temporales.
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
+		    	// Envía los datos al servidor que modifican la hora en la base de datos.
 		    	var newhora = $(this).parent().attr('value')
 		    	var ident = ui.draggable.attr('id');
 		    	var param = {'h':newhora,'id':ident};
@@ -149,30 +157,31 @@ $( document ).ready(function()
 	    	}
 	    }
 	});
-	$('.manage_options').hide();
+	$('.manage_options').hide(); // Oculta las opciones.
 });
+// La siguiente función toma los minutos de cada cita y los convierte en altura.
 function getDuration()
-{
+{	// Recorre toda la tabla para tomar todas las citas.
 	for (var i = 0; i < 48; i++) 
-	{
+	{	// Pero sólo entra en donde hay más de una cita.
 		if($('#c'+i).find('.draggable_wrapper').length!=0)
 		{
+			// Si SÓLO HYA UNA CITA.
 			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
 				var x = $('#c'+i).find('.draggable_wrapper').children().attr('title');
 				var nx = ((x/15)*30);
-				console.log(x+" - "+nx);
 				$('#c'+i).find('.draggable_wrapper').children().css({'height':nx});
 			}
 			else
 			{
+				// Si hay MÁS DE UNA CITA.
 				var cits = $('#c'+i).find('.draggable_wrapper').children(); // Hasta aquí es un objeto jQuery.
 				var qty = $('#c'+i).find('.draggable_wrapper').length;
 				for (var j = 0; j < qty; j++) 
 				{
 					var x = $(cits[j]).attr('title');
 					var nx = ((x/15)*30);
-					console.log(x+" - "+nx);
 					$(cits[j]).css({'height':nx});
 				}
 			}
@@ -181,9 +190,9 @@ function getDuration()
 }
 // Función que detecta cuántos elementos hay dentro de un droppable y los reajusta.
 function resetSize()
-{
+{	// Recorre toda la tabla para tomar todas las citas.
 	for (var i = 0; i < 48; i++) 
-	{
+	{	// Pero sólo entra en donde hay más de una cita.
 		if($('#c'+i).find('.draggable_wrapper').length!=0)
 		{
 			if($('#c'+i).find('.draggable_wrapper').length==1)
@@ -242,6 +251,7 @@ function actualdate()
 	{
     parts = line.split(' ');
 	});
+	// Si el día es HOY, genera una línea que identifica la hora actual.
 	if(parts[parts.length-1]=='agenda.php'||parts[parts.length-1]=='agenda.php#')
 	{
 		var dt = new Date(), hrs = dt.getHours(), mins = dt.getMinutes(), mer = "am";
@@ -261,6 +271,7 @@ function actualdate()
 					$(str).css({'border-bottom':'4px solid #DD4F24'});
 				}
 		};
+		// Acomoda la fecha en las variables globales.
 		recieved_nday = diasagenda[now.getDay()];
 		recieved_day = now.getDate();
 		recieved_month = now.getMonth();
@@ -277,6 +288,7 @@ function actualdate()
 	}
 	else
 	{
+		// Acomoda la fecha recibida por URL en las variables globales.
 		recieved_nday = getParameterByName("ndia");
 		recieved_day = getParameterByName("dia");
 		recieved_month = getParameterByName("mes");
@@ -291,6 +303,7 @@ function actualdate()
 		$aux.html(recieved_year);
 	}
 }
+// Lista las citas temporales.
 function ListarTemps()
 {
    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
@@ -305,6 +318,7 @@ function ListarTemps()
             	var index = data['nc'], citas;
             	for (var i = 0; i < index; i++) 
             	{
+            		// Aquí genera el HTML.
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
             		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
@@ -315,16 +329,22 @@ function ListarTemps()
             }
     	});
 }
+// Aquí se vuelven a asignar las capacidades de Drag&Drop, asegurando que todos los elementos
+// son manipulables.
 function reAsignarDrags()
 {
+	// Se ocultan las opciones de las sillas.
 	$('.manage_options').hide();
+	// Se muestran.
 	$('.manageapp').on('click', function(){
 		$(this).parent().find('.manage_options').toggle('swing');
 	});
 
+	// Hover de las citas.
 	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 	$('#ppp').css({'display':'none'});
 
+	// Se asigna la capacidad de Drag.
 	$( '.draggable_wrapper' ).draggable(
 	{
 		
@@ -379,6 +399,7 @@ function reAsignarDrags()
 	    		$(this).append(ui.draggable);
 		    	ui.draggable.find('.here_hour').html($(this).parent().attr('value'));
 		    	ui.draggable.attr('value','false');
+		    	ui.draggable.children().attr('value','false');
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value');
 	    		var ident = ui.draggable.find('.draggable_hour').attr('id');
