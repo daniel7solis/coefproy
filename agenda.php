@@ -185,53 +185,53 @@
 						<th>S</th>
 					</tr>
 					<tr class="day_height">
-						<td class="calendar_row" value="Domingo"><span id="esp0"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp1"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Martes"><span id="esp2"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Miércoles"><span id="esp3"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Jueves"><span id="esp4"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Viernes"><span id="esp5"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Sábado"><span id="esp6"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp0"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp1"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Martes"><span id="esp2"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp3"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Jueves"><span id="esp4"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Viernes"><span id="esp5"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Sábado"><span id="esp6"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row" value="Domingo"><span id="esp7"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp8"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Martes"><span id="esp9"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Miércoles"><span id="esp10"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Jueves"><span id="esp11"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Viernes"><span id="esp12"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Sábado"><span id="esp13"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp7"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp8"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Martes"><span id="esp9"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp10"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Jueves"><span id="esp11"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Viernes"><span id="esp12"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Sábado"><span id="esp13"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					<tr class="day_height">
-						<td class="calendar_row" value="Domingo"><span id="esp14"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp15"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Martes"><span id="esp16"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Miércoles"><span id="esp17"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Jueves"><span id="esp18"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Viernes"><span id="esp19"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Sábado"><span id="esp20"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp14"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp15"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Martes"><span id="esp16"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp17"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Jueves"><span id="esp18"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Viernes"><span id="esp19"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Sábado"><span id="esp20"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row" value="Domingo"><span id="esp21"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp22"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Martes"><span id="esp23"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Miércoles"><span id="esp24"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Jueves"><span id="esp25"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Viernes"><span id="esp26"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Sábado"><span id="esp27"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp21"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp22"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Martes"><span id="esp23"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp24"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Jueves"><span id="esp25"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Viernes"><span id="esp26"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Sábado"><span id="esp27"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					<tr class="day_height">
-						<td class="calendar_row" value="Domingo"><span id="esp28"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp29"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Martes"><span id="esp30"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Miércoles"><span id="esp31"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Jueves"><span id="esp32"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Viernes"><span id="esp33"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Sábado"><span id="esp34"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp28"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp29"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Martes"><span id="esp30"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Miércoles"><span id="esp31"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Jueves"><span id="esp32"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Viernes"><span id="esp33"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Sábado"><span id="esp34"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					<tr class="day_height_gray">
-						<td class="calendar_row" value="Domingo"><span id="esp35"></span><br><br><div class="apnmbr">cuant</div></td>
-						<td class="calendar_row" value="Lunes"><span id="esp36"></span><br><br><div class="apnmbr">cuant</div></td>
+						<td class="calendar_row" value="Domingo"><span id="esp35"></span><br><br><div class="apnmbr"></div></td>
+						<td class="calendar_row" value="Lunes"><span id="esp36"></span><br><br><div class="apnmbr"></div></td>
 					</tr>
 					</tbody>
 				</table>

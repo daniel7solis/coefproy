@@ -355,8 +355,6 @@ function reAsignarDrags()
 		drag: function()
 		{
 			$('.temporal_droppable').css({'border':'2px dashed gray','color':'gray'});
-			$(this).height(30);
-			$(this).children().height(30);
 		},
 		helper: function() 
 		{
