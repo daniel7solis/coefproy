@@ -320,7 +320,7 @@ function ListarTemps()
             	{
             		// Aquí genera el HTML.
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
+            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -401,7 +401,10 @@ function reAsignarDrags()
 		    	resetSize();
 	    		var newhora = $(this).parent().attr('value');
 	    		var ident = ui.draggable.find('.draggable_hour').attr('id');
-		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year};
+	    		var isthispatient = ui.draggable.children().find('.here_hour').attr('value');
+	    		var numsucursal = ui.draggable.children().find('.app_identifier').attr('value');
+
+		    	var param = {'h':newhora,'id':ident,'nd':recieved_day,'nm':recieved_month,'na':recieved_year,'itp':isthispatient,'suc':numsucursal};
 		    	$.ajax({
 		    		data: param,
 		            url: 'reagendar.php',
@@ -486,6 +489,8 @@ function reAsignarDrags()
 				$(this).find('span').css({'display':'none'});
 				ui.draggable.width($(this).width()-25);
 				ui.draggable.children().width($(this).width()-25);
+				ui.draggable.height(30);
+				ui.draggable.children().height(30);
 				$(this).append(ui.draggable);
 				c=false;
 				resetSize();
