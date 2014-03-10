@@ -1,6 +1,6 @@
 <?php
 	if($_POST){
-		$idp=$_POST['id'];
+		$idp=2;//$_POST['id'];
 		$fConsCon=$_POST['consCons'];
 		$peso=$_POST['peso'];
 		$ta=$_POST['ta'];
@@ -42,12 +42,18 @@
 		$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 		mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 		mysql_set_charset("utf8", $conexion); 
-		mysql_query("update Paciente set fConsuCons='$fConsCons',peso='$peso',ta='$ta',ahf='$ahf',varicela='$varicela',rubeola='$rubeola',sarampion='$sarampion',parotiditis='$parotiditis',fiebre_reum='',otros='',qx='',fx='',alergias='',hospitalizaciones='',alimentacion='',tabaquis='',alcoho='',transf='',grupoRH='',g='',p='',c='',a='',ivsa='',par='',fum='',ritmo='',dismino='',dispare='',fupap='',mpf='',embPrev='',tumMama='',ingGeni='',ardor='',prurito='' where idPaciente='$idp'",$conexion) or die(mysql_error());
+		mysql_query("update Paciente set fConsuCons='$fConsCon',peso='$peso',ta='$ta',ahf='$ahf',
+			varicela='$varicela',rubeola='$rubeola',sarampion='$sarampion',parotiditis='$parotiditis',
+			fiebre_reum='$fiebreR',otros='$otros',qx='$qx',fx='$fx',alergias='$alergias',
+			hospitalizaciones='$hospita',alimentacion='$alimen',tabaquis='$tabaquismo',
+			alcoho='$alcoholismo',transf='$trans',grupoRH='$rh',g='$g',p='$p',c='$c',a='$a',
+			ivsa='$ivsa',par='$par',fum='$fum',ritmo='$ritmo',dismino='$dism',dispare='$disp',
+			fupap='$fupap',mpf='$mpf',embPrev='$emb',tumMama='$tum_mamas',infGeni='$inf_genitales',
+			ardor='$ardor',prurito='$prurito' where idPaciente='$idp'",$conexion) or die(mysql_error());
 		// echo '{"ok":"1"}';
 		$arr = array('ok' => 1);
 		$json = json_encode($arr);
 		echo $json;
-		echo "No se pudo guardar";
 	}else{
 		echo "No se pudo guardar";
 	}

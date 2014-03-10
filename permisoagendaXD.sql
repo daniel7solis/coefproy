@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
   `idSucursal` int(11) NOT NULL,
   `fConsuCons` date NOT NULL,
   `peso` int(3) NOT NULL,
-  `ta` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `ta` int(3) NOT NULL,
   `ahf` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `varicela` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `rubeola` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
