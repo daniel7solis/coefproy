@@ -67,7 +67,7 @@
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
-						$horas;$idpac;$iddoc;$fecha;$ids;$mins;
+						$horas;$idpac;$iddoc;$fecha;$ids;$mins;$ispaci;$idsuc;
 						$aux=0;
 						# Conexión a la base de datos.
 						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -87,6 +87,8 @@
 							$fecha[$aux] = $arreglo['fecha'];
 							$ids[$aux] = $arreglo['idCita'];
 							$mins[$aux] = $arreglo['minutos'];
+							$ispaci[$aux] = $arreglo['isPac'];
+							$idsuc[$aux] = $arreglo['idSucursal'];
 							$aux++;
 						}
 						# Valores iniciales con que se generará la agenda.
@@ -122,7 +124,20 @@
 										{
 											if(date("20y-m-d")==$fecha[$m])
 											{
-												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
+												echo "<div class='draggable_wrapper'>
+													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
+													  		<div class='app_identifier' value=".$idsuc[$m].">Id.".$idpac[$m]."&nbsp;-&nbsp;
+													  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
+													  			</span>
+													  		</div>
+													  		<a class='manageapp' href='javascript:void();'></a>
+													  		<div class='draggable_tag_".$iddoc[$m]."'>
+													  		</div>
+													  		<div class='manage_options'>
+													  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+													  		</div>
+													  	</div>
+													  </div>";
 											}
 										}
 										else

@@ -3,7 +3,7 @@
 	{
 		date_default_timezone_set('America/Mexico_City');
 		# Arreglos necesarios para pasar los registros y manejarlos mejor.
-		$ids_temps;$horas_temps;$idpac_temps;$iddoc_temps;$fecha_temps;$mins_temps;
+		$ids_temps;$horas_temps;$idpac_temps;$iddoc_temps;$fecha_temps;$mins_temps;$isthispac;$sucursaleishon;
 		$aux_temps=0;
 		$user = $_POST['us'];
 		$passwd = $_POST['pass'];
@@ -31,12 +31,14 @@
 					$fecha[$aux_temps] = $arreglo_temps['fecha'];
 					$ids_temps[$aux_temps] = $arreglo_temps['idCita'];
 					$mins_temps[$aux_temps] = $arreglo_temps['minutos'];
+					$isthispac[$aux_temps] = $arreglo_temps['isPac'];
+					$sucursaleishon[$aux_temps] = $arreglo_temps['idSucursal'];
 					$aux_temps++;
 				}
 			}
 			for ($m=0; $m < $aux_temps; $m++) 
 			{
-				$cadena=$cadena.',"cita'.$m.'":{"id":"'.$ids_temps[$m].'","iddoc":"'.$iddoc_temps[$m].'","idpac":"'.$idpac_temps[$m].'","hora":"'.$horas_temps[$m].'","minuts":"'.$mins_temps[$m].'"}';
+				$cadena=$cadena.',"cita'.$m.'":{"id":"'.$ids_temps[$m].'","iddoc":"'.$iddoc_temps[$m].'","idpac":"'.$idpac_temps[$m].'","hora":"'.$horas_temps[$m].'","minuts":"'.$mins_temps[$m].'","itpa":"'.$isthispac[$m].'","sucs":"'.$sucursaleishon[$m].'"}';
 			}
 			echo '{"nc":'.$aux_temps.''.$cadena.'}';
 		}
