@@ -165,7 +165,6 @@ $( document ).ready(function(){
 	$('#modal_forgot').hide();
 	isRoot();
 	// $('.item_perfil').on('click',function(){console.log("dio clic");});
-	setDateTime();
 });
 /*Funciona para consultar los datos de una sucursal apartir de la sucursal a la que pertenece el usuario
 logueado*/

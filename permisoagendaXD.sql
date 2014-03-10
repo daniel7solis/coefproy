@@ -306,6 +306,42 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
   `email` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `tel` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `idSucursal` int(11) NOT NULL,
+  `fConsuCons` date NOT NULL,
+  `peso` int(3) NOT NULL,
+  `ta` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `ahf` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `varicela` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `rubeola` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `sarampion` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `parotiditis` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `fiebre_reum` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `otros` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `qx` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `fx` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `alergias` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `hospitalizaciones` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `alimentacion` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `tabaquis` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `alcoho` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `transf` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `grupoRH` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `g` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `p` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `c` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `a` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `ivsa` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `par` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `fum` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `ritmo` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `dismino` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `dispare` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `fupap` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `mpf` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `embPrev` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `tumMama` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `infGeni` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `ardor` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `prurito` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idPaciente`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
@@ -317,6 +353,18 @@ INSERT INTO `Paciente` (`idPaciente`, `nombre`, `apeidos`, `direccion`, `edad`, 
 (1, 'Daniel', 'Vega Ceja', 'San Pablo #344', 21, '1192-09-07', 'ing_dvega@hotmail.com', '3515092158', 1);
 
 -- -------------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `ConsultaSub` (
+  `idConsulta` int(3) NOT NULL AUTO_INCREMENT,
+  `idPaciente` int(3) NOT NULL,
+  `mamas` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `genitales` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `dx` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `rx` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `ex` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idConsulta`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
 
 CREATE TABLE IF NOT EXISTS `Sucursal` (
   `idSucursal` int(3) NOT NULL AUTO_INCREMENT,
