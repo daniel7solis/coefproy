@@ -126,9 +126,9 @@
 											{
 												echo "<div class='draggable_wrapper'>
 													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
-													  		<div class='app_identifier' value=".$idsuc[$m].">Id.".$idpac[$m]."&nbsp;-&nbsp;
+													  		<div class='app_identifier' value=".$idsuc[$m].">Id.".$idpac[$m]."&nbsp;|&nbsp;
 													  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
-													  			</span>
+													  			</span>-<span id='dest".$count."' class='here_hourd'></span>
 													  		</div>
 													  		<a class='manageapp' href='javascript:void();'></a>
 													  		<div class='draggable_tag_".$iddoc[$m]."'>
@@ -148,7 +148,7 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;-&nbsp;<span class='here_hour'>".$horas[$m]."</span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
+												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;|&nbsp;<span class='here_hour'>".$horas[$m]."</span>-<span id='dest".$count."' class='here_hourd'></span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
 											}
 										}
 									}
