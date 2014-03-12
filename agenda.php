@@ -67,7 +67,7 @@
 					<?php
 						date_default_timezone_set('America/Mexico_City');
 						# Arreglos necesarios para pasar los registros y manejarlos mejor.
-						$horas;$idpac;$iddoc;$fecha;$ids;$mins;$ispaci;$idsuc;
+						$horas;$idpac;$iddoc;$fecha;$ids;$mins;$ispaci;$idsuc;$nombres;
 						$aux=0;
 						# Conexión a la base de datos.
 						$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
@@ -83,6 +83,11 @@
 						{
 							$horas[$aux] = $arreglo['hora'];
 							$idpac[$aux] = $arreglo['idPaciente'];
+							$datos2 = mysql_query("select nombre,apeidos from Paciente where idPaciente='$idpac[$aux]'",$conexion);
+							while($arreglo2=mysql_fetch_array($datos2))
+							{
+								$nombres[$aux] = $arreglo2['nombre']." ".$arreglo2['apeidos'];
+							}
 							$iddoc[$aux] = $arreglo['idDoctor'];
 							$fecha[$aux] = $arreglo['fecha'];
 							$ids[$aux] = $arreglo['idCita'];
@@ -126,13 +131,15 @@
 											{
 												echo "<div class='draggable_wrapper'>
 													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
-													  		<div class='app_identifier' value=".$idsuc[$m].">Id.".$idpac[$m]."&nbsp;|&nbsp;
-													  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
-													  			</span>-<span id='dest".$count."' class='here_hourd'></span>
-													  		</div>
-													  		<a class='manageapp' href='javascript:void();'></a>
 													  		<div class='draggable_tag_".$iddoc[$m]."'>
+														  		<div class='app_identifier' value=".$idsuc[$m].">&nbsp;
+														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
+														  			</span>-<span id='dest".$count."' class='here_hourd'></span>
+														  			<div class='nombre_paciente_id'>".$idpac[$m]."</div>
+														  		</div>
+														  		<a class='manageapp' href='javascript:void();'></a>
 													  		</div>
+														  	<br><span class='nombre_paciente'>".$nombres[$m]."</span>
 													  		<div class='manage_options'>
 													  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
 													  		</div>
@@ -148,7 +155,21 @@
 											
 											if(($got_year."-".$got_month."-".$got_day)==$fecha[$m])
 											{
-												echo "<div class='draggable_wrapper'><div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m]."><div class='app_identifier'>Id.".$idpac[$m]."&nbsp;|&nbsp;<span class='here_hour'>".$horas[$m]."</span>-<span id='dest".$count."' class='here_hourd'></span></div><a class='manageapp' href='javascript:void();'></a><div class='draggable_tag_".$iddoc[$m]."'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>";
+												echo "<div class='draggable_wrapper'>
+													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
+													  		<div class='draggable_tag_".$iddoc[$m]."'>
+														  		<div class='app_identifier' value=".$idsuc[$m].">&nbsp;
+														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
+														  			</span>-<span id='dest".$count."' class='here_hourd'></span>
+														  		</div>
+														  		<a class='manageapp' href='javascript:void();'></a>
+													  		</div>
+														  	<br><span class='nombre_paciente'><div class='nombre_paciente_id'>".$idpac[$m]."</div>".$nombres[$m]."</span>
+													  		<div class='manage_options'>
+													  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+													  		</div>
+													  	</div>
+													  </div>";
 											}
 										}
 									}

@@ -1123,6 +1123,7 @@ th
 .apnmbr
 {
 	background: #27496B;
+	border-radius: 0.5em 0 0 0;
 	bottom: 0;
 	color: white;
 	font-size: 0.7em;
@@ -1297,13 +1298,13 @@ th
 .draggable_tag_5, 
 .draggable_tag_6
 {
-	border-radius: 0 3px 3px 0;
+	border-radius: 3px 3px 0 0;
 	display: block;
-	height: 100%;
+	height: 25px;
+	left: 0;
 	position: absolute;
-	right: 0;
 	top: 0;
-	width: 20%;
+	width: 100%;
 }
 .draggable_tag_1
 {
@@ -1518,9 +1519,9 @@ th
 	margin-top: -13px;
 	padding: 0.3em 0.5em;
 	position:absolute;
-	right: 7%;
+	right: 0;
 	text-align: center;
-	top: 1.2em;
+	top: 1em;
 	z-index: 12;
 }
 .manageapp:after
@@ -1583,6 +1584,16 @@ th
 {
 	content: "\e60a";
 	font-family: "icomoon";
+}
+.minutitos
+{
+	border-radius: 0.3em;
+	color: transparent;
+	padding: 0.2em;
+	bottom: 0.1em;
+	font-size: 0.8em; 
+	left: -2.3em;
+	position: absolute;
 }
 .month
 {
@@ -1663,6 +1674,24 @@ th
 	right: 0.3em;
 	text-align: center;
 	top: 59%;
+}
+.nombre_paciente
+{
+	border: 2px solid rgba(255,255,255,0.5);
+	position: relative;
+	margin-top: 0.3em;
+	padding: 0.2em 0.2em 0.2em 1.2em;
+	position: relative;
+}
+.nombre_paciente_id
+{
+	background: rgba(255,255,255,0.5);
+	display: inline-block;
+	left: 0;
+	padding: 0.2em;
+	position: absolute;
+	text-shadow: 0 0 2px black;
+	top: 0;
 }
 .patient_check
 {
@@ -1787,14 +1816,4 @@ th
 	position: absolute;
 	right: 100%;
 	top: 0.4em;
-}
-.minutitos
-{
-	border-radius: 0.3em;
-	color: transparent;
-	padding: 0.2em;
-	bottom: 0.1em;
-	font-size: 0.8em; 
-	left: -2.3em;
-	position: absolute;
 }

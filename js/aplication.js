@@ -175,6 +175,7 @@ function getDuration()
 				var hr = parseInt(splitted[0]);
 				var sp = splitted[1].split('');
 				var before = sp[0]+sp[1];
+				var beforemer = sp[2]+sp[3];
 				var before1 = parseInt(before)+parseInt(x);
 				var before2 = before1/60;
 				var verx=false;
@@ -185,11 +186,18 @@ function getDuration()
 					}
 				var helpme = (before2+"").split('.');
 				var newhr = hr + parseInt(helpme[0]);
+				var newmer = beforemer;
+				if(newhr>=13)
+				{
+					newmer = "pm";
+					newhr-=12;
+				}
+				if(newhr==12){newmer="pm";}
 				if(helpme[1]=="5"){helpme[1]+="0";}
 				var temp1 = parseInt(helpme[1])*.01;
 				var temp2 = 60*temp1;
 				if(verx==true){temp2+="0";verx=false;}
-				var fainal = newhr+":"+temp2;
+				var fainal = newhr+":"+temp2+newmer;
 
 				$('#c'+i).find('.draggable_wrapper').children().find('.here_hourd').html(fainal);
 
@@ -209,6 +217,7 @@ function getDuration()
 					var hr = parseInt(splitted[0]);
 					var sp = splitted[1].split('');
 					var before = sp[0]+sp[1];
+					var beforemer = sp[2]+sp[3];
 					var before1 = parseInt(before)+parseInt(x);
 					var before2 = before1/60;
 					var verx=false;
@@ -219,11 +228,18 @@ function getDuration()
 						}
 					var helpme = (before2+"").split('.');
 					var newhr = hr + parseInt(helpme[0]);
+					var newmer = beforemer;
+					if(newhr>=13)
+					{
+						newmer = "pm";
+						newhr-=12;
+					}
+					if(newhr==12){newmer="pm";}
 					if(helpme[1]=="5"){helpme[1]+="0";}
 					var temp1 = parseInt(helpme[1])*.01;
 					var temp2 = 60*temp1;
 					if(verx==true){temp2+="0";verx=false;}
-					var fainal = newhr+":"+temp2;
+					var fainal = newhr+":"+temp2+newmer;
 
 					$(cits[j]).find('.here_hourd').html(fainal);
 					var nx = ((x/15)*30);
@@ -365,7 +381,7 @@ function ListarTemps()
             	{
             		// Aquí genera el HTML.
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'>Id."+data['cita'+i].idpac+"&nbsp;|&nbsp;<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
+            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'><span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span><span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+i].idpac+"</div></span><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
