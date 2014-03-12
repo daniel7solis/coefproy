@@ -44,7 +44,7 @@
 		<nav>
 			<ul>
 				<li id="agenda" class="current"><a href="agenda.php"></a></li>
-				<li id="patients"><a href="#"></a></li>
+				<li id="patients"><a href="pacientes.php"></a></li>
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>

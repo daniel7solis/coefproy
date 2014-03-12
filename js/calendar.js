@@ -130,7 +130,6 @@ function generar(num)
 						}
 					diax=cont;
 				}
-
 			contarCitas(diax,mesx,col);
 
 			$aux.html(cont);
@@ -241,7 +240,7 @@ function contarCitas(diay,mesy,chaw)
 	        dataType: 'json',
        		success: function(data)
        		{
-       			$('#in'+chaw).text(data['qty']);;
+       			$('#in'+chaw).text(data['qty']);
        		}
 	   	});
 }

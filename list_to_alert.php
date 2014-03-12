@@ -20,6 +20,13 @@
 	$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
 	mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
 	mysql_set_charset("utf8", $conexion); 
+	/*
+	
+	CON EL CAMBIO DE LA TABLA DE CITAS (EL CAMPO SI ES PACIENTE REGISTRADO O NO "ISPAC")
+	SE NECESITA CONSULTAR ESTE CAMPO PARA SABER A QUE TABLA SE VA A IR A BUSCAR EL CORREO
+	Y LOS DATOS DEL PACIENTE, SI ES EN LA TABLA DE PACIENTES O EN LA DE NEWPACIENTE
+
+	*/
 	$datos = mysql_query("select idPaciente from citas where fecha='$fechaBusq'",$conexion);
 	while ($paci=mysql_fetch_array($datos)) {
 		$idp=$paci[0];

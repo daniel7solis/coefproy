@@ -56,12 +56,36 @@
 			<ul>
 			<!-- barra de navegación del sistema -->
 				<li id="agenda"><a href="agenda.php"></a></li>
-				<li id="patients"><a href="#"></a></li>
+				<li id="patients"><a href="pacientes.php"></a></li>
 				<li id="donator"><a href="#"></a></li>
 				<li id="departments"><a href="#"></a></li>
 				<li id="lab_survey"><a href="#"></a></li>
 			</ul>
 		</nav>
+		<aside>
+			<article><img src="images/pacientes/1.png" /></article>
+			<article><h4>Ultimas consultas</h4></article>
+			<article>
+				<div>Tipo de consulta</div>
+				<div>Doctor que la hizo</div>
+				<div>Fecha de esa consulta</div>
+			</article>
+			<article>
+				<div>Tipo de consulta</div>
+				<div>Doctor que la hizo</div>
+				<div>Fecha de esa consulta</div>
+			</article>
+			<article>
+				<div>Tipo de consulta</div>
+				<div>Doctor que la hizo</div>
+				<div>Fecha de esa consulta</div>
+			</article>
+			<article>
+				<div>Tipo de consulta</div>
+				<div>Doctor que la hizo</div>
+				<div>Fecha de esa consulta</div>
+			</article>
+		</aside>
 		<section id="content_users">
 			<div id="up_content"><h2 id="content_title_users">Consultas</h2><p id="content_subtitle">Listado de Pacientes</p></div>
 			<span id="users"><!-- AQUÍ SE GENERAN LOS USUARIOS --></span>
