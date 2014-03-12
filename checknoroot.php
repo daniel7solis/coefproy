@@ -1,5 +1,5 @@
 <?php
-	if(true)
+	if($_POST)
 	{
 		$idd = $_POST['idd'];
 		$n = $_POST['n'];

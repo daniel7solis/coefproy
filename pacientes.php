@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Pacientes</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -63,57 +63,33 @@
 			</ul>
 		</nav>
 		<section id="content_users">
-			<div id="up_content"><h2 id="content_title_users">Primera vez</h2><p id="content_subtitle">Nombre del paciente</p></div>
-		<form name="form" action="saveConsul.php" method="post" accept-charset="UTF-8">
-			Fecha de consulta consecutiva: <input type="date" name="consCons"><!--Aqui va la fecha del momento en que se guardan estos datos-->
-			Peso: <input type="number" name="peso">
-			TA: <input type="number" name="ta"><br>
-			Fecha de nacimiento: <input type="date" name="fn">
-			Edad: <input type="number" name="edad"><hr>
-			Antecedenetes Heredo Familiares AHF<br><input type="text" name="ahf"><hr>
-			Antecedentes Personales Patologicos APP<br>
-			Varicela:<input type="text" name="varicela">
-			Rubeola:<input type="text" name="rubeola">
-			Sarampión:<input type="text" name="sarampion">
-			Parotiditis:<input type="text" name="parotiditis">
-			Friebre reumática:<input type="text" name="fiebre">
-			Otros:<input type="text" name="otros">
-			Qx:<input type="text" name="qx">
-			Fx:<input type="text" name="fx">
-			Alergias:<input type="text" name="alergias">
-			Hospitalizaciones:<input type="text" name="hospita">
-			<hr>
-			Antecedentes Personales No Patologicos AP No P<br>
-			Alimentación:<input type="text" name="alimen">
-			Tabaquismo:<input type="text" name="tabaquismo">
-			Alcoholismo:<input type="text" name="alcoholismo">
-			Transfusiones:<input type="text" name="trans">
-			Grupo y RH:<input type="text" name="rh">
-			<hr>
-			AGO<br>
-			Menarca:<br>
-			G<input type="text" name="g">
-			P<input type="text" name="p">
-			C<input type="text" name="c">
-			A<input type="text" name="a">
-			IVSA:<input type="text" name="ivsa">
-			#PAR:<input type="text" name="par">
-			FUM:<input type="text" name="fum">
-			Ritmo<input type="text" name="ritmo"><br>
-			Disminorrea:<input type="text" name="dism">
-			Dispareunia:<input type="text" name="disp">
-			FUPAP:<input type="text" name="fupap">
-			MPF:<input type="text" name="mpf">
-			Embarazos previstos:<input type="text" name="emb"><br>			
-			Tumuraciones mamas:<input type="text" name="tum_mamas"><br>
-			Infecciones genitales:<input type="text" name="inf_genitales">
-			Ardor:<input type="text" name="ardor">
-			Prurito:<input type="text" name="prurito"><br>
-			<input type="submit" value="Guardar">
-		</form>
+			<div id="up_content"><h2 id="content_title_users">Consultas</h2><p id="content_subtitle">Listado de Pacientes</p></div>
+			<span id="users"><!-- AQUÍ SE GENERAN LOS USUARIOS --></span>
+			<?php
+			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+			mysql_set_charset("utf8", $conexion);
+			/*Selecciono a los pacientes, para mostrarlos en una tabla*/
+			$datos = mysql_query("select idPaciente,nombre,apeidos,edad,tel,email,fProxCita from Paciente order by case when fProxCita is null then 1 else 0 end,fProxCita",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+			echo "<table border=1>";
+			echo "<tr><td>Nombre</td><td>Apellido</td><td>Edad</td><td>Telefono</td><td>Correo</td><td>Proxima cita</td></tr>";
+			while ($arr=mysql_fetch_array($datos)){
+				if($arr[6]==null){
+					/*Mostramos los datos del paciente, cuando no tiene citas agendadas se muestra el mensaje*/
+					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+									".$arr[4]."</td><td>".$arr[5]."</td><td>No tiene</td></tr>";
+				}else{
+					/*Mostramos los datos del paciente, mostramos la fecha de la cita mas proxima*/
+					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+					".$arr[4]."</td><td>".$arr[5]."</td><td>".$arr[6]."</td></tr>";					
+				}
+			}
+			/*Hago la busqueda de las citas y las ordeno por fecha de cita; en caso de existir dos citas 
+			para un mismo paciente, selecciono la mas proxima*/ 
+			echo "</table>";
+			?>
 		</section>
-		<ul id='menu'>
-		<!-- Menu desplegable para la configuración de usuarios y de perfil -->
+		<ul id='menu'>la configuración de usuarios y de perfil -->
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
 				<li id="rconfig"></li>
