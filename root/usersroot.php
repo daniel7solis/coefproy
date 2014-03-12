@@ -97,7 +97,7 @@
 				<ul>
 					<li><a id="new" href="altaUser.php"></a></li>
 					<li><a id="manage" href="setting_user.php"></a></li>
-					<li><a id="look" href="usersroot.php" onclick="deleteUser(1)"></a></li>
+					<li><a id="look" onclick="deleteUser()"></a></li>
 					<li><a id="print" href="#"></a></li>
 				</ul>
 			</div>
