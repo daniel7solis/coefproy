@@ -381,7 +381,21 @@ function ListarTemps()
             	{
             		// Aquí genera el HTML.
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'><span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span><span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+i].idpac+"</div></span><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
+            		"<div class='draggable_wrapper'>"+
+            			"<div id='"+data['cita'+i].id+"' class='draggable_hour' title='"+data['cita'+i].minuts+"' style='width:110px;' value='true'>"+
+            				"<div class='draggable_tag_"+data['cita'+i].iddoc+"'>"+
+	            				"<div class='app_identifier' value='"+data['cita'+i].sucs+"'>"+
+	            					"<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>"+
+	            					"-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span>"+
+	            					"<span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+i].idpac+"</div>&nbsp;"+data['cita'+i].nompac+"</span>"+
+	            				"</div>"+
+	            				"<a class='manageapp' href='javascript:void();'></a>"+
+	            				"<div class='manage_options'>"+
+	            					"<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>"+
+	            				"</div>"+
+	            			"</div>"+
+            			"</div>"+
+            		"</div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
