@@ -38,7 +38,7 @@ $( document ).ready(function()
 	$('td.calendar_row').on('click', function()
 	{
 		var auxiliary = ref;
-		var dn = parseInt($(this).text());
+		var dn = parseInt($(this).find('span').text());
 		if(dn<10)
 		{
 			dn="0"+dn;
@@ -84,6 +84,8 @@ function cleaning()
 	{
 		$aux3 = $('#esp'+temp);
 		$aux3.html('');
+		$aux3 = $('#in'+temp);
+		$aux3.text('');
 		temp++;
 	}
 	temp=0;
@@ -92,14 +94,45 @@ function cleaning()
 // Genera los días en base al mes.
 function generar(num)
 {
+	// ref = mes. año = 2014
 	col = mes[1];
 	$aux2 = $('.month_title');
 	$aux2.html(mes[2]);
 	if(num==now.getMonth())
 	{
+		var diax=cont,mesx=ref;
+
 		while(cont<=mes[0])
 		{
 			$aux = $('#esp'+col);
+
+			if(cont<10)
+				{	// El día es menor a 10.
+					if(ref<10)
+						{ 	// El mes es menor a 10
+							mesx="0"+(ref+1);
+						}
+					else
+						{
+							mesx=ref+1;
+						}
+					diax="0"+cont;
+				}
+			else
+				{	// El día es mayor a 10.
+					if(ref<10)
+						{ 	// El mes es menor a 10
+							mesx="0"+(ref+1);
+						}
+					else
+						{
+							mesx=ref+1;
+						}
+					diax=cont;
+				}
+
+			contarCitas(diax,mesx,col);
+
 			$aux.html(cont);
 			col++;
 			cont++;
@@ -138,6 +171,32 @@ function generar(num)
 		while(cont<=mes[0])
 		{
 			$aux = $('#esp'+col);
+
+			if(cont<10)
+			{	// El día es menor a 10.
+				if(ref<10)
+				{ 	// El mes es menor a 10
+					mesx="0"+(ref+1);
+				}
+				else
+				{
+					mesx=ref+1;
+				}
+				diax="0"+cont;
+			}
+			else
+			{	// El día es mayor a 10.
+				if(ref<10)
+				{ 	// El mes es menor a 10
+					mesx="0"+(ref+1);
+				}
+				else
+				{
+					mesx=ref+1;
+				}
+				diax=cont;
+			}
+			contarCitas(diax,mesx,col);
 			$aux.html(cont);
 			col++;
 			cont++;
@@ -169,4 +228,20 @@ function siguiente()
 		ref++;
 		asignar(ref);
 	}
+}
+function contarCitas(diay,mesy,chaw)
+{
+	var fechay = '2014-'+mesy+'-'+diay;
+	var param = {'fecha':fechay};
+
+	   	$.ajax({
+	  		data: param,
+	        url: 'countApps.php',
+	        type: 'post',
+	        dataType: 'json',
+       		success: function(data)
+       		{
+       			$('#in'+chaw).text(data['qty']);;
+       		}
+	   	});
 }

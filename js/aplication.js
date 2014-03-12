@@ -170,6 +170,29 @@ function getDuration()
 			if($('#c'+i).find('.draggable_wrapper').length==1)
 			{
 				var x = $('#c'+i).find('.draggable_wrapper').children().attr('title');
+				var toSplit = $('#c'+i).parent().attr('value');
+				var splitted = toSplit.split(':');
+				var hr = parseInt(splitted[0]);
+				var sp = splitted[1].split('');
+				var before = sp[0]+sp[1];
+				var before1 = parseInt(before)+parseInt(x);
+				var before2 = before1/60;
+				var verx=false;
+				if(before1%60==0)
+					{
+						before2+=".00";
+						verx=true;
+					}
+				var helpme = (before2+"").split('.');
+				var newhr = hr + parseInt(helpme[0]);
+				if(helpme[1]=="5"){helpme[1]+="0";}
+				var temp1 = parseInt(helpme[1])*.01;
+				var temp2 = 60*temp1;
+				if(verx==true){temp2+="0";verx=false;}
+				var fainal = newhr+":"+temp2;
+
+				$('#c'+i).find('.draggable_wrapper').children().find('.here_hourd').html(fainal);
+
 				var nx = ((x/15)*30);
 				$('#c'+i).find('.draggable_wrapper').children().css({'height':nx});
 			}
@@ -181,6 +204,28 @@ function getDuration()
 				for (var j = 0; j < qty; j++) 
 				{
 					var x = $(cits[j]).attr('title');
+					var toSplit = $('#c'+i).parent().attr('value');
+					var splitted = toSplit.split(':');
+					var hr = parseInt(splitted[0]);
+					var sp = splitted[1].split('');
+					var before = sp[0]+sp[1];
+					var before1 = parseInt(before)+parseInt(x);
+					var before2 = before1/60;
+					var verx=false;
+					if(before1%60==0)
+						{
+							before2+=".00";
+							verx=true;
+						}
+					var helpme = (before2+"").split('.');
+					var newhr = hr + parseInt(helpme[0]);
+					if(helpme[1]=="5"){helpme[1]+="0";}
+					var temp1 = parseInt(helpme[1])*.01;
+					var temp2 = 60*temp1;
+					if(verx==true){temp2+="0";verx=false;}
+					var fainal = newhr+":"+temp2;
+
+					$(cits[j]).find('.here_hourd').html(fainal);
 					var nx = ((x/15)*30);
 					$(cits[j]).css({'height':nx});
 				}
@@ -320,7 +365,7 @@ function ListarTemps()
             	{
             		// Aquí genera el HTML.
             		citas+="<tr><td class='temporal_droppable'><span id='ppp'>Guarda aquí...</span>"+
-            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'>Id."+data['cita'+i].idpac+"&nbsp;-&nbsp;<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
+            		"<div class='draggable_wrapper'><div id='"+data['cita'+i].id+"' class='draggable_hour' title="+data['cita'+i].minuts+" style='width:100px;' value='true'><div class='app_identifier' value='"+data['cita'+i].sucs+"'>Id."+data['cita'+i].idpac+"&nbsp;|&nbsp;<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span></div><a class='manageapp' href='javascript:showManageOptions();'></a><div class='draggable_tag_"+data['cita'+i].iddoc+"'></div><div class='manage_options'><a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a></div></div></div>"+
             		"</td></tr>";
             	};
             	citas+="<tr><td class='temporal_droppable'><span>Guarda aquí...</span></td></tr>";
@@ -495,6 +540,7 @@ function reAsignarDrags()
 				c=false;
 				resetSize();
 				ui.draggable.find('.here_hour').html('...');
+				ui.draggable.find('.here_hourd').html('...');
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
 
 		    	var ident = ui.draggable.children().attr('id');
