@@ -133,15 +133,14 @@
 													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
 													  		<div class='draggable_tag_".$iddoc[$m]."'>
 														  		<div class='app_identifier' value=".$idsuc[$m].">&nbsp;
-														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
-														  			</span>-<span id='dest".$count."' class='here_hourd'></span>
-														  			<div class='nombre_paciente_id'>".$idpac[$m]."</div>
+														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."</span>
+														  			-<span id='dest".$count."' class='here_hourd'></span>
+														  			<span class='nombre_paciente'><div class='nombre_paciente_id'>".$idpac[$m]."</div>&nbsp;".$nombres[$m]."</span>
 														  		</div>
 														  		<a class='manageapp' href='javascript:void();'></a>
-													  		</div>
-														  	<br><span class='nombre_paciente'>".$nombres[$m]."</span>
-													  		<div class='manage_options'>
-													  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+														  		<div class='manage_options'>
+														  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+														  		</div>
 													  		</div>
 													  	</div>
 													  </div>";
@@ -159,14 +158,14 @@
 													  	<div id='".$ids[$m]."' class='draggable_hour' title=".$mins[$m].">
 													  		<div class='draggable_tag_".$iddoc[$m]."'>
 														  		<div class='app_identifier' value=".$idsuc[$m].">&nbsp;
-														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."
-														  			</span>-<span id='dest".$count."' class='here_hourd'></span>
+														  			<span class='here_hour' value=".$ispaci[$m].">".$horas[$m]."</span>
+														  			-<span id='dest".$count."' class='here_hourd'></span>
+														  			<span class='nombre_paciente'><div class='nombre_paciente_id'>".$idpac[$m]."</div>&nbsp;".$nombres[$m]."</span>
 														  		</div>
 														  		<a class='manageapp' href='javascript:void();'></a>
-													  		</div>
-														  	<br><span class='nombre_paciente'><div class='nombre_paciente_id'>".$idpac[$m]."</div>".$nombres[$m]."</span>
-													  		<div class='manage_options'>
-													  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+														  		<div class='manage_options'>
+														  			<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>
+														  		</div>
 													  		</div>
 													  	</div>
 													  </div>";
@@ -197,8 +196,7 @@
 			</article>
 			<div id="quick_access_h">
 				<ul>
-					<li><a id="new_h"></a></li>
-					<li><a id="print_h" href="#"></a></li>
+					<li><a id="new_h">&nbsp;Nueva&nbsp;</a></li>
 				</ul>
 			</div>
 		</section>

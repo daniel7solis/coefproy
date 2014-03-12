@@ -1513,15 +1513,14 @@ th
 .manageapp
 {
 	background: #13273C;
-	border-radius: 50%;
+	border-radius: 0 0.3em 0 0;
 	color: white;
 	display: none;
-	margin-top: -13px;
-	padding: 0.3em 0.5em;
+	padding: 0.2em 0.5em 0.3em 0.5em;
 	position:absolute;
 	right: 0;
 	text-align: center;
-	top: 1em;
+	top: 0em;
 	z-index: 12;
 }
 .manageapp:after
@@ -1677,21 +1676,32 @@ th
 }
 .nombre_paciente
 {
-	border: 2px solid rgba(255,255,255,0.5);
+	background: rgba(19,39,60,0.5);
+	left: 0em;
 	position: relative;
-	margin-top: 0.3em;
-	padding: 0.2em 0.2em 0.2em 1.2em;
-	position: relative;
+	padding: 0.2em;
+	position: absolute;
+	top: 25px;
+}
+.nombre_paciente:after
+{
+	border-right: 21px solid transparent;
+	border-top: 21px solid rgba(19,39,60,0.5);
+	content: "";
+	left: 100%;
+	position: absolute;
+	top: 0;
 }
 .nombre_paciente_id
 {
-	background: rgba(255,255,255,0.5);
+	background: rgba(255,255,255,0.4);
+	border-radius: 50%;
 	display: inline-block;
-	left: 0;
-	padding: 0.2em;
-	position: absolute;
+	height: 100%;
+	padding: 0 0.2em;
+	text-align: center;
 	text-shadow: 0 0 2px black;
-	top: 0;
+	width: 11px;
 }
 .patient_check
 {
