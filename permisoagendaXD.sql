@@ -475,9 +475,6 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
 
 --
 -- Volcado de datos para la tabla `Paciente`
-=======
--- Table structure for table `Sucursal`
->>>>>>> 5ce34d5dcb9a378f72a379f120fa5f0f79e6ff93
 --
 
 CREATE TABLE IF NOT EXISTS `Sucursal` (
