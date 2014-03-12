@@ -376,7 +376,6 @@ INSERT INTO `posicion` (`idPosicion`, `posicionName`) VALUES
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `usuarios`
 --
 
