@@ -445,9 +445,13 @@ function deleteUser(){
 			/*funcion de retorno*/
 			success: function(data){
 				if(data['ok']==1){
+					// alert("root");
 					document.location.href="usersroot.php";
+					//escucha_users();
 				}else{
-					document.location.href="users.php";
+					// alert("usuario");
+					usuarios();
+					// document.location.href="users.php";
 				}
 			}
 		});

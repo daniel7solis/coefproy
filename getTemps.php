@@ -1,5 +1,5 @@
 <?php
-	if(true)
+	if($_POST)
 	{
 		date_default_timezone_set('America/Mexico_City');
 		# Arreglos necesarios para pasar los registros y manejarlos mejor.

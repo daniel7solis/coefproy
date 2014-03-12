@@ -16,7 +16,7 @@
 		echo $json;
 	}else{
 		/*En caso de no recibir datos de la llamada ajax se pasa un json de error*/
-		$arr = array('fallo' => "fallo");
+		$arr = array('ok' => "1");
 		$json = json_encode($arr);
 		echo $json;
 	}

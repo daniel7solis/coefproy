@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Principal</title>
+	<title>Pacientes</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
@@ -30,7 +30,7 @@
 		$('#menu').toggle('swing');
 		}
 		// mando ejecutar la función de usuarios donde obtengo los usuarios a mostrar en la pagina dentro del span "users"
-		window.onload=usuarios();
+		// window.onload=usuarios();
 	</script>
 </head>
 <body>
@@ -63,21 +63,33 @@
 			</ul>
 		</nav>
 		<section id="content_users">
-			<div id="up_content"><h2 id="content_title_users">Usuarios</h2><p id="content_subtitle">Listado de Usuarios</p></div>
+			<div id="up_content"><h2 id="content_title_users">Consultas</h2><p id="content_subtitle">Listado de Pacientes</p></div>
 			<span id="users"><!-- AQUÍ SE GENERAN LOS USUARIOS --></span>
-		<div id="quick_access">
-				<ul>
-				<!-- Barra de herramientas para editar lo usuarios -->
-					<li><a id="new" href="altaUser.php"></a></li>
-					<!--li><a id="look" href="#"></a></li-->
-					<li><a id="manage" href="setting_user.php"></a></li>
-					<!--li><a id="print" href="#"></a></li-->
-					<li><a id="look" onclick="deleteUser()"></a></li>
-				</ul>
-			</div>
+			<?php
+			$conexion=mysql_connect("127.0.0.1","root","warcrack2") or die("Problemas con la conexion de base de datos ".mysql_error());
+			mysql_select_db("permisoagenda",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+			mysql_set_charset("utf8", $conexion);
+			/*Selecciono a los pacientes, para mostrarlos en una tabla*/
+			$datos = mysql_query("select idPaciente,nombre,apeidos,edad,tel,email,fProxCita from Paciente order by case when fProxCita is null then 1 else 0 end,fProxCita",$conexion) or die("Problemas en seleccionar la base de datos ".mysql_error());
+			echo "<table border=1>";
+			echo "<tr><td>Nombre</td><td>Apellido</td><td>Edad</td><td>Telefono</td><td>Correo</td><td>Proxima cita</td></tr>";
+			while ($arr=mysql_fetch_array($datos)){
+				if($arr[6]==null){
+					/*Mostramos los datos del paciente, cuando no tiene citas agendadas se muestra el mensaje*/
+					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+									".$arr[4]."</td><td>".$arr[5]."</td><td>No tiene</td></tr>";
+				}else{
+					/*Mostramos los datos del paciente, mostramos la fecha de la cita mas proxima*/
+					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+					".$arr[4]."</td><td>".$arr[5]."</td><td>".$arr[6]."</td></tr>";					
+				}
+			}
+			/*Hago la busqueda de las citas y las ordeno por fecha de cita; en caso de existir dos citas 
+			para un mismo paciente, selecciono la mas proxima*/ 
+			echo "</table>";
+			?>
 		</section>
-		<ul id='menu'>
-		<!-- Menu desplegable para la configuración de usuarios y de perfil -->
+		<ul id='menu'>la configuración de usuarios y de perfil -->
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
 				<li id="rconfig"></li>

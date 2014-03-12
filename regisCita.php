@@ -12,6 +12,9 @@
 		mysql_set_charset("utf8", $conexion); 
 		mysql_query("insert into citas (fecha,hora,idPaciente,idDoctor,minutos,isPac,idSucursal)
 		 values ('$f','$h','$p','$d','$m','$i','$s')",$conexion) or die(mysql_error());
+		if($i==1){//verifico si es paciente registrado, para alamacenar la fecha de su prox cita, si no es no se almacena
+			mysql_query("update Paciente set fProxCita='$f' where idPaciente='$p'",$conexion) or die(mysql_error());
+		}
 		// echo '{"ok":"1"}';
 		$arr = array('ok' => 1);
 		$json = json_encode($arr);

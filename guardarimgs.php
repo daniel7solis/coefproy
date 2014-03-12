@@ -1,5 +1,5 @@
 <?php 
-	if(true)
+	if($_POST)
 	{
 		$option = $_POST['op'];
 		$ident = $_POST['id'];

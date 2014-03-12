@@ -306,7 +306,8 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
   `email` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `tel` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
   `idSucursal` int(11) NOT NULL,
-  `fConsuCons` date NOT NULL,
+  `fConsuCons` date,
+  `fProxCita` date,
   `peso` int(3) NOT NULL,
   `ta` int(3) NOT NULL,
   `ahf` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
@@ -349,8 +350,8 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
 -- Volcado de datos para la tabla `Paciente`
 --
 
-INSERT INTO `Paciente` (`idPaciente`, `nombre`, `apeidos`, `direccion`, `edad`, `fecha_nac`, `email`, `tel`, `idSucursal`) VALUES
-(1, 'Daniel', 'Vega Ceja', 'San Pablo #344', 21, '1192-09-07', 'ing_dvega@hotmail.com', '3515092158', 1);
+INSERT INTO `Paciente` (`idPaciente`, `nombre`, `apeidos`, `direccion`, `edad`, `fecha_nac`, `email`, `tel`, `idSucursal`,`fProxCita`) VALUES
+(1, 'Daniel', 'Vega Ceja', 'San Pablo #344', 21, '1192-09-07', 'ing_dvega@hotmail.com', '3515092158', 1,'2014-02-06');
 
 -- -------------------------------------------------------------------------------
 
