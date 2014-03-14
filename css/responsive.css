@@ -83,10 +83,6 @@
 	{
 		border-radius: 3px;
 	}
-	nav ul
-	{		
-		margin: 1em;
-	}
 	#agenda,#departments, #donator, #patients, #lab_survey
 	{
 		font-size: 1em;
@@ -151,37 +147,6 @@
 		right: 420px;
 		top: 2.3em;
 		position: absolute;
-	}
-	#up_content ul
-	{
-		display: block;
-		list-style: none;
-		margin: 0;
-		padding: 3em 0 0 0;
-		text-align: center;
-	}
-	#up_content ul li
-	{
-		display: inline-block;
-		margin: 0;
-		vertical-align: top;
-		width: 7%;
-	}
-	#up_content ul li a
-	{
-		transition: all 0.5s;
-		border-bottom: 2px solid #2980b9;
-		color: #E5E8E9;
-		display: block;
-		font-weight: bold;
-		padding: 0.5em 0;
-		text-decoration: none;
-		text-align: center;
-		width: 100%;
-	}
-	#up_content ul li a:hover
-	{
-		color: black;
 	}
 	#other_data_root
 	{
@@ -253,10 +218,6 @@
 	}
 }
 @media screen and (min-width: 1024px) and (max-width: 1200px){
-	nav ul
-	{		
-		margin: 1em;
-	}
 	#appointment
 	{
 		background: #fff;
@@ -288,38 +249,6 @@
 	#search_wrapper
 	{
 		display:none;
-	}
-	#up_content ul
-	{
-		display: block;
-		list-style: none;
-		margin: 0;
-		padding: 3em 0 0 0;
-		text-align: center;
-	}
-	#up_content ul li
-	{
-		display: inline-block;
-		margin: 0;
-		vertical-align: top;
-		width: 7%;
-	}
-	#up_content ul li a
-	{
-		transition: all 0.5s;
-		border-bottom: 2px solid #2980b9;
-		color: #E5E8E9;
-		display: block;
-		font-weight: bold;
-		padding: 0.5em 0;
-		position: relative;
-		text-decoration: none;
-		text-align: center;
-		width: 100%;
-	}
-	#up_content ul li a:hover
-	{
-		color: black;
 	}
 	#other_data_root
 	{
@@ -452,7 +381,7 @@
 	{
 		list-style: none;
 		padding: 0; 
-		margin 0;
+		margin: 0;
 		text-align: center;
 	}
 	#quick_access ul li
@@ -568,10 +497,6 @@
 	}
 }
 @media screen and (min-width: 1200px){
-	nav ul
-	{		
-		margin: 1em;
-	}
 	#appointment
 	{
 		background: #fff;
@@ -588,14 +513,6 @@
 	{
 		border: 1px solid #eee;
 		padding: 0 0.5em;
-	}
-	#up_content ul
-	{
-		display: block;
-		list-style: none;
-		margin: 0;
-		padding: 3em 0 0 0;
-		text-align: center;
 	}
 	#other_data_root
 	{
@@ -620,30 +537,6 @@
 	#profile_pic_root img
 	{
 		
-	}
-	#up_content ul li
-	{
-		display: inline-block;
-		margin: 0;
-		vertical-align: top;
-		width: 7%;
-	}
-	#up_content ul li a
-	{
-		transition: all 0.5s;
-		border-bottom: 2px solid #2980b9;
-		color: #E5E8E9;
-		display: block;
-		font-weight: bold;
-		padding: 0.5em 0;
-		position: relative;
-		text-decoration: none;
-		text-align: center;
-		width: 100%;
-	}
-	#up_content ul li a:hover
-	{
-		color: black;
 	}
 	.current_month
 	{
