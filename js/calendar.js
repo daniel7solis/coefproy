@@ -32,9 +32,7 @@
 // Cuando la página haya cargado...
 $( document ).ready(function()
 {
-	// Se agrega la funcionalidad a cada día para que envíe sus datos a
-	// agenda.php 
-	/* TEMPORAL ----> */
+	$("[value=able]").parent().css({'background':'blue'});
 });
 
 // Obtiene el mes actual.
@@ -124,10 +122,12 @@ function generar(num)
 				if(cont-1<10)
 				{
 					$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em 0.5em','cursor':'pointer'});
+					$aux.parent().addClass('calendar_row_p');
 				}
 				else
 				{
 					$aux.css({'background':'#DD4F24','border-radius':'50%','color':'white','padding':'0.2em','cursor':'pointer'});
+					$aux.parent().addClass('calendar_row_p');
 				}
 				$aux.parent().css({'cursor':'pointer'});
 				$aux.attr('value','able');
@@ -136,6 +136,7 @@ function generar(num)
 			{
 				$aux.attr('value','able');
 				$aux.css({'background':'transparent','border-radius':'none','color':'black','padding':'0','text-decoration':'none'});
+				$aux.parent().addClass('calendar_row_p');
 				$aux.parent().css({'cursor':'pointer'});
 			}
 		}

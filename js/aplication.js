@@ -66,6 +66,7 @@ $( document ).ready(function()
 			var paraJson='{"ndia":"'+$(this).attr('value')+'","dia":"'+dn+'","mes":"'+auxiliary+'","ano":"'+"2014"+'"}';
 			localStorage.setItem("date", paraJson);
 			Appointments();
+			applyDate();
 		}
 	});
 
@@ -95,8 +96,10 @@ $( document ).ready(function()
 		{
 			hora = $(this).parent().attr('value');
 			/*Eloi Daniel Cruz Solis CODE*/
-			if(recieved_day)
-			var paraJson='{"ndia":"'+recieved_nday+'","dia":"'+recieved_day+'","mes":"'+recieved_month+'","ano":"'+recieved_year+'","hora":"'+hora+'"}';
+			var dates=localStorage.getItem("date");
+			var dated=JSON.parse(dates);
+
+			var paraJson='{"ndia":"'+dated.ndia+'","dia":"'+dated.dia+'","mes":"'+dated.mes+'","ano":"'+dated.ano+'","hora":"'+hora+'"}';
 			localStorage.setItem("cit", paraJson);
 			document.location.href = "nuevacita.php";
 			// ?ndia="+recieved_nday+"&dia="+recieved_day+"&mes="+recieved_month+"&ano="+recieved_year+"&hora=" + hora
@@ -358,22 +361,7 @@ function actualdate()
 					$(str).css({'border-bottom':'4px solid #DD4F24'});
 				}
 		};
-		// Acomoda la fecha en las variables globales.
-		var dates=localStorage.getItem("date");
-		var dated=JSON.parse(dates);
-
-		recieved_nday = dated.ndia;
-		recieved_day = dated.dia;
-		recieved_month = dated.mes;
-		recieved_year = dated.ano;
-		$aux = $('#actual_day_name');
-		$aux.html(recieved_nday);
-		$aux = $('#actual_day_numb');
-		$aux.html(recieved_day);
-		$aux = $('#actual_month');
-		$aux.html(mesesagenda[parseInt(recieved_month)-1]);
-		$aux = $('#actual_year');
-		$aux.html(recieved_year);
+		applyDate();
 }
 
 // Lista las citas temporales.
@@ -698,7 +686,7 @@ function Appointments()
 			            		"</div>";
 			            innerIndex++;
 			    	}
-			    $('#c'+data['td']).html(citas);
+			    $('#c'+data['td']).append(citas);
 		    	}
 		    	reAsignarDrags();
 		    	resetSize();
@@ -706,4 +694,19 @@ function Appointments()
 		    }
 		});
 	}
+}
+function applyDate()
+{
+	// Acomoda la fecha en las variables globales.
+		var dates=localStorage.getItem("date");
+		var dated=JSON.parse(dates);
+
+		$aux = $('#actual_day_name');
+		$aux.html(dated.ndia);
+		$aux = $('#actual_day_numb');
+		$aux.html(dated.dia);
+		$aux = $('#actual_month');
+		$aux.html(mesesagenda[parseInt(dated.mes)-1]);
+		$aux = $('#actual_year');
+		$aux.html(dated.ano);
 }
