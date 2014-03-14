@@ -1073,6 +1073,7 @@ th
 	display: block;
 	margin: 0;
 	position: relative;
+	text-align: left;
 }
 #up_content_calendar
 {
@@ -1082,6 +1083,7 @@ th
 	border-top-right-radius: 5px;
 	display: block;
 	position: relative;
+	text-align: left;
 }
 #upload_photo
 {
@@ -1157,9 +1159,26 @@ th
 }
 .calendar_row
 {
-	font-weight: bold;
 	padding-left: 0.4em;
 	position: relative;
+	transition: all 0.5s;
+}
+.calendar_row_p
+{
+	padding-left: 0.4em;
+	position: relative;
+	transition: all 0.5s;
+}
+.calendar_row_p:hover
+{
+	background: #F2F5A9;
+	font-weight: bold;
+}
+.centrado
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 .close_session
 {
