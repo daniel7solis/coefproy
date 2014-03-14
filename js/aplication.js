@@ -11,7 +11,7 @@
 var hora, url = 'nuevacita.php', $aux,
     	recieved_nday,recieved_day,recieved_month,recieved_year,
     	tam,
-	fromTempToAgenda = 0;
+	fromTempToAgenda = 0,zname;
 
 // Cuando la página ya cargó...
 $( document ).ready(function()
@@ -23,8 +23,7 @@ $( document ).ready(function()
 	actual();
 	revisarSesion();
 	actualdate();
-	resetSize();
-	getDuration();
+	Appointments();
 	// Se asigna al campo para verificar la fecha del paciente.
 	$('#chk_date').datepicker(
 	{
@@ -45,6 +44,31 @@ $( document ).ready(function()
 	/*END CODE Eloi Daniel Cruz Solis*/
 	$('.draggable_hour').hover(function(){$(this).find('.manageapp').css({'display':'block'})},function(){$(this).find('.manageapp').css({'display':'none'})});
 
+	$('td.calendar_row').on('click', function()
+	{
+		var auxiliary = ref;
+		var dn = parseInt($(this).find('span').text());
+		if(dn<10)
+		{
+			dn="0"+dn;
+		}
+		if(auxiliary<10)
+		{
+			auxiliary+=1;
+			auxiliary="0"+auxiliary;
+		}
+		else
+		{
+			auxiliary+=1;
+		}
+		if($(this).children().attr('value')=='able')
+		{
+			var paraJson='{"ndia":"'+$(this).attr('value')+'","dia":"'+dn+'","mes":"'+auxiliary+'","ano":"'+"2014"+'"}';
+			localStorage.setItem("date", paraJson);
+			Appointments();
+		}
+	});
+
 	/* Se valida y se envía a la fecha deseada de la agenda.
 	Aquí ya no nos preocupamos por las citas, ya que se generan 
 	dinámicamente desde la base de datos. Ahora sabemos realmente las
@@ -53,7 +77,19 @@ $( document ).ready(function()
 	// Se asigna la capacidad al botón de Quick Access de una nueva cita.
 	$('#new_h').on('click', function()
 	{
-		// alert("Ahora, selecciona la hora a agendar...");
+		$('#pop_notification_title').html('¿A qué hora?');
+		$('#pop_notification_content').html('Seleccione la hora en la que desea agendar.');
+		showPopUp(10000);
+		$('.droppable_hour').hover(
+			function(){
+				$(this).css({'background':'#F2F5A9','cursor':'pointer'});
+				$(this).text($(this).parent().attr('value'));
+			},
+			function(){
+				$(this).css({'background':'transparent'});
+				$(this).text('');
+			});
+		
 		$('.calendar_row').unbind('click');
 		$('.droppable_hour').on('click', function()
 		{
@@ -305,16 +341,6 @@ function getParameterByName(name)
 // Se obtiene la fecha actual o la fecha que se pasó por URL.
 function actualdate()
 {
-	var temp = window.location.href,
-	temp2 = temp.split('/'),
-	parts;
-	$.each(temp2, function(key, line) 
-	{
-    parts = line.split(' ');
-	});
-	// Si el día es HOY, genera una línea que identifica la hora actual.
-	if(parts[parts.length-1]=='agenda.php'||parts[parts.length-1]=='agenda.php#')
-	{
 		var dt = new Date(), hrs = dt.getHours(), mins = dt.getMinutes(), mer = "am";
 		if(hrs>12){hrs-=12;mer="pm";}
 		if(mins<10){mins="0"+mins;}
@@ -333,27 +359,13 @@ function actualdate()
 				}
 		};
 		// Acomoda la fecha en las variables globales.
-		recieved_nday = diasagenda[now.getDay()];
-		recieved_day = now.getDate();
-		recieved_month = now.getMonth();
-		recieved_year = now.getFullYear();
-		$aux = $('#actual_day_name');
-		$aux.html(recieved_nday);
-		$aux = $('#actual_day_numb');
-		$aux.html(recieved_day);
-		$aux = $('#actual_month');
-		$aux.html(mesesagenda[recieved_month]);
-		recieved_month+=1;
-		$aux = $('#actual_year');
-		$aux.html(recieved_year);
-	}
-	else
-	{
-		// Acomoda la fecha recibida por URL en las variables globales.
-		recieved_nday = getParameterByName("ndia");
-		recieved_day = getParameterByName("dia");
-		recieved_month = getParameterByName("mes");
-		recieved_year = getParameterByName("ano");
+		var dates=localStorage.getItem("date");
+		var dated=JSON.parse(dates);
+
+		recieved_nday = dated.ndia;
+		recieved_day = dated.dia;
+		recieved_month = dated.mes;
+		recieved_year = dated.ano;
 		$aux = $('#actual_day_name');
 		$aux.html(recieved_nday);
 		$aux = $('#actual_day_numb');
@@ -362,8 +374,8 @@ function actualdate()
 		$aux.html(mesesagenda[parseInt(recieved_month)-1]);
 		$aux = $('#actual_year');
 		$aux.html(recieved_year);
-	}
 }
+
 // Lista las citas temporales.
 function ListarTemps()
 {
@@ -384,10 +396,10 @@ function ListarTemps()
             		"<div class='draggable_wrapper'>"+
             			"<div id='"+data['cita'+i].id+"' class='draggable_hour' title='"+data['cita'+i].minuts+"' style='width:110px;' value='true'>"+
             				"<div class='draggable_tag_"+data['cita'+i].iddoc+"'>"+
-	            				"<div class='app_identifier' value='"+data['cita'+i].sucs+"'>"+
+	            				"<div class='app_identifier' value='"+data['cita'+i].sucs+"'>&nbsp;&nbsp;"+
 	            					"<span class='here_hour' value='"+data['cita'+i].itpa+"'>...</span>"+
 	            					"-<span id='dest"+data['cita'+i].id+"' class='here_hourd'>...</span>"+
-	            					"<span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+i].idpac+"</div>&nbsp;"+data['cita'+i].nompac+"</span>"+
+	            					"<span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+i].idpac+"</div>&nbsp;<span class='nombre_paciente_nom'>"+data['cita'+i].nompac+"</span></span>"+
 	            				"</div>"+
 	            				"<a class='manageapp' href='javascript:void();'></a>"+
 	            				"<div class='manage_options'>"+
@@ -488,8 +500,9 @@ function reAsignarDrags()
 		    	});
 		    	$('#pop_notification_title').html('¡Listo! Re-agendado');
 		    	$('#pop_notification_content').html('La cita se ha cambiado exitosamente a las '+newhora+' del '+recieved_day+'/'+recieved_month+'/'+recieved_year+'.');
-		    	showPopUp();
+		    	showPopUp(1500);
 		    	getDuration();
+		    	ui.draggable.find('.nombre_paciente_nom').html(zname);
 	    	}
 	    	else
 	    	{
@@ -521,7 +534,7 @@ function reAsignarDrags()
 		    	});
 		    	$('#pop_notification_title').html('¡Listo! Re-agendado');
 		    	$('#pop_notification_content').html('La cita se ha cambiado exitosamente a las '+newhora);
-		    	showPopUp();
+		    	showPopUp(1500);
 	    	}
 	    	getDuration();
 	    	$(this).removeClass('visual_help');
@@ -571,8 +584,11 @@ function reAsignarDrags()
 				resetSize();
 				ui.draggable.find('.here_hour').html('...');
 				ui.draggable.find('.here_hourd').html('...');
+				var wawis = ui.draggable.find('.nombre_paciente_nom').html();
+				var wawis2 = wawis.split(' ');
+				ui.draggable.find('.nombre_paciente_nom').html(wawis2[0]);
+				zname = wawis;
 		    	$('.temporal_droppable').css({'border':'transparent','color':'transparent'});
-
 		    	var ident = ui.draggable.children().attr('id');
 		    	var miusuario = JSON.parse(sessionStorage.getItem('id'));
 		    	var param = {'id':ident,'us':miusuario.id,'pass':miusuario.idd};
@@ -591,7 +607,7 @@ function reAsignarDrags()
 			}
 			$('#pop_notification_title').html('¡Listo! Ahora es temporal');
 		    $('#pop_notification_content').html('La cita se ha movido a temporales. No olvide Re-agendar.');
-		    showPopUp();
+		    showPopUp(1500);
 		    getDuration();
 	    },
 	    out: function( event, ui )
@@ -601,7 +617,93 @@ function reAsignarDrags()
 	});
 	$('.draggable_hour').css({'position':'absolute'});
 }
-function showPopUp()
+function showPopUp(dur)
 {
-	$('#pop_notification').fadeIn( "fast" ).delay( 1500 ).fadeOut( "slow" );
+	$('#pop_notification').fadeIn( "fast" ).delay( dur ).fadeOut( "slow" );
+}
+// Ésta función llenará la agenda de citas en base a la fecha que hay en local storage.
+function createAgenda()
+{
+	// Primero que nada, se definen las variables que van a interactuar con la tabla.
+	var cadena="", h=6, min="00", mer="am", count=0, minutitos=0;
+	// Ciclo que controla las 12 horas.
+	for (var i = 0; i < 12; i++) 
+	{
+		// Ciclo que genera los espacios de 15 minutos por hora--> 4
+		for (var j = 0; j < 4; j++) 
+		{
+			cadena+="<tr class='hour_row' value='"+h+":"+min+mer+"'>";
+			// Aquí se determina la primera posición (column x row).
+			if(j==0)
+			{
+				cadena+="<td class='left_hour' rowspan='4'><p class='day_number'>"+h+"</p> <p class='meridiane'>"+mer+"</p></td>";
+			}		
+			// Aquí se generan los contenedores droppable's.
+			if(minutitos==0){minutitos="00";}
+			cadena+="<td id='c"+count+"' class='droppable_hour'><span class='minutitos'>."+minutitos+"</span></td>";
+			minutitos=parseInt(minutitos)+15;
+			count++;
+			min=parseInt(min)+15;
+			if(min==60){min="00";}
+		}
+		minutitos=0;
+		h++;
+		if(h==12){mer="pm";}
+		if(h==13){h=1;}
+	}
+	$('#day_table').html(cadena);
+}
+// Función que busca las citas y las presenta en su hora.
+function Appointments()
+{
+	var dates=localStorage.getItem("date");
+		var dated=JSON.parse(dates);
+
+	var dateToSearch = dated.ano+"-"+dated.mes+"-"+dated.dia;
+	for(var i=0; i < 48; i++)
+	{
+		// Hace el cálculo.
+		var hourToSearch = $('#c'+i).parent().attr('value');
+		var param = {'dts':dateToSearch,'hts':hourToSearch,'td':i};
+		$.ajax(
+		{
+			data: param,
+		    url: 'getAppointments.php',
+		    type: 'post',
+		    dataType: 'json',
+		    async: 'false',
+		    success: function(data)
+		    {
+		    	var index = data['nc'], innerIndex=0;
+		    	$('#c'+data['td']).html('');
+		    	var citas='';
+		    	if(index!=0)
+		    	{
+		    		while(innerIndex<index)
+			    	{
+			    		citas+="<div class='draggable_wrapper'>"+
+			            			"<div id='"+data['cita'+innerIndex].id+"' class='draggable_hour' title='"+data['cita'+innerIndex].minuts+"'>"+
+			            				"<div class='draggable_tag_"+data['cita'+innerIndex].iddoc+"'>"+
+				            				"<div class='app_identifier' value='"+data['cita'+innerIndex].sucs+"'>&nbsp;&nbsp;"+
+				            					"<span class='here_hour' value='"+data['cita'+innerIndex].itpa+"'>"+data['cita'+innerIndex].hora+"</span>"+
+				            					"-<span id='dest"+data['cita'+innerIndex].id+"' class='here_hourd'></span>"+
+				            					"<span class='nombre_paciente'><div class='nombre_paciente_id'>"+data['cita'+innerIndex].idpac+"</div>&nbsp;<span class='nombre_paciente_nom'>"+data['cita'+innerIndex].nompac+"</span></span>"+
+				            				"</div>"+
+				            				"<a class='manageapp' href='javascript:void();'></a>"+
+				            				"<div class='manage_options'>"+
+				            					"<a class='manage_option_man'>Modificar</a><a class='manage_option_del'>Eliminar</a>"+
+				            				"</div>"+
+				            			"</div>"+
+			            			"</div>"+
+			            		"</div>";
+			            innerIndex++;
+			    	}
+			    $('#c'+data['td']).html(citas);
+		    	}
+		    	reAsignarDrags();
+		    	resetSize();
+				getDuration();
+		    }
+		});
+	}
 }

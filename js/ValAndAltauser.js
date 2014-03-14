@@ -72,10 +72,22 @@ function sesion() {
 	sessionStorage.setItem("id", json);
 	var Objjson=JSON.parse(json);
 	//si es usuario root se redirecciona al portal de administración total del sistema, si no accede al sistema normalmente
-	if(Objjson.nombre==="root"){
+	if(Objjson.nombre==="root")
+	{
 		document.location.href="root/usersroot.php";	
 	}else
+	{
+		var now = new Date(), diasagenda = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
+		var recieved_nday = diasagenda[now.getDay()];
+		var recieved_day = now.getDate();
+		var recieved_month = now.getMonth();
+		var recieved_year = now.getFullYear();
+		if(recieved_day<10){recieved_day='0'+recieved_day}
+		if(recieved_month<10){recieved_month='0'+recieved_month;}
+		var paraJson='{"ndia":"'+recieved_nday+'","dia":"'+recieved_day+'","mes":"'+recieved_month+'","ano":"'+recieved_year+'"}';
+		localStorage.setItem("date", paraJson);
 		document.location.href="agenda.php";
+	}
 }
 /*Funcion sesionPerfil obtine los datos del usuario logueado del json almacenada en sesionStorage;
 y con ajax hago la petición a la DB del resto de información del usuario para presentarlo

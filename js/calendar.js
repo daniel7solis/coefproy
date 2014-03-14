@@ -35,29 +35,6 @@ $( document ).ready(function()
 	// Se agrega la funcionalidad a cada día para que envíe sus datos a
 	// agenda.php 
 	/* TEMPORAL ----> */
-	$('td.calendar_row').on('click', function()
-	{
-		var auxiliary = ref;
-		var dn = parseInt($(this).find('span').text());
-		if(dn<10)
-		{
-			dn="0"+dn;
-		}
-		if(auxiliary<10)
-		{
-			auxiliary+=1;
-			auxiliary="0"+auxiliary;
-		}
-		else
-		{
-			auxiliary+=1;
-		}
-		if($(this).children().attr('value')=='able')
-		{
-			
-			document.location.href = "agenda.php?ndia="+$(this).attr('value')+"&dia="+dn+"&mes="+auxiliary+"&ano=2014";
-		}
-	});
 });
 
 // Obtiene el mes actual.
@@ -138,7 +115,7 @@ function generar(num)
 			if(cont-1<now.getDate())
 			{
 				// Días pasados.
-				$aux.css({'color':'gray','text-decoration':'line-through'});
+				$aux.css({'color':'gray'});
 				$aux.attr('value','unable');
 			}
 			else if(cont-1==now.getDate())
@@ -240,7 +217,10 @@ function contarCitas(diay,mesy,chaw)
 	        dataType: 'json',
        		success: function(data)
        		{
-       			$('#in'+chaw).text(data['qty']);
+       			if(data['qty']!=0)
+       			{
+       				$('#in'+chaw).text(data['qty']);;
+       			}
        		}
 	   	});
 }

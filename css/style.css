@@ -108,13 +108,10 @@ footer p
 nav
 {
 	background: #878787;
-	border-bottom-left-radius: 3px;
-	border-bottom-right-radius: 3px;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	display: block;
 	font-size: 1em;
 	font-weight: bold;
-	margin: 0 10px 0 10px;
+	margin: 0 0 1em 0;
 }
 nav ul
 {
@@ -1676,7 +1673,7 @@ th
 }
 .nombre_paciente
 {
-	background: rgba(19,39,60,0.5);
+	background: rgba(19,39,60,0.8);
 	left: 0em;
 	position: relative;
 	padding: 0.2em;
@@ -1686,7 +1683,7 @@ th
 .nombre_paciente:after
 {
 	border-right: 21px solid transparent;
-	border-top: 21px solid rgba(19,39,60,0.5);
+	border-top: 21px solid rgba(19,39,60,0.8);
 	content: "";
 	left: 100%;
 	position: absolute;
