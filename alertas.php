@@ -1,3 +1,5 @@
+<!-- Esta clase sirve para mandar correos electronicos y mensajes sms a los pacientes
+que tendran una cita, dentro de "x" dias asignada en el codigo "list_to_alert.php" -->
 <?php
 	/*Importo la clase de alertMail que lista las personas para enviar una alerta*/
 	require_once('list_to_alert.php');/*Objeto JSON global con el listado, llamado */
@@ -8,14 +10,16 @@
 	// var_dump($ciclo);
 	/*Recorremos la lista de elementos para enviar la alerta*/
 	for($i=0; $i<((int)$datos['cant']); $i++){//
+		echo "envio mensaje 1<br>";
 		send_email("webservicecoefproy@gmail.com","DANNNN");
+		echo "envio mensaje 2<br>";
 		send_email($datos['id'.$i]['email'],$datos['id'.$i]['nombre']);
 	}
 	/*FUNCION PARA ENVIAR EMAIL*/
 	/*Recibo el correo, y el nombre del elemento */
 	function send_email($correo,$nom){
 		$mail = new PHPMailer();
-		$body = "<h2>Recuerda tu cita</h2>";
+		$body = "<h2>Recuerda tu cita".$correo."</h2>";
 		$mail->IsSMTP(); // usar SMTP
 		$mail->SMTPAuth   = true;                  // auntenticar
 		$mail->SMTPSecure = "tls";                
@@ -28,7 +32,8 @@
 		$mail->MsgHTML($body);
 		/*Datos del receptor*/
 		// $address = "webservicecoefproy@gmail.com";
-		$address = "$correo";
+		echo $correo;
+		$address = $correo;
 		$mail->AddAddress($address,"$nom");
 		if(!$mail->Send()) {
 			echo "Mailer Error: " . $mail->ErrorInfo;

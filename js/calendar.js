@@ -107,7 +107,6 @@ function generar(num)
 						}
 					diax=cont;
 				}
-
 			contarCitas(diax,mesx,col);
 
 			$aux.html(cont);

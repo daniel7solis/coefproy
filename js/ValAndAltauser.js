@@ -696,3 +696,56 @@ function agendarCita(){
 		// alert("hola");
 	}
 }
+/*función para mostrar en el aside la imagen y las ultimas consultas del paceinte sellecionado
+al dar click en el archivo "pacientes.php"*/
+function pacSelec(elemento){
+	var parametros = {"idp" : elemento.firstChild.innerHTML};
+	// alert(parametros.idp);
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'revConsultas.php',
+		type:'post',
+		// defino el tipo de dato de retorno
+		dataType:'json',
+		// funcion de retorno
+		success: function(data){
+			$("#foto").html("<img src='images/pacientes/"+parametros.idp+".png' />");
+			if(data['tot']>0){
+				for(var i=0; i<data['tot'] && i<4;i++){
+					$("#tipo"+i).html(data[i].tipo);
+					$("#idD"+i).html(data[i].idDoctor);
+					var f=data[i].fecha;
+					$("#fecha"+i).html(f[8]+f[9]+f[4]+f[5]+f[6]+f[4]+f[0]+f[1]+f[2]+f[3]);
+				}
+			}else{
+				$("aside div").html("");
+				$("#tipo0").html("<h5>No tiene consultas</h5>");
+			}
+			$(".tr").css('background-color','#FFFFFF');
+			elemento.style.background="#99FFFF";
+			// alert("entro");
+		}
+	});
+	// var idp=document.getElementById("idp").value;
+}
+/*Función para acceder a la paginación de las consultas o a una nueva consulta
+si es que el paciente la va a tener*/
+function consultas(elemento){
+	// alert(elemento.firstChild.innerHTML);
+	var parametros = {"idp" : elemento.firstChild.innerHTML};
+	// alert(parametros.idp);
+	$.ajax({
+		/*paso los paramentros al php*/
+		data:parametros,
+		url: 'primeraVez.php',
+		type:'post',
+		// defino el tipo de dato de retorno
+		dataType:'json',
+		// funcion de retorno
+		success: function(data){
+			
+		}
+	});
+	document.location.href="consultaSub.php";
+}
