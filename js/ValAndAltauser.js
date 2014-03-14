@@ -743,8 +743,18 @@ function consultas(elemento){
 		// defino el tipo de dato de retorno
 		dataType:'json',
 		// funcion de retorno
-		success: function(data){
-			
+		success: function(data){//retorna el parametro para saber si es nueva, primera vez o solo consulta
+			if(data['ban']!=(-1)){
+				if(data['band']===2){
+					// consulta de las consultas
+				}else if(data['band']===1){//recordar regresar el campo de cons a "0" para no tener errores proximos
+					//nueva consulta
+				}else if(data['band']===0){
+					//consulta de primera vez
+				}
+			}else{
+				alert("Hubo un error vuelve a intentarlo");
+			}
 		}
 	});
 	document.location.href="consultaSub.php";
