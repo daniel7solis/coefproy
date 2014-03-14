@@ -63,27 +63,27 @@
 			</ul>
 		</nav>
 		<aside>
-			<article><img src="images/pacientes/1.png" /></article>
+			<article><span id="foto"><img src='images/pacientes/default.png' /></span></article>
 			<article><h4>Ultimas consultas</h4></article>
 			<article>
-				<div>Tipo de consulta</div>
-				<div>Doctor que la hizo</div>
-				<div>Fecha de esa consulta</div>
+				<div id="tipo0">Consultas</div>
+				<div id="idD0"></div>
+				<div id="fecha0"></div>
 			</article>
 			<article>
-				<div>Tipo de consulta</div>
-				<div>Doctor que la hizo</div>
-				<div>Fecha de esa consulta</div>
+				<div id="tipo1"></div>
+				<div id="idD1"></div>
+				<div id="fecha1"></div>
 			</article>
 			<article>
-				<div>Tipo de consulta</div>
-				<div>Doctor que la hizo</div>
-				<div>Fecha de esa consulta</div>
+				<div id="tipo2"></div>
+				<div id="idD2"></div>
+				<div id="fecha2"></div>
 			</article>
 			<article>
-				<div>Tipo de consulta</div>
-				<div>Doctor que la hizo</div>
-				<div>Fecha de esa consulta</div>
+				<div id="tipo3"></div>
+				<div id="idD3"></div>
+				<div id="fecha3"></div>
 			</article>
 		</aside>
 		<section id="content_users">
@@ -100,11 +100,11 @@
 			while ($arr=mysql_fetch_array($datos)){
 				if($arr[6]==null){
 					/*Mostramos los datos del paciente, cuando no tiene citas agendadas se muestra el mensaje*/
-					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+					echo "<tr class='tr' ondblclick='consultas(this)' onmouseover='pacSelec(this)'><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
 									".$arr[4]."</td><td>".$arr[5]."</td><td>No tiene</td></tr>";
 				}else{
 					/*Mostramos los datos del paciente, mostramos la fecha de la cita mas proxima*/
-					echo "<tr><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
+					echo "<tr class='tr' ondblclick='consultas(this)' onmouseover='pacSelec(this)'><td style='display:none'>".$arr[0]."</td><td>".$arr[1]."</td><td>".$arr[2]."</td><td>".$arr[3]."</td><td>
 					".$arr[4]."</td><td>".$arr[5]."</td><td>".$arr[6]."</td></tr>";					
 				}
 			}
@@ -113,7 +113,7 @@
 			echo "</table>";
 			?>
 		</section>
-		<ul id='menu'>la configuración de usuarios y de perfil -->
+		<ul id='menu'><!--la configuración de usuarios y de perfil -->
 			<li><a class='menu_profile' href='perfil.php'>&nbsp;&nbsp;Perfil</a></li>
 				<li><a class='menu_conf' href=''>&nbsp;&nbsp;Configuración de cuenta</a></li>
 				<li id="rconfig"></li>

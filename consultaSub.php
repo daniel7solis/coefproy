@@ -65,7 +65,7 @@
 		<section id="content_users">
 			<div id="up_content"><h2 id="content_title_users">Primera vez</h2><p id="content_subtitle">Nombre del paciente</p></div>
 		<form name="form" action="saveConsul.php" method="post" accept-charset="UTF-8">
-			Fecha de consulta consecutiva: <input type="date" name="consCons"><!--Aqui va la fecha del momento en que se guardan estos datos-->
+			Fecha de consulta: <input type="date" name="consCons"><!--Aqui va la fecha del momento en que se guardan estos datos-->
 			Peso: <input type="number" name="peso">
 			TA: <input type="number" name="ta"><br>
 			Fecha de nacimiento: <input type="date" name="fn">
